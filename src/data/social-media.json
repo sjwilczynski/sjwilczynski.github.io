@@ -1,0 +1,20 @@
+[
+  {
+    "id": "in",
+    "link": "https://www.linkedin.com/in/sjwilczynski/",
+    "iconClass": "fa-linkedin-in",
+    "text": ""
+  },
+  {
+    "id": "github",
+    "link": "https://github.com/sjwilczynski",
+    "iconClass": "fa-github",
+    "text": ""
+  },
+  {
+    "id": "cv",
+    "link": "Stanislaw_Wilczynski_CV.pdf",
+    "iconClass": "cv-text",
+    "text": "CV"
+  }
+]
