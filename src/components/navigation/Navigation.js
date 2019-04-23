@@ -10,7 +10,7 @@ class Navigation extends Component {
             <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
                 <a className="navbar-brand js-scroll-trigger" href="#about">
-                    <span className="d-block d-lg-none">Stanisław Wilczyński</span>
+                    <span className="d-block d-lg-none"></span>
                     <span className="d-none d-lg-block"> <img className="img-fluid img-profile rounded-circle mx-auto mb-2" src={face} alt="Face"/></span>
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
