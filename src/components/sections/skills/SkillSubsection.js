@@ -19,7 +19,7 @@ class SkillSubsection extends Component {
             const chunkIndex = Math.floor(index / perChunk);
 
             if (!resultArray[chunkIndex]) {
-                resultArray[chunkIndex] = {data: [], listStyle: this.skills.listStyle}
+                resultArray[chunkIndex] = {data: [], listStyle: this.skills.listStyle, id: index}
             }
 
             resultArray[chunkIndex].data.push(item);
@@ -34,8 +34,8 @@ class SkillSubsection extends Component {
                 <div className="subheading mb-3 mt-2">{this.skills.title}</div>
                 <div className="d-flex">
                     {this.skillsChunked.map(skillChunk =>
-                        <div className={"col-" + Math.floor(12 / this.columns)}>
-                            <ResumeList data={skillChunk}/>
+                        <div key={skillChunk.id} className={"col-" + Math.floor(12 / this.columns)}>
+                            <ResumeList key={skillChunk.id} data={skillChunk}/>
                         </div>
                     )}
                 </div>

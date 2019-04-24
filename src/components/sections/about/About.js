@@ -7,7 +7,7 @@ class About extends Component {
     render() {
         return (
             <>
-                <Section id="about">
+                <Section id={this.props.id}>
                     <h1 className="mb-0">{this.props.data.name}
                         <span className="text-primary"> {this.props.data.surname}</span>
                     </h1>
