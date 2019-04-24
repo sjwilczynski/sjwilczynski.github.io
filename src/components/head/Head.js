@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Helmet from "react-helmet/es/Helmet";
-import data from '../../data/basic-data'
 
 class Head extends Component {
 
@@ -9,8 +8,8 @@ class Head extends Component {
             <>
                 <Helmet>
                     <meta name="description" content={this.props.description}/>
-                    <meta name="author" content={data.fullname}/>
-                    <title>{data.fullname}</title>
+                    <meta name="author" content={this.props.data.fullname}/>
+                    <title>{this.props.data.fullname}</title>
                 </Helmet>
             </>
         );

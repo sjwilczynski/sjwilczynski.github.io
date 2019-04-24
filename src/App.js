@@ -13,16 +13,17 @@ import ReactMarkdown from "react-markdown/with-html";
 import experienceList from "./data/experience";
 import educationList from "./data/education"
 import researchList from "./data/reasearch"
+import skillList from "./data/skills"
 import ResumeSection from "./components/resume/ResumeSection";
 
 class App extends Component {
     render() {
         return (
             <>
-                <Head description={"CV page using React"}/>
+                <Head description={"CV page using React"} data={data}/>
                 <Navigation/>
                 <div className="container-fluid p-0">
-                    <About description="Programmer, student, interested in data science"/>
+                    <About description="Programmer, student, interested in data science" data={data}/>
 
                     <ResumeSection id="experience" title="Experience" elements={experienceList}/>
 
@@ -34,7 +35,7 @@ class App extends Component {
 
                     <ResumeSection id="research" title="Research" elements={researchList}/>
 
-                    <Skills/>
+                    <Skills data={skillList}/>
 
                     <ResumeList id="achievements" title="Achievements & awards" data={achievementList}/>
 

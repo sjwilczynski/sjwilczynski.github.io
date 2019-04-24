@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Section from "../Section";
-import data from "../../../data/basic-data";
 import SocialMedias from "./SocialMedias";
 
 class About extends Component {
@@ -9,11 +8,11 @@ class About extends Component {
         return (
             <>
                 <Section id="about">
-                    <h1 className="mb-0">{data.name}
-                        <span className="text-primary"> {data.surname}</span>
+                    <h1 className="mb-0">{this.props.data.name}
+                        <span className="text-primary"> {this.props.data.surname}</span>
                     </h1>
-                    <div className="subheading mb-5">{data.city}, {data.country},
-                        <a href={"mailto:" + data.email}>  {data.email}</a>
+                    <div className="subheading mb-5">{this.props.data.city}, {this.props.data.country},
+                        <a href={"mailto:" + this.props.data.email}>  {this.props.data.email}</a>
                     </div>
                     <p className="lead mb-5">{this.props.description}</p>
                     <SocialMedias/>
