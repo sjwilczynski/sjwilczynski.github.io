@@ -9,7 +9,6 @@ class SkillSubsection extends Component {
         this.columns = this.skills.columns;
 
         this.skillsChunked = this.splitToChunks(this.skills.data, this.columns);
-        console.log(this.skillsChunked)
     }
 
     splitToChunks(skills, columns) {
