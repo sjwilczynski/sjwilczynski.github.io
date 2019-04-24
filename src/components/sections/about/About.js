@@ -13,7 +13,7 @@ class About extends Component {
                         <span className="text-primary"> {data.surname}</span>
                     </h1>
                     <div className="subheading mb-5">{data.city}, {data.country},
-                        <a href={"mailto:" + data.email}>{data.email}</a>
+                        <a href={"mailto:" + data.email}>  {data.email}</a>
                     </div>
                     <p className="lead mb-5">{this.props.description}</p>
                     <SocialMedias/>
