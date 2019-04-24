@@ -16,6 +16,8 @@ class Section extends Component {
                         {this.props.children}
                     </div>
                 </section>
+
+                <hr className="m-0" />
             </>
         );
     }
