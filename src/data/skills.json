@@ -1,0 +1,80 @@
+[
+  {
+    "title": "",
+    "listStyle": "list-dot",
+    "skills": [
+      {
+        "name": "Analytical thinking"
+      },
+      {
+        "name": "Problem solving"
+      },
+      {
+        "name": "Algorithms & data structures"
+      },
+      {
+        "name": "Design patterns"
+      },
+      {
+        "name": "Code reviewing"
+      },
+      {
+        "name": "Unit testing"
+      }
+    ],
+    "columns" : 2
+  },
+  {
+    "title": "Certifications",
+    "listStyle": "",
+    "skills": [
+      {
+        "name": "Oracle Certified Associate, Java SE 8 Programmer",
+        "url": "https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile",
+        "iconBefore": "fa-check"
+      }
+    ],
+    "columns" : 1
+  },
+  {
+    "title": "Programming Languages & tools",
+    "listStyle": "list-dot",
+    "skills": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Oracle SQL"
+      },
+      {
+        "name": "Python + numpy, scikit-learn"
+      },
+      {
+        "name": "R"
+      },
+      {
+        "name": "HTML"
+      },
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "Mustache"
+      },
+      {
+        "name": "IntelliJ IDEA",
+        "iconAfter": "fa-heart"
+      },
+      {
+        "name": "Jenkins"
+      },
+      {
+        "name": "Git/SVN"
+      }
+    ],
+    "columns" : 3
+  }
+]
