@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ResumeList from "../../resume/ResumeList";
 
 class SkillSubsection extends Component {
 
@@ -7,7 +8,8 @@ class SkillSubsection extends Component {
         this.skills = props.skills;
         this.columns = this.skills.columns;
 
-        this.skillsChunked = this.splitToChunks(this.skills.skills, this.columns);
+        this.skillsChunked = this.splitToChunks(this.skills.data, this.columns);
+        console.log(this.skillsChunked)
     }
 
     splitToChunks(skills, columns) {
@@ -18,10 +20,10 @@ class SkillSubsection extends Component {
             const chunkIndex = Math.floor(index / perChunk);
 
             if (!resultArray[chunkIndex]) {
-                resultArray[chunkIndex] = [] // start a new chunk
+                resultArray[chunkIndex] = {data: [], listStyle: this.skills.listStyle}
             }
 
-            resultArray[chunkIndex].push(item);
+            resultArray[chunkIndex].data.push(item);
 
             return resultArray
         }, []);
@@ -34,19 +36,7 @@ class SkillSubsection extends Component {
                 <div className="d-flex">
                     {this.skillsChunked.map(skillChunk =>
                         <div className={"col-" + Math.floor(12 / this.columns)}>
-                            <ul className={"fa-ul mb-0 " + this.skills.listStyle}>
-                                {
-                                    skillChunk.map(skill => {
-                                        let iconBefore = skill.iconBefore ?
-                                            <i className={"fas " + skill.iconBefore}></i> : "";
-                                        let iconAfter = skill.iconAfter ?
-                                            <i className={"fas " + skill.iconAfter}></i> : "";
-                                        let skillDescription = skill.url ?
-                                            <a href={skill.url}>{skill.name}</a> : skill.name;
-                                        return <li>{iconBefore} {skillDescription} {iconAfter}</li>
-                                    })
-                                }
-                            </ul>
+                            <ResumeList data={skillChunk}/>
                         </div>
                     )}
                 </div>

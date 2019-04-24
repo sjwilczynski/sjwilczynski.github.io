@@ -2,79 +2,96 @@
   {
     "title": "",
     "listStyle": "list-dot",
-    "skills": [
+    "data": [
       {
-        "name": "Analytical thinking"
+        "id": 1,
+        "description": "Analytical thinking"
       },
       {
-        "name": "Problem solving"
+        "id": 2,
+        "description": "Problem solving"
       },
       {
-        "name": "Algorithms & data structures"
+        "id": 3,
+        "description": "Algorithms & data structures"
       },
       {
-        "name": "Design patterns"
+        "id": 4,
+        "description": "Design patterns"
       },
       {
-        "name": "Code reviewing"
+        "id": 5,
+        "description": "Code reviewing"
       },
       {
-        "name": "Unit testing"
+        "id": 6,
+        "description": "Unit testing"
       }
     ],
-    "columns" : 2
+    "columns": 2
   },
   {
     "title": "Certifications",
     "listStyle": "",
-    "skills": [
+    "data": [
       {
-        "name": "Oracle Certified Associate, Java SE 8 Programmer",
-        "url": "https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile",
+        "id": 1,
+        "description": "[Oracle Certified Associate](https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile), Java SE 8 Programmer",
         "iconBefore": "fa-check"
       }
     ],
-    "columns" : 1
+    "columns": 1
   },
   {
     "title": "Programming Languages & tools",
     "listStyle": "list-dot",
-    "skills": [
+    "data": [
       {
-        "name": "Java"
+        "id": 1,
+        "description": "Java"
       },
       {
-        "name": "Oracle SQL"
+        "id": 2,
+        "description": "Oracle SQL"
       },
       {
-        "name": "Python + numpy, scikit-learn"
+        "id": 3,
+        "description": "Python + numpy, scikit-learn"
       },
       {
-        "name": "R"
+        "id": 4,
+        "description": "R"
       },
       {
-        "name": "HTML"
+        "id": 5,
+        "description": "HTML"
       },
       {
-        "name": "CSS"
+        "id": 6,
+        "description": "CSS"
       },
       {
-        "name": "JavaScript"
+        "id": 7,
+        "description": "JavaScript"
       },
       {
-        "name": "Mustache"
+        "id": 8,
+        "description": "Mustache"
       },
       {
-        "name": "IntelliJ IDEA",
-        "iconAfter": "fa-heart"
+        "id": 9,
+        "description": "IntelliJ IDEA",
+        "iconBefore": "fa-heart"
       },
       {
-        "name": "Jenkins"
+        "id": 10,
+        "description": "Jenkins"
       },
       {
-        "name": "Git/SVN"
+        "id": 11,
+        "description": "Git/SVN"
       }
     ],
-    "columns" : 3
+    "columns": 3
   }
 ]

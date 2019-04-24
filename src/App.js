@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
 import About from "./components/sections/about/About";
-import Section from "./components/sections/Section";
 import Skills from "./components/sections/skills/Skills";
 import achievementList from "./data/achivements";
 import projectList from "./data/projects";
@@ -29,21 +28,24 @@ class App extends Component {
 
                     <ResumeSection id="education" title="Education" elements={educationList}/>
 
-                    <ResumeList id="projects" title="Projects & apps" data={projectList}>
+                    <ResumeSection id="projects" title="Projects & apps">
+                        <ResumeList data={projectList}/>
                         <ReactMarkdown source={"More code can be found on my [github](" + data.githubUrl + ")"}/>
-                    </ResumeList>
+                    </ResumeSection>
 
                     <ResumeSection id="research" title="Research" elements={researchList}/>
 
                     <Skills data={skillList}/>
 
-                    <ResumeList id="achievements" title="Achievements & awards" data={achievementList}/>
+                    <ResumeSection id="achievements" title="Achievements & awards">
+                        <ResumeList data={achievementList}/>
+                    </ResumeSection>
 
-                    <Section id="interests" title="Interests">
+                    <ResumeSection id="interests" title="Interests">
                         {interests.map(interest =>
                             <ReactMarkdown key={interest.id} source={interest.description} escapeHtml={false}/>
                         )}
-                    </Section>
+                    </ResumeSection>
                 </div>
             </>
         );

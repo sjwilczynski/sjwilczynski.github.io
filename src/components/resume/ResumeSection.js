@@ -4,12 +4,14 @@ import Section from "../sections/Section";
 
 class ResumeSection extends Component {
     render() {
+        let elements = this.props.elements ? this.props.elements : [];
         return (
             <>
                 <Section id={this.props.id} title={this.props.title}>
-                    {this.props.elements.map(element =>
+                    {elements.map(element =>
                         <ResumeElement key={element.id} element={element}/>
                     )}
+                    {this.props.children}
                 </Section>
             </>
         );
