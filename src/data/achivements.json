@@ -1,0 +1,20 @@
+[{
+  "classNames" : "fa-graduation-cap",
+  "description" : "Polish Ministry of Science and Higher Education scholarship for outstanding achievements (2017)"
+}, {
+  "classNames" : "fa-graduation-cap",
+  "description" : "Scholarship for the best students in University of Wrocław (awarded to 7,5% best students) (five times in a row: 2014, 2015, 2016, 2017, 2018)"
+},{
+  "classNames" : "silver fa-medal",
+  "description" : "International Linguistics Olympiad, Silver Medal (Beijing 2014)"
+},{
+  "classNames" : "fa-award",
+  "description" : "Polish National Mathematical Olympiad, Finalist (twice: 2013,2014)"
+},{
+  "classNames" : "fa-award",
+  "description" : "Polish National Mathematical Linguistics Olympiad, Laureate (twice 2013,2014)"
+},{
+  "classNames" : "fa-medal text-warning",
+  "description" : "Champion of Lower Silesia in 400m run (Bogatynia 2013)"
+}
+]
