@@ -17,7 +17,7 @@ class ResumeList extends Component {
                         {this.data.map(element => {
                             let iconBefore = element.iconBefore ? <i className={"fa fa-li " + element.iconBefore}></i> : "";
                             return <li key={element.id}>
-                                {iconBefore} <ReactMarkdown source={element.description} rawSourcePos={true}/>
+                                {iconBefore} <ReactMarkdown source={element.description}/>
                             </li>
                         })}
                     </ul>

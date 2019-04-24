@@ -46,7 +46,6 @@ class SkillSubsection extends Component {
                                         return <li>{iconBefore} {skillDescription} {iconAfter}</li>
                                     })
                                 }
-
                             </ul>
                         </div>
                     )}

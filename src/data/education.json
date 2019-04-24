@@ -1,0 +1,13 @@
+[{
+  "id": "1",
+  "headings" : ["University of Wrocław"],
+  "subheading": "Computer science (master's degree)",
+  "rightInfos": ["Oct 2017 - Present"]
+},{
+  "id": "2",
+  "headings" : ["University of Wrocław"],
+  "subheading": "Joint Studies in Computer Science and Mathematics (Bachelor's degree)",
+  "rightInfos": ["Oct 2014 - Sep 2017"],
+  "description" : "Final grade: 5.0/5.0\n\n__Thesis:__ Reduction of dimensionality by sparse subspace clustering\n\n[Here](https://github.com/sjwilczynski/Studies/blob/master/README.md) you can find a list of all courses I took during my studies."
+}]
+
