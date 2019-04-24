@@ -4,5 +4,6 @@
   "surname" : "Wilczyński",
   "city" : "Wrocław",
   "country":"Poland",
-  "email": "sjwilczynski@gmail.com"
+  "email": "sjwilczynski@gmail.com",
+  "githubUrl": "https://github.com/sjwilczynski"
 }

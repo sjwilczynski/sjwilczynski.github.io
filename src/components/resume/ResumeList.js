@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Section from "../sections/Section";
+import ReactMarkdown from "react-markdown";
 
 class ResumeList extends Component {
 
@@ -15,9 +16,8 @@ class ResumeList extends Component {
                     <ul className={"fa-ul mb-0 " + this.props.data.listStyle}>
                         {this.data.map(element => {
                             let iconBefore = element.iconBefore ? <i className={"fa fa-li " + element.iconBefore}></i> : "";
-                            let elementUrl = element.url ? <a href={element.url}>{element.urlText}</a> : "";
                             return <li key={element.id}>
-                                {iconBefore} {element.beforeUrl} {elementUrl} {element.description}
+                                {iconBefore} <ReactMarkdown source={element.description} rawSourcePos={true}/>
                             </li>
                         })}
                     </ul>

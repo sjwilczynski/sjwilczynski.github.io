@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import ReactMarkdown from "react-markdown";
 
-class ExperienceElement extends Component {
+class ResumeElement extends Component {
 
     constructor(props) {
         super(props);
-        this.experience = props.experience;
+        this.element = props.element;
 
     }
 
@@ -13,15 +14,15 @@ class ExperienceElement extends Component {
             <>
                 <div className="resume-item d-flex flex-column flex-md-row mb-5">
                     <div className="resume-content mr-auto">
-                        {this.experience.positions.map(position =>
+                        {this.element.positions.map(position =>
                             <h3 className="mb-0">{position}</h3>
                         )}
-                        <div className="subheading mb-3">{this.experience.company}</div>
-                        <p>{this.experience.description}</p>
+                        <div className="subheading mb-3">{this.element.company}</div>
+                        <ReactMarkdown source={this.element.description}/>
                     </div>
                     <div className="resume-date text-md-right">
-                        {this.experience.dates.map(date =>
-                        <span className="text-primary">{date} <br/> </span>)}
+                        {this.element.dates.map(date =>
+                            <span className="text-primary">{date} <br/> </span>)}
                     </div>
                 </div>
             </>
@@ -29,4 +30,4 @@ class ExperienceElement extends Component {
     }
 }
 
-export default ExperienceElement;
+export default ResumeElement;

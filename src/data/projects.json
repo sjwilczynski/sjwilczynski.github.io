@@ -3,51 +3,35 @@
   "data": [
     {
       "id": 1,
-      "description": " in Java",
-      "urlText": "Dependency injection container",
-      "url": "https://github.com/sjwilczynski/Studies/tree/master/17-18/Summer/Object%20Oriented%20Design/list9"
+      "description": "[Dependency injection container](https://github.com/sjwilczynski/Studies/tree/master/17-18/Summer/Object%20Oriented%20Design/list9) in Java"
     },
     {
       "id": 2,
-      "description": " for the Threes game using reinforcement learning and PyTorch",
-      "urlText": "AI",
-      "url": "https://github.com/sjwilczynski/ThreesGameWithNeuralNets"
+      "description": "[AI](https://github.com/sjwilczynski/ThreesGameWithNeuralNets) for the Threes game using reinforcement learning and PyTorch"
     },
     {
       "id": 3,
-      "beforeUrl": "Co-author of R package ",
-      "urlText": "Varclust",
-      "url": "https://github.com/psobczyk/varclust"
+      "description": "Co-author of R package [Varclust](https://github.com/psobczyk/varclust)"
     },
     {
       "id": 4,
-      "description": " in JavaScript using Express framework",
-      "urlText": "Game Yavalath",
-      "url": "https://mysterious-woodland-15958.herokuapp.com"
+      "description": "[Game Yavalath](https://mysterious-woodland-15958.herokuapp.com) in JavaScript using Express framework"
     },
     {
       "id": 5,
-      "description": " in Python",
-      "urlText": "Fingerprint recognition system",
-      "url": "https://github.com/sjwilczynski/Studies/blob/master/16-17/Summer/Introduction%20to%20Wave%20Analysis%20Applications%20/FingerprintRecognition/falki_projekt_malik_wilczynski.ipynb"
+      "description": "[Fingerprint recognition system](https://github.com/sjwilczynski/Studies/blob/master/16-17/Summer/Introduction%20to%20Wave%20Analysis%20Applications%20/FingerprintRecognition/falki_projekt_malik_wilczynski.ipynb) in Python"
     },
     {
       "id": 6,
-      "description": " of medical data on kidney condition after transplant",
-      "urlText": "Analysis",
-      "url": "https://github.com/sjwilczynski/Studies/blob/master/17-18/Summer/Complex%20data/final_project/Zaleska_Wilczynski_project.pdf"
+      "description": "[Analysis](https://github.com/sjwilczynski/Studies/blob/master/17-18/Summer/Complex%20data/final_project/Zaleska_Wilczynski_project.pdf) of medical data on kidney condition after transplant"
     },
     {
       "id": 7,
-      "description": " in Python",
-      "urlText": "Instant messenger",
-      "url": "https://github.com/sjwilczynski/Studies/tree/master/15-16/Winter/Instant%20messanger%20-%20python"
+      "description": "[Instant messenger](https://github.com/sjwilczynski/Studies/tree/master/15-16/Winter/Instant%20messanger%20-%20python) in Python"
     },
     {
       "id": 8,
-      "description": " of midprice changes based on Limit Order Book data set",
-      "urlText": "Prediction",
-      "url": "https://github.com/sjwilczynski/Studies/tree/master/16-17/Winter/Data%20Mining/LOBclassification"
+      "description": "[Prediction](https://github.com/sjwilczynski/Studies/tree/master/16-17/Winter/Data%20Mining/LOBclassification) of midprice changes based on Limit Order Book data set"
     }
   ]
 }
