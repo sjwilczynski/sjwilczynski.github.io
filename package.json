@@ -2,7 +2,7 @@
   "name": "cv-experiments",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sjwilczynski.io/cv-experiments",
+  "homepage": "https://sjwilczynski.github.io/cv-experiments",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.3.1",
     "bootstrap": "4.1.3",
