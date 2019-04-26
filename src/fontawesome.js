@@ -1,10 +1,18 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import {faBasketballBall, faPlane, faBook, faAward, faMedal, faGraduationCap} from "@fortawesome/free-solid-svg-icons";
+import {
+    faBasketballBall,
+    faPlane,
+    faBook,
+    faAward,
+    faMedal,
+    faGraduationCap,
+    faCheck,
+    faHeart, faFilePdf
+} from "@fortawesome/free-solid-svg-icons";
 
 import {faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
 
-import {faCheck, faHeart} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
     faBasketballBall,
@@ -13,6 +21,7 @@ library.add(
 
     faGithub,
     faLinkedinIn,
+    faFilePdf,
 
     faCheck,
     faHeart,

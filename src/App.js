@@ -4,7 +4,6 @@ import Head from "./components/head/Head";
 import About from "./components/sections/about/About";
 import achievementList from "./data/achivements";
 import projectList from "./data/projects";
-import interests from "./data/interests";
 import data from "./data/basic-data"
 import ResumeList from "./components/resume/ResumeList";
 import ReactMarkdown from "react-markdown/with-html";
@@ -17,15 +16,16 @@ import SkillSubsection from "./components/sections/skills/SkillSubsection";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import "./resume.css"
+import Interests from "./components/sections/interests/interests";
 
 class App extends Component {
     render() {
         let sections = {
-            about : "About",
-            experience : "Experience",
-            education : "Education",
-            projects : "Projects & apps",
-            research : "Research",
+            about: "About",
+            experience: "Experience",
+            education: "Education",
+            projects: "Projects & apps",
+            research: "Research",
             skills: "Skills",
             achievements: "Achievements",
             interests: "Interests"
@@ -35,7 +35,10 @@ class App extends Component {
                 <Head description={"CV page using React"} data={data}/>
                 <Navigation sections={sections}/>
                 <div className="container-fluid p-0">
-                    <About description="Programmer, student, interested in data science" data={data} id="about"/>
+
+                    <ResumeSection id="about">
+                        <About description="Programmer, student, interested in data science" data={data}/>
+                    </ResumeSection>
 
                     <ResumeSection id="experience" title={sections.experience} elements={experienceList}/>
 
@@ -59,9 +62,7 @@ class App extends Component {
                     </ResumeSection>
 
                     <ResumeSection id="interests" title={sections.interests}>
-                        {interests.map(interest =>
-                            <ReactMarkdown key={interest.id} source={interest.description} escapeHtml={false}/>
-                        )}
+                        <Interests/>
                     </ResumeSection>
                 </div>
             </>

@@ -8,7 +8,7 @@ class SocialMedias extends Component {
         return (
             <div className="social-icons">
                 {medias.map(social =>
-                    <SocialIcon key={social.id} url={social.link} cssClass={social.iconClass} text={social.text}/>
+                    <SocialIcon key={social.id} url={social.link} icon={social.icon} iconPackage={social.iconPackage}/>
                 )}
             </div>
         );

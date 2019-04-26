@@ -2,19 +2,19 @@
   {
     "id": "in",
     "link": "https://www.linkedin.com/in/sjwilczynski/",
-    "iconClass": "fa-linkedin-in",
-    "text": ""
+    "icon": "linkedin-in",
+    "iconPackage": "fab"
   },
   {
     "id": "github",
     "link": "https://github.com/sjwilczynski",
-    "iconClass": "fa-github",
-    "text": ""
+    "icon": "github",
+    "iconPackage": "fab"
   },
   {
     "id": "cv",
     "link": "Stanislaw_Wilczynski_CV.pdf",
-    "iconClass": "cv-text",
-    "text": "CV"
+    "icon": "file-pdf",
+    "iconPackage": "fa"
   }
 ]

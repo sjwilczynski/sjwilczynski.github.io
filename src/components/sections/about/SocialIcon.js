@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class SocialIcon extends Component {
 
     render() {
         return (
             <a href={this.props.url}>
-                <i className={"fab " + this.props.cssClass}>{this.props.text}</i>
+                <FontAwesomeIcon icon={[this.props.iconPackage, this.props.icon]} >
+                    {this.props.icon}
+                </FontAwesomeIcon>
             </a>
         );
     }
