@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ResumeElement from "./ResumeElement";
+import ResumeItem from "./ResumeItem";
 import Section from "../sections/Section";
 
 class ResumeSection extends Component {
@@ -9,7 +9,7 @@ class ResumeSection extends Component {
             <>
                 <Section id={this.props.id} title={this.props.title}>
                     {elements.map(element =>
-                        <ResumeElement key={element.id} element={element}/>
+                        <ResumeItem key={element.id} element={element}/>
                     )}
                     {this.props.children}
                 </Section>
