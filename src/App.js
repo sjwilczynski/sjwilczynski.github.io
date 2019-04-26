@@ -15,6 +15,9 @@ import skillList from "./data/skills"
 import ResumeSection from "./components/resume/ResumeSection";
 import SkillSubsection from "./components/sections/skills/SkillSubsection";
 
+import 'bootstrap/dist/css/bootstrap.css';
+import "./resume.css"
+
 class App extends Component {
     render() {
         let sections = {
