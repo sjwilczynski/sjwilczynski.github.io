@@ -160,10 +160,6 @@ section.resume-section {
   max-width: 75rem;
 }
 
-section.resume-section .resume-item .resume-date {
-  min-width: none;
-}
-
 @media (min-width: 768px) {
   section.resume-section {
     min-height: 100vh;
@@ -196,19 +192,19 @@ a:hover, a:focus, a:active {
   color: #1e3648;
 }
 
-.silver::before {
+.silver {
   color: #C0C0C0;
 }
 
-.fa-graduation-cap::before {
+.fa-graduation-cap {
   color: #000;
 }
 
-.fa-award::before {
+.fa-award {
   color: #dc3545;
 }
 
-.fa-book::before {
+.fa-book {
   color: #0052cc;
 }
 
@@ -231,4 +227,8 @@ a:hover, a:focus, a:active {
 
 .fa-ul > li {
   margin-bottom: 0.5em;
+}
+
+.fa-li {
+  top: 0.22em;
 }

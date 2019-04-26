@@ -39,7 +39,7 @@
       {
         "id": 1,
         "description": "[Oracle Certified Associate](https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile), Java SE 8 Programmer",
-        "iconBefore": "fa-check"
+        "icon": "check"
       }
     ],
     "columns": 1
@@ -84,7 +84,7 @@
       {
         "id": 9,
         "description": "IntelliJ IDEA",
-        "iconBefore": "fa-heart"
+        "icon": "heart"
       },
       {
         "id": 10,

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactMarkdown from "react-markdown";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class ResumeList extends Component {
 
@@ -13,9 +14,9 @@ class ResumeList extends Component {
             <>
                 <ul className={"fa-ul mb-0 " + this.props.data.listStyle}>
                     {this.data.map(element => {
-                        let iconBefore = element.iconBefore ? <i className={"fa fa-li " + element.iconBefore}></i> : "";
+                        let icon = element.icon ? <FontAwesomeIcon listItem={true} icon={element.icon} className={element.iconStyle}/> : "";
                         return <li key={element.id}>
-                            {iconBefore} <ReactMarkdown source={element.description}/>
+                            {icon} <ReactMarkdown source={element.description} renderers={{paragraph: 'span'}}/>
                         </li>
                     })}
                 </ul>

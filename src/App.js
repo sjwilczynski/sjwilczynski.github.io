@@ -27,7 +27,7 @@ class App extends Component {
             projects : "Projects & apps",
             research : "Research",
             skills: "Skills",
-            achievements: "Achievements & awards",
+            achievements: "Achievements",
             interests: "Interests"
         };
         return (
