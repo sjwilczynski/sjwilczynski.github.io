@@ -5,7 +5,7 @@ class Section extends Component {
     render() {
 
         let title = "";
-        if(this.props.title) {
+        if (this.props.title) {
             title = <h2 className="mb-5">{this.props.title}</h2>
         }
         return (
@@ -17,7 +17,7 @@ class Section extends Component {
                     </div>
                 </section>
 
-                <hr className="m-0" />
+                <hr className="m-0"/>
             </>
         );
     }
