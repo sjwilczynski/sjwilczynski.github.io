@@ -15,6 +15,7 @@ import ResumeSection from "./components/resume/ResumeSection";
 import SkillSubsection from "./components/sections/skills/SkillSubsection";
 
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap'
 import "./resume.css"
 import Interests from "./components/sections/interests/interests";
 
@@ -33,7 +34,7 @@ class App extends Component {
         return (
             <>
                 <Head description={"CV page using React"} data={data}/>
-                <Navigation sections={sections}/>
+                <Navigation sections={sections} fullname={data.fullname}/>
                 <div className="container-fluid p-0">
 
                     <ResumeSection id="about">

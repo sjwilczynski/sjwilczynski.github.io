@@ -11,8 +11,8 @@ class Navigation extends Component {
         return (
             <>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-                    <span className="navbar-brand js-scroll-trigger">
-                        <span className="d-block d-lg-none"></span>
+                    <span className="navbar-brand">
+                        <span className="d-block d-lg-none">{this.props.fullname}</span>
                         <span className="d-none d-lg-block">
                             <img className="img-fluid img-profile rounded-circle mx-auto mb-2" src={face} alt="Face"
                                  onClick={() => scroll.scrollToTop()}/></span>
@@ -26,7 +26,7 @@ class Navigation extends Component {
                         <ul className="navbar-nav">
                             {Object.entries(sections).map(keyValue =>
                                 <li key={keyValue[0]} className="nav-item">
-                                    <Link className="nav-link" spy={true} smooth={true} duration={1000}
+                                    <Link className="nav-link" data-toggle="collapse" data-target="#navbarSupportedContent" spy={true} smooth={true} duration={1000}
                                           to={keyValue[0]}> {keyValue[1]}</Link>
                                 </li>
                             )}
