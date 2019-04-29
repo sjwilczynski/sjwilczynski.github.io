@@ -11,8 +11,9 @@ class Navigation extends Component {
 
     render() {
 
-        /* these 2 functions together properties of body allow scroll spying, smooth scroll and setting active classes when the element is reached */
-        let onSelect = (eventKey) => {
+        /* these 2 functions together with properties of body allow scroll spying and smooth scroll */
+        let onSelect = (eventKey, event) => {
+            event.preventDefault();
             scrollTo(eventKey);
         };
         let scrollTo = (element) => {
