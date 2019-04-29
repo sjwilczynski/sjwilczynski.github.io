@@ -1,4 +1,4 @@
-.social-icons a {
+.icon-with-link {
   display: inline-block;
   height: 3.5rem;
   width: 3.5rem;
@@ -11,10 +11,10 @@
   margin-right: 1rem;
 }
 
-.social-icons a:last-child {
+.icon-with-link:last-child {
   margin-right: 0;
 }
 
-.social-icons a:hover {
+.icon-with-link:hover {
   background-color: #4479a2;
 }

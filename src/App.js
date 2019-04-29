@@ -2,22 +2,24 @@ import React, {Component} from 'react';
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
 import About from "./components/sections/about/About";
+import ResumeList from "./components/resume/ResumeList";
+import ReactMarkdown from "react-markdown/with-html";
+import ResumeSection from "./components/resume/ResumeSection";
+import Skills from "./components/sections/skills/Skills";
+import Interests from "./components/sections/interests/interests";
+
 import achievementList from "./data/achivements";
 import projectList from "./data/projects";
 import data from "./data/basic-data"
-import ResumeList from "./components/resume/ResumeList";
-import ReactMarkdown from "react-markdown/with-html";
 import experienceList from "./data/experience";
 import educationList from "./data/education"
 import researchList from "./data/reasearch"
 import skillList from "./data/skills"
-import ResumeSection from "./components/resume/ResumeSection";
-import Skills from "./components/sections/skills/Skills";
 
+import './fontawesome/fontawesome';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap'
 import "./resume.css"
-import Interests from "./components/sections/interests/interests";
 
 class App extends Component {
     render() {
