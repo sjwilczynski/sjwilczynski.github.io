@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import medias from "../../../data/social-media"
-import SocialIcon from "./SocialIcon";
+import IconWithLink from "./IconWithLink";
+import './social-icons.css'
 
 class SocialMedias extends Component {
 
@@ -8,7 +9,8 @@ class SocialMedias extends Component {
         return (
             <div className="social-icons">
                 {medias.map(social =>
-                    <SocialIcon key={social.id} url={social.link} icon={social.icon} iconPackage={social.iconPackage}/>
+                    <IconWithLink key={social.id} url={social.link} icon={social.icon}
+                                  iconPackage={social.iconPackage}/>
                 )}
             </div>
         );

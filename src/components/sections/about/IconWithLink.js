@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-class SocialIcon extends Component {
+class IconWithLink extends Component {
 
     render() {
         return (
@@ -14,4 +14,4 @@ class SocialIcon extends Component {
     }
 }
 
-export default SocialIcon;
+export default IconWithLink;

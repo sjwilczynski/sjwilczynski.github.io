@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactMarkdown from "react-markdown";
+import './resume-item.css'
 
 class ResumeItem extends Component {
 

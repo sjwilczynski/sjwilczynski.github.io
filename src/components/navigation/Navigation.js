@@ -3,6 +3,7 @@ import face from './face.jpg';
 import {scroller} from "react-scroll";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import './navigation.css'
 
 
 class Navigation extends Component {

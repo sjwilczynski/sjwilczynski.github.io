@@ -12,7 +12,7 @@ import educationList from "./data/education"
 import researchList from "./data/reasearch"
 import skillList from "./data/skills"
 import ResumeSection from "./components/resume/ResumeSection";
-import SkillSubsection from "./components/sections/skills/SkillSubsection";
+import Skills from "./components/sections/skills/Skills";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap'
@@ -54,7 +54,7 @@ class App extends Component {
 
                     <ResumeSection id="skills" title={sections.skills}>
                         {skillList.map(skills =>
-                            <SkillSubsection key={skills.id} skills={skills}/>
+                            <Skills key={skills.id} skills={skills}/>
                         )}
                     </ResumeSection>
 

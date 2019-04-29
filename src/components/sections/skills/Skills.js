@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ResumeList from "../../resume/ResumeList";
 
-class SkillSubsection extends Component {
+class Skills extends Component {
 
     constructor(props) {
         super(props);
@@ -44,4 +44,4 @@ class SkillSubsection extends Component {
     }
 }
 
-export default SkillSubsection;
+export default Skills;

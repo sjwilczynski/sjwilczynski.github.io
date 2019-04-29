@@ -1,0 +1,11 @@
+.list-dot {
+  list-style-type: disc;
+}
+
+.fa-ul > li {
+  margin-bottom: 0.5em;
+}
+
+.fa-li {
+  top: 0.22em;
+}

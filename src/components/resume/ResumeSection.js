@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ResumeItem from "./ResumeItem";
 import Section from "../sections/Section";
+import './resume-section.css'
 
 class ResumeSection extends Component {
     render() {

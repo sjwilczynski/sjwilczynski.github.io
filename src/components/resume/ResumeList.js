@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactMarkdown from "react-markdown";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import './resume-list.css'
 
 class ResumeList extends Component {
 
