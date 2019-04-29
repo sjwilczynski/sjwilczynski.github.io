@@ -111,6 +111,7 @@ p.lead {
     width: 17rem;
     height: 100vh;
   }
+
   #sideNav .navbar-brand {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -118,11 +119,13 @@ p.lead {
     margin: auto auto 0;
     padding: 0.5rem;
   }
+
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
   }
+
   #sideNav .navbar-collapse {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -136,6 +139,7 @@ p.lead {
     width: 100%;
     margin-bottom: auto;
   }
+
   #sideNav .navbar-collapse .navbar-nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -143,9 +147,11 @@ p.lead {
     flex-direction: column;
     width: 100%;
   }
+
   #sideNav .navbar-collapse .navbar-nav .nav-item {
     display: block;
   }
+
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;
   }
@@ -161,6 +167,7 @@ section.resume-section {
   section.resume-section {
     min-height: 100vh;
   }
+
   section.resume-section .resume-item .resume-date {
     min-width: 18rem;
   }
@@ -211,11 +218,6 @@ a:hover, a:focus, a:active {
 
 .list-dot {
   list-style-type: disc;
-}
-
-.cv-text {
-  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-weight: 800;
 }
 
 .resume-date {

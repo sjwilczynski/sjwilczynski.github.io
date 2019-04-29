@@ -1,38 +1,49 @@
 import React, {Component} from 'react';
 import face from './face.jpg';
-import {animateScroll as scroll, Link} from "react-scroll";
+import {scroller} from "react-scroll";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 
 class Navigation extends Component {
 
 
     render() {
+
+        /* these 2 functions together properties of body allow scroll spying, smooth scroll and setting active classes when the element is reached */
+        let onSelect = (eventKey) => {
+            scrollTo(eventKey);
+        };
+        let scrollTo = (element) => {
+            scroller.scrollTo(element, {
+                duration: 1000,
+                smooth: "easeInOutQuint"
+            })
+        };
+
         let sections = this.props.sections;
         return (
             <>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-                    <span className="navbar-brand">
+                <Navbar expand="lg" bg="primary" variant="dark" fixed="top" collapseOnSelect onSelect={onSelect}
+                        id="sideNav">
+                    <Navbar.Brand>
                         <span className="d-block d-lg-none">{this.props.fullname}</span>
                         <span className="d-none d-lg-block">
                             <img className="img-fluid img-profile rounded-circle mx-auto mb-2" src={face} alt="Face"
-                                 onClick={() => scroll.scrollToTop()}/></span>
-                    </span>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav">
+                                 onClick={() => scrollTo("root")}/>
+                        </span>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="navbarSupportedContent"/>
+                    <Navbar.Collapse id="navbarSupportedContent">
+                        <Nav>
                             {Object.entries(sections).map(keyValue =>
-                                <li key={keyValue[0]} className="nav-item">
-                                    <Link className="nav-link" data-toggle="collapse" data-target="#navbarSupportedContent" spy={true} smooth={true} duration={1000}
-                                          to={keyValue[0]}> {keyValue[1]}</Link>
-                                </li>
+                                <Nav.Item key={keyValue[0]}>
+                                    <Nav.Link eventKey={keyValue[0]} href={"#" + keyValue[0]}>{keyValue[1]}</Nav.Link>
+                                </Nav.Item>
                             )}
-                        </ul>
-                    </div>
-                </nav>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
             </>
         );
     }
