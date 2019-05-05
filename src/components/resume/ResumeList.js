@@ -16,7 +16,8 @@ class ResumeList extends Component {
                 <ul className={"fa-ul mb-0 " + this.props.data.listStyle}>
                     {this.data.map(element => {
                         let icon = element.icon ? <FontAwesomeIcon listItem={true} icon={element.icon} className={element.iconStyle}/> : "";
-                        return <li key={element.id}>
+                        let liStyle = element.icon ? "list-none" : "";
+                        return <li className={liStyle} key={element.id}>
                             {icon} <ReactMarkdown source={element.description} renderers={{paragraph: 'span'}}/>
                         </li>
                     })}

@@ -2,6 +2,10 @@
   list-style-type: disc;
 }
 
+.list-none {
+  list-style-type: none;
+}
+
 .fa-ul > li {
   margin-bottom: 0.5em;
 }
