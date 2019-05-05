@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/sjwilczynski/sjwilczynski.github.io.svg?branch=source)](https://travis-ci.org/sjwilczynski/sjwilczynski.github.io) 
+[![dependencies Status](https://david-dm.org/sjwilczynski/sjwilczynski.github.io/status.svg)](https://david-dm.org/sjwilczynski/sjwilczynski.github.io)
+
 # Responsive CV in React
 
 The project is based on [boootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume).
