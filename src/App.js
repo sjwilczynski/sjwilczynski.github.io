@@ -6,9 +6,9 @@ import ResumeList from "./components/resume/ResumeList";
 import ReactMarkdown from "react-markdown/with-html";
 import ResumeSection from "./components/resume/ResumeSection";
 import Skills from "./components/sections/skills/Skills";
-import Interests from "./components/sections/interests/interests";
+import Interests from "./components/sections/interests/Interests";
 
-import achievementList from "./data/achivements";
+import achievementList from "./data/achievements";
 import projectList from "./data/projects";
 import data from "./data/basic-data"
 import experienceList from "./data/experience";

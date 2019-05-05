@@ -3,6 +3,7 @@
     "id": 1,
     "title": "",
     "listStyle": "list-dot",
+    "columns": 2,
     "data": [
       {
         "id": 1,
@@ -28,26 +29,26 @@
         "id": 6,
         "description": "Unit testing"
       }
-    ],
-    "columns": 2
+    ]
   },
   {
     "id": 2,
     "title": "Certifications",
     "listStyle": "",
+    "columns": 1,
     "data": [
       {
         "id": 1,
         "description": "[Oracle Certified Associate](https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile), Java SE 8 Programmer",
         "icon": "check"
       }
-    ],
-    "columns": 1
+    ]
   },
   {
     "id": 3,
     "title": "Programming Languages & tools",
     "listStyle": "list-dot",
+    "columns": 3,
     "data": [
       {
         "id": 1,
@@ -94,7 +95,6 @@
         "id": 11,
         "description": "Git/SVN"
       }
-    ],
-    "columns": 3
+    ]
   }
 ]
