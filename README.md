@@ -13,7 +13,7 @@ To start using this for your own needs:
 
 * clone the repository
 * go to its directory and install all dependencies: `npm install --no-optional`
-* start the app using `npm start`
+* start the app using `npm start` and go to [http://localhost:3000/]() to view your changes.
 
 ### Deploying to github pages
 
@@ -28,7 +28,7 @@ Take caution as the steps depend on whether you use your [username.github.io]() 
 
 To change the data presented by the app you have to change all the files in the [data](src/data) directory and the 
 [Interest.js](src/components/sections/interests/Interests.js) file. In the latter you just replace the within <> and </> 
-with your custom html.
+with your custom JSX.
 
 * [basic-data.json](src/data/basic-data.json) - replace the self explanatory entries with your own data
 * [achievements.json](src/data/achievements.json), [projects.json](src/data/projects.json) - in these files you can store 
@@ -38,5 +38,20 @@ description, _iconStyle_ - css class for styling your icon (e.g some color) and 
 also specify _listStyle_ - name of css class which will be applied to the whole list.
 * [skills.json](src/data/skills.json) - this file represents the data in Skills section. It consists of a lists of json 
 objects structured as described in _acievements.json_ section.
-* [education.json](src/data/education.json), [experience.json](src/data/experience.json), [research.json](src/data/reasearch.json) -
-* [social-media.json](src/data/social-media.json) -  
+* [education.json](src/data/education.json), [experience.json](src/data/experience.json), [research.json](src/data/reasearch.json) - these 3 files share the same format - they aim to present your experience.
+The file contains a list. Each of the elements in the list consists of unique _id_, _headings_ list containing main information about your entry: position in experience/research section,
+university in education section. The next element is list of _subheadings_ - secondary information displayed just under headings. 
+_rightInfos_ is also a list containing elements displayed on the right of your headings. In my case those are mostly dates. The last element is _description_.
+* [social-media.json](src/data/social-media.json) -  in this file you can define links to your social media accounts which will
+be displayed in the About section. It contains a list of your profile entries. Each entry consists of unique _id_, _link_ - 
+url to your profile/website, _icon_ - name of FontAwesome icon you want to use, _iconPackage_ - prefix defining from which package
+your icon is (default is `fas`). For more info check [React FontAwesome Readme](https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently). 
+
+### Favicon
+
+You can replace my favicon with yours simply by replacing [favicon.ico](public/img/favicon.ico) file.
+
+### FontAwesome icons
+
+In order to use different FontAwesome icons go to [fontawesome.js](src/fontawesome/fontawesome.js) and add/delete imports. 
+More info can be found [here](https://github.com/FortAwesome/react-fontawesome).
