@@ -12,9 +12,15 @@
     "iconPackage": "fab"
   },
   {
-    "id": "cv",
-    "link": "Stanislaw_Wilczynski_CV.pdf",
-    "icon": "file-pdf",
-    "iconPackage": "fa"
+    "id": "SO",
+    "link": "https://stackoverflow.com/users/11471002/stanis%C5%82aw-wilczy%C5%84ski",
+    "icon": "stack-overflow",
+    "iconPackage": "fab"
+  },
+  {
+    "id": "gitlab",
+    "link": "https://gitlab.com/sjwilczynski",
+    "icon": "gitlab",
+    "iconPackage": "fab"
   }
 ]

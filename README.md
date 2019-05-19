@@ -3,7 +3,7 @@
 
 # Responsive CV in React
 
-The project is based on [boootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume).
+The project is based on [startboootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume).
 I rewrote it in React to follow the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) rule and make use
 of React's reusable components. The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -27,7 +27,7 @@ Take caution as the steps depend on whether you use your [username.github.io]() 
 ### Replacing data
 
 To change the data presented by the app you have to change all the files in the [data](src/data) directory and the 
-[Interest.js](src/components/sections/interests/Interests.js) file. In the latter you just replace the within <> and </> 
+[Interest.js](src/components/sections/interests/Interests.js) file. In the latter you just replace the code within <> and </> 
 with your custom JSX.
 
 * [basic-data.json](src/data/basic-data.json) - replace the self explanatory entries with your own data
@@ -40,7 +40,7 @@ also specify _listStyle_ - name of css class which will be applied to the whole 
 objects structured as described in _acievements.json_ section.
 * [education.json](src/data/education.json), [experience.json](src/data/experience.json), [research.json](src/data/reasearch.json) - these 3 files share the same format - they aim to present your experience.
 The file contains a list. Each of the elements in the list consists of unique _id_, _headings_ list containing main information about your entry: position in experience/research section,
-university in education section. The next element is list of _subheadings_ - secondary information displayed just under headings. 
+university in education section. The next element is _subheading_ - secondary information displayed just below headings. 
 _rightInfos_ is also a list containing elements displayed on the right of your headings. In my case those are mostly dates. The last element is _description_.
 * [social-media.json](src/data/social-media.json) -  in this file you can define links to your social media accounts which will
 be displayed in the About section. It contains a list of your profile entries. Each entry consists of unique _id_, _link_ - 

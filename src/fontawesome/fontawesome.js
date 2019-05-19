@@ -5,14 +5,13 @@ import {
     faBasketballBall,
     faBook,
     faCheck,
-    faFilePdf,
     faGraduationCap,
     faHeart,
     faMedal,
     faPlane
 } from "@fortawesome/free-solid-svg-icons/index";
 
-import {faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons/index";
+import {faGithub, faLinkedinIn, faGitlab, faStackOverflow} from "@fortawesome/free-brands-svg-icons/index";
 import './fontawesome.css'
 
 
@@ -23,7 +22,8 @@ library.add(
 
     faGithub,
     faLinkedinIn,
-    faFilePdf,
+    faGitlab,
+    faStackOverflow,
 
     faCheck,
     faHeart,
