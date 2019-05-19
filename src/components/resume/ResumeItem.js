@@ -20,8 +20,8 @@ class ResumeItem extends Component {
                         <div className="subheading mb-3">{this.element.subheading}</div>
                         <ReactMarkdown source={this.element.description}/>
                     </div>
-                    <div className="resume-date text-md-right">
-                        {this.element.rightInfos.map(info =>
+                    <div className="resume-extra text-md-right">
+                        {this.element.extraInfos.map(info =>
                             <span key={info} className="text-primary">{info} <br/> </span>)}
                     </div>
                 </div>

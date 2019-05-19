@@ -39,7 +39,7 @@ objects structured as described in _achievements.json_ section. Each list repres
 * [education.json](src/data/education.json), [experience.json](src/data/experience.json), [research.json](src/data/reasearch.json) - these 3 files share the same format - they aim to present your experience.
 Each file contains a list. Each of the elements in the list consists of unique _id_, _headings_ list containing main information about your entry: position in experience/research section,
 university in education section. The next element is _subheading_ - secondary information displayed just below headings. 
-_rightInfos_ is also a list containing elements displayed on the right of your headings. In my case those are mostly dates. The last element is _description_.
+_extraInfos_ is also a list containing elements displayed on the right of your headings. In my case those are mostly dates. The last element is _description_.
 * [social-media.json](src/data/social-media.json) -  in this file you can define links to your social media accounts which will be displayed in the About section. It contains a list of your profile entries. Each entry consists of unique _id_, _link_ - url to your profile/website, _icon_ - name of FontAwesome icon you want to use, _iconPackage_ - prefix defining from which package your icon is from (default is `fas`). For more info check [React FontAwesome Readme](https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently). 
 
 ### Favicon
