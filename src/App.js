@@ -15,6 +15,7 @@ import experienceList from "./data/experience";
 import educationList from "./data/education"
 import researchList from "./data/reasearch"
 import skillList from "./data/skills"
+import aboutDescription from "./data/about";
 
 import './fontawesome/fontawesome';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -40,7 +41,7 @@ class App extends Component {
                 <div className="container-fluid p-0">
 
                     <ResumeSection id="about">
-                        <About description="Programmer, student, interested in data science" data={data}/>
+                        <About description={aboutDescription.info} data={data}/>
                     </ResumeSection>
 
                     <ResumeSection id="experience" title={sections.experience} elements={experienceList}/>

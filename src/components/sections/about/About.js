@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SocialMedias from "./SocialMedias";
+import ReactMarkdown from "react-markdown";
 
 class About extends Component {
 
@@ -12,7 +13,7 @@ class About extends Component {
                 <div className="subheading mb-5">{this.props.data.city}, {this.props.data.country},
                     <a href={"mailto:" + this.props.data.email}>  {this.props.data.email}</a>
                 </div>
-                <p className="lead mb-5">{this.props.description}</p>
+                <ReactMarkdown className="lead mb-5" source={this.props.description}/>
                 <SocialMedias/>
             </>
         );
