@@ -1,7 +1,18 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import concertDatas from './../../../data/concerts';
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import {Concert} from "../../../data/wrappers/Concert";
 
 class Interests extends Component {
+
+    constructor(props){
+        super(props);
+        this.concertsList = concertDatas.map(concertData => new Concert(concertData));
+        this.concertsList.sort((c1, c2) => c2.startDate - c1.startDate);
+    }
+
 
     render() {
         return (
@@ -24,6 +35,15 @@ class Interests extends Component {
                     and history). However my most beloved activity is going to rock
                     concerts (I've been to around 40 already).
                 </p>
+                <VerticalTimeline>
+
+                    {this.concertsList.map(concert =>
+                    <VerticalTimelineElement date={concert.getDate()}>
+                        <h3>{concert.title}</h3>
+                        <h4>{concert.location}</h4>
+                        <p>{concert.description}</p>
+                    </VerticalTimelineElement>)}
+                </VerticalTimeline>
             </>
         );
     }
