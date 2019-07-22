@@ -15,12 +15,12 @@ class Interests extends Component {
         this.state = {
             showConcerts: false,
             concertsList : concertDatas.map(concertData => new Concert(concertData))
-        }
+        };
         this.state.concertsList.sort((c1, c2) => c2.startDate - c1.startDate);
     }
 
     onConcertsClick = () => {
-        this.setState((state, props) => ({
+        this.setState((state) => ({
             showConcerts: !state.showConcerts
         }));
         scroller.scrollTo('interests')
