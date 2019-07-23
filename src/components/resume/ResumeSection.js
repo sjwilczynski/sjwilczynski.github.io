@@ -5,7 +5,7 @@ import './resume-section.css'
 
 class ResumeSection extends Component {
     render() {
-        let elements = this.props.elements ? this.props.elements : [];
+        const elements = this.props.elements || [];
         return (
             <>
                 <Section id={this.props.id} title={this.props.title}>

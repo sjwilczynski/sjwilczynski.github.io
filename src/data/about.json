@@ -1,3 +1,10 @@
 {
-  "info": "Just finishing studies in Computer Science specializing on data analysis. Aiming at broadening my knowledge and developing my skills every single day. Passionate about clean code, refactoring, Agile methodologies and tools. Great fan of Uncle Bob's books."
+  "fullname" : "Stanisław Wilczyński",
+  "name" : "Stanisław",
+  "surname" : "Wilczyński",
+  "city" : "Wrocław",
+  "country":"Poland",
+  "email": "sjwilczynski@gmail.com",
+  "githubUrl": "https://github.com/sjwilczynski",
+  "introduction": "Just finishing studies in Computer Science specializing on data analysis. Aiming at broadening my knowledge and developing my skills every single day. Passionate about clean code, refactoring, Agile methodologies and tools. Great fan of Uncle Bob's books."
 }

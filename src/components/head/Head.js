@@ -14,8 +14,8 @@ class Head extends Component {
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
                     <meta name="description" content={this.props.description}/>
-                    <meta name="author" content={this.props.data.fullname}/>
-                    <title>{this.props.data.fullname}</title>
+                    <meta name="author" content={this.props.fullname}/>
+                    <title>{this.props.fullname}</title>
                 </Helmet>
             </>
         );

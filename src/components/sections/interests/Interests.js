@@ -14,10 +14,8 @@ class Interests extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showConcerts: false,
-            concertsList : concertDatas.map(concertData => new Concert(concertData))
+            showConcerts: false
         };
-        this.state.concertsList.sort((c1, c2) => c2.startDate - c1.startDate);
     }
 
     onConcertsClick = () => {
@@ -28,6 +26,7 @@ class Interests extends Component {
     };
 
     render() {
+        const concertsList = concertDatas.map(concertData => new Concert(concertData)).sort((c1, c2) => c2.startDate - c1.startDate);
         return (
             <>
                 <p>
@@ -54,8 +53,9 @@ class Interests extends Component {
 
                 {this.state.showConcerts &&
                 <VerticalTimeline>
-                    {this.state.concertsList.map(concert =>
-                        <VerticalTimelineElement key={concert.id} date={concert.getDate()} icon={<GiGuitar/>} iconStyle={ {background: '#4479a2', color: '#fff' }}>
+                    {concertsList.map(concert =>
+                        <VerticalTimelineElement key={concert.id} date={concert.getDate()} icon={<GiGuitar/>}
+                                                 iconStyle={{background: '#4479a2', color: '#fff'}}>
                             <h3>{concert.title}</h3>
                             <h4>{concert.location}</h4>
                             <p>{concert.description}</p>

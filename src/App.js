@@ -10,12 +10,11 @@ import Interests from "./components/sections/interests/Interests";
 
 import achievementList from "./data/achievements";
 import projectList from "./data/projects";
-import data from "./data/basic-data"
 import experienceList from "./data/experience";
 import educationList from "./data/education"
 import researchList from "./data/reasearch"
 import skillList from "./data/skills"
-import aboutDescription from "./data/about";
+import about from "./data/about";
 
 import './fontawesome/fontawesome';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -36,12 +35,12 @@ class App extends Component {
         };
         return (
             <>
-                <Head description={"CV page using React"} data={data}/>
-                <Navigation sections={sections} fullname={data.fullname}/>
+                <Head description={"CV page using React"} data={about.fullname}/>
+                <Navigation sections={sections} fullname={about.fullname}/>
                 <div className="container-fluid p-0">
 
                     <ResumeSection id="about">
-                        <About description={aboutDescription.info} data={data}/>
+                        <About data={about}/>
                     </ResumeSection>
 
                     <ResumeSection id="experience" title={sections.experience} elements={experienceList}/>
@@ -50,7 +49,7 @@ class App extends Component {
 
                     <ResumeSection id="projects" title={sections.projects}>
                         <ResumeList data={projectList}/>
-                        <ReactMarkdown source={"More code can be found on my [github](" + data.githubUrl + ")"}/>
+                        <ReactMarkdown source={"More code can be found on my [github](" + about.githubUrl + ")"}/>
                     </ResumeSection>
 
                     <ResumeSection id="research" title={sections.research} elements={researchList}/>

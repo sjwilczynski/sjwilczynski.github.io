@@ -23,7 +23,6 @@ class Navigation extends Component {
             })
         };
 
-        let sections = this.props.sections;
         return (
             <>
                 <Navbar expand="lg" bg="primary" variant="dark" fixed="top" collapseOnSelect onSelect={onSelect}
@@ -38,7 +37,7 @@ class Navigation extends Component {
                     <Navbar.Toggle aria-controls="navbarSupportedContent"/>
                     <Navbar.Collapse id="navbarSupportedContent">
                         <Nav>
-                            {Object.entries(sections).map(keyValue =>
+                            {Object.entries(this.props.sections).map(keyValue =>
                                 <Nav.Item key={keyValue[0]}>
                                     <Nav.Link eventKey={keyValue[0]} href={"#" + keyValue[0]}>{keyValue[1]}</Nav.Link>
                                 </Nav.Item>

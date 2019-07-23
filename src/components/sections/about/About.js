@@ -5,15 +5,17 @@ import ReactMarkdown from "react-markdown";
 class About extends Component {
 
     render() {
+
+        const about = this.props.data;
         return (
             <>
-                <h1 className="mb-0">{this.props.data.name}
-                    <span className="text-primary"> {this.props.data.surname}</span>
+                <h1 className="mb-0">{about.name}
+                    <span className="text-primary"> {about.surname}</span>
                 </h1>
-                <div className="subheading mb-5">{this.props.data.city}, {this.props.data.country},
-                    <a href={"mailto:" + this.props.data.email}>  {this.props.data.email}</a>
+                <div className="subheading mb-5">{about.city}, {about.country},
+                    <a href={"mailto:" + about.email}>  {about.email}</a>
                 </div>
-                <ReactMarkdown className="lead mb-5" source={this.props.description}/>
+                <ReactMarkdown className="lead mb-5" source={about.introduction}/>
                 <SocialMedias/>
             </>
         );
