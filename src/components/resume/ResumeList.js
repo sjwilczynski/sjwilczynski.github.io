@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from "react-markdown";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import './resume-list.css'
+import './resume-list.scss'
 
 export default function ResumeList(props) {
 

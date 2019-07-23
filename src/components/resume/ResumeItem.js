@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from "react-markdown";
-import './resume-item.css'
+import './resume-item.scss'
 
 export default function ResumeItem(props) {
 

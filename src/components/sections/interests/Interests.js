@@ -6,7 +6,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import {Concert} from "../../../data/wrappers/Concert";
 import Button from "react-bootstrap/Button";
 import {scroller} from "react-scroll";
-import './interests.css'
+import './interests.scss'
 import {GiGuitar} from "react-icons/gi";
 
 export default function Interests() {

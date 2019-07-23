@@ -1,7 +1,7 @@
 import React from 'react';
 import ResumeItem from "./ResumeItem";
 import Section from "../sections/Section";
-import './resume-section.css'
+import './resume-section.scss'
 
 export default function ResumeSection(props) {
     const elements = props.elements || [];

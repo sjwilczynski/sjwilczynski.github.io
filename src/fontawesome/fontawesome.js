@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons/index";
 
 import {faGithub, faLinkedinIn, faGitlab, faStackOverflow} from "@fortawesome/free-brands-svg-icons/index";
-import './fontawesome.css'
+import './fontawesome.scss'
 
 
 library.add(

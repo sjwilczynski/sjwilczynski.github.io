@@ -1,6 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import './icons.css'
+import './icons.scss'
 
 export default function IconWithLink(props) {
 
