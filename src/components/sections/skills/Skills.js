@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ResumeList from "../../resume/ResumeList";
 
-class Skills extends Component {
+export default function Skills(props) {
 
-    splitToChunks(skills, columns) {
+    let splitToChunks = function (skills, columns) {
 
         const elements = skills.elements;
         const perChunk = Math.ceil(elements.length / columns);
@@ -19,25 +19,21 @@ class Skills extends Component {
 
             return resultArray
         }, []);
-    }
+    };
 
-    render() {
-        const skills = this.props.skills;
-        const columns = skills.columns;
-        const skillsChunked = this.splitToChunks(skills, columns);
-        return (
-            <>
-                <div className="subheading mb-3 mt-2">{skills.title}</div>
-                <div className="d-flex">
-                    {skillsChunked.map(skillChunk =>
-                        <div key={skillChunk.id} className={"col-" + Math.floor(12 / columns)}>
-                            <ResumeList key={skillChunk.id} data={skillChunk}/>
-                        </div>
-                    )}
-                </div>
-            </>
-        );
-    }
+    const skills = props.skills;
+    const columns = skills.columns;
+    const skillsChunked = splitToChunks(skills, columns);
+    return (
+        <>
+            <div className="subheading mb-3 mt-2">{skills.title}</div>
+            <div className="d-flex">
+                {skillsChunked.map(skillChunk =>
+                    <div key={skillChunk.id} className={"col-" + Math.floor(12 / columns)}>
+                        <ResumeList key={skillChunk.id} data={skillChunk}/>
+                    </div>
+                )}
+            </div>
+        </>
+    )
 }
-
-export default Skills;

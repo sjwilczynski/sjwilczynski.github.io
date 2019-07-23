@@ -1,25 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Helmet from "react-helmet/es/Helmet";
 
-class Head extends Component {
+export default function Head(props) {
 
-    render() {
-        return (
-            <>
-                <Helmet>
+    return (
+        <>
+            <Helmet>
 
-                    <link rel="shortcut icon" href={process.env.PUBLIC_URL + "/img/favicon.ico"}/>
+                <link rel="shortcut icon" href={process.env.PUBLIC_URL + "/img/favicon.ico"}/>
 
-                    <meta charSet="utf-8"/>
-                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+                <meta charSet="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-                    <meta name="description" content={this.props.description}/>
-                    <meta name="author" content={this.props.fullname}/>
-                    <title>{this.props.fullname}</title>
-                </Helmet>
-            </>
-        );
-    }
+                <meta name="description" content={props.description}/>
+                <meta name="author" content={props.fullname}/>
+                <title>{props.fullname}</title>
+            </Helmet>
+        </>
+    )
 }
-
-export default Head;
