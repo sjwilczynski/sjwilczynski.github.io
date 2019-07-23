@@ -3,15 +3,15 @@
     "id": 1,
     "startDate": "02.05.2010",
     "endDate": "03.05.2010",
-    "title": "Majówka",
+    "title": "3-majówka",
     "location": "Wrocław",
-    "description": "My first festival"
+    "description": ""
   },
   {
     "id": 2,
     "startDate": "02.05.2011",
     "endDate": "03.05.2011",
-    "title": "Majówka",
+    "title": "3-majówka",
     "location": "Wrocław",
     "description": ""
   },
@@ -21,7 +21,7 @@
     "endDate": "14.04.2012",
     "title": "Judas Priest",
     "location": "Katowice",
-    "description": "First big concert"
+    "description": ""
   },
   {
     "id": 4,
@@ -61,7 +61,7 @@
     "endDate": "13.08.2013",
     "title": "System of a Down",
     "location": "Łódź",
-    "description": "First autograph"
+    "description": ""
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "endDate": "08.12.2013",
     "title": "Therion + Arkona",
     "location": "Wrocław",
-    "description": "First concert with Agata"
+    "description": ""
   },
   {
     "id": 10,
@@ -91,7 +91,7 @@
     "id": 12,
     "startDate": "22.01.2015",
     "endDate": "22.01.2015",
-    "title": "Epica + Dragonforce",
+    "title": "Epica + DragonForce",
     "location": "Wrocław",
     "description": ""
   },
@@ -173,7 +173,7 @@
     "endDate": "16.07.2017",
     "title": "Pol'and'Rock Festival",
     "location": "Kostrzyn nad Odrą",
-    "description": "Bring Me The Horizon, Dragonforce, The Rumjacks, Apocalyptica, Farben Lehre"
+    "description": "Bring Me The Horizon, DragonForce, The Rumjacks, Apocalyptica, Farben Lehre"
   },
   {
     "id": 23,

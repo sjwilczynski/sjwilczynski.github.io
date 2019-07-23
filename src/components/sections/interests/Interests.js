@@ -7,6 +7,7 @@ import {Concert} from "../../../data/wrappers/Concert";
 import Button from "react-bootstrap/Button";
 import {scroller} from "react-scroll";
 import './interests.css'
+import {GiGuitar} from "react-icons/gi";
 
 class Interests extends Component {
 
@@ -54,7 +55,7 @@ class Interests extends Component {
                 {this.state.showConcerts &&
                 <VerticalTimeline>
                     {this.state.concertsList.map(concert =>
-                        <VerticalTimelineElement key={concert.id} date={concert.getDate()}>
+                        <VerticalTimelineElement key={concert.id} date={concert.getDate()} icon={<GiGuitar/>} iconStyle={ {background: '#4479a2', color: '#fff' }}>
                             <h3>{concert.title}</h3>
                             <h4>{concert.location}</h4>
                             <p>{concert.description}</p>
