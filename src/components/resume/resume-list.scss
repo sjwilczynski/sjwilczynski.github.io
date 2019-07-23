@@ -6,8 +6,10 @@
   list-style-type: none;
 }
 
-.fa-ul > li {
-  margin-bottom: 0.5em;
+.fa-ul {
+  & > li {
+    margin-bottom: 0.5em;
+  }
 }
 
 /* hack for aligning fontawesome icons in li elements vertically */

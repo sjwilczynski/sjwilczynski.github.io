@@ -1,22 +1,8 @@
-.btn-concerts.btn-primary:hover,
-.btn-concerts.btn-primary:active,
-.btn-concerts.btn-primary:visited,
-.btn-concerts.btn-primary:focus {
-  color: rgba(255, 255, 255, 0.85);
-  background-color: #4479a2;
-  border-color: #4479a2;
-}
-
-
-.btn-concerts.btn-primary {
-  color: rgba(255, 255, 255, 0.65);
-  background-color: #4479a2;
-  border-color: #4479a2;
-}
+@import "./../../../bootstrap_overrides";
 
 
 .vertical-timeline-element-content {
-  border-top: 3px solid #4479a2;
+  border-top: 3px solid $primary;
 }
 
 @media only screen and (max-width: 1169px) {

@@ -1,20 +1,22 @@
+@import "./../../../bootstrap_overrides";
+
 .icon-with-link {
   display: inline-block;
   height: 3.5rem;
   width: 3.5rem;
   background-color: #495057;
-  color: #fff !important;
+  color: $white !important;
   border-radius: 100%;
   text-align: center;
   font-size: 1.5rem;
   line-height: 3.5rem;
   margin-right: 1rem;
-}
 
-.icon-with-link:last-child {
-  margin-right: 0;
-}
+  &:last-child {
+    margin-right: 0;
+  }
 
-.icon-with-link:hover {
-  background-color: #4479a2;
+  &:hover {
+    background-color: $primary;
+  }
 }

@@ -17,7 +17,6 @@ import skillList from "./data/skills"
 import about from "./data/about";
 
 import './fontawesome/fontawesome';
-import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap'
 import "./resume.scss"
 
