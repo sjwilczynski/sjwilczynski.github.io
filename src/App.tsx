@@ -20,6 +20,7 @@ import 'bootstrap/dist/js/bootstrap'
 import "./resume.scss"
 import ReactMarkdown from "react-markdown";
 import {AboutData} from './data/wrappers/AboutData';
+import {ResumeItemData} from "./data/wrappers/ResumeItemData";
 
 export default function App() {
     let sections = {
@@ -32,27 +33,30 @@ export default function App() {
         achievements: "Achievements",
         interests: "Interests"
     };
-    let about: AboutData = new AboutData(aboutData);
+    const about: AboutData = new AboutData(aboutData);
+    const experienceResumeItems: ResumeItemData[] = experienceListData.map((resumeItemData: any) => new ResumeItemData(resumeItemData));
+    const educationResumeItems: ResumeItemData[] = educationListData.map((resumeItemData: any) => new ResumeItemData(resumeItemData));
+    const researchResumeItems: ResumeItemData[] = researchListData.map((resumeItemData: any) => new ResumeItemData(resumeItemData));
     return (
         <>
-            <Head description={"CV page using React"} data={about.getFullName()}/>
-            <Navigation sections={sections} fullname={about.getFullName()}/>
+            <Head description={"CV page using React"} fullName={about.getFullName()}/>
+            <Navigation sections={sections} fullName={about.getFullName()}/>
             <div className="container-fluid p-0">
 
                 <ResumeSection id="about">
                     <About data={about}/>
                 </ResumeSection>
 
-                <ResumeSection id="experience" title={sections.experience} elements={experienceListData}/>
+                <ResumeSection id="experience" title={sections.experience} resumeItems={experienceResumeItems}/>
 
-                <ResumeSection id="education" title={sections.education} elements={educationListData}/>
+                <ResumeSection id="education" title={sections.education} resumeItems={educationResumeItems}/>
 
                 <ResumeSection id="projects" title={sections.projects}>
                     <ResumeList data={projectListData}/>
                     <ReactMarkdown source={"More code can be found on my [github](" + about.githubUrl + ")"}/>
                 </ResumeSection>
 
-                <ResumeSection id="research" title={sections.research} elements={researchListData}/>
+                <ResumeSection id="research" title={sections.research} resumeItems={researchResumeItems}/>
 
                 <ResumeSection id="skills" title={sections.skills}>
                     {skillListData.map(skills =>

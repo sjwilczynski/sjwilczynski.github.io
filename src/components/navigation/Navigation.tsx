@@ -5,16 +5,21 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import './navigation.scss'
 
+type NavigationProps = {
+    fullName: string,
+    sections: Object
+}
 
-export default function Navigation(props) {
+
+export default function Navigation(props: NavigationProps) {
 
 
     /* these 2 functions together with properties of body allow scroll spying and smooth scroll */
-    let onSelect = (eventKey, event) => {
+    let onSelect = (eventKey: any, event: React.SyntheticEvent<{}>) => {
         event.preventDefault();
         scrollTo(eventKey);
     };
-    let scrollTo = (element) => {
+    let scrollTo = (element: any) => {
         scroller.scrollTo(element, {
             duration: 1000,
             smooth: "easeInOutQuint"
@@ -26,7 +31,7 @@ export default function Navigation(props) {
             <Navbar expand="lg" bg="primary" variant="dark" fixed="top" collapseOnSelect onSelect={onSelect}
                     id="sideNav">
                 <Navbar.Brand>
-                    <span className="d-block d-lg-none">{props.fullname}</span>
+                    <span className="d-block d-lg-none">{props.fullName}</span>
                     <span className="d-none d-lg-block">
                             <img className="img-fluid img-profile rounded-circle mx-auto mb-2" src={face} alt="Face"
                                  onClick={() => scrollTo("root")}/>
