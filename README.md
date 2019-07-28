@@ -25,10 +25,10 @@ Take caution as the steps depend on whether you use your [username.github.io]() 
 ### Replacing data
 
 To change the data presented by the app you have to change all the files in the [data](src/data) directory and the 
-[Interest.js](src/components/sections/interests/Interests.js) file. In the latter you just replace the code within <> and </> 
+[Interest.js](src/components/sections/interests/Interests.tsx) file. In the latter you just replace the code within <> and </> 
 with your custom JSX.
 
-* [basic-data.json](src/data/basic-data.json) - replace the self explanatory entries with your own data
+* [about.json](src/data/about.json) - replace the self explanatory entries with your own data
 * [achievements.json](src/data/achievements.json), [projects.json](src/data/projects.json) - in these files you can store 
 a list of your achievements/projects. Each entry in the data section consists of _id_ which should be unique for every 
 entry, _icon_ which is the name of the [FontAwesome](https://fontawesome.com/icons?d=gallery) icon you want to put before 

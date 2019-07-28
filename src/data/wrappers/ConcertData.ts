@@ -1,4 +1,4 @@
-export class Concert {
+export class ConcertData {
     readonly id: number;
     readonly startDate: Date;
     readonly endDate: Date;
@@ -16,7 +16,7 @@ export class Concert {
     }
 
     public getDate(): string {
-        return this.startDate.getTime() === this.endDate.getTime() ? Concert.dateToString(this.startDate) : Concert.dateToString(this.startDate) + ' - ' + Concert.dateToString(this.endDate);
+        return this.startDate.getTime() === this.endDate.getTime() ? ConcertData.dateToString(this.startDate) : ConcertData.dateToString(this.startDate) + ' - ' + ConcertData.dateToString(this.endDate);
     }
 
     private readDate(date: string) {

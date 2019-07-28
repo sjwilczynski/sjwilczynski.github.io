@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import concertDatas from './../../../data/concerts';
+import concertDatas from './../../../data/concerts.json';
 import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import {Concert} from "../../../data/wrappers/Concert";
+import {ConcertData} from "../../../data/wrappers/ConcertData";
 import Button from "react-bootstrap/Button";
 import {scroller} from "react-scroll";
 import './interests.scss'
@@ -15,10 +15,10 @@ export default function Interests() {
 
     let onConcertsClick = () => {
         setShowConcerts(showConcerts => !showConcerts);
-        scroller.scrollTo('interests')
+        scroller.scrollTo('interests', {})
     };
 
-    const concertsList = concertDatas.map(concertData => new Concert(concertData)).sort((c1, c2) => c2.startDate - c1.startDate);
+    const concertsList = concertDatas.map((concertData: any) => new ConcertData(concertData)).sort((c1: ConcertData, c2: ConcertData) => c2.startDate.getTime() - c1.endDate.getTime());
     return (
         <>
             <p>
@@ -45,7 +45,7 @@ export default function Interests() {
 
             {showConcerts &&
             <VerticalTimeline>
-                {concertsList.map(concert =>
+                {concertsList.map((concert: ConcertData) =>
                     <VerticalTimelineElement key={concert.id} date={concert.getDate()} icon={<GiGuitar/>}
                                              iconStyle={{background: '#4479a2', color: '#fff'}}>
                         <h3>{concert.title}</h3>

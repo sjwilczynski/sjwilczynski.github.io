@@ -2,25 +2,21 @@
   {
     "id": "in",
     "link": "https://www.linkedin.com/in/sjwilczynski/",
-    "icon": "linkedin-in",
-    "iconPackage": "fab"
+    "iconName": "faLinkedinIn"
   },
   {
     "id": "github",
     "link": "https://github.com/sjwilczynski",
-    "icon": "github",
-    "iconPackage": "fab"
+    "iconName": "faGithub"
   },
   {
     "id": "SO",
     "link": "https://stackoverflow.com/users/11471002/stanis%C5%82aw-wilczy%C5%84ski",
-    "icon": "stack-overflow",
-    "iconPackage": "fab"
+    "iconName": "faStackOverflow"
   },
   {
     "id": "gitlab",
     "link": "https://gitlab.com/sjwilczynski",
-    "icon": "gitlab",
-    "iconPackage": "fab"
+    "iconName": "faGitlab"
   }
 ]
