@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 type HeadProps = {
     description: string,
     fullName: string
+    children?: any
 }
 
 export default function Head(props: HeadProps) {
@@ -19,7 +20,7 @@ export default function Head(props: HeadProps) {
 
                 <meta name="description" content={props.description}/>
                 <meta name="author" content={props.fullName}/>
-                <title>{props.fullName}</title>
+                {props.children}
             </Helmet>
         </>
     )

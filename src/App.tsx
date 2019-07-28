@@ -45,7 +45,9 @@ export default function App() {
 
     return (
         <>
-            <Head description={"CV page using React"} fullName={about.getFullName()}/>
+            <Head description={"CV page using React"} fullName={about.getFullName()}>
+                <title>{about.getFullName()}</title>
+            </Head>
             <Navigation sections={sections} fullName={about.getFullName()}/>
             <div className="container-fluid p-0">
 
