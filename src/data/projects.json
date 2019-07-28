@@ -1,5 +1,5 @@
 {
-  "listStyle": "list-dot",
+  "listClassName": "list-dot",
   "elements": [
     {
       "id": 1,

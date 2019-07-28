@@ -1,12 +1,12 @@
 export class SocialMediaData {
     readonly id: number;
     readonly link: string;
-    readonly iconName: string;
+    readonly iconComponentName: string;
 
 
     constructor(data: any) {
         this.id = data.id;
         this.link = data.link;
-        this.iconName = data.iconName;
+        this.iconComponentName = data.iconComponentName;
     }
 }

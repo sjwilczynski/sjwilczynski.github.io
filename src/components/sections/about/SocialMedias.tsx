@@ -8,7 +8,7 @@ export default function SocialMedias() {
     return (
         <div>
             {socialMedias.map((social: SocialMediaData) =>
-                <IconWithLink key={social.id} className={"icon-with-link"} iconName={social.iconName}
+                <IconWithLink key={social.id} className={"icon-with-link"} iconComponentName={social.iconComponentName}
                               link={social.link}/>
             )}
         </div>

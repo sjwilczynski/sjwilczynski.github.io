@@ -2,21 +2,21 @@
   {
     "id": "in",
     "link": "https://www.linkedin.com/in/sjwilczynski/",
-    "iconName": "faLinkedinIn"
+    "iconComponentName": "FaLinkedinIn"
   },
   {
     "id": "github",
     "link": "https://github.com/sjwilczynski",
-    "iconName": "faGithub"
+    "iconComponentName": "FaGithub"
   },
   {
     "id": "SO",
     "link": "https://stackoverflow.com/users/11471002/stanis%C5%82aw-wilczy%C5%84ski",
-    "iconName": "faStackOverflow"
+    "iconComponentName": "FaStackOverflow"
   },
   {
     "id": "gitlab",
     "link": "https://gitlab.com/sjwilczynski",
-    "iconName": "faGitlab"
+    "iconComponentName": "FaGitlab"
   }
 ]

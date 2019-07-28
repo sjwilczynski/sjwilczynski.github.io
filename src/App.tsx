@@ -15,12 +15,12 @@ import researchListData from "./data/reasearch.json"
 import skillListData from "./data/skills.json"
 import aboutData from "./data/about.json";
 
-import './fontawesome/fontawesome';
 import 'bootstrap/dist/js/bootstrap'
 import "./resume.scss"
 import ReactMarkdown from "react-markdown";
 import {AboutData} from './data/wrappers/AboutData';
 import {ResumeItemData} from "./data/wrappers/ResumeItemData";
+import {ResumeListData} from "./data/wrappers/ResumeListData";
 
 export default function App() {
     let sections = {
@@ -34,9 +34,15 @@ export default function App() {
         interests: "Interests"
     };
     const about: AboutData = new AboutData(aboutData);
+
     const experienceResumeItems: ResumeItemData[] = experienceListData.map((resumeItemData: any) => new ResumeItemData(resumeItemData));
     const educationResumeItems: ResumeItemData[] = educationListData.map((resumeItemData: any) => new ResumeItemData(resumeItemData));
     const researchResumeItems: ResumeItemData[] = researchListData.map((resumeItemData: any) => new ResumeItemData(resumeItemData));
+
+    const projectsResumeList: ResumeListData = new ResumeListData(projectListData);
+    const achievementResumeList: ResumeListData = new ResumeListData(achievementListData);
+    const skillsResumeLists: ResumeListData[] = skillListData.map((resumeListData: any) => new ResumeListData(resumeListData));
+
     return (
         <>
             <Head description={"CV page using React"} fullName={about.getFullName()}/>
@@ -52,20 +58,20 @@ export default function App() {
                 <ResumeSection id="education" title={sections.education} resumeItems={educationResumeItems}/>
 
                 <ResumeSection id="projects" title={sections.projects}>
-                    <ResumeList data={projectListData}/>
+                    <ResumeList data={projectsResumeList}/>
                     <ReactMarkdown source={"More code can be found on my [github](" + about.githubUrl + ")"}/>
                 </ResumeSection>
 
                 <ResumeSection id="research" title={sections.research} resumeItems={researchResumeItems}/>
 
                 <ResumeSection id="skills" title={sections.skills}>
-                    {skillListData.map(skills =>
+                    {skillsResumeLists.map(skills =>
                         <Skills key={skills.id} skills={skills}/>
                     )}
                 </ResumeSection>
 
                 <ResumeSection id="achievements" title={sections.achievements}>
-                    <ResumeList data={achievementListData}/>
+                    <ResumeList data={achievementResumeList}/>
                 </ResumeSection>
 
                 <ResumeSection id="interests" title={sections.interests}>

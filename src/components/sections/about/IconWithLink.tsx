@@ -4,7 +4,7 @@ import IconWrapper from "../../../data/wrappers/IconWrapper";
 
 type  IconWithLinkProps = {
     className: string,
-    iconName: string,
+    iconComponentName: string,
     link: string
 }
 
@@ -12,7 +12,7 @@ export default function IconWithLink(props: IconWithLinkProps) {
 
     return (
         <a href={props.link} className={props.className}>
-            <IconWrapper iconComponentName={props.iconName} iconClassName={'svg-inline--fa'}/>
+            <IconWrapper iconComponentName={props.iconComponentName} iconClassName={'svg-inline--fa'}/>
         </a>
     );
 }
