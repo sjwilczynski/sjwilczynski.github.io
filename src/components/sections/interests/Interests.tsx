@@ -32,18 +32,16 @@ export default function Interests() {
                 href="https://www.youtube.com/watch?v=xG91krXuxyw">world record</a>.
             </p>
             <p>
-                As for my other interests I am keen on travelling <FaPlane className={"svg-inline--fa"}/> (most
-                beautiful
-                city - Porto,
-                Portugal, most astonishing view - Tatev, Armenia, best beach -
-                Tangalle, Sri Lanka). Aside from that, in my free time I like visiting escape rooms and
-                reading books <FaBook className={'book-icon svg-inline--fa'}/> (particularly fantasy
-                and history). However my most beloved activity is going to rock
-                concerts (I've been to around 40 already).
+                As for my other interests, I am keen on travelling <FaPlane className={"svg-inline--fa"}/> (most
+                beautiful city - Porto, Portugal, most astonishing view - Tatev, Armenia, best beach -
+                Tangalle, Sri Lanka). In my free time I like visiting escape rooms and
+                reading <a href="https://www.goodreads.com/user/show/100417409-stanis-aw-wilczy-ski">books</a>
+                <FaBook
+                    className={'book-icon svg-inline--fa'}/>. However, my most beloved activity is going to rock
+                concerts.
                 <Button className='mt-2 btn-concerts' block onClick={onConcertsClick}> Click here
                     to {showConcerts ? 'hide' : 'view'} the full concerts list </Button>
             </p>
-
             {showConcerts &&
             <VerticalTimeline>
                 {concertsList.map((concert: ConcertData) =>
