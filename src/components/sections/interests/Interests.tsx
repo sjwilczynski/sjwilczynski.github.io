@@ -53,6 +53,9 @@ export default function Interests() {
                     </VerticalTimelineElement>)}
             </VerticalTimeline>
             }
+            <p>
+                I am also an avid fan of the <a href="https://en.wikipedia.org/wiki/Marvel_Cinematic_Universe">MCU</a> and a follower <a href="https://www.gapminder.org/factfulness-book/">Factfulness idea</a>.
+            </p>
         </>
     );
 }
