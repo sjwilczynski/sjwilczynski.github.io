@@ -1,13 +1,20 @@
 [{
+  "id": "3",
+  "headings" : ["Software Engineer"],
+  "subheading": "Microsoft",
+  "extraInfos": ["Oct 2019 - Present", "Oslo, Norway"],
+  "description" : ""
+},
+  {
   "id": "1",
   "headings" : ["Software Engineer", "Junior Software Engineer"],
   "subheading": "Siemens Digital Logistics",
-  "extraInfos": ["Jul 2018 - Mar 2019", "Oct 2017 - Jun 2018, Jul - Sep 2016"],
+  "extraInfos": ["Jul 2018 - Mar 2019", "Oct 2017 - Jun 2018, Jul - Sep 2016", "Wrocław, Poland"],
   "description" : "Working as Java developer on maintaining and improving one of the top European logistics SaaS platforms. Projects I took part in included:\n* Implementation of refined and redesigned UI for application main components\n* Exhaustive improvement and refactoring of aliasing mechanism for tailored user experience\n* Self-directed work improvements:\n  * unification and enhancement of local deployment tools\n   * integration of code review platform with our workflow\n   * introduction and application of User Story Mapping and Pair Programming in the team"
 },{
   "id": "2",
   "headings" : ["Tutor"],
   "subheading": "University of Wrocław",
-  "extraInfos": ["Jan - Jun 2015"],
+  "extraInfos": ["Jan - Jun 2015", "Wrocław, Poland"],
   "description" : "Helping other students prepare for exams"
 }]
