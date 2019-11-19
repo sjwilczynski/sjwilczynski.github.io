@@ -20,10 +20,14 @@ import "./resume.scss"
 import ReactMarkdown from "react-markdown";
 import {AboutData} from './data/wrappers/AboutData';
 import {ResumeItemData} from "./data/wrappers/ResumeItemData";
-import {ResumeListData} from "./data/wrappers/ResumeListData";
+import { ResumeListData } from "./data/wrappers/ResumeListData";
+
+export type Sections = {
+    [key: string]: string
+}
 
 export default function App() {
-    let sections = {
+    const sections : Sections = {
         about: "About",
         experience: "Experience",
         education: "Education",

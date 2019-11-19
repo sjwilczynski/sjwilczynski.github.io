@@ -4,18 +4,18 @@ import {scroller} from "react-scroll";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import './navigation.scss'
+import { Sections } from '../../App';
 
 type NavigationProps = {
     fullName: string,
-    sections: Object
+    sections: Sections
 }
 
 
 export default function Navigation(props: NavigationProps) {
 
-
     /* these 2 functions together with properties of body allow scroll spying and smooth scroll */
-    let onSelect = (eventKey: any, event: React.SyntheticEvent<{}>) => {
+    let onSelect = (eventKey: string, event: React.SyntheticEvent<unknown>) => {
         event.preventDefault();
         scrollTo(eventKey);
     };
@@ -42,7 +42,7 @@ export default function Navigation(props: NavigationProps) {
                     <Nav>
                         {Object.entries(props.sections).map(keyValue =>
                             <Nav.Item key={keyValue[0]}>
-                                <Nav.Link eventKey={keyValue[0]} href={"#" + keyValue[0]}>{keyValue[1]}</Nav.Link>
+                                <Nav.Link active={false} eventKey={keyValue[0]} href={"#" + keyValue[0]}>{keyValue[1]}</Nav.Link>
                             </Nav.Item>
                         )}
                     </Nav>
