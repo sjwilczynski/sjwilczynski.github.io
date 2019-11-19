@@ -14,11 +14,10 @@ $primary: #4479a2;
 $light: $gray-100;
 $secondary: $gray-600;
 
-
 $theme-colors: (
-        "primary": $primary,
-        "light": $light,
-        "secondary": $secondary,
+  "primary": $primary,
+  "light": $light,
+  "secondary": $secondary
 );
 
 @import "~bootstrap/scss/bootstrap";

@@ -1,15 +1,16 @@
-[{
-  "id": "1",
-  "headings" : ["University of Wrocław"],
-  "subheading": "Computer science (Master's degree)",
-  "extraInfos": ["Oct 2017 - Sep 2019"],
-  "description" : "Final grade: 5.0/5.0\n\n__Thesis:__ Microarray data analysis in prediction of breast cancer metastasis. Here you can find [code](https://github.com/sjwilczynski/geneExpr) and the [thesis](https://github.com/sjwilczynski/thesis) itself."
-
-},{
-  "id": "2",
-  "headings" : ["University of Wrocław"],
-  "subheading": "Joint Studies in Computer Science and Mathematics (Bachelor's degree)",
-  "extraInfos": ["Oct 2014 - Sep 2017"],
-  "description" : "Final grade: 5.0/5.0\n\n__Thesis:__ Reduction of dimensionality by sparse subspace clustering\n\n[Here](https://github.com/sjwilczynski/Studies/blob/master/README.md) you can find a list of all courses I took during my studies."
-}]
-
+[
+  {
+    "id": "1",
+    "headings": ["University of Wrocław"],
+    "subheading": "Computer science (Master's degree)",
+    "extraInfos": ["Oct 2017 - Sep 2019"],
+    "description": "Final grade: 5.0/5.0\n\n__Thesis:__ Microarray data analysis in prediction of breast cancer metastasis. Here you can find [code](https://github.com/sjwilczynski/geneExpr) and the [thesis](https://github.com/sjwilczynski/thesis) itself."
+  },
+  {
+    "id": "2",
+    "headings": ["University of Wrocław"],
+    "subheading": "Joint Studies in Computer Science and Mathematics (Bachelor's degree)",
+    "extraInfos": ["Oct 2014 - Sep 2017"],
+    "description": "Final grade: 5.0/5.0\n\n__Thesis:__ Reduction of dimensionality by sparse subspace clustering\n\n[Here](https://github.com/sjwilczynski/Studies/blob/master/README.md) you can find a list of all courses I took during my studies."
+  }
+]
