@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/sjwilczynski/sjwilczynski.github.io.svg?branch=source)](https://travis-ci.org/sjwilczynski/sjwilczynski.github.io) 
 [![dependencies Status](https://david-dm.org/sjwilczynski/sjwilczynski.github.io/status.svg)](https://david-dm.org/sjwilczynski/sjwilczynski.github.io)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sjwilczynski_sjwilczynski.github.io&metric=alert_status)](https://sonarcloud.io/dashboard?id=sjwilczynski_sjwilczynski.github.io)
 
 # Responsive CV in React
 
