@@ -1,9 +1,15 @@
 {
   "extends": [
     "config:base",
-    "schedule:weekly",
+    "schedule:daily",
     ":automergeMinor",
-    ":automergeBranch"
+    ":automergeBranch",
+    ":combinePatchMinorReleases",
+    ":automergeRequireAllStatusChecks",
+    ":prHourlyLimit4",
+    ":maintainLockFilesMonthly",
+    ":assignee(sjwilczynski)",
+    ":enableVulnerabilityAlerts"
   ]
   
 }
