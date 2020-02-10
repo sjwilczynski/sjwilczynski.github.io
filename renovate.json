@@ -1,6 +1,8 @@
 {
   "extends": [
-    "schedule:daily",
+    ":separateMajorReleases",
+    ":ignoreUnstable",
+    "schedule:weekly",
     ":automergeMinor",
     ":automergeBranch",
     ":combinePatchMinorReleases",
@@ -8,7 +10,7 @@
     ":prHourlyLimit4",
     ":maintainLockFilesMonthly",
     ":assignee(sjwilczynski)",
-    ":enableVulnerabilityAlerts"
+    ":enableVulnerabilityAlerts",
+    ":prConcurrentLimit20"
   ]
-  
 }
