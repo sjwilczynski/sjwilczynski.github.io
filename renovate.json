@@ -1,0 +1,17 @@
+{
+  "extends": [
+    ":separateMajorReleases",
+    ":ignoreUnstable",
+    "schedule:weekly",
+    ":automergeMinor",
+    ":automergeBranch",
+    ":combinePatchMinorReleases",
+    ":automergeRequireAllStatusChecks",
+    ":prHourlyLimit4",
+    ":maintainLockFilesMonthly",
+    ":assignee(sjwilczynski)",
+    ":enableVulnerabilityAlerts",
+    ":prConcurrentLimit20",
+    "helpers:disableTypesNodeMajor"
+  ]
+}
