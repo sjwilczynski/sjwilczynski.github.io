@@ -11,6 +11,7 @@
     ":maintainLockFilesMonthly",
     ":assignee(sjwilczynski)",
     ":enableVulnerabilityAlerts",
-    ":prConcurrentLimit20"
+    ":prConcurrentLimit20",
+    "helpers:disableTypesNodeMajor"
   ]
 }
