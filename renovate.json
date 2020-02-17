@@ -13,5 +13,6 @@
     ":enableVulnerabilityAlerts",
     ":prConcurrentLimit20",
     "helpers:disableTypesNodeMajor"
-  ]
+  ],
+  "timezone": "Europe/Oslo"
 }
