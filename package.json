@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://sjwilczynski.github.io",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.25",
+    "@fortawesome/fontawesome-svg-core": "1.2.27",
     "bootstrap": "4.3.1",
     "gh-pages": "2.1.1",
     "jquery": "3.4.1",
