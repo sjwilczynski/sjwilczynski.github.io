@@ -10,7 +10,7 @@
     "jquery": "3.4.1",
     "node-sass": "4.13.0",
     "popper.js": "1.16.0",
-    "react": "16.12.0",
+    "react": "16.13.0",
     "react-app-polyfill": "1.0.4",
     "react-bootstrap": "1.0.0-beta.15",
     "react-dom": "16.12.0",
@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "@types/node": "12.12.29",
-    "@types/react": "16.9.11",
+    "@types/react": "16.9.23",
     "@types/react-dom": "16.9.4",
     "@types/react-helmet": "5.0.14",
     "@types/react-scroll": "1.5.4",
