@@ -1,18 +1,8 @@
 {
   "extends": [
-    ":separateMajorReleases",
-    ":ignoreUnstable",
-    "schedule:daily",
+    "config:base",
     ":automergeMinor",
-    ":automergeBranch",
-    ":combinePatchMinorReleases",
-    ":automergeRequireAllStatusChecks",
-    ":prHourlyLimit4",
-    ":maintainLockFilesWeekly",
-    ":assignee(sjwilczynski)",
-    ":enableVulnerabilityAlerts",
-    ":prConcurrentLimit20",
-    "helpers:disableTypesNodeMajor"
   ],
+  "lockFileMaintenance": { "enabled": true },
   "timezone": "Europe/Oslo"
 }
