@@ -42,7 +42,7 @@
   "devDependencies": {
     "@types/node": "12.12.37",
     "@types/react": "16.9.34",
-    "@types/react-dom": "16.9.6",
+    "@types/react-dom": "16.9.7",
     "@types/react-helmet": "5.0.15",
     "@types/react-scroll": "1.5.4",
     "@types/react-vertical-timeline-component": "2.5.0",
