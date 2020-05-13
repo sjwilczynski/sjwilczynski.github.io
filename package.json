@@ -45,7 +45,7 @@
     "@types/react-dom": "16.9.8",
     "@types/react-helmet": "5.0.16",
     "@types/react-scroll": "1.5.5",
-    "@types/react-vertical-timeline-component": "2.5.0",
+    "@types/react-vertical-timeline-component": "2.6.0",
     "typed-react-markdown": "0.1.0"
   }
 }
