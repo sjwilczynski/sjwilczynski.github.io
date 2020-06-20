@@ -6,7 +6,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.29",
     "bootstrap": "4.5.0",
-    "gh-pages": "2.2.0",
+    "gh-pages": "3.1.0",
     "jquery": "3.5.1",
     "node-sass": "4.14.1",
     "popper.js": "1.16.1",
