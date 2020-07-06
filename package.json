@@ -40,7 +40,7 @@
     "not ie < 11"
   ],
   "devDependencies": {
-    "@types/node": "12.12.47",
+    "@types/node": "12.12.48",
     "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
     "@types/react-helmet": "5.0.16",
