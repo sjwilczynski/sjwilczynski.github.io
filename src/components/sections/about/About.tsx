@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import SocialMedias from "./SocialMedias";
 import ReactMarkdown from "react-markdown";
 import { AboutData } from "../../../data/wrappers/AboutData";

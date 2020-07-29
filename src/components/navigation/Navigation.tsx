@@ -1,8 +1,7 @@
-import React from "react";
+import * as React from "react";
 import face from "./face.jpg";
 import { scroller } from "react-scroll";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import { Nav, Navbar } from "react-bootstrap";
 import "./navigation.scss";
 import { Sections } from "../../App";
 
@@ -13,14 +12,17 @@ type NavigationProps = {
 
 export default function Navigation(props: NavigationProps) {
   /* these 2 functions together with properties of body allow scroll spying and smooth scroll */
-  let onSelect = (eventKey: string, event: React.SyntheticEvent<unknown>) => {
+  let onSelect = (
+    eventKey: string | null,
+    event: React.SyntheticEvent<unknown>
+  ) => {
     event.preventDefault();
     scrollTo(eventKey);
   };
   let scrollTo = (element: any) => {
     scroller.scrollTo(element, {
       duration: 1000,
-      smooth: "easeInOutQuint"
+      smooth: "easeInOutQuint",
     });
   };
 
@@ -49,7 +51,7 @@ export default function Navigation(props: NavigationProps) {
         <Navbar.Toggle aria-controls="navbarSupportedContent" />
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav>
-            {Object.entries(props.sections).map(keyValue => (
+            {Object.entries(props.sections).map((keyValue) => (
               <Nav.Item key={keyValue[0]}>
                 <Nav.Link
                   active={false}

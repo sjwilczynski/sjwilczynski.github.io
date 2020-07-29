@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ResumeItem from "./ResumeItem";
 import Section from "../sections/Section";
 import "./resume-section.scss";

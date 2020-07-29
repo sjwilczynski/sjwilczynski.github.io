@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import "./resume-list.scss";
 import { ResumeListData } from "../../data/wrappers/ResumeListData";

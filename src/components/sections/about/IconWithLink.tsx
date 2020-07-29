@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import "./icons.scss";
 import IconWrapper from "../../../data/wrappers/IconWrapper";
 

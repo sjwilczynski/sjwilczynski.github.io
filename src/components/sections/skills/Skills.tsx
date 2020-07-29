@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ResumeList from "../../resume/ResumeList";
 import { ResumeListData } from "../../../data/wrappers/ResumeListData";
 import { ResumeListElementData } from "../../../data/wrappers/ResumeListElementData";

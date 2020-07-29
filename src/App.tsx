@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
 import About from "./components/sections/about/About";
@@ -35,7 +35,7 @@ export default function App() {
     research: "Research",
     skills: "Skills",
     achievements: "Achievements",
-    interests: "Interests"
+    interests: "Interests",
   };
   const about: AboutData = new AboutData(aboutData);
 
@@ -98,7 +98,7 @@ export default function App() {
         />
 
         <ResumeSection id="skills" title={sections.skills}>
-          {skillsResumeLists.map(skills => (
+          {skillsResumeLists.map((skills) => (
             <Skills key={skills.id} skills={skills} />
           ))}
         </ResumeSection>

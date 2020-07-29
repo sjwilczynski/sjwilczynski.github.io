@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import medias from "../../../data/social-media.json";
 import IconWithLink from "./IconWithLink";
 import { SocialMediaData } from "../../../data/wrappers/SocialMediaData";
