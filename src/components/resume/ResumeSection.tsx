@@ -1,13 +1,13 @@
 import * as React from "react";
-import ResumeItem, { ResumeItemData } from "./ResumeItem";
+import ResumeItemView from "./ResumeItemView";
 import Section from "../sections/Section";
 import "./resume-section.scss";
-
+import { ResumeItem } from "../../data/types";
 
 type ResumeSectionProps = {
   id: string;
   title?: string;
-  resumeItems?: ResumeItemData[];
+  resumeItems?: ResumeItem[];
   children?: React.ReactNode;
 };
 
@@ -16,8 +16,8 @@ export default function ResumeSection(props: ResumeSectionProps) {
   return (
     <>
       <Section id={props.id} title={props.title}>
-        {resumeItems.map(resumeItem => (
-          <ResumeItem key={resumeItem.id} data={resumeItem} />
+        {resumeItems.map((resumeItem) => (
+          <ResumeItemView key={resumeItem.id} {...resumeItem} />
         ))}
         {props.children}
       </Section>

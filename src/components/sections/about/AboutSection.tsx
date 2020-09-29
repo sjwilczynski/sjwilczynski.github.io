@@ -1,19 +1,13 @@
 import * as React from "react";
 import SocialMedias from "./SocialMedias";
 import ReactMarkdown from "react-markdown";
+import { About, SocialMedia } from "../../../data/types";
 
-export type AboutData = {
-  name: string;
-  surname: string;
-  city: string;
-  country: string;
-  email: string;
-  githubUrl: string;
-  introduction: string;
-};
-
-export default function About(props: { data: AboutData }) {
-  const about = props.data;
+export default function AboutSection(props: {
+  about: About;
+  socialMedias: SocialMedia[];
+}) {
+  const { about, socialMedias } = props;
   return (
     <>
       <h1 className="mb-0">
@@ -25,7 +19,7 @@ export default function About(props: { data: AboutData }) {
         <a href={"mailto:" + about.email}> {about.email}</a>
       </div>
       <ReactMarkdown className="lead mb-5" source={about.introduction} />
-      <SocialMedias />
+      <SocialMedias socialMedias={socialMedias} />
     </>
   );
 }

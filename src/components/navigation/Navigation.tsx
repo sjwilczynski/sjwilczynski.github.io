@@ -5,21 +5,21 @@ import { Nav, Navbar } from "react-bootstrap";
 import "./navigation.scss";
 import { Sections } from "../../App";
 
-type NavigationProps = {
+type Props = {
   fullName: string;
   sections: Sections;
 };
 
-export default function Navigation(props: NavigationProps) {
+export default function Navigation(props: Props) {
   /* these 2 functions together with properties of body allow scroll spying and smooth scroll */
-  let onSelect = (
+  const onSelect = (
     eventKey: string | null,
     event: React.SyntheticEvent<unknown>
   ) => {
     event.preventDefault();
     scrollTo(eventKey);
   };
-  let scrollTo = (element: any) => {
+  const scrollTo = (element: any) => {
     scroller.scrollTo(element, {
       duration: 1000,
       smooth: "easeInOutQuint",

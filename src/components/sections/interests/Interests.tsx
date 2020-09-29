@@ -1,31 +1,24 @@
 import React, { useState } from "react";
-import concertDatas from "./../../../data/concerts.json";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { ConcertData } from "../../../data/wrappers/ConcertData";
 import Button from "react-bootstrap/Button";
 import { scroller } from "react-scroll";
 import "./interests.scss";
 import { GiGuitar } from "react-icons/gi";
 import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa";
+import { Concert } from "../../../data/types";
 
-export default function Interests() {
+export default function Interests(props: { concerts: Concert[] }) {
   const [showConcerts, setShowConcerts] = useState(false);
 
-  let onConcertsClick = () => {
+  const onConcertsClick = () => {
     setShowConcerts((showConcerts) => !showConcerts);
     scroller.scrollTo("interests", {});
   };
 
-  const concertsList = concertDatas
-    .map((concertData: any) => new ConcertData(concertData))
-    .sort(
-      (c1: ConcertData, c2: ConcertData) =>
-        c2.startDate.getTime() - c1.endDate.getTime()
-    );
   return (
     <>
       <p>
@@ -59,10 +52,10 @@ export default function Interests() {
       </p>
       {showConcerts && (
         <VerticalTimeline>
-          {concertsList.map((concert: ConcertData) => (
+          {props.concerts.map((concert) => (
             <VerticalTimelineElement
               key={concert.id}
-              date={concert.getDate()}
+              date={concert.date}
               icon={<GiGuitar />}
               iconStyle={{ background: "#4479a2", color: "#fff" }}
             >

@@ -1,24 +1,16 @@
 import * as React from "react";
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
-import About, { AboutData } from "./components/sections/about/About";
-import ResumeList, { ResumeListData } from "./components/resume/ResumeList";
+import AboutSection from "./components/sections/about/AboutSection";
+import ResumeListView from "./components/resume/ResumeListView";
 import ResumeSection from "./components/resume/ResumeSection";
 import Skills from "./components/sections/skills/Skills";
 import Interests from "./components/sections/interests/Interests";
 
-import achievementListData from "./data/achievements.json";
-import projectListData from "./data/projects.json";
-import experienceListData from "./data/experience.json";
-import educationListData from "./data/education.json";
-import researchListData from "./data/reasearch.json";
-import skillListData from "./data/skills.json";
-import aboutData from "./data/about.json";
-
 import "bootstrap/dist/js/bootstrap";
 import "./resume.scss";
 import ReactMarkdown from "react-markdown";
-import { ResumeItemData } from "./components/resume/ResumeItem";
+import { getData } from "./data/getData";
 
 export type Sections = {
   [key: string]: string;
@@ -35,16 +27,20 @@ export default function App() {
     achievements: "Achievements",
     interests: "Interests",
   };
-  const about = (aboutData as unknown) as AboutData;
+
+  const {
+    about,
+    experienceResumeItems,
+    educationResumeItems,
+    researchResumeItems,
+    projectsResumeList,
+    achievementResumeList,
+    skillsResumeLists,
+    socialMedias,
+    concerts,
+  } = getData();
+
   const fullName = about.name + " " + about.surname;
-
-  const experienceResumeItems = (experienceListData as unknown) as ResumeItemData[];
-  const educationResumeItems = (educationListData as unknown) as ResumeItemData[];
-  const researchResumeItems = (researchListData as unknown) as ResumeItemData[];
-
-  const projectsResumeList = (projectListData as unknown) as ResumeListData;
-  const achievementResumeList = (achievementListData as unknown) as ResumeListData;
-  const skillsResumeLists = (skillListData as unknown) as ResumeListData[];
 
   return (
     <>
@@ -54,7 +50,7 @@ export default function App() {
       <Navigation sections={sections} fullName={fullName} />
       <div className="container-fluid p-0">
         <ResumeSection id="about">
-          <About data={about} />
+          <AboutSection about={about} socialMedias={socialMedias} />
         </ResumeSection>
 
         <ResumeSection
@@ -70,7 +66,7 @@ export default function App() {
         />
 
         <ResumeSection id="projects" title={sections.projects}>
-          <ResumeList data={projectsResumeList} />
+          <ResumeListView {...projectsResumeList} />
           <ReactMarkdown
             source={
               "More code can be found on my [github](" + about.githubUrl + ")"
@@ -91,11 +87,11 @@ export default function App() {
         </ResumeSection>
 
         <ResumeSection id="achievements" title={sections.achievements}>
-          <ResumeList data={achievementResumeList} />
+          <ResumeListView {...achievementResumeList} />
         </ResumeSection>
 
         <ResumeSection id="interests" title={sections.interests}>
-          <Interests />
+          <Interests concerts={concerts} />
         </ResumeSection>
       </div>
     </>

@@ -1,18 +1,16 @@
 import * as React from "react";
-import ResumeList, {
-  ResumeListData,
-  ResumeListElementData,
-} from "../../resume/ResumeList";
+import { ResumeList, ResumeListElement } from "../../../data/types";
+import ResumeListView from "../../resume/ResumeListView";
 
 type SkillsChunk = {
   id: number;
-  elements: ResumeListElementData[];
+  elements: ResumeListElement[];
   listClassName: string;
 };
 
-export default function Skills(props: { skills: ResumeListData }) {
+export default function Skills(props: { skills: ResumeList }) {
   const splitToChunks = function (
-    elements: ResumeListElementData[],
+    elements: ResumeListElement[],
     numColumns: number
   ): SkillsChunk[] {
     const perChunk = Math.ceil(elements.length / numColumns);
@@ -46,7 +44,7 @@ export default function Skills(props: { skills: ResumeListData }) {
             key={skillChunk.id}
             className={"col-" + Math.floor(12 / numColumns)}
           >
-            <ResumeList key={skillChunk.id} data={skillChunk} />
+            <ResumeListView key={skillChunk.id} {...skillChunk} />
           </div>
         ))}
       </div>

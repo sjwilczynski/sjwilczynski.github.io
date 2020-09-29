@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 
-type HeadProps = {
+type Props = {
   description: string;
   fullName: string;
   children?: React.ReactNode;
 };
 
-export default function Head(props: HeadProps) {
+export default function Head(props: Props) {
   return (
     <>
       <Helmet>
