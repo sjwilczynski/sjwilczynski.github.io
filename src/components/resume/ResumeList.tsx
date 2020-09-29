@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
+import Icon from "../icons/Icon";
 import "./resume-list.scss";
-import IconWrapper from "../../data/wrappers/IconWrapper";
 
 export type ResumeListElementData = {
   id: number;
@@ -24,7 +24,7 @@ export default function ResumeList(props: { data: ResumeListData }) {
       <ul className={"fa-ul mb-0 " + props.data.listClassName}>
         {props.data.elements.map((element) => {
           let icon = element.iconComponentName ? (
-            <IconWrapper
+            <Icon
               iconComponentName={element.iconComponentName}
               iconClassName={
                 (element.iconClassName || "") + " svg-inline--fa fa-li"

@@ -1,6 +1,6 @@
 import * as React from "react";
 import medias from "../../../data/social-media.json";
-import IconWithLink from "./IconWithLink";
+import IconWithLink from "../../icons/IconWithLink";
 
 type SocialMedia = {
   id: number;

@@ -1,6 +1,6 @@
 import * as React from "react";
-import "./icons.scss";
-import IconWrapper from "../../../data/wrappers/IconWrapper";
+import "./icon-wth-link.scss";
+import Icon from "./Icon";
 
 type IconWithLinkProps = {
   iconComponentName: string;
@@ -16,7 +16,7 @@ export default function IconWithLink(props: IconWithLinkProps) {
       title={props.title}
       aria-hidden={true}
     >
-      <IconWrapper
+      <Icon
         iconComponentName={props.iconComponentName}
         iconClassName={"svg-inline--fa"}
       />
