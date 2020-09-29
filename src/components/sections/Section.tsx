@@ -1,12 +1,12 @@
 import * as React from "react";
 
-type SectionProps = {
+type Props = {
   id: string;
   title?: string;
   children?: React.ReactNode;
 };
 
-export default function Section(props: SectionProps) {
+export default function Section(props: Props) {
   return (
     <>
       <section
