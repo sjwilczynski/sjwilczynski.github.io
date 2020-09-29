@@ -1,14 +1,14 @@
 import * as React from "react";
-import ResumeItem from "./ResumeItem";
+import ResumeItem, { ResumeItemData } from "./ResumeItem";
 import Section from "../sections/Section";
 import "./resume-section.scss";
-import { ResumeItemData } from "../../data/wrappers/ResumeItemData";
+
 
 type ResumeSectionProps = {
   id: string;
   title?: string;
   resumeItems?: ResumeItemData[];
-  children?: any;
+  children?: React.ReactNode;
 };
 
 export default function ResumeSection(props: ResumeSectionProps) {

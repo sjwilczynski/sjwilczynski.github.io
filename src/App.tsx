@@ -2,7 +2,7 @@ import * as React from "react";
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
 import About from "./components/sections/about/About";
-import ResumeList from "./components/resume/ResumeList";
+import ResumeList, { ResumeListData } from "./components/resume/ResumeList";
 import ResumeSection from "./components/resume/ResumeSection";
 import Skills from "./components/sections/skills/Skills";
 import Interests from "./components/sections/interests/Interests";
@@ -19,8 +19,7 @@ import "bootstrap/dist/js/bootstrap";
 import "./resume.scss";
 import ReactMarkdown from "react-markdown";
 import { AboutData } from "./data/wrappers/AboutData";
-import { ResumeItemData } from "./data/wrappers/ResumeItemData";
-import { ResumeListData } from "./data/wrappers/ResumeListData";
+import { ResumeItemData } from "./components/resume/ResumeItem";
 
 export type Sections = {
   [key: string]: string;
@@ -39,25 +38,13 @@ export default function App() {
   };
   const about: AboutData = new AboutData(aboutData);
 
-  const experienceResumeItems: ResumeItemData[] = experienceListData.map(
-    (resumeItemData: any) => new ResumeItemData(resumeItemData)
-  );
-  const educationResumeItems: ResumeItemData[] = educationListData.map(
-    (resumeItemData: any) => new ResumeItemData(resumeItemData)
-  );
-  const researchResumeItems: ResumeItemData[] = researchListData.map(
-    (resumeItemData: any) => new ResumeItemData(resumeItemData)
-  );
+  const experienceResumeItems = (experienceListData as unknown) as ResumeItemData[];
+  const educationResumeItems = (educationListData as unknown) as ResumeItemData[];
+  const researchResumeItems = (researchListData as unknown) as ResumeItemData[];
 
-  const projectsResumeList: ResumeListData = new ResumeListData(
-    projectListData
-  );
-  const achievementResumeList: ResumeListData = new ResumeListData(
-    achievementListData
-  );
-  const skillsResumeLists: ResumeListData[] = skillListData.map(
-    (resumeListData: any) => new ResumeListData(resumeListData)
-  );
+  const projectsResumeList = (projectListData as unknown) as ResumeListData;
+  const achievementResumeList = (achievementListData as unknown) as ResumeListData;
+  const skillsResumeLists = (skillListData as unknown) as ResumeListData[];
 
   return (
     <>

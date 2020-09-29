@@ -1,18 +1,28 @@
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import "./resume-list.scss";
-import { ResumeListData } from "../../data/wrappers/ResumeListData";
 import IconWrapper from "../../data/wrappers/IconWrapper";
 
-type ResumeListProps = {
-  data: ResumeListData;
+export type ResumeListElementData = {
+  id: number;
+  description: string;
+  iconComponentName?: string;
+  iconClassName?: string;
 };
 
-export default function ResumeList(props: ResumeListProps) {
+export type ResumeListData = {
+  elements: ResumeListElementData[];
+  id?: number;
+  title?: string;
+  listClassName?: string;
+  numColumns?: number;
+};
+
+export default function ResumeList(props: { data: ResumeListData }) {
   return (
     <>
       <ul className={"fa-ul mb-0 " + props.data.listClassName}>
-        {props.data.elements.map(element => {
+        {props.data.elements.map((element) => {
           let icon = element.iconComponentName ? (
             <IconWrapper
               iconComponentName={element.iconComponentName}

@@ -1,11 +1,8 @@
 import * as React from "react";
-import ResumeList from "../../resume/ResumeList";
-import { ResumeListData } from "../../../data/wrappers/ResumeListData";
-import { ResumeListElementData } from "../../../data/wrappers/ResumeListElementData";
-
-type SkillsProps = {
-  skills: ResumeListData;
-};
+import ResumeList, {
+  ResumeListData,
+  ResumeListElementData,
+} from "../../resume/ResumeList";
 
 type SkillsChunk = {
   id: number;
@@ -13,8 +10,8 @@ type SkillsChunk = {
   listClassName: string;
 };
 
-export default function Skills(props: SkillsProps) {
-  const splitToChunks = function(
+export default function Skills(props: { skills: ResumeListData }) {
+  const splitToChunks = function (
     elements: ResumeListElementData[],
     numColumns: number
   ): SkillsChunk[] {
@@ -27,7 +24,7 @@ export default function Skills(props: SkillsProps) {
         resultArray[chunkIndex] = {
           elements: [],
           listClassName: skills.listClassName || "",
-          id: index
+          id: index,
         };
       }
 
@@ -44,7 +41,7 @@ export default function Skills(props: SkillsProps) {
     <>
       <div className="subheading mb-3 mt-2">{skills.title}</div>
       <div className="d-flex">
-        {skillsChunked.map(skillChunk => (
+        {skillsChunked.map((skillChunk) => (
           <div
             key={skillChunk.id}
             className={"col-" + Math.floor(12 / numColumns)}
