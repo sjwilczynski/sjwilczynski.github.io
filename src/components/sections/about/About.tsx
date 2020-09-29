@@ -1,13 +1,18 @@
 import * as React from "react";
 import SocialMedias from "./SocialMedias";
 import ReactMarkdown from "react-markdown";
-import { AboutData } from "../../../data/wrappers/AboutData";
 
-type AboutProps = {
-  data: AboutData;
+export type AboutData = {
+  name: string;
+  surname: string;
+  city: string;
+  country: string;
+  email: string;
+  githubUrl: string;
+  introduction: string;
 };
 
-export default function About(props: AboutProps) {
+export default function About(props: { data: AboutData }) {
   const about = props.data;
   return (
     <>

@@ -3,7 +3,7 @@ import * as React from "react";
 type SectionProps = {
   id: string;
   title?: string;
-  children?: any;
+  children?: React.ReactNode;
 };
 
 export default function Section(props: SectionProps) {

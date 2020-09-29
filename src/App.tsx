@@ -1,7 +1,7 @@
 import * as React from "react";
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
-import About from "./components/sections/about/About";
+import About, { AboutData } from "./components/sections/about/About";
 import ResumeList, { ResumeListData } from "./components/resume/ResumeList";
 import ResumeSection from "./components/resume/ResumeSection";
 import Skills from "./components/sections/skills/Skills";
@@ -18,7 +18,6 @@ import aboutData from "./data/about.json";
 import "bootstrap/dist/js/bootstrap";
 import "./resume.scss";
 import ReactMarkdown from "react-markdown";
-import { AboutData } from "./data/wrappers/AboutData";
 import { ResumeItemData } from "./components/resume/ResumeItem";
 
 export type Sections = {
@@ -36,7 +35,8 @@ export default function App() {
     achievements: "Achievements",
     interests: "Interests",
   };
-  const about: AboutData = new AboutData(aboutData);
+  const about = (aboutData as unknown) as AboutData;
+  const fullName = about.name + " " + about.surname;
 
   const experienceResumeItems = (experienceListData as unknown) as ResumeItemData[];
   const educationResumeItems = (educationListData as unknown) as ResumeItemData[];
@@ -48,10 +48,10 @@ export default function App() {
 
   return (
     <>
-      <Head description={"CV page using React"} fullName={about.getFullName()}>
-        <title>{about.getFullName()}</title>
+      <Head description={"CV page using React"} fullName={fullName}>
+        <title>{fullName}</title>
       </Head>
-      <Navigation sections={sections} fullName={about.getFullName()} />
+      <Navigation sections={sections} fullName={fullName} />
       <div className="container-fluid p-0">
         <ResumeSection id="about">
           <About data={about} />

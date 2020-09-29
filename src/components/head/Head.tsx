@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 type HeadProps = {
   description: string;
   fullName: string;
-  children?: any;
+  children?: React.ReactNode;
 };
 
 export default function Head(props: HeadProps) {
