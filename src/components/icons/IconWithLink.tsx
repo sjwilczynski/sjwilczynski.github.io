@@ -9,18 +9,18 @@ type IconWithLinkProps = {
 };
 
 export default function IconWithLink(props: IconWithLinkProps) {
+  const { iconComponentName, link, title } = props;
   return (
     <a
-      href={props.link}
+      href={link}
       className={"icon-with-link"}
-      title={props.title}
-      aria-hidden={true}
+      title={title}
+      aria-label={title}
     >
       <Icon
-        iconComponentName={props.iconComponentName}
+        iconComponentName={iconComponentName}
         iconClassName={"svg-inline--fa"}
       />
-      <span className={"hidden"}></span>
     </a>
   );
 }

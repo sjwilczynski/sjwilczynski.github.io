@@ -35,5 +35,5 @@ export default function Icon(props: Props) {
 
   const IconComponent: IconType =
     iconComponents[props.iconComponentName] || GiFlame;
-  return <IconComponent className={props.iconClassName} />;
+  return <IconComponent className={props.iconClassName} aria-hidden={true} />;
 }
