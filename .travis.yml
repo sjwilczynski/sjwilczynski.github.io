@@ -15,11 +15,5 @@ deploy:
   on:
     branch: source
 
-addons:
-  sonarcloud:
-    organization: "sjwilczynski"
-    token: $sonarcloud_token
-
 script:
   - npm run build
-  - sonar-scanner
