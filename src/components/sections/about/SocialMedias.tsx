@@ -1,20 +1,24 @@
 import * as React from "react";
 import medias from "../../../data/social-media.json";
 import IconWithLink from "./IconWithLink";
-import { SocialMediaData } from "../../../data/wrappers/SocialMediaData";
+
+type SocialMedia = {
+  id: number;
+  link: string;
+  iconComponentName: string;
+  title: string;
+};
 
 export default function SocialMedias() {
-  const socialMedias = medias.map(
-    (socialMediaData: any) => new SocialMediaData(socialMediaData)
-  );
+  const socialMedias = (medias as unknown) as SocialMedia[];
   return (
     <div>
-      {socialMedias.map((social: SocialMediaData) => (
+      {socialMedias.map((social: SocialMedia) => (
         <IconWithLink
           key={social.id}
-          className={"icon-with-link"}
           iconComponentName={social.iconComponentName}
           link={social.link}
+          title={social.title}
         />
       ))}
     </div>

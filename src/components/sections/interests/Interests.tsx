@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import concertDatas from "./../../../data/concerts.json";
 import {
   VerticalTimeline,
-  VerticalTimelineElement
+  VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { ConcertData } from "../../../data/wrappers/ConcertData";
@@ -16,7 +16,7 @@ export default function Interests() {
   const [showConcerts, setShowConcerts] = useState(false);
 
   let onConcertsClick = () => {
-    setShowConcerts(showConcerts => !showConcerts);
+    setShowConcerts((showConcerts) => !showConcerts);
     scroller.scrollTo("interests", {});
   };
 
@@ -49,7 +49,7 @@ export default function Interests() {
         Sri Lanka). In my free time I like visiting escape rooms and reading{" "}
         <a href="https://www.goodreads.com/user/show/100417409-stanis-aw-wilczy-ski">
           books
-        </a>
+        </a>{" "}
         <FaBook className={"book-icon svg-inline--fa"} />. However, my most
         beloved activity is going to rock concerts.
         <Button className="mt-2 btn-concerts" block onClick={onConcertsClick}>
