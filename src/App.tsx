@@ -69,7 +69,7 @@ export default function App() {
           <ResumeListView {...projectsResumeList} />
           <ReactMarkdown
             source={
-              "More code can be found on my [github](" + about.githubUrl + ")"
+              "More code can be found on [my github](" + about.githubUrl + ")"
             }
           />
         </ResumeSection>
