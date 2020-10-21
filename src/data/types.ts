@@ -28,7 +28,7 @@ export type ResumeItem = {
   headings: string[];
   subheading: string;
   extraInfos: string[];
-  description?: string;
+  description: string;
 };
 
 export type SocialMedia = {
