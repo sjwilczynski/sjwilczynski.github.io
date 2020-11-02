@@ -21,18 +21,20 @@ export const getData = () => {
   const achievementResumeList = (achievementListData as unknown) as ResumeList;
   const skillsResumeLists = (skillListData as unknown) as ResumeList[];
 
-  const concerts: Concert[] = concertsData.map((data) => {
-    return {
-      id: data.id,
-      date: getConcertDate(
-        readDateFromString(data.startDate),
-        readDateFromString(data.endDate)
-      ),
-      title: data.title,
-      location: data.location,
-      description: data.description,
-    };
-  });
+  const concerts: Concert[] = concertsData
+    .map((data) => {
+      return {
+        id: data.id,
+        date: getConcertDate(
+          readDateFromString(data.startDate),
+          readDateFromString(data.endDate)
+        ),
+        title: data.title,
+        location: data.location,
+        description: data.description,
+      };
+    })
+    .reverse();
 
   return {
     about,
