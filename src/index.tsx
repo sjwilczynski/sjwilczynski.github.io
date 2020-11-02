@@ -1,10 +1,10 @@
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
-
 import * as ReactDOM from "react-dom";
 import App from "./App";
 import * as React from "react";
 import * as serviceWorker from "./serviceWorker";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
@@ -12,3 +12,8 @@ ReactDOM.render(<App />, document.getElementById("root"));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
