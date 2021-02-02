@@ -42,7 +42,7 @@
   ],
   "devDependencies": {
     "@types/node": "12.19.15",
-    "@types/react": "17.0.0",
+    "@types/react": "17.0.1",
     "@types/react-dom": "17.0.0",
     "@types/react-helmet": "6.1.0",
     "@types/react-scroll": "1.8.2",
