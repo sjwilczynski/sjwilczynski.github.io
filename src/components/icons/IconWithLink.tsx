@@ -1,4 +1,3 @@
-import * as React from "react";
 import "./icon-wth-link.scss";
 import Icon from "./Icon";
 

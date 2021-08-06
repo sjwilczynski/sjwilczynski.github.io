@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ResumeList, ResumeListElement } from "../../../data/types";
 import ResumeListView from "../../resume/ResumeListView";
 

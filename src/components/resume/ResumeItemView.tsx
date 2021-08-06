@@ -1,4 +1,3 @@
-import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import { ResumeItem } from "../../data/types";
 import "./resume-item.scss";

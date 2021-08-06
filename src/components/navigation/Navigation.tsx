@@ -1,4 +1,3 @@
-import * as React from "react";
 import face from "./face.webp";
 import { scroller } from "react-scroll";
 import { Nav, Navbar } from "react-bootstrap";

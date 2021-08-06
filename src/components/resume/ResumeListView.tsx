@@ -1,4 +1,3 @@
-import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import { ResumeList } from "../../data/types";
 import Icon from "../icons/Icon";

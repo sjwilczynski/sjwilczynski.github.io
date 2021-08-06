@@ -1,4 +1,3 @@
-import * as React from "react";
 import ResumeItemView from "./ResumeItemView";
 import Section from "../sections/Section";
 import "./resume-section.scss";

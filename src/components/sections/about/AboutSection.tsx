@@ -1,4 +1,3 @@
-import * as React from "react";
 import SocialMedias from "./SocialMedias";
 import ReactMarkdown from "react-markdown";
 import { About, SocialMedia } from "../../../data/types";

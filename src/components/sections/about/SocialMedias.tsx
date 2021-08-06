@@ -1,4 +1,3 @@
-import * as React from "react";
 import { SocialMedia } from "../../../data/types";
 import IconWithLink from "../../icons/IconWithLink";
 

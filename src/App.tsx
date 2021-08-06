@@ -1,4 +1,3 @@
-import * as React from "react";
 import Navigation from "./components/navigation/Navigation";
 import Head from "./components/head/Head";
 import AboutSection from "./components/sections/about/AboutSection";
