@@ -24,9 +24,10 @@ export default function ResumeListView(props: ResumeList) {
             <li className={liStyle} key={element.id}>
               {icon}{" "}
               <ReactMarkdown
-                source={element.description}
-                renderers={{ paragraph: "span" }}
-              />
+                components={{ p: ({node, ...props}) => <span {...props} /> }}
+              >
+              {element.description}
+              </ReactMarkdown>
             </li>
           );
         })}
