@@ -9,7 +9,6 @@ import Interests from "./components/sections/interests/Interests";
 
 import "bootstrap/dist/js/bootstrap";
 import "./resume.scss";
-import ReactMarkdown from "react-markdown";
 import { getData } from "./data/getData";
 
 export type Sections = {
@@ -67,11 +66,7 @@ export default function App() {
 
         <ResumeSection id="projects" title={sections.projects}>
           <ResumeListView {...projectsResumeList} />
-          <ReactMarkdown
-            source={
-              "More code can be found on [my github](" + about.githubUrl + ")"
-            }
-          />
+          More code can be found on <a href={about.githubUrl}>my github</a>
         </ResumeSection>
 
         <ResumeSection

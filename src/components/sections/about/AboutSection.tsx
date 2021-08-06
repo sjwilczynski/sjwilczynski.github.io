@@ -18,7 +18,9 @@ export default function AboutSection(props: {
         {about.city}, {about.country},
         <a href={"mailto:" + about.email}> {about.email}</a>
       </div>
-      <ReactMarkdown className="lead mb-5" source={about.introduction} />
+      <ReactMarkdown className="lead mb-5">
+        {about.introduction} 
+      </ReactMarkdown>
       <SocialMedias socialMedias={socialMedias} />
     </>
   );

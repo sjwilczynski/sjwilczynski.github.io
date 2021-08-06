@@ -15,7 +15,7 @@ export default function ResumeItemView(props: ResumeItem) {
             </h3>
           ))}
           <div className="subheading mb-3">{subheading}</div>
-          <ReactMarkdown source={description} />
+          <ReactMarkdown>{description}</ReactMarkdown>
         </div>
         <div className="resume-extra text-md-right">
           {extraInfos.map((info) => (
