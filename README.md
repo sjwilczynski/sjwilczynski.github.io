@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/sjwilczynski/sjwilczynski.github.io.svg?branch=source)](https://travis-ci.org/sjwilczynski/sjwilczynski.github.io) 
 ![Azure Static Web Apps CI/CD](https://github.com/sjwilczynski/sjwilczynski.github.io/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
 
 # Responsive CV in React
