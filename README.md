@@ -1,4 +1,5 @@
 ![Azure Static Web Apps CI/CD](https://github.com/sjwilczynski/sjwilczynski.github.io/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
+![Github pages](https://github.com/sjwilczynski/sjwilczynski.github.io/actions/workflows/gh-pages-deploy.yml/badge.svg)
 
 # Responsive CV in React
 
