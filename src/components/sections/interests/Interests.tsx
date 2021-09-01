@@ -46,7 +46,7 @@ export default function Interests(props: { concerts: Concert[] }) {
         <FaBook className={"book-icon svg-inline--fa"} />. However, my most
         beloved activity is going to rock concerts.
       </p>
-      <div className="d-grid">
+      <div className="d-grid mb-2">
         <Button className="mt-2 btn-concerts" onClick={onConcertsClick}>
           Click here to {showConcerts ? "hide" : "view"} the full concerts list
         </Button>
