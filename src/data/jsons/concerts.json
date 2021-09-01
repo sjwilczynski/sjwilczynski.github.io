@@ -294,5 +294,13 @@
     "title": "Dropkick Murphys",
     "location": "Prague",
     "description": ""
+  },
+  {
+    "id": 38,
+    "startDate": "19.08.2021",
+    "endDate": "19.08.2021",
+    "title": "Nocny Kochanek",
+    "location": "Wroclaw",
+    "description": "First concert in such a long time due to pandemic <3"
   }
 ]
