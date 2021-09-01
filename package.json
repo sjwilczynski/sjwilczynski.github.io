@@ -5,24 +5,18 @@
   "homepage": "https://sjwilczynski.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.36",
-    "bootstrap": "4.6.0",
-    "gh-pages": "3.2.3",
-    "jquery": "3.6.0",
+    "bootstrap": "5.1.0",
     "node-sass": "6.0.1",
-    "popper.js": "1.16.1",
+    "@popperjs/core": "2.9.3",
     "react": "17.0.2",
-    "react-app-polyfill": "2.0.0",
-    "react-bootstrap": "1.6.1",
+    "react-bootstrap": "2.0.0-beta.6",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-icons": "4.2.0",
     "react-markdown": "7.0.1",
-    "react-router-dom": "5.2.1",
     "react-scripts": "4.0.3",
     "react-scroll": "1.8.3",
-    "react-vertical-timeline-component": "3.3.3",
-    "typescript": "4.4.2",
-    "web-vitals": "2.1.0"
+    "react-vertical-timeline-component": "3.3.3"
   },
   "scripts": {
     "start": "HOST=localhost && react-scripts start",
@@ -47,6 +41,7 @@
     "@types/react-helmet": "6.1.2",
     "@types/react-scroll": "1.8.3",
     "@types/react-vertical-timeline-component": "3.0.1",
-    "typed-react-markdown": "0.1.0"
+    "gh-pages": "3.2.3",
+    "typescript": "4.4.2"
   }
 }

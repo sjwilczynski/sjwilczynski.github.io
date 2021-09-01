@@ -45,11 +45,12 @@ export default function Interests(props: { concerts: Concert[] }) {
         </a>{" "}
         <FaBook className={"book-icon svg-inline--fa"} />. However, my most
         beloved activity is going to rock concerts.
-        <Button className="mt-2 btn-concerts" block onClick={onConcertsClick}>
-          {" "}
-          Click here to {showConcerts ? "hide" : "view"} the full concerts list{" "}
-        </Button>
       </p>
+      <div className="d-grid mb-2">
+        <Button className="mt-2 btn-concerts" onClick={onConcertsClick}>
+          Click here to {showConcerts ? "hide" : "view"} the full concerts list
+        </Button>
+      </div>
       {showConcerts && (
         <VerticalTimeline>
           {props.concerts.map((concert) => (

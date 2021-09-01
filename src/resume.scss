@@ -10,6 +10,7 @@ body {
   padding-top: 54px;
   color: $secondary;
   background-color: $light;
+  position: relative;
 }
 
 @media (min-width: 992px) {
@@ -57,10 +58,12 @@ h3 {
 
 a {
   color: $primary;
+  text-decoration: none;
 
   &:hover,
   &:focus,
   &:active {
+    text-decoration: underline;
     color: darken($primary, 15%);
   }
 }

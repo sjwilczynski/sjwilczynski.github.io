@@ -33,7 +33,7 @@
     {
       "id": 6,
       "iconComponentName": "FaMedal",
-      "iconClassName": "text-warning",
+      "iconClassName": "medal-icon",
       "description": "Champion of Lower Silesia in 400m run (Bogatynia 2013)"
     }
   ]
