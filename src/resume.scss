@@ -57,10 +57,12 @@ h3 {
 
 a {
   color: $primary;
+  text-decoration: none;
 
   &:hover,
   &:focus,
   &:active {
+    text-decoration: underline;
     color: darken($primary, 15%);
   }
 }
