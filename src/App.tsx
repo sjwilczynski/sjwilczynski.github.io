@@ -5,8 +5,6 @@ import ResumeListView from "./components/resume/ResumeListView";
 import ResumeSection from "./components/resume/ResumeSection";
 import Skills from "./components/sections/skills/Skills";
 import Interests from "./components/sections/interests/Interests";
-
-import "bootstrap/dist/js/bootstrap";
 import "./resume.scss";
 import { getData } from "./data/getData";
 
