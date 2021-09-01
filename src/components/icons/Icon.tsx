@@ -19,7 +19,7 @@ type Props = {
   iconClassName: string;
 };
 
-export default function Icon(props: Props) {
+export const Icon = ({ iconClassName, iconComponentName }: Props) => {
   const iconComponents: { [key: string]: IconType } = {
     FaGithub: FaGithub,
     FaLinkedinIn: FaLinkedinIn,
@@ -32,7 +32,6 @@ export default function Icon(props: Props) {
     FaCheck: FaCheck,
   };
 
-  const IconComponent: IconType =
-    iconComponents[props.iconComponentName] || GiFlame;
-  return <IconComponent className={props.iconClassName} aria-hidden={true} />;
-}
+  const IconComponent: IconType = iconComponents[iconComponentName] || GiFlame;
+  return <IconComponent className={iconClassName} aria-hidden={true} />;
+};

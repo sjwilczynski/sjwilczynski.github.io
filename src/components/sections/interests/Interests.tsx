@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -11,7 +11,7 @@ import { GiGuitar } from "react-icons/gi";
 import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa";
 import { Concert } from "../../../data/types";
 
-export default function Interests(props: { concerts: Concert[] }) {
+export const Interests = ({ concerts }: { concerts: Concert[] }) => {
   const [showConcerts, setShowConcerts] = useState(false);
 
   const onConcertsClick = () => {
@@ -53,7 +53,7 @@ export default function Interests(props: { concerts: Concert[] }) {
       </div>
       {showConcerts && (
         <VerticalTimeline>
-          {props.concerts.map((concert) => (
+          {concerts.map((concert) => (
             <VerticalTimelineElement
               key={concert.id}
               date={concert.date}
@@ -80,4 +80,4 @@ export default function Interests(props: { concerts: Concert[] }) {
       </p>
     </>
   );
-}
+};

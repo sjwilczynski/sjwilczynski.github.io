@@ -1,17 +1,19 @@
 import { SocialMedia } from "../../../data/types";
-import IconWithLink from "../../icons/IconWithLink";
+import { IconWithLink } from "../../icons/IconWithLink";
 
-export default function SocialMedias(props: { socialMedias: SocialMedia[] }) {
-  return (
-    <div>
-      {props.socialMedias.map((social: SocialMedia) => (
-        <IconWithLink
-          key={social.id}
-          iconComponentName={social.iconComponentName}
-          link={social.link}
-          title={social.title}
-        />
-      ))}
-    </div>
-  );
-}
+export const SocialMedias = ({
+  socialMedias,
+}: {
+  socialMedias: SocialMedia[];
+}) => (
+  <div>
+    {socialMedias.map((social: SocialMedia) => (
+      <IconWithLink
+        key={social.id}
+        iconComponentName={social.iconComponentName}
+        link={social.link}
+        title={social.title}
+      />
+    ))}
+  </div>
+);

@@ -27,7 +27,7 @@ const onSelect = (
   }
 };
 
-export default function Navigation({ sections, fullName }: Props) {
+export const Navigation = ({ sections, fullName }: Props) => {
   const firstSectionKey = Object.entries(sections)[1][0];
 
   return (
@@ -65,4 +65,4 @@ export default function Navigation({ sections, fullName }: Props) {
       </Navbar.Collapse>
     </Navbar>
   );
-}
+};

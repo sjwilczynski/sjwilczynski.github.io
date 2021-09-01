@@ -1,5 +1,5 @@
 import "./icon-wth-link.scss";
-import Icon from "./Icon";
+import { Icon } from "./Icon";
 
 type Props = {
   iconComponentName: string;
@@ -7,19 +7,11 @@ type Props = {
   title: string;
 };
 
-export default function IconWithLink(props: Props) {
-  const { iconComponentName, link, title } = props;
-  return (
-    <a
-      href={link}
-      className={"icon-with-link"}
-      title={title}
-      aria-label={title}
-    >
-      <Icon
-        iconComponentName={iconComponentName}
-        iconClassName={"svg-inline--fa"}
-      />
-    </a>
-  );
-}
+export const IconWithLink = ({ iconComponentName, link, title }: Props) => (
+  <a href={link} className={"icon-with-link"} title={title} aria-label={title}>
+    <Icon
+      iconComponentName={iconComponentName}
+      iconClassName={"svg-inline--fa"}
+    />
+  </a>
+);

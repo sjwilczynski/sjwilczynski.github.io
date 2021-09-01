@@ -1,5 +1,5 @@
 import { ResumeList, ResumeListElement } from "../../../data/types";
-import ResumeListView from "../../resume/ResumeListView";
+import { ResumeListView } from "../../resume/ResumeListView";
 
 type SkillsChunk = {
   id: number;
@@ -7,7 +7,7 @@ type SkillsChunk = {
   listClassName: string;
 };
 
-export default function Skills(props: { skills: ResumeList }) {
+export const Skills = (props: { skills: ResumeList }) => {
   const splitToChunks = function (
     elements: ResumeListElement[],
     numColumns: number
@@ -49,4 +49,4 @@ export default function Skills(props: { skills: ResumeList }) {
       </div>
     </>
   );
-}
+};
