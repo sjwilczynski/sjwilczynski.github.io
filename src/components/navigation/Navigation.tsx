@@ -20,7 +20,7 @@ export default function Navigation(props: Props) {
   };
   const scrollTo = (element: any) => {
     scroller.scrollTo(element, {
-      duration: 1000,
+      duration: 300,
       smooth: "easeInOutQuint",
     });
   };
