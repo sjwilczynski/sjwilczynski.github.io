@@ -7,11 +7,11 @@
     "elements": [
       {
         "id": 1,
-        "description": "Analytical thinking"
+        "description": "Visual regression testing/unit testing"
       },
       {
         "id": 2,
-        "description": "Problem solving"
+        "description": "Code reviewing"
       },
       {
         "id": 3,
@@ -23,11 +23,7 @@
       },
       {
         "id": 5,
-        "description": "Code reviewing"
-      },
-      {
-        "id": 6,
-        "description": "Unit testing"
+        "description": "Analytical thinking"
       }
     ]
   },
@@ -46,57 +42,59 @@
   },
   {
     "id": 3,
-    "title": "Programming Languages & tools",
+    "title": "Programming Languages, tools & frameworks",
     "listClassName": "list-dot",
     "numColumns": 3,
     "elements": [
       {
         "id": 1,
-        "description": "Java"
-      },
-      {
-        "id": 2,
-        "description": "Oracle SQL"
-      },
-      {
-        "id": 3,
-        "description": "Python + numpy, scikit-learn"
-      },
-      {
-        "id": 4,
-        "description": "R"
-      },
-      {
-        "id": 5,
-        "description": "HTML"
-      },
-      {
-        "id": 6,
-        "description": "CSS"
-      },
-      {
-        "id": 7,
-        "description": "JavaScript"
-      },
-      {
-        "id": 8,
-        "description": "Mustache"
-      },
-      {
-        "id": 9,
-        "description": "IntelliJ IDEA",
+        "description": "React",
         "iconComponentName": "FaHeart"
       },
       {
-        "id": 10,
-        "description": "Jenkins"
+        "id": 2,
+        "description": "Typescript"
       },
       {
-        "id": 11,
-        "description": "Git/SVN"
+        "id": 3,
+        "description": "HTML"
+      },
+      {
+        "id": 4,
+        "description": "CSS"
+      },
+      {
+        "id": 5,
+        "description": "Storybook",
+        "iconComponentName": "FaHeart"
+      },
+      {
+        "id": 6,
+        "description": "GraphQL"
+      },
+      {
+        "id": 7,
+        "description": "Python + numpy, scikit-learn"
+      },
+      {
+        "id": 8,
+        "description": "Java/C#"
       },
       {
         "id": 12,
+        "description": "VSCode",
+        "iconComponentName": "FaHeart"
+      },
+      {
+        "id": 9,
+        "description": "IntelliJ IDEA"
+      },
+      {
+        "id": 10,
+        "description": "Git"
+      },
+      {
+        "id": 11,
         "description": "JupyterLab"
       }
     ]

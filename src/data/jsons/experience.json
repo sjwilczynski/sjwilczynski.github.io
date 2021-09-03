@@ -1,10 +1,10 @@
 [
   {
     "id": "3",
-    "headings": ["Software Engineer"],
+    "headings": ["Software Engineer II", "Software Engineer"],
     "subheading": "Microsoft",
-    "extraInfos": ["Oct 2019 - Present", "Oslo, Norway"],
-    "description": ""
+    "extraInfos": ["March 2021 - present", "Oct 2019 - Feb 2021", "Oslo, Norway"],
+    "description": "React developer, working on high value experiences included in a variety of products across Microsoft 365 ecosystem, consumed by milions of users daily. Responsible for:\n* leading feature crews and acting as a link between business side and multiple engineering teams\n* designing, implementing a range of components, focusing on accessibility and maintainability\n* improving exisiting internal tooling across a large mono repository for the benefit of all developers"
   },
   {
     "id": "1",
@@ -22,6 +22,6 @@
     "headings": ["Tutor"],
     "subheading": "University of Wrocław",
     "extraInfos": ["Jan - Jun 2015", "Wrocław, Poland"],
-    "description": "Helping other students prepare for exams"
+    "description": "Helping other students prepare for the exams"
   }
 ]
