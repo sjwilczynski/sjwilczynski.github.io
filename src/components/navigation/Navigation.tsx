@@ -1,5 +1,4 @@
-//TODO: figure out why webp import doesn't work on CI
-import face from "./face.png";
+import face from "./face.webp";
 import { scroller } from "react-scroll";
 import { Nav, Navbar } from "react-bootstrap";
 import "./navigation.scss";
