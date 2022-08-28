@@ -1,5 +1,3 @@
-- add linter
-- add import aliases
 - fix scrolling in nav bar and showing position indicator
 - remove react-bootstrap    
 - migrate to new icons
