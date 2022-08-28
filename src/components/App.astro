@@ -4,7 +4,7 @@ import { AboutSection } from "./sections/about/AboutSection";
 import { ResumeListView } from "./resume/ResumeListView";
 import { ResumeSection } from "./resume/ResumeSection";
 import { Skills } from "./sections/skills/Skills";
-import { Interests } from "./sections/interests/Interests";
+import Interests from "./sections/interests/Interests";
 import "../styles/resume.scss";
 import { getData } from "../data/getData";
 
@@ -64,11 +64,7 @@ const fullName = about.name + " " + about.surname;
   />
 
   <ResumeSection id="skills" title={sections.skills}>
-    {
-      skillsResumeLists.map((skills) => (
-        <Skills skills={skills} />
-      ))
-    }
+    {skillsResumeLists.map((skills) => <Skills skills={skills} />)}
   </ResumeSection>
 
   <ResumeSection id="achievements" title={sections.achievements}>
@@ -76,6 +72,6 @@ const fullName = about.name + " " + about.surname;
   </ResumeSection>
 
   <ResumeSection id="interests" title={sections.interests}>
-    <Interests concerts={concerts} />
+    <Interests concerts={concerts} client:visible />
   </ResumeSection>
 </div>

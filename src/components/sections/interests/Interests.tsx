@@ -11,7 +11,11 @@ import { GiGuitar } from "react-icons/gi";
 import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa";
 import type { Concert } from "../../../data/types";
 
-export const Interests = ({ concerts }: { concerts: Concert[] }) => {
+export default function Interests({
+  concerts,
+}: {
+  concerts: Concert[];
+}): JSX.Element {
   const [showConcerts, setShowConcerts] = useState(false);
 
   const onConcertsClick = () => {
@@ -80,4 +84,4 @@ export const Interests = ({ concerts }: { concerts: Concert[] }) => {
       </p>
     </>
   );
-};
+}
