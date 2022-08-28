@@ -14,9 +14,11 @@ const firstSectionKey = Object.keys(sections)[0];
 const sectionEntries = Object.entries(sections);
 ---
 
-<script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>; 
+<script>
+  import "bootstrap/dist/js/bootstrap.bundle.min.js";
+</script>;
 <nav
-  class="navbar-dark navbar-expand-lg bg-primary px-2 fixed-top"
+  class="navbar navbar-dark navbar-expand-lg bg-primary px-2 fixed-top"
   id="sideNav"
 >
   <a class="navbar-brand" href={"#" + firstSectionKey}>
