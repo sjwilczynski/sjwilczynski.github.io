@@ -1,0 +1,22 @@
+---
+export type Props = {
+  fullName: string;
+  title: string;
+};
+
+const { fullName, title } = Astro.props;
+---
+
+<head>
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  <meta name="description" content="Resume page using Astro" />
+  <meta name="author" content={fullName} />
+  <title>{title}</title>
+</head>

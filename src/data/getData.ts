@@ -7,19 +7,25 @@ import skillListData from "./jsons/skills.json";
 import aboutData from "./jsons/about.json";
 import socialMedia from "./jsons/social-media.json";
 import concertsData from "./jsons/concerts.json";
-import { About, Concert, ResumeItem, ResumeList, SocialMedia } from "./types";
+import type {
+  About,
+  Concert,
+  ResumeItem,
+  ResumeList,
+  SocialMedia,
+} from "./types";
 
 export const getData = () => {
-  const about = (aboutData as unknown) as About;
-  const socialMedias = (socialMedia as unknown) as SocialMedia[];
+  const about = aboutData as unknown as About;
+  const socialMedias = socialMedia as unknown as SocialMedia[];
 
-  const experienceResumeItems = (experienceListData as unknown) as ResumeItem[];
-  const educationResumeItems = (educationListData as unknown) as ResumeItem[];
-  const researchResumeItems = (researchListData as unknown) as ResumeItem[];
+  const experienceResumeItems = experienceListData as unknown as ResumeItem[];
+  const educationResumeItems = educationListData as unknown as ResumeItem[];
+  const researchResumeItems = researchListData as unknown as ResumeItem[];
 
-  const projectsResumeList = (projectListData as unknown) as ResumeList;
-  const achievementResumeList = (achievementListData as unknown) as ResumeList;
-  const skillsResumeLists = (skillListData as unknown) as ResumeList[];
+  const projectsResumeList = projectListData as unknown as ResumeList;
+  const achievementResumeList = achievementListData as unknown as ResumeList;
+  const skillsResumeLists = skillListData as unknown as ResumeList[];
 
   const concerts: Concert[] = concertsData
     .map((data) => {

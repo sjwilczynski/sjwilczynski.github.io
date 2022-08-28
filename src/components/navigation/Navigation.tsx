@@ -2,11 +2,12 @@ import face from "./face.webp";
 import { scroller } from "react-scroll";
 import { Nav, Navbar } from "react-bootstrap";
 import "./navigation.scss";
-import { Sections } from "../../App";
 
 type Props = {
   fullName: string;
-  sections: Sections;
+  sections: {
+    [key: string]: string;
+  };
 };
 
 /* these 2 functions together with properties of body allow scroll spying and smooth scroll */
@@ -28,7 +29,7 @@ const onSelect = (
 };
 
 export const Navigation = ({ sections, fullName }: Props) => {
-  const firstSectionKey = Object.entries(sections)[1][0];
+  const firstSectionKey = Object.entries(sections)[0][0];
 
   return (
     <Navbar
@@ -43,12 +44,16 @@ export const Navigation = ({ sections, fullName }: Props) => {
       <Navbar.Brand>
         <span className="d-block d-lg-none">{fullName}</span>
         <span className="d-none d-lg-block">
-          <img
-            className="img-fluid img-profile rounded-circle mx-auto mb-2"
-            src={face}
-            alt="Face"
+          <a
+            href={"#" + firstSectionKey}
             onClick={() => scrollTo(firstSectionKey)}
-          />
+          >
+            <img
+              className="img-fluid img-profile rounded-circle mx-auto mb-2"
+              src={face}
+              alt="Face"
+            />
+          </a>
         </span>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarSupportedContent" />

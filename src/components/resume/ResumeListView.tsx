@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import { ResumeList } from "../../data/types";
+import type { ResumeList } from "@data/types";
 import { Icon } from "../icons/Icon";
 import "./resume-list.scss";
 
@@ -21,6 +21,7 @@ export const ResumeListView = ({ elements, listClassName }: ResumeList) => (
         <li className={liStyle} key={element.id}>
           {icon}{" "}
           <ReactMarkdown
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
             components={{ p: ({ node, ...props }) => <span {...props} /> }}
           >
             {element.description}

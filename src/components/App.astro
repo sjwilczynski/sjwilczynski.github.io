@@ -1,0 +1,77 @@
+---
+import { Navigation } from "./navigation/Navigation";
+import { AboutSection } from "./sections/about/AboutSection";
+import { ResumeListView } from "./resume/ResumeListView";
+import { ResumeSection } from "./resume/ResumeSection";
+import { Skills } from "./sections/skills/Skills";
+import Interests from "./sections/interests/Interests";
+import "@styles/resume.scss";
+import { getData } from "@data/getData";
+
+const sections = {
+  about: "About",
+  experience: "Experience",
+  education: "Education",
+  projects: "Projects & apps",
+  research: "Research",
+  skills: "Skills",
+  achievements: "Achievements",
+  interests: "Interests",
+};
+
+const {
+  about,
+  experienceResumeItems,
+  educationResumeItems,
+  researchResumeItems,
+  projectsResumeList,
+  achievementResumeList,
+  skillsResumeLists,
+  socialMedias,
+  concerts,
+} = getData();
+
+const fullName = about.name + " " + about.surname;
+---
+
+<Navigation sections={sections} fullName={fullName} client:load />
+<div class="container-fluid p-0">
+  <ResumeSection id="about">
+    <AboutSection about={about} socialMedias={socialMedias} />
+  </ResumeSection>
+
+  <ResumeSection
+    id="experience"
+    title={sections.experience}
+    resumeItems={experienceResumeItems}
+  />
+
+  <ResumeSection
+    id="education"
+    title={sections.education}
+    resumeItems={educationResumeItems}
+  />
+
+  <ResumeSection id="projects" title={sections.projects}>
+    <ResumeListView {...projectsResumeList} />
+    More code can be found on <a href={about.githubUrl}>my github</a>
+  </ResumeSection>
+
+  <ResumeSection
+    id="research"
+    title={sections.research}
+    resumeItems={researchResumeItems}
+  />
+
+  <ResumeSection id="skills" title={sections.skills}>
+    {skillsResumeLists.map((skills) => <Skills skills={skills} />)}
+  </ResumeSection>
+
+  <ResumeSection id="achievements" title={sections.achievements}>
+    <ResumeListView {...achievementResumeList} />
+  </ResumeSection>
+
+  <ResumeSection id="interests" title={sections.interests}>
+    <Interests concerts={concerts} client:visible />
+  </ResumeSection>
+</div>

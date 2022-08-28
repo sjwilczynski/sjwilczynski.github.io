@@ -8,11 +8,10 @@ import {
   FaLinkedinIn,
   FaMedal,
   FaStackOverflow,
-} from "react-icons/fa";
-
+} from "react-icons/fa/index";
 import "./icon.scss";
-import { IconType } from "react-icons";
-import { GiFlame } from "react-icons/gi";
+import type { IconType } from "react-icons";
+import { GiFlame } from "react-icons/gi/index";
 
 type Props = {
   iconComponentName: string;
