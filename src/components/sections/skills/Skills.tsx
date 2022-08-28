@@ -1,4 +1,4 @@
-import { ResumeList, ResumeListElement } from "../../../data/types";
+import type { ResumeList, ResumeListElement } from "../../../data/types";
 import { ResumeListView } from "../../resume/ResumeListView";
 
 type SkillsChunk = {

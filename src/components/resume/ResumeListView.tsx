@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import { ResumeList } from "../../data/types";
+import type { ResumeList } from "../../data/types";
 import { Icon } from "../icons/Icon";
 import "./resume-list.scss";
 

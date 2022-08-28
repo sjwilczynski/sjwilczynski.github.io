@@ -9,7 +9,7 @@ import { scroller } from "react-scroll";
 import "./interests.scss";
 import { GiGuitar } from "react-icons/gi";
 import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa";
-import { Concert } from "../../../data/types";
+import type { Concert } from "../../../data/types";
 
 export const Interests = ({ concerts }: { concerts: Concert[] }) => {
   const [showConcerts, setShowConcerts] = useState(false);

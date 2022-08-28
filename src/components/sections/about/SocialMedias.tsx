@@ -1,4 +1,4 @@
-import { SocialMedia } from "../../../data/types";
+import type { SocialMedia } from "../../../data/types";
 import { IconWithLink } from "../../icons/IconWithLink";
 
 export const SocialMedias = ({

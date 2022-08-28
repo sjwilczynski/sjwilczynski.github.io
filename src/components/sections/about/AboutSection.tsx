@@ -1,6 +1,6 @@
 import { SocialMedias } from "./SocialMedias";
 import ReactMarkdown from "react-markdown";
-import { About, SocialMedia } from "../../../data/types";
+import type { About, SocialMedia } from "../../../data/types";
 
 export const AboutSection = ({
   about,
