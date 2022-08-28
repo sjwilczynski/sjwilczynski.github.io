@@ -2,11 +2,12 @@ import face from "./face.webp";
 import { scroller } from "react-scroll";
 import { Nav, Navbar } from "react-bootstrap";
 import "./navigation.scss";
-import { Sections } from "../../App";
 
 type Props = {
   fullName: string;
-  sections: Sections;
+  sections: {
+    [key: string]: string;
+  };
 };
 
 /* these 2 functions together with properties of body allow scroll spying and smooth scroll */

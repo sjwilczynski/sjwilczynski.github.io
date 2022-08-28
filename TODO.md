@@ -1,0 +1,4 @@
+- add 404 and shareable head
+- make sure it runs
+- add linter
+- start migrating to .astro

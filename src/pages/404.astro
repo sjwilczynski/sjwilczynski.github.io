@@ -1,0 +1,19 @@
+---
+import Head from "../components/head/Head.astro";
+import { getData } from "../data/getData";
+
+const { about } = getData();
+const fullName = about.name + " " + about.surname;
+---
+
+<html lang="en">
+	<Head title="Not Found" fullName={fullName} />
+	<body>
+		<nav></nav>
+		<div class="wrapper mt4 mb4">
+			<h1>Page Not Found</h1>
+			<p>Not found</p>
+		</div>
+		<footer></footer>
+	</body>
+</html>

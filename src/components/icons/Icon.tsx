@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 
 import "./icon.scss";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 import { GiFlame } from "react-icons/gi";
 
 type Props = {
