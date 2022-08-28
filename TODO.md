@@ -1,4 +1,4 @@
-- add 404 and shareable head
-- make sure it runs
 - add linter
+- fix scrolling in nav bar and showing position indicator
+- remove react-bootstrap    
 - start migrating to .astro
