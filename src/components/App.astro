@@ -1,5 +1,5 @@
 ---
-import { Navigation } from "./navigation/Navigation";
+import Navigation from "./navigation/Navigation.astro";
 import { AboutSection } from "./sections/about/AboutSection";
 import { ResumeListView } from "./resume/ResumeListView";
 import { ResumeSection } from "./resume/ResumeSection";
@@ -34,7 +34,7 @@ const {
 const fullName = about.name + " " + about.surname;
 ---
 
-<Navigation sections={sections} fullName={fullName} client:load />
+<Navigation sections={sections} fullName={fullName} />
 <div class="container-fluid p-0">
   <ResumeSection id="about">
     <AboutSection about={about} socialMedias={socialMedias} />

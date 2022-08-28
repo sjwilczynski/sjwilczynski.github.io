@@ -1,8 +1,6 @@
 import { useState } from "react";
 import * as vt from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { Button } from "react-bootstrap";
-import { scroller } from "react-scroll";
 import "./interests.scss";
 import { GiGuitar } from "react-icons/gi/index";
 import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa/index";
@@ -17,7 +15,9 @@ export default function Interests({
 
   const onConcertsClick = () => {
     setShowConcerts((showConcerts) => !showConcerts);
-    scroller.scrollTo("interests", {});
+    document
+      .querySelector("#interests")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -48,9 +48,9 @@ export default function Interests({
         beloved activity is going to rock concerts.
       </p>
       <div className="d-grid mb-2">
-        <Button className="mt-2 btn-concerts" onClick={onConcertsClick}>
+        <button className="btn btn-primary mt-2" onClick={onConcertsClick}>
           Click here to {showConcerts ? "hide" : "view"} the full concerts list
-        </Button>
+        </button>
       </div>
       {showConcerts && (
         <vt.VerticalTimeline>

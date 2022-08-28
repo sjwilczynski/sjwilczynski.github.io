@@ -1,5 +1,4 @@
-- fix scrolling in nav bar and showing position indicator
-- remove react-bootstrap    
+- make section a layout component   
 - migrate to new icons
 - add proper astro stucture (e.g. Section should be a layout component)
 - move some components to mdx

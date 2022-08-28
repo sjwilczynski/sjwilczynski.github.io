@@ -1,0 +1,56 @@
+---
+import face from "./face.webp";
+import "./navigation.scss";
+
+export type Props = {
+  fullName: string;
+  sections: {
+    [key: string]: string;
+  };
+};
+
+const { sections, fullName } = Astro.props;
+const firstSectionKey = Object.keys(sections)[0];
+const sectionEntries = Object.entries(sections);
+---
+
+<script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>; 
+<nav
+  class="navbar-dark navbar-expand-lg bg-primary px-2 fixed-top"
+  id="sideNav"
+>
+  <a class="navbar-brand" href={"#" + firstSectionKey}>
+    <span class="d-block d-lg-none">{fullName}</span>
+    <span class="d-none d-lg-block">
+      <img
+        class="img-fluid img-profile rounded-circle mx-auto mb-2"
+        src={face}
+        alt="Face"
+      />
+    </span>
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      {
+        sectionEntries.map((keyValue) => (
+          <li class="nav-item">
+            <a class="nav-link" href={"#" + keyValue[0]}>
+              {keyValue[1]}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
