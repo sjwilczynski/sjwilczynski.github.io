@@ -1,14 +1,11 @@
 import { useState } from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
+import * as vt from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 import { scroller } from "react-scroll";
 import "./interests.scss";
-import { GiGuitar } from "react-icons/gi";
-import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa";
+import { GiGuitar } from "react-icons/gi/index";
+import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa/index";
 import type { Concert } from "../../../data/types";
 
 export default function Interests({
@@ -56,9 +53,9 @@ export default function Interests({
         </Button>
       </div>
       {showConcerts && (
-        <VerticalTimeline>
+        <vt.VerticalTimeline>
           {concerts.map((concert) => (
-            <VerticalTimelineElement
+            <vt.VerticalTimelineElement
               key={concert.id}
               date={concert.date}
               icon={<GiGuitar />}
@@ -67,9 +64,9 @@ export default function Interests({
               <h3>{concert.title}</h3>
               <h4>{concert.location}</h4>
               <p>{concert.description}</p>
-            </VerticalTimelineElement>
+            </vt.VerticalTimelineElement>
           ))}
-        </VerticalTimeline>
+        </vt.VerticalTimeline>
       )}
       <p>
         I am also an avid fan of the{" "}
