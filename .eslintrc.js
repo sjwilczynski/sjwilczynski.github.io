@@ -6,10 +6,16 @@ module.exports = {
     "plugin:astro/recommended",
     "plugin:astro/jsx-a11y-recommended",
   ],
+  env: {
+    browser: true,
+    es2021: true,
+  },
   parser: "@typescript-eslint/parser",
   root: true,
   parserOptions: {
     project: "./tsconfig.json",
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
   rules: {
     "no-constant-binary-expression": "error",
