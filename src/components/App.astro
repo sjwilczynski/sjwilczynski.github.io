@@ -34,7 +34,7 @@ const {
 const fullName = about.name + " " + about.surname;
 ---
 
-<Navigation sections={sections} fullName={fullName} />
+<Navigation sections={sections} fullName={fullName} client:load />
 <div class="container-fluid p-0">
   <ResumeSection id="about">
     <AboutSection about={about} socialMedias={socialMedias} />
