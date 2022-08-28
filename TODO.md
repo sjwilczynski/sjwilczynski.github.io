@@ -1,4 +1,11 @@
 - add linter
+- add import aliases
 - fix scrolling in nav bar and showing position indicator
 - remove react-bootstrap    
-- start migrating to .astro
+- migrate to new icons
+- add proper astro stucture (e.g. Section should be a layout component)
+- move some components to mdx
+- add analytics
+- replace timeline with own implementation without react
+- remove react
+- tailwind vs bootstrap ?
