@@ -6,7 +6,7 @@ import { scroller } from "react-scroll";
 import "./interests.scss";
 import { GiGuitar } from "react-icons/gi/index";
 import { FaBasketballBall, FaBook, FaPlane } from "react-icons/fa/index";
-import type { Concert } from "../../../data/types";
+import type { Concert } from "@data/types";
 
 export default function Interests({
   concerts,

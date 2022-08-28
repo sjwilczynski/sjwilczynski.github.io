@@ -1,7 +1,7 @@
 ---
-import Head from "../components/head/Head.astro";
-import { getData } from "../data/getData";
-import "../styles/resume.scss";
+import Head from "@components/head/Head.astro";
+import { getData } from "@data/getData";
+import "@styles/resume.scss";
 
 const { about } = getData();
 const fullName = about.name + " " + about.surname;

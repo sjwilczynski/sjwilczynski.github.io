@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import type { ResumeItem } from "../../data/types";
+import type { ResumeItem } from "@data/types";
 import "./resume-item.scss";
 
 export const ResumeItemView = ({

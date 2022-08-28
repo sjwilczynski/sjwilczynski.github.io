@@ -1,7 +1,7 @@
 import { ResumeItemView } from "./ResumeItemView";
 import { Section } from "../sections/Section";
 import "./resume-section.scss";
-import type { ResumeItem } from "../../data/types";
+import type { ResumeItem } from "@data/types";
 
 type Props = {
   id: string;
