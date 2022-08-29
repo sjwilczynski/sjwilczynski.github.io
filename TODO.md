@@ -1,5 +1,5 @@
 - make mobile navigation collapse on select
-- optimize styles file size (can I somehow only load parts that I need? check bootstrap docs - https://getbootstrap.com/docs/5.2/customize/sass/)
+- optimize styles file size (can I somehow only load parts that I need? check bootstrap docs - https://getbootstrap.com/docs/5.2/customize/sass/ or maybe some purge css)
 - migrate to new icons
 - move some components to mdx
 - add analytics
