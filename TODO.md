@@ -1,7 +1,5 @@
-- make section a layout component  
 - make mobile navigation collapse on select  
 - migrate to new icons
-- add proper astro stucture (e.g. Section should be a layout component)
 - move some components to mdx
 - add analytics
 - replace timeline with own implementation without react
