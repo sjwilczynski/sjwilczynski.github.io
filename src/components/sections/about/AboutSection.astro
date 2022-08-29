@@ -1,0 +1,22 @@
+---
+import SocialMedias from "./SocialMedias.astro";
+import type { About, SocialMedia } from "@data/types";
+
+export type Props = {
+  about: About;
+  socialMedias: SocialMedia[];
+};
+
+const { about, socialMedias } = Astro.props;
+---
+
+<h1 class="mb-0">
+  {about.name}
+  <span class="text-primary"> {about.surname}</span>
+</h1>
+<div class="subheading mb-5">
+  {about.city}, {about.country},
+  <a href={"mailto:" + about.email}> {about.email}</a>
+</div>
+<div class="lead mb-5">{about.introduction}</div>
+<SocialMedias socialMedias={socialMedias} />

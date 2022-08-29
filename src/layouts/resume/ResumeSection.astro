@@ -1,0 +1,19 @@
+---
+import { ResumeItemView } from "./ResumeItemView";
+import Section from "../Section.astro";
+import "./resume-section.scss";
+import type { ResumeItem } from "@data/types";
+
+export type Props = {
+  id: string;
+  title?: string;
+  resumeItems?: ResumeItem[];
+};
+
+const { resumeItems = [], title, id } = Astro.props;
+---
+
+<Section id={id} title={title}>
+  {resumeItems.map((resumeItem) => <ResumeItemView {...resumeItem} />)}
+  <slot />
+</Section>

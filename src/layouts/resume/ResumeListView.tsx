@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import type { ResumeList } from "@data/types";
-import { Icon } from "../icons/Icon";
+import { Icon } from "@components/icons/Icon";
 import "./resume-list.scss";
 
 export const ResumeListView = ({ elements, listClassName }: ResumeList) => (

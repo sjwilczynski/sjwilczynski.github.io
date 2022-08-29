@@ -1,0 +1,16 @@
+---
+export type Props = {
+  id: string;
+  title?: string;
+};
+
+const { id, title } = Astro.props;
+---
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id={id}>
+  <div class="my-auto">
+    {title ? <h2 class="mb-5">{title}</h2> : ""}
+    <slot />
+  </div>
+</section>
+<hr class="m-0" />
