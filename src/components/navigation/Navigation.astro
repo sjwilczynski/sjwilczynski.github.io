@@ -1,5 +1,6 @@
 ---
 import face from "./face.webp";
+import { Image } from "@astrojs/image/components";
 import "./navigation.scss";
 
 export type Props = {
@@ -24,7 +25,7 @@ const sectionEntries = Object.entries(sections);
   <a class="navbar-brand" href={"#" + firstSectionKey}>
     <span class="d-block d-lg-none">{fullName}</span>
     <span class="d-none d-lg-block">
-      <img
+      <Image
         class="img-fluid img-profile rounded-circle mx-auto mb-2"
         src={face}
         alt="Face"
