@@ -1,4 +1,5 @@
 ---
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 export type Props = {
   fullName: string;
   title: string;
@@ -9,6 +10,12 @@ const { fullName, title } = Astro.props;
 
 <head>
   <link rel="shortcut icon" href="/img/favicon.ico" />
+  <GoogleFontsOptimizer
+    url={[
+      "https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700&display=swap",
+      "https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i&display=swap",
+    ]}
+  />
 
   <meta charset="utf-8" />
   <meta

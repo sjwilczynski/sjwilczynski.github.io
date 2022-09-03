@@ -43,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
     "astro": "1.1.1",
+    "astro-google-fonts-optimizer": "^0.2.1",
     "eslint": "^8.23.0",
     "eslint-plugin-astro": "^0.17.1",
     "eslint-plugin-jsx-a11y": "^6.6.1",
