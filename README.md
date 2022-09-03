@@ -3,7 +3,7 @@
 # Responsive CV in React
 
 The project is based on [startboootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume).
-I rewrote it in React using [CRA](https://create-react-app.dev/) and migrated to [Astro](https://docs.astro.build/en/getting-started/), removing 90% of my bundle. In the end I would like to get rid React being a dependency but it stays for now until full migration is done
+I rewrote it in React using [CRA](https://create-react-app.dev/) and migrated to [Astro](https://docs.astro.build/en/getting-started/), removing 90% of my bundle, and improving Lighthouse performance score (for mobile variant) from 50% to 95%. In the end I would like to get rid React being a dependency but it stays for now until full migration is done
 
 ### Installation
 

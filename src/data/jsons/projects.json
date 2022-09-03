@@ -3,30 +3,38 @@
   "elements": [
     {
       "id": 0,
-      "description": "[Activity tracker](https://www.beactivetrackdaily.com/) PWA that I use to record my sport related activity daily"
+      "description": "[Excel Add-in](https://github.com/sjwilczynski/WNOPBudgetAutocomplete) that simplifies adding expenses in one of the popular budget templates"
+    },
+    {
+      "id": 8,
+      "description": "This page ([link to repository](https://github.com/sjwilczynski/sjwilczynski.github.io)) which is a highly optimized static page using [Astro](https://astro.build/)"
     },
     {
       "id": 1,
-      "description": "[Dependency injection container](https://github.com/sjwilczynski/Studies/tree/master/17-18/Summer/Object%20Oriented%20Design/list9) in Java"
+      "description": "[Activity tracker](https://www.beactivetrackdaily.com/) PWA that I use to record my sport related activity daily"
     },
     {
       "id": 2,
-      "description": "[AI](https://github.com/sjwilczynski/ThreesGameWithNeuralNets) for the Threes game using reinforcement learning and PyTorch"
+      "description": "[Dependency injection container](https://github.com/sjwilczynski/Studies/tree/master/17-18/Summer/Object%20Oriented%20Design/list9) in Java"
     },
     {
       "id": 3,
-      "description": "Co-author of R package [Varclust](https://github.com/psobczyk/varclust)"
+      "description": "[AI](https://github.com/sjwilczynski/ThreesGameWithNeuralNets) for the Threes game using reinforcement learning and PyTorch"
     },
     {
       "id": 4,
-      "description": "[Game Yavalath](https://mysterious-woodland-15958.herokuapp.com) in JavaScript using Express framework"
+      "description": "Co-author of R package [Varclust](https://github.com/psobczyk/varclust)"
     },
     {
       "id": 5,
-      "description": "[Fingerprint recognition system](https://github.com/sjwilczynski/Studies/blob/master/16-17/Summer/Introduction%20to%20Wave%20Analysis%20Applications%20/FingerprintRecognition/falki_projekt_malik_wilczynski.ipynb) in Python"
+      "description": "[Game Yavalath](https://mysterious-woodland-15958.herokuapp.com) in JavaScript using Express framework"
     },
     {
       "id": 6,
+      "description": "[Fingerprint recognition system](https://github.com/sjwilczynski/Studies/blob/master/16-17/Summer/Introduction%20to%20Wave%20Analysis%20Applications%20/FingerprintRecognition/falki_projekt_malik_wilczynski.ipynb) in Python"
+    },
+    {
+      "id": 7,
       "description": "[Analysis](https://github.com/sjwilczynski/Studies/blob/master/17-18/Summer/Complex%20data/final_project/Zaleska_Wilczynski_project.pdf) of medical data on kidney condition after transplant"
     }
   ]
