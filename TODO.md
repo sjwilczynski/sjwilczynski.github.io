@@ -1,5 +1,5 @@
 - make mobile navigation collapse on select
-- migrate to new icons
+- migrate to new icons, also should I use fa6 or fa5?
 - move some components to mdx
 - add analytics
 - replace timeline with own implementation without react

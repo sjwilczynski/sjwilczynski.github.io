@@ -4,7 +4,7 @@ import AboutSection from "./sections/about/AboutSection.astro";
 import ResumeListView from "@layouts/ResumeListView.astro";
 import ResumeSection from "@layouts/ResumeSection.astro";
 import Skills from "./sections/skills/Skills.astro";
-import Interests from "./sections/interests/Interests";
+import Interests from "./sections/interests/Interests.astro";
 import "@styles/resume.scss";
 import { getData } from "@data/getData";
 
@@ -72,6 +72,6 @@ const fullName = about.name + " " + about.surname;
   </ResumeSection>
 
   <ResumeSection id="interests" title={sections.interests}>
-    <Interests concerts={concerts} client:visible />
+    <Interests concerts={concerts} />
   </ResumeSection>
 </div>
