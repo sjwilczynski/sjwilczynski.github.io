@@ -2,7 +2,7 @@
 import "./interests.scss";
 import type { Concert } from "@data/types";
 import { ConcertsTimeline } from "./ConcertsTimeline";
-import Icon from "astro-icon";
+import Icon from "@components/icons/Icon.astro";
 
 export type Props = { concerts: Concert[] };
 
@@ -19,15 +19,17 @@ const { concerts } = Astro.props;
   }
   and{" "}
   <a href="https://www.youtube.com/watch?v=-f6TnC0xFPY">Kevin Durant</a>{" "}
-  <Icon name="fa-solid:basketball-ball" class="basketball-ball-icon" />. As a former
-  sprinter I am still shocked by Wayde van Niekerk's{" "}
+  <Icon name="fa-solid:basketball-ball" class="basketball-ball-icon" />. As a
+  former sprinter I am still shocked by Wayde van Niekerk's{" "}
   <a href="https://www.youtube.com/watch?v=xG91krXuxyw">world record</a>.
 </p>
 <p>
-  As for my other interests, I am keen on travelling <Icon name="fa:plane" /> (most
-  beautiful city - Porto, Portugal, most astonishing view - Tatev, Armenia, best
-  beach - Tangalle, Sri Lanka). In my free time I like visiting escape rooms and
-  reading{" "}
+  As for my other interests, I am keen on travelling <Icon
+    name="fa:plane"
+    class="icon"
+  /> (most beautiful city - Porto, Portugal, most astonishing view - Tatev, Armenia,
+  best beach - Tangalle, Sri Lanka). In my free time I like visiting escape rooms
+  and reading{" "}
   <a href="https://www.goodreads.com/user/show/100417409-stanis-aw-wilczy-ski">
     books
   </a>{" "}

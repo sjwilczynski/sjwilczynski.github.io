@@ -1,6 +1,6 @@
 ---
 import type { ResumeList } from "@data/types";
-import { Icon } from "astro-icon";
+import Icon from "@components/icons/Icon.astro";
 import "./resume-list.scss";
 import { Description } from "@components/Description";
 
@@ -13,7 +13,7 @@ const { elements } = Astro.props;
   {
     elements.map((element) => {
       const icon = element.iconName ? (
-        <Icon name={element.iconName} className={element.iconClassName || ""} />
+        <Icon name={element.iconName} class={element.iconClassName || ""} />
       ) : (
         ""
       );

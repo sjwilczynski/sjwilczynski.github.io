@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon";
+
+export type Props = {
+  name: string;
+  class?: string;
+};
+
+const { name, class: className = "" } = Astro.props;
+---
+
+<style>
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+  }
+</style>
+
+<Icon name={name} class={"icon " + className} />
