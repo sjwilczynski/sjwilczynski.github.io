@@ -2,15 +2,15 @@ import "./icon-wth-link.scss";
 import { Icon } from "./Icon";
 
 type Props = {
-  iconComponentName: string;
+  iconName: string;
   link: string;
   title: string;
 };
 
-export const IconWithLink = ({ iconComponentName, link, title }: Props) => (
+export const IconWithLink = ({ iconName, link, title }: Props) => (
   <a href={link} className={"icon-with-link"} title={title} aria-label={title}>
     <Icon
-      iconComponentName={iconComponentName}
+      iconName={iconName}
       iconClassName={"svg-inline--fa"}
     />
   </a>

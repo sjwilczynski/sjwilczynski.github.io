@@ -11,7 +11,7 @@ export type About = {
 export type ResumeListElement = {
   id: number;
   description: string;
-  iconComponentName?: string;
+  iconName?: string;
   iconClassName?: string;
 };
 
@@ -34,7 +34,7 @@ export type ResumeItem = {
 export type SocialMedia = {
   id: number;
   link: string;
-  iconComponentName: string;
+  iconName: string;
   title: string;
 };
 

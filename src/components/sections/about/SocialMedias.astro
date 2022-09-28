@@ -13,7 +13,7 @@ const { socialMedias } = Astro.props;
   {
     socialMedias.map((social: SocialMedia) => (
       <IconWithLink
-        iconComponentName={social.iconComponentName}
+        iconName={social.iconName}
         link={social.link}
         title={social.title}
       />

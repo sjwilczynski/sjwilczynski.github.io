@@ -14,11 +14,11 @@ import type { IconType } from "react-icons";
 import { GiFlame } from "react-icons/gi/index";
 
 type Props = {
-  iconComponentName: string;
+  iconName: string;
   iconClassName: string;
 };
 
-export const Icon = ({ iconClassName, iconComponentName }: Props) => {
+export const Icon = ({ iconClassName, iconName }: Props) => {
   const iconComponents: { [key: string]: IconType } = {
     FaGithub: FaGithub,
     FaLinkedinIn: FaLinkedinIn,
@@ -31,6 +31,6 @@ export const Icon = ({ iconClassName, iconComponentName }: Props) => {
     FaCheck: FaCheck,
   };
 
-  const IconComponent: IconType = iconComponents[iconComponentName] || GiFlame;
+  const IconComponent: IconType = iconComponents[iconName] || GiFlame;
   return <IconComponent className={iconClassName} aria-hidden={true} />;
 };

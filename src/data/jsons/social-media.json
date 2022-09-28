@@ -2,19 +2,19 @@
   {
     "id": "in",
     "link": "https://www.linkedin.com/in/sjwilczynski/",
-    "iconComponentName": "FaLinkedinIn",
+    "iconName": "FaLinkedinIn",
     "title": "Linkedin"
   },
   {
     "id": "github",
     "link": "https://github.com/sjwilczynski",
-    "iconComponentName": "FaGithub",
+    "iconName": "FaGithub",
     "title": "Github"
   },
   {
     "id": "SO",
     "link": "https://stackoverflow.com/users/11471002/stanis%C5%82aw-wilczy%C5%84ski",
-    "iconComponentName": "FaStackOverflow",
+    "iconName": "FaStackOverflow",
     "title": "Stack Overflow"
   }
 ]

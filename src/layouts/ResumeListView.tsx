@@ -6,9 +6,9 @@ import "./resume-list.scss";
 export const ResumeListView = ({ elements, listClassName }: ResumeList) => (
   <ul className={"fa-ul mb-0 " + listClassName}>
     {elements.map((element) => {
-      const icon = element.iconComponentName ? (
+      const icon = element.iconName ? (
         <Icon
-          iconComponentName={element.iconComponentName}
+          iconName={element.iconName}
           iconClassName={
             (element.iconClassName || "") + " svg-inline--fa fa-li"
           }
@@ -16,12 +16,12 @@ export const ResumeListView = ({ elements, listClassName }: ResumeList) => (
       ) : (
         ""
       );
-      const liStyle = element.iconComponentName ? "list-none" : "";
+      const liStyle = element.iconName ? "list-none" : "";
       return (
         <li className={liStyle} key={element.id}>
           {icon}{" "}
           <ReactMarkdown
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             components={{ p: ({ node, ...props }) => <span {...props} /> }}
           >
             {element.description}
