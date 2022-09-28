@@ -2,7 +2,6 @@
   {
     "id": 1,
     "title": "",
-    "listClassName": "list-dot",
     "numColumns": 2,
     "elements": [
       {
@@ -30,26 +29,24 @@
   {
     "id": 2,
     "title": "Certifications",
-    "listClassName": "",
     "numColumns": 1,
     "elements": [
       {
         "id": 1,
         "description": "[Oracle Certified Associate](https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile), Java SE 8 Programmer",
-        "iconName": "FaAward"
+        "iconName": "fa-solid:award"
       }
     ]
   },
   {
     "id": 3,
     "title": "Programming Languages, tools & frameworks",
-    "listClassName": "list-dot",
     "numColumns": 3,
     "elements": [
       {
         "id": 1,
         "description": "React",
-        "iconName": "FaHeart"
+        "iconName": "fa:heart"
       },
       {
         "id": 2,
@@ -66,7 +63,7 @@
       {
         "id": 5,
         "description": "Storybook",
-        "iconName": "FaHeart"
+        "iconName": "fa:heart"
       },
       {
         "id": 6,
@@ -83,7 +80,7 @@
       {
         "id": 12,
         "description": "VSCode",
-        "iconName": "FaHeart"
+        "iconName": "fa:heart"
       },
       {
         "id": 9,

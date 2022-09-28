@@ -2,37 +2,37 @@
   "elements": [
     {
       "id": 1,
-      "iconName": "FaGraduationCap",
+      "iconName": "fa:graduation-cap",
       "iconClassName": "graduation-cap-icon",
       "description": "Polish Ministry of Science and Higher Education scholarship for outstanding achievements (2017)"
     },
     {
       "id": 2,
-      "iconName": "FaGraduationCap",
+      "iconName": "fa:graduation-cap",
       "iconClassName": "graduation-cap-icon",
       "description": "Scholarship for the best students in University of Wrocław (awarded to 7,5% best students) (five times in a row: 2014, 2015, 2016, 2017, 2018)"
     },
     {
       "id": 3,
-      "iconName": "FaMedal",
+      "iconName": "fa-solid:medal",
       "iconClassName": "iol-icon",
       "description": "International Linguistics Olympiad, Silver Medal (Beijing 2014)"
     },
     {
       "id": 4,
-      "iconName": "FaAward",
+      "iconName": "fa-solid:award",
       "iconClassName": "award-icon",
       "description": "Polish National Mathematical Olympiad, Finalist (twice: 2013,2014)"
     },
     {
       "id": 5,
-      "iconName": "FaAward",
+      "iconName": "fa-solid:award",
       "iconClassName": "award-icon",
       "description": "Polish National Mathematical Linguistics Olympiad, Laureate (twice 2013,2014)"
     },
     {
       "id": 6,
-      "iconName": "FaMedal",
+      "iconName": "fa-solid:medal",
       "iconClassName": "medal-icon",
       "description": "Champion of Lower Silesia in 400m run (Bogatynia 2013)"
     }

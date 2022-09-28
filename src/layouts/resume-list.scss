@@ -1,18 +1,8 @@
-.fa-ul.list-dot {
+.list-dot {
   list-style-type: disc;
 }
 
-.fa-ul.list-none {
+.list-none {
   list-style-type: none;
 }
 
-.fa-ul {
-  & > li {
-    margin-bottom: 0.5em;
-  }
-}
-
-/* hack for aligning fontawesome icons in li elements vertically */
-.fa-li {
-  top: 0.22em;
-}

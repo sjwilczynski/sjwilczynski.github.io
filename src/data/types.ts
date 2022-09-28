@@ -19,7 +19,6 @@ export type ResumeList = {
   elements: ResumeListElement[];
   id?: number;
   title?: string;
-  listClassName?: string;
   numColumns?: number;
 };
 
