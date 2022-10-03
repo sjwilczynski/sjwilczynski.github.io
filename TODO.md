@@ -1,4 +1,3 @@
-- add analytics
 - move Interests and Description to mdx
 - make mobile navigation collapse on select
 - replace timeline with own implementation without react ?
