@@ -4,5 +4,33 @@
 
 .list-none {
   list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.custom-icon {
+  flex-shrink: 0;
+  width: 2em;
+  margin-left: -2rem;
+}
+
+.item {
+  margin-bottom: 0.5em;
+}
+
+.iol-icon {
+  color: #c0c0c0;
+}
+
+.graduation-cap-icon {
+  color: #000;
+}
+
+.award-icon {
+  color: #dc3545;
+}
+
+.medal-icon {
+  color: #ffc107;
 }
 

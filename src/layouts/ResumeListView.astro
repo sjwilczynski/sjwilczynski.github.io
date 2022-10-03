@@ -9,18 +9,19 @@ export type Props = ResumeList;
 const { elements } = Astro.props;
 ---
 
-<ul class={"mb-0 "}>
+<ul class="mb-0">
   {
     elements.map((element) => {
       const icon = element.iconName ? (
-        <Icon name={element.iconName} class={element.iconClassName || ""} />
-      ) : (
-        ""
-      );
-      const liStyle = element.iconName ? "list-none" : "";
+        <Icon
+          name={element.iconName}
+          class={(element.iconClassName ?? "") + " custom-icon"}
+        />
+      ) : null;
+      const liStyle = element.iconName ? "item list-none" : "item";
       return (
         <li class={liStyle}>
-          {icon} <Description description={element.description} />
+          {icon} <Description asSpan={true} description={element.description} />
         </li>
       );
     })

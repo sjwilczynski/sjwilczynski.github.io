@@ -1,9 +1,17 @@
 import ReactMarkdown from "react-markdown";
 
-export const Description = ({ description }: { description: string }) => (
+export const Description = ({
+  description,
+  asSpan = false,
+}: {
+  description: string;
+  asSpan?: boolean;
+}) => (
   <ReactMarkdown
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    components={{ p: ({ node, ...props }) => <span {...props} /> }}
+    components={
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      asSpan ? { p: ({ node, ...props }) => <span {...props} /> } : undefined
+    }
   >
     {description}
   </ReactMarkdown>
