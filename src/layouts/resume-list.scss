@@ -4,7 +4,14 @@
 
 .list-none {
   list-style-type: none;
-  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.custom-icon {
+  flex-shrink: 0;
+  width: 2em;
+  margin-left: -2rem;
 }
 
 .item {

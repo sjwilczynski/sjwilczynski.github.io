@@ -13,10 +13,11 @@ const { elements } = Astro.props;
   {
     elements.map((element) => {
       const icon = element.iconName ? (
-        <Icon name={element.iconName} class={element.iconClassName || ""} />
-      ) : (
-        ""
-      );
+        <Icon
+          name={element.iconName}
+          class={(element.iconClassName ?? "") + " custom-icon"}
+        />
+      ) : null;
       const liStyle = element.iconName ? "item list-none" : "item";
       return (
         <li class={liStyle}>
