@@ -1,6 +1,4 @@
 - make mobile navigation collapse on select
-- migrate to new icons, also should I use fa6 or fa5?
-- fix spacing in lists
 - move some components to mdx
 - add analytics
 - replace timeline with own implementation without react
