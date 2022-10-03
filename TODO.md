@@ -1,6 +1,6 @@
-- make mobile navigation collapse on select
-- move some components to mdx
 - add analytics
-- replace timeline with own implementation without react
-- remove react
+- move Interests and Description to mdx
+- make mobile navigation collapse on select
+- replace timeline with own implementation without react ?
+- remove react ?
 - tailwind vs bootstrap ?
