@@ -20,7 +20,7 @@ const { elements } = Astro.props;
       const liStyle = element.iconName ? "item list-none" : "item";
       return (
         <li class={liStyle}>
-          {icon} <Description description={element.description} />
+          {icon} <Description asSpan={true} description={element.description} />
         </li>
       );
     })
