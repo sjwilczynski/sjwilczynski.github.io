@@ -1,6 +1,6 @@
 ---
 import type { SocialMedia } from "@data/types";
-import { IconWithLink } from "../../icons/IconWithLink";
+import IconWithLink from "../../icons/IconWithLink.astro";
 
 export type Props = {
   socialMedias: SocialMedia[];
@@ -13,7 +13,7 @@ const { socialMedias } = Astro.props;
   {
     socialMedias.map((social: SocialMedia) => (
       <IconWithLink
-        iconComponentName={social.iconComponentName}
+        iconName={social.iconName}
         link={social.link}
         title={social.title}
       />

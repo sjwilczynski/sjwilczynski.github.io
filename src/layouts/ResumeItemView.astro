@@ -1,0 +1,26 @@
+---
+import type { ResumeItem } from "@data/types";
+import "./resume-item.scss";
+import { Description } from "@components/Description";
+
+export type Props = ResumeItem;
+
+const { headings, subheading, description, extraInfos } = Astro.props;
+---
+
+<div class="resume-item d-flex flex-column flex-md-row mb-5">
+  <div class="resume-content me-auto">
+    {headings.map((heading) => <h3 class="mb-0">{heading}</h3>)}
+    <div class="subheading mb-3">{subheading}</div>
+    <Description description={description} />
+  </div>
+  <div class="resume-extra text-md-end">
+    {
+      extraInfos.map((info) => (
+        <span class="text-primary">
+          {info} <br />{" "}
+        </span>
+      ))
+    }
+  </div>
+</div>

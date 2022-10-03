@@ -1,5 +1,4 @@
 - make mobile navigation collapse on select
-- migrate to new icons
 - move some components to mdx
 - add analytics
 - replace timeline with own implementation without react

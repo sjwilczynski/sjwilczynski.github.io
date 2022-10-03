@@ -1,0 +1,16 @@
+---
+import "./icon-wth-link.scss";
+import Icon from "./Icon.astro";
+
+export type Props = {
+  iconName: string;
+  link: string;
+  title: string;
+};
+
+const { iconName, link, title } = Astro.props;
+---
+
+<a href={link} class="icon-with-link" title={title} aria-label={title}>
+  <Icon name={iconName} />
+</a>

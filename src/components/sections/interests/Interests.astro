@@ -1,0 +1,48 @@
+---
+import "./interests.scss";
+import type { Concert } from "@data/types";
+import { ConcertsTimeline } from "./ConcertsTimeline";
+import Icon from "@components/icons/Icon.astro";
+
+export type Props = { concerts: Concert[] };
+
+const { concerts } = Astro.props;
+---
+
+<p>
+  Apart from being a programmer and a student, I mostly enjoy doing and watching
+  various sports, especially basketball, athletics, swimming and football. Among
+  basketball leagues I consider NBA to be most fascinating and my two favorite
+  players are{" "}
+  <a href="https://www.youtube.com/watch?v=w3l3txhX0L4"> Russel Westbrook</a>{
+    " "
+  }
+  and{" "}
+  <a href="https://www.youtube.com/watch?v=-f6TnC0xFPY">Kevin Durant</a>{" "}
+  <Icon name="fa-solid:basketball-ball" class="basketball-ball-icon" />. As a
+  former sprinter I am still shocked by Wayde van Niekerk's{" "}
+  <a href="https://www.youtube.com/watch?v=xG91krXuxyw">world record</a>.
+</p>
+<p>
+  As for my other interests, I am keen on travelling <Icon
+    name="fa:plane"
+    class="icon"
+  /> (most beautiful city - Porto, Portugal, most astonishing view - Tatev, Armenia,
+  best beach - Tangalle, Sri Lanka). In my free time I like visiting escape rooms
+  and reading{" "}
+  <a href="https://www.goodreads.com/user/show/100417409-stanis-aw-wilczy-ski">
+    books
+  </a>{" "}
+  <Icon name="fa:book" class="book-icon" />. However, my most beloved activity
+  is going to rock concerts.
+</p>
+<ConcertsTimeline concerts={concerts} client:visible />
+<p>
+  I am also an avid fan of the{" "}
+  <a href="https://en.wikipedia.org/wiki/Marvel_Cinematic_Universe"> MCU</a>{
+    " "
+  }
+  and a follower of{" "}
+  <a href="https://www.gapminder.org/factfulness-book/"> Factfulness idea</a>
+  .
+</p>

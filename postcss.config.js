@@ -8,12 +8,10 @@ module.exports = {
         "src/**/*.tsx",
         "src/data/**/*.json",
         "node_modules/react-vertical-timeline-component/**/*.js",
-        "node_modules/@fortawesome/fontawesome-svg-core/**/*.js",
       ],
       css: [
         "src/**/*.scss",
         "node_modules/react-vertical-timeline-component/style.min.css",
-        "node_modules/@fortawesome/fontawesome-svg-core/styles.css",
       ],
       safelist: ["active", "collapsing"], // Some class names are listed here as they correspond to dynamically added styles.
       // active - added to make sure active links styling from bootstrap navitems is not removed.

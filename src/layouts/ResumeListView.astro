@@ -1,0 +1,29 @@
+---
+import type { ResumeList } from "@data/types";
+import Icon from "@components/icons/Icon.astro";
+import "./resume-list.scss";
+import { Description } from "@components/Description";
+
+export type Props = ResumeList;
+
+const { elements } = Astro.props;
+---
+
+<ul class="mb-0">
+  {
+    elements.map((element) => {
+      const icon = element.iconName ? (
+        <Icon
+          name={element.iconName}
+          class={(element.iconClassName ?? "") + " custom-icon"}
+        />
+      ) : null;
+      const liStyle = element.iconName ? "item list-none" : "item";
+      return (
+        <li class={liStyle}>
+          {icon} <Description asSpan={true} description={element.description} />
+        </li>
+      );
+    })
+  }
+</ul>
