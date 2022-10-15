@@ -6,6 +6,7 @@ module.exports = {
       content: [
         "src/**/*.astro",
         "src/**/*.tsx",
+        "src/**/*.mdx",
         "src/data/**/*.json",
         "node_modules/react-vertical-timeline-component/**/*.js",
       ],
