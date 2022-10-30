@@ -1,7 +1,7 @@
 ---
 import type { ResumeItem } from "@data/types";
 import "./resume-item.scss";
-import { Description } from "@components/Description";
+import md from "markdown-it";
 
 export type Props = ResumeItem;
 
@@ -12,7 +12,7 @@ const { headings, subheading, description, extraInfos } = Astro.props;
   <div class="resume-content me-auto">
     {headings.map((heading) => <h3 class="mb-0">{heading}</h3>)}
     <div class="subheading mb-3">{subheading}</div>
-    <Description description={description} />
+    <Fragment set:html={md().render(description)} />
   </div>
   <div class="resume-extra text-md-end">
     {

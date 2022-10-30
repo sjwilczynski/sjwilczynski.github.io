@@ -1,3 +1,4 @@
+- add bundle size watcher (bundlesize or bundlemon)
 - make mobile navigation collapse on select
 - replace timeline with own implementation without react ?
 - remove react ?
