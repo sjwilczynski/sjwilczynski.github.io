@@ -1,4 +1,3 @@
-- add bundle size watcher (bundlesize or bundlemon or https://github.com/ai/size-limit)
 - make mobile navigation collapse on select
 - replace timeline with own implementation without react ?
 - remove react ?
