@@ -326,5 +326,13 @@
     "title": "Pink Floyd Legend",
     "location": "Verona",
     "description": "While being in Verona, we accidentally found about the Italian tribute band concert and decided to go. It was an amazing experience in old Roman amphitheater."
+  },
+  {
+    "id": 42,
+    "startDate": "06.03.2023",
+    "endDate": "06.03.2023",
+    "title": "The Australian Pink Floyd Show",
+    "location": "Wroclaw",
+    "description": "#DARK SIDE 50 TOUR - full Dark Side of the Moon album performed live, great experience!"
   }
 ]
