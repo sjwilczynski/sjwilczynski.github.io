@@ -1,9 +1,18 @@
 [
   {
     "id": "3",
-    "headings": ["Software Engineer II", "Software Engineer"],
+    "headings": [
+      "Senior Software Engineer",
+      "Software Engineer II",
+      "Software Engineer"
+    ],
     "subheading": "Microsoft",
-    "extraInfos": ["March 2021 - present", "Oct 2019 - Feb 2021", "Oslo, Norway"],
+    "extraInfos": [
+      "March 2023 - Present",
+      "March 2021 - Feb 2023",
+      "Oct 2019 - Feb 2021",
+      "Oslo, Norway"
+    ],
     "description": "React developer, working on high value experiences included in a variety of products across Microsoft 365 ecosystem, consumed by millions of users daily. Responsible for:\n* leading feature crews and acting as a link between business side and multiple engineering teams\n* designing, implementing a range of components, focusing on accessibility and maintainability\n* improving existing internal tooling across a large mono repository for the benefit of all developers"
   },
   {
