@@ -334,5 +334,13 @@
     "title": "The Australian Pink Floyd Show",
     "location": "Wroclaw",
     "description": "#DARK SIDE 50 TOUR - full Dark Side of the Moon album performed live, great experience!"
+  },
+  {
+    "id": 43,
+    "startDate": "25.09.2023",
+    "endDate": "25.09.2023",
+    "title": "Blind Guardian",
+    "location": "Wroclaw",
+    "description": ""
   }
 ]
