@@ -342,5 +342,13 @@
     "title": "Blind Guardian",
     "location": "Wroclaw",
     "description": ""
+  },
+  {
+    "id": 44,
+    "startDate": "16.11.2023",
+    "endDate": "16.11.2023",
+    "title": "Halocene",
+    "location": "Vienna",
+    "description": ""
   }
 ]
