@@ -350,5 +350,13 @@
     "title": "Halocene",
     "location": "Vienna",
     "description": ""
+  },
+  {
+    "id": 45,
+    "startDate": "13.06.2024",
+    "endDate": "16.06.2024",
+    "title": "Nova Rock",
+    "location": "Nickelsdorf",
+    "description": "Billy Talent, Green Day, Feuerschwanz, Parkway Drive, Avenged Sevenfold, Kontrust, Steel Panther, Sum 41, Avril Lavigne, Måneskin, Black Stone Cherry, Solence, Dropkich Murphys, Bring Me the Horizon"
   }
 ]
