@@ -358,5 +358,21 @@
     "title": "Nova Rock",
     "location": "Nickelsdorf",
     "description": "Billy Talent, Green Day, Feuerschwanz, Parkway Drive, Avenged Sevenfold, Kontrust, Steel Panther, Sum 41, Avril Lavigne, Måneskin, Black Stone Cherry, Solence, Dropkich Murphys, Bring Me the Horizon"
+  },
+  {
+    "id": "46",
+    "startDate": "01.08.2024",
+    "endDate": "01.08.2024",
+    "title": "Taylor Swift",
+    "location": "Wrarsaw",
+    "description": "...Ready For It?"
+  },
+  {
+    "id": 47,
+    "startDate": "31.08.2024",
+    "endDate": "31.08.2024",
+    "title": "Last Minute Summer Festival 2024",
+    "location": "Farben Lehre, Nocny Kochanek",
+    "description": ""
   }
 ]
