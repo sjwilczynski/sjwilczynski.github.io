@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ["**/*.mdx"],
+    ignores: ["**/*.mdx", "**/*.d.ts"],
   },
   ...compat.extends(
     "eslint:recommended",

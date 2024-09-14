@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon as AstroIcon } from "astro-icon/components";
 
 export type Props = {
   name: string;
@@ -18,4 +18,4 @@ const { name, class: className = "" } = Astro.props;
   }
 </style>
 
-<Icon name={name} class={"icon " + className} />
+<AstroIcon name={name} class={"icon " + className} />
