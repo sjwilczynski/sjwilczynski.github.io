@@ -24,6 +24,12 @@ export default defineConfig({
         "fa-solid": ["medal", "award", "basketball-ball"],
       },
     }),
-    purgecss(),
+    purgecss({
+      css: [
+        "dist/**/*.css",
+        "src/**/*.scss",
+        "node_modules/react-vertical-timeline-component/style.min.css",
+      ],
+    }),
   ],
 });
