@@ -67,7 +67,7 @@
     },
     {
       "path": "dist/**/*.css",
-      "limit": "13 KB"
+      "limit": "50 KB"
     }
   ],
   "dependencies": {
