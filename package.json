@@ -3,10 +3,6 @@
   "version": "0.8.0",
   "private": true,
   "homepage": "https://sjwilczynski.github.io",
-  "engines": {
-    "node": "^20.17.0",
-    "npm": "^10.0.0"
-  },
   "license": "MIT",
   "scripts": {
     "dev": "run-p check:watch start",
@@ -26,15 +22,27 @@
     "not dead",
     "not ie < 11"
   ],
-  "devDependencies": {
-    "@astrojs/mdx": "3.1.5",
+  "dependencies": {
+    "@astrojs/check": "0.9.4",
+    "@astrojs/mdx": "3.1.7",
     "@astrojs/react": "3.6.2",
+    "@popperjs/core": "2.11.7",
+    "astro": "4.15.11",
+    "astro-google-fonts-optimizer": "0.2.2",
+    "astro-icon": "1.1.1",
+    "bootstrap": "5.2.3",
+    "markdown-it": "13.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-vertical-timeline-component": "3.6.0",
+    "sass": "1.62.1"
+  },
+  "devDependencies": {
     "@eslint/eslintrc": "3.1.0",
     "@eslint/js": "9.10.0",
     "@fullhuman/postcss-purgecss": "5.0.0",
     "@iconify-json/fa": "1.2.0",
     "@iconify-json/fa-solid": "1.2.0",
-    "@popperjs/core": "2.11.7",
     "@size-limit/preset-app": "11.1.4",
     "@types/markdown-it": "12.2.3",
     "@types/react": "18.3.5",
@@ -42,23 +50,20 @@
     "@types/react-vertical-timeline-component": "3.3.6",
     "@typescript-eslint/eslint-plugin": "8.4.0",
     "@typescript-eslint/parser": "8.4.0",
-    "astro": "4.15.4",
-    "astro-google-fonts-optimizer": "0.2.2",
-    "astro-icon": "1.1.1",
     "astro-purgecss": "4.6.0",
-    "bootstrap": "5.2.3",
     "eslint": "9.10.0",
     "eslint-plugin-astro": "1.2.3",
     "eslint-plugin-jsx-a11y": "6.10.0",
     "globals": "15.9.0",
-    "markdown-it": "13.0.1",
     "npm-run-all": "4.1.5",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-vertical-timeline-component": "3.6.0",
-    "sass": "1.62.1",
+    "prettier": "3.3.3",
+    "prettier-plugin-packagejson": "2.5.2",
     "size-limit": "11.1.4",
     "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": "^20.17.0",
+    "npm": "^10.0.0"
   },
   "size-limit": [
     {
@@ -69,8 +74,5 @@
       "path": "dist/**/*.css",
       "limit": "50 KB"
     }
-  ],
-  "dependencies": {
-    "@astrojs/check": "^0.9.3"
-  }
+  ]
 }
