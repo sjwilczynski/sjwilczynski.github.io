@@ -1,17 +1,18 @@
-.list-dot {
-  list-style-type: disc;
+.marker {
+  min-width: 1em;
+  min-height: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.list-none {
+.list-style-none {
   list-style-type: none;
-  display: flex;
-  align-items: center;
 }
 
 .custom-icon {
   flex-shrink: 0;
   width: 2em;
-  margin-left: -2rem;
 }
 
 .item {
@@ -33,4 +34,3 @@
 .medal-icon {
   color: #ffc107;
 }
-

@@ -14,10 +14,9 @@ const { elements } = Astro.props;
     elements.map(({ iconName, iconClassName, description }) => {
       const icon = iconName ? (
         <Icon name={iconName} class={(iconClassName ?? "") + " custom-icon"} />
-      ) : null;
-      const liStyle = iconName ? "item list-none" : "item";
+      ) : <span class="marker">•</span>;
       return (
-        <li class={liStyle}>
+        <li class={"item list-style-none"}>
           {icon} <Fragment set:html={md().renderInline(description)} />
         </li>
       );
