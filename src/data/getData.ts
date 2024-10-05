@@ -33,7 +33,7 @@ export const getData = () => {
         id: data.id,
         date: getConcertDate(
           readDateFromString(data.startDate),
-          readDateFromString(data.endDate)
+          readDateFromString(data.endDate),
         ),
         title: data.title,
         location: data.location,
@@ -59,8 +59,10 @@ function dateToLocalizedString(date: Date) {
   return date.toLocaleDateString("pl-PL");
 }
 function readDateFromString(date: string) {
-  const dateParts = date.split(".").map((part) => parseInt(part));
-  return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+  const [year, month, day] = date.split(".").map((part) => parseInt(part));
+  return year !== undefined && month !== undefined && day !== undefined
+    ? new Date(year, month - 1, day)
+    : new Date();
 }
 
 function getConcertDate(startDate: Date, endDate: Date): string {
