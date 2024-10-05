@@ -17,7 +17,7 @@ const { elements } = Astro.props;
       ) : <span class="marker">•</span>;
       return (
         <li class={"item list-style-none"}>
-          {icon} <Fragment set:html={md().renderInline(description)} />
+          {icon}<span><Fragment set:html={md().renderInline(description)} /></span>
         </li>
       );
     })
