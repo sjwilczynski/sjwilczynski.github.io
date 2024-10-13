@@ -10,6 +10,21 @@ export type Props = {
 const { about, socialMedias } = Astro.props;
 ---
 
+<style>
+  @media (width <= 390px) {
+    h1 {
+      font-size: 4rem;
+      line-height: 4.5rem;
+    }
+  }
+  @media (width <= 290px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+  }
+</style>
+
 <h1 class="mb-0">
   {about.name}
   <span class="text-primary"> {about.surname}</span>
