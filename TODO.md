@@ -1,4 +1,3 @@
-- migrate to bun
 - Check what changed in Astro from 1.x to 4.x and use new features
     - report bug for purgecss
     - use https://docs.astro.build/en/guides/content-collections/ for data with proper json schema
