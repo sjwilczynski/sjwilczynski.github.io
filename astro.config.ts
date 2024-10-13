@@ -21,7 +21,7 @@ export default defineConfig({
           "plane",
           "book",
         ],
-        "fa-solid": ["medal", "award", "basketball-ball"],
+        "fa-solid": ["medal", "award", "basketball-ball", "dumbbell"],
       },
     }),
     purgecss(),

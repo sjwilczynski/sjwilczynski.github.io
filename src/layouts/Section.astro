@@ -7,9 +7,17 @@ export type Props = {
 const { id, title } = Astro.props;
 ---
 
+<style>
+  @media (width <= 290px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
 <section class="resume-section p-3 p-lg-5 d-flex flex-column" id={id}>
   <div class="my-auto">
-    {title && <h2 class="mb-5">{title}</h2>}
+    {title && <h2 class="mb-4">{title}</h2>}
     <!--  using ternary operator causes error described in https://github.com/withastro/language-tools/pull/335 -->
     <slot />
   </div>
