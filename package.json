@@ -50,7 +50,7 @@
     "@types/react-vertical-timeline-component": "3.3.6",
     "@typescript-eslint/eslint-plugin": "8.4.0",
     "@typescript-eslint/parser": "8.4.0",
-    "astro-purgecss": "4.6.0",
+    "astro-purgecss": "4.6.1",
     "eslint": "9.10.0",
     "eslint-plugin-astro": "1.2.3",
     "eslint-plugin-jsx-a11y": "6.10.0",
@@ -72,7 +72,7 @@
     },
     {
       "path": "dist/**/*.css",
-      "limit": "50 KB"
+      "limit": "12 KB"
     }
   ]
 }

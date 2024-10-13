@@ -24,6 +24,6 @@ export default defineConfig({
         "fa-solid": ["medal", "award", "basketball-ball"],
       },
     }),
-    // purgecss(),
+    purgecss(),
   ],
 });
