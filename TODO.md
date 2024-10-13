@@ -1,6 +1,6 @@
 - migrate to bun
 - Check what changed in Astro from 1.x to 4.x and use new features
-    - report bug for purgecss4
+    - report bug for purgecss
     - figure out why on small width the HTML doesn't take 100% width
     - use https://docs.astro.build/en/guides/content-collections/ for data with proper json schema
     - integrate chromatic

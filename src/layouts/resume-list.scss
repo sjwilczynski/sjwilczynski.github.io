@@ -8,8 +8,12 @@
 
 .list-style-none {
   list-style-type: none;
-  display: inline-flex;
+  display: flex;
   gap: 0.5em;
+}
+
+.icon-wrapper {
+  height: 1lh;
 }
 
 .custom-icon {

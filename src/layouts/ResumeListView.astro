@@ -13,11 +13,21 @@ const { elements } = Astro.props;
   {
     elements.map(({ iconName, iconClassName, description }) => {
       const icon = iconName ? (
-        <Icon name={iconName} class={(iconClassName ?? "") + " custom-icon"} />
-      ) : <span class="marker">•</span>;
+        <span class="icon-wrapper">
+          <Icon
+            name={iconName}
+            class={(iconClassName ?? "") + " custom-icon"}
+          />
+        </span>
+      ) : (
+        <span class="icon-wrapper marker">•</span>
+      );
       return (
         <li class={"item list-style-none"}>
-          {icon}<span><Fragment set:html={md().renderInline(description)} /></span>
+          {icon}
+          <span>
+            <Fragment set:html={md().renderInline(description)} />
+          </span>
         </li>
       );
     })
