@@ -1,24 +1,14 @@
 ---
 import type { ResumeList } from "@data/types";
 import ResumeListView from "@layouts/ResumeListView.astro";
-import { splitToChunks } from "./skills";
 
 export type Props = {
   skills: ResumeList;
 };
 
 const { skills } = Astro.props;
-const numColumns = skills.numColumns || 1;
-const skillsChunked = splitToChunks(skills);
+const { title, elements, numColumns } = skills;
 ---
 
-<div class="subheading mb-3 mt-2">{skills.title}</div>
-<div class="d-flex">
-  {
-    skillsChunked.map((skillChunk) => (
-      <div class={"col-" + Math.floor(12 / numColumns)}>
-        <ResumeListView {...skillChunk} />
-      </div>
-    ))
-  }
-</div>
+<div class="subheading mb-3 mt-2">{title}</div>
+<ResumeListView elements={elements} numColumns={numColumns ?? 1} />

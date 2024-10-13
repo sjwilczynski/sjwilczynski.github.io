@@ -6,10 +6,29 @@ import md from "markdown-it";
 
 export type Props = ResumeList;
 
-const { elements } = Astro.props;
+const { elements, numColumns } = Astro.props;
+
+const columnCount = numColumns ?? 1;
 ---
 
-<ul class="mb-0">
+<style define:vars={{ columnCount }}>
+  .list-grid {
+    display: grid;
+    --adjustedColumnCount: var(--columnCount);
+
+    @media (width <= 400px) {
+      --adjustedColumnCount: min(var(--columnCount), 2);
+    }
+
+    @media (width <= 300px) {
+      --adjustedColumnCount: 1;
+    }
+
+    grid-template-columns: repeat(var(--adjustedColumnCount), 1fr);
+  }
+</style>
+
+<ul class="mb-0 list-grid">
   {
     elements.map(({ iconName, iconClassName, description }) => {
       const icon = iconName ? (
