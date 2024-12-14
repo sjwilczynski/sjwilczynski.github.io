@@ -59,7 +59,7 @@ function dateToLocalizedString(date: Date) {
   return date.toLocaleDateString("pl-PL");
 }
 function readDateFromString(date: string) {
-  const [year, month, day] = date.split(".").map((part) => parseInt(part));
+  const [day, month, year] = date.split(".").map((part) => parseInt(part));
   return year !== undefined && month !== undefined && day !== undefined
     ? new Date(year, month - 1, day)
     : new Date();
