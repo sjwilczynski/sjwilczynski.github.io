@@ -374,5 +374,21 @@
     "title": "Last Minute Summer Festival 2024",
     "location": "Wrocław",
     "description": "Farben Lehre, Nocny Kochanek"
+  },
+  {
+    "id": 48,
+    "startDate": "27.02.2025",
+    "endDate": "27.02.2025",
+    "title": "The Australian Pink Floyd Show",
+    "location": "Wrocław",
+    "description": "Wish You Were Here tour"
+  },
+  {
+    "id": 49,
+    "startDate": "07.03.2025",
+    "endDate": "07.03.2025",
+    "title": "Dynazty + Nanowar of Steel",
+    "location": "Wrocław",
+    "description": ""
   }
 ]
