@@ -100,7 +100,7 @@
     "startDate": "26.05.2015",
     "endDate": "26.05.2015",
     "title": "Blind Guardian",
-    "location": "Warsaw",
+    "location": "Warszawa",
     "description": ""
   },
   {
@@ -124,7 +124,7 @@
     "startDate": "25.07.2015",
     "endDate": "25.07.2015",
     "title": "AC/DC",
-    "location": "Warsaw",
+    "location": "Warszawa",
     "description": ""
   },
   {
@@ -148,7 +148,7 @@
     "startDate": "25.01.2016",
     "endDate": "25.01.2016",
     "title": "Three Days Grace",
-    "location": "Warsaw",
+    "location": "Warszawa",
     "description": ""
   },
   {
@@ -228,7 +228,7 @@
     "startDate": "20.10.2017",
     "endDate": "20.10.2017",
     "title": "Alter Bridge",
-    "location": "Warsaw",
+    "location": "Warszawa",
     "description": ""
   },
   {
@@ -364,7 +364,7 @@
     "startDate": "01.08.2024",
     "endDate": "01.08.2024",
     "title": "Taylor Swift",
-    "location": "Warsaw",
+    "location": "Warszawa",
     "description": "...Ready For It?"
   },
   {
@@ -397,6 +397,14 @@
     "endDate": "22.06.2025",
     "title": "Avenged Sevenfold",
     "location": "Wrocław",
+    "description": ""
+  },
+  {
+    "id": 51,
+    "startDate": "13.10.2025",
+    "endDate": "13.10.2025",
+    "title": "Volbeat",
+    "location": "Warszawa",
     "description": ""
   }
 ]
