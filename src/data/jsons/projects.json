@@ -2,7 +2,7 @@
   "elements": [
     {
       "id": 0,
-      "description": "Core maintainer of Microsoft's [Nova Facade repository](https://github.com/microsoft/nova-facade) and creator of [Nova React Test Utils](https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils), a dedicated testing framework for verifying Nova components via Storybook. Originally designed for Nova’s architecture, it has since evolved into a general-purpose solution and is now the most feature-rich open-source tool for integrating Relay-based components into Storybook"
+      "description": "Core maintainer of Microsoft's [Nova Facade repository](https://github.com/microsoft/nova-facade) and creator of [Nova React Test Utils](https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils), a dedicated testing framework for verifying Nova components via Storybook. Originally designed for Nova architecture, it has since evolved into a general-purpose solution and is now the most feature-rich open-source tool for integrating Relay-based components into Storybook"
     },
     {
       "id": 1,

@@ -11,9 +11,10 @@
       "March 2023 - Present",
       "March 2021 - Feb 2023",
       "Oct 2019 - Feb 2021",
-      "Oslo, Norway"
+      "Wrocław, Poland (Remote)",
+      "Oslo, Norway (until Nov 2021)"
     ],
-    "description": "React developer delivering high-value experiences across the Microsoft 365 ecosystem, used by millions of users daily. Responsible for:\n* technically leading feature crews and acting as a link between business side and multiple engineering teams\n* designing and implementing products (e.g. [People App](https://support.microsoft.com/en-us/office/manage-your-contacts-with-the-people-app-in-teams-cfea34b9-ac23-4cff-b3d1-c97bb2b1e751)) with strong focus on accessibility and maintainability\n* Building and enhancing testing and dependency management tooling (open source and internal) across large monorepositories, benefiting all developers\n* Onboarding new team members, conducting knowledge-sharing sessions, and mentoring multiple developers"
+    "description": "React developer delivering high-value experiences across the Microsoft 365 ecosystem, used by millions of users daily. Responsible for:\n * Leading the development of innovative products in AI space (e.g [People Agent](https://youtu.be/ebEMBUvIavs?si=eb4NyfLmuEcdRPGT&t=409)), providing architectural direction for a group of ~40 developers\n* Driving technical execution across feature crews and bridging product, design, and multiple engineering teams\n* Designing and implementing user-facing products (e.g. [People App](https://support.microsoft.com/en-us/office/manage-your-contacts-with-the-people-app-in-teams-cfea34b9-ac23-4cff-b3d1-c97bb2b1e751)) with a strong focus on accessibility, performance and maintainability\n* Building and improving testing and dependency management tooling (both open-source and internal) across large monorepos, enhancing developer productivity at scale\n* Onboarding new team members, leading knowledge-sharing sessions, and mentoring developers across the organization"
   },
   {
     "id": "1",
