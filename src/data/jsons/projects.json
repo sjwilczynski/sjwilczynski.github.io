@@ -2,11 +2,11 @@
   "elements": [
     {
       "id": 0,
-      "description": "Core maintainer of Microsoft's [Nova Facade repository](https://github.com/microsoft/nova-facade) and creator of [Nova React Test Utils](https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils), a dedicated testing framework for verifying Nova components via Storybook. Originally designed for Nova architecture, it has since evolved into a general-purpose solution and is now the most feature-rich open-source tool for integrating Relay-based components into Storybook"
+      "description": "Core maintainer of Microsoft's [Nova Facade repository](https://github.com/microsoft/nova-facade) and creator of [Nova React Test Utils](https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils), a dedicated testing framework for verifying Nova components via Storybook. Since its creation it has evolved into the most feature-rich open-source tool for integrating Relay-based components into Storybook"
     },
     {
       "id": 1,
-      "description": "[Excel Add-in](https://github.com/sjwilczynski/WNOPBudgetAutocomplete) that simplifies adding expenses in one of the popular budget templates"
+      "description": "Author of [Excel Add-in](https://github.com/sjwilczynski/WNOPBudgetAutocomplete) that simplifies adding expenses in one of the popular budget templates"
     },
     {
       "id": 2,
@@ -14,15 +14,15 @@
     },
     {
       "id": 3,
-      "description": "[Activity tracker](https://www.beactivetrackdaily.com/) PWA that I use to record my sport related activity daily"
+      "description": "Author of [Activity tracker](https://www.beactivetrackdaily.com/) PWA that I use to record my sport related activity daily"
     },
     {
       "id": 4,
-      "description": "[AI](https://github.com/sjwilczynski/ThreesGameWithNeuralNets) for the Threes game using reinforcement learning and PyTorch"
+      "description": "Co-author of R package [Varclust](https://github.com/psobczyk/varclust)"
     },
     {
       "id": 5,
-      "description": "Co-author of R package [Varclust](https://github.com/psobczyk/varclust)"
+      "description": "[AI](https://github.com/sjwilczynski/ThreesGameWithNeuralNets) for the Threes game using reinforcement learning and PyTorch"
     },
     {
       "id": 6,
