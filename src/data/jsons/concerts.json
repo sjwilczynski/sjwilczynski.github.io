@@ -406,5 +406,13 @@
     "title": "Volbeat",
     "location": "Warszawa",
     "description": ""
+  },
+  {
+    "id": 52,
+    "startDate": "27.01.2026",
+    "endDate": "27.01.2026",
+    "title": "Alter Bridge",
+    "location": "Gliwice",
+    "description": ""
   }
 ]
