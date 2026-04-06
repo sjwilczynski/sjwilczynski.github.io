@@ -10,8 +10,8 @@ I rewrote it in React using [CRA](https://create-react-app.dev/) and migrated to
 To start using this for your own needs:
 
 - clone the repository
-- go to its directory and install all dependencies: `npm install`
-- start the app using `npm start` and go to [http://localhost:3000/](http://localhost:3000/) to view your changes.
+- go to its directory and install all dependencies: `bun install`
+- start the app using `bun start` and go to [http://localhost:4321/](http://localhost:4321/) to view your changes.
 
 ### Deploying to github pages
 
