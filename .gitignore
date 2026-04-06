@@ -30,3 +30,7 @@ docs/superpowers/
 astroSite
 .astro
 node_modules/.vite
+
+# playwright
+test-results/
+playwright-report/
