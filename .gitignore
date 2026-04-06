@@ -22,6 +22,15 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+
+# superpowers
+docs/superpowers/
 
 astroSite
 .astro
+node_modules/.vite
+
+# playwright
+test-results/
+playwright-report/
