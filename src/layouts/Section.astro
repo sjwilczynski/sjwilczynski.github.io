@@ -8,6 +8,34 @@ const { id, title } = Astro.props;
 ---
 
 <style>
+  section {
+    padding: 5rem 1rem;
+    max-width: 75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      min-height: 100vh;
+    }
+  }
+
+  @media (min-width: 992px) {
+    section {
+      padding: 3rem 1rem;
+    }
+  }
+
+  .section-inner {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
   @media (width <= 290px) {
     h2 {
       font-size: 2.5rem;
@@ -15,11 +43,10 @@ const { id, title } = Astro.props;
   }
 </style>
 
-<section class="resume-section p-3 p-lg-5 d-flex flex-column" id={id}>
-  <div class="my-auto">
-    {title && <h2 class="mb-4">{title}</h2>}
-    <!--  using ternary operator causes error described in https://github.com/withastro/language-tools/pull/335 -->
+<section id={id}>
+  <div class="section-inner">
+    {title && <h2>{title}</h2>}
     <slot />
   </div>
 </section>
-<hr class="m-0" />
+<hr />
