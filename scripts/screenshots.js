@@ -54,8 +54,11 @@ async function run() {
     name: /concerts list/i,
   });
   await concertsButton.scrollIntoViewIfNeeded();
+  // Wait for React hydration (client:visible triggers when element enters viewport)
+  await desktopPage.waitForTimeout(3000);
   await concertsButton.click();
-  await desktopPage.waitForTimeout(1000);
+  // Wait for timeline to render
+  await desktopPage.waitForTimeout(2000);
   await capture(desktopPage, "desktop-concerts-expanded");
 
   await desktopPage.close();

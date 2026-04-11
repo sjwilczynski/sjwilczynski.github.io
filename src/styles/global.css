@@ -36,7 +36,11 @@ p {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-/* Body styles */
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   padding-top: 54px;

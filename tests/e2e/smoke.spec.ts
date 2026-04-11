@@ -40,11 +40,12 @@ test.describe("Smoke tests", () => {
     const button = page.getByRole("button", { name: /concerts list/i });
     await expect(button).toBeVisible();
 
-    await button.click();
-
-    // The timeline is rendered by React after hydration + click
-    // Look for timeline element content rather than the wrapper class
+    // Wait for React hydration — the button text changes from SSR aren't
+    // visible, but we can retry clicking until React handles it
     const timelineElement = page.locator(".vertical-timeline-element-content");
-    await expect(timelineElement.first()).toBeVisible({ timeout: 10000 });
+    await expect(async () => {
+      await button.click();
+      await expect(timelineElement.first()).toBeVisible({ timeout: 1000 });
+    }).toPass({ timeout: 15000 });
   });
 });
