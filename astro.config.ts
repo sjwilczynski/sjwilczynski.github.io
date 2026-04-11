@@ -1,5 +1,4 @@
 import { defineConfig, fontProviders } from "astro/config";
-import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 
@@ -42,20 +41,7 @@ export default defineConfig({
       fallbacks: systemFontFallbacks,
     },
   ],
-  vite: {
-    optimizeDeps: {
-      include: ["react-vertical-timeline-component"],
-      esbuildOptions: {
-        define: {
-          "process.env.NODE_ENV": JSON.stringify(
-            process.env.NODE_ENV || "development",
-          ),
-        },
-      },
-    },
-  },
   integrations: [
-    react(),
     mdx(),
     icon({
       include: {
