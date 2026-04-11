@@ -1,12 +1,7 @@
 ---
 import ResumeItemView from "./ResumeItemView.astro";
-import type { CollectionEntry } from "astro:content";
+import type { ResumeEntry } from "@data/types";
 import Section from "./Section.astro";
-
-type ResumeEntry =
-  | CollectionEntry<"experience">
-  | CollectionEntry<"education">
-  | CollectionEntry<"research">;
 
 export type Props = {
   id: string;

@@ -9,7 +9,7 @@ const about = defineCollection({
     surname: z.string(),
     city: z.string(),
     country: z.string(),
-    email: z.string(),
+    email: z.email(),
     githubUrl: z.url(),
     introduction: z.string(),
   }),

@@ -3,6 +3,20 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 
+const systemFontFallbacks = [
+  "-apple-system",
+  "BlinkMacSystemFont",
+  "Segoe UI",
+  "Roboto",
+  "Helvetica Neue",
+  "Arial",
+  "sans-serif",
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji",
+];
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://sjwilczynski.github.io",
@@ -16,19 +30,7 @@ export default defineConfig({
       cssVariable: "--font-heading",
       weights: ["500", "700"],
       subsets: ["latin", "latin-ext"],
-      fallbacks: [
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Helvetica Neue",
-        "Arial",
-        "sans-serif",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        "Noto Color Emoji",
-      ],
+      fallbacks: systemFontFallbacks,
     },
     {
       provider: fontProviders.google(),
@@ -37,19 +39,7 @@ export default defineConfig({
       weights: ["400", "800"],
       styles: ["normal", "italic"],
       subsets: ["latin", "latin-ext"],
-      fallbacks: [
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Helvetica Neue",
-        "Arial",
-        "sans-serif",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        "Noto Color Emoji",
-      ],
+      fallbacks: systemFontFallbacks,
     },
   ],
   vite: {

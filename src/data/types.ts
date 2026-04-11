@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 export type About = {
   name: string;
   surname: string;
@@ -36,3 +38,8 @@ export type Concert = {
   location: string;
   description: string;
 };
+
+export type ResumeEntry =
+  | CollectionEntry<"experience">
+  | CollectionEntry<"education">
+  | CollectionEntry<"research">;
