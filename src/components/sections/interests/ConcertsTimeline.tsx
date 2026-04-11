@@ -19,8 +19,8 @@ export const ConcertsTimeline = ({ concerts }: { concerts: Concert[] }) => {
         <button
           style={{
             padding: "0.5rem 1rem",
-            backgroundColor: "#4479a2",
-            color: "white",
+            backgroundColor: "var(--color-primary)",
+            color: "var(--color-white)",
             border: "none",
             borderRadius: "0.375rem",
             cursor: "pointer",
@@ -40,7 +40,10 @@ export const ConcertsTimeline = ({ concerts }: { concerts: Concert[] }) => {
               key={concert.id}
               date={concert.date}
               icon={<GuitarIcon />}
-              iconStyle={{ background: "#4479a2", color: "#fff" }}
+              iconStyle={{
+                background: "var(--color-primary)",
+                color: "var(--color-white)",
+              }}
             >
               <h3>{concert.title}</h3>
               <h4>{concert.location}</h4>

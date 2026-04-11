@@ -70,12 +70,12 @@
   },
   "size-limit": [
     {
-      "path": "dist/**/(index|Concerts|Navigation)*.js",
-      "limit": "15 KB"
+      "path": "dist/**/(index|Concerts)*.js",
+      "limit": "10 KB"
     },
     {
       "path": "dist/**/*.css",
-      "limit": "12 KB"
+      "limit": "6 KB"
     }
   ]
 }
