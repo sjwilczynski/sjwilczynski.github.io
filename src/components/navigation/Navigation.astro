@@ -32,7 +32,9 @@ const sectionEntries = Object.entries(sections);
   });
 
   // IntersectionObserver scrollspy
-  const navLinks = document.querySelectorAll<HTMLAnchorElement>("#sideNav a.nav-link");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(
+    "#sideNav a.nav-link",
+  );
   const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
   const observer = new IntersectionObserver(
