@@ -44,9 +44,7 @@ test.describe("Smoke tests", () => {
 
     // The timeline is rendered by React after hydration + click
     // Look for timeline element content rather than the wrapper class
-    const timelineElement = page.locator(
-      ".vertical-timeline-element-content",
-    );
+    const timelineElement = page.locator(".vertical-timeline-element-content");
     await expect(timelineElement.first()).toBeVisible({ timeout: 10000 });
   });
 });

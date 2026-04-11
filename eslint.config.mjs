@@ -1,63 +1,34 @@
 import globals from "globals";
-import tsParser from "@typescript-eslint/parser";
-import parser from "astro-eslint-parser";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import astroPlugin from "eslint-plugin-astro";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 export default [
   {
-    ignores: ["**/*.mdx", "**/*.d.ts"],
+    ignores: ["**/*.mdx", "**/*.d.ts", "dist/**", ".astro/**"],
   },
-  ...compat.extends(
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:astro/recommended",
-    "plugin:astro/jsx-a11y-recommended"
-  ),
+  js.configs.recommended,
+  ...tsPlugin.configs["flat/recommended"],
+  ...astroPlugin.configs["flat/recommended"],
+  ...astroPlugin.configs["flat/jsx-a11y-recommended"],
+  {
+    files: ["**/*.{ts,tsx}"],
+    plugins: {
+      "jsx-a11y": jsxA11y,
+    },
+    rules: {
+      ...jsxA11y.configs.recommended.rules,
+    },
+  },
   {
     languageOptions: {
       globals: {
         ...globals.browser,
       },
-
-      parser: tsParser,
-      ecmaVersion: "latest",
-      sourceType: "module",
-
-      parserOptions: {
-        project: "./tsconfig.json",
-      },
     },
-
     rules: {
       "no-constant-binary-expression": "error",
     },
-  },
-  {
-    files: ["**/*.astro"],
-
-    languageOptions: {
-      parser: parser,
-      ecmaVersion: 5,
-      sourceType: "script",
-
-      parserOptions: {
-        parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
-      },
-    },
-
-    rules: {},
   },
 ];
