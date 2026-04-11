@@ -1,6 +1,5 @@
 ---
 import type { ResumeItem } from "@data/types";
-import "./resume-item.scss";
 import md from "markdown-it";
 
 export type Props = ResumeItem;
@@ -8,16 +7,55 @@ export type Props = ResumeItem;
 const { headings, subheading, description, extraInfos } = Astro.props;
 ---
 
-<div class="resume-item d-flex flex-column flex-md-row mb-5">
-  <div class="resume-content me-auto">
-    {headings.map((heading) => <h3 class="mb-0">{heading}</h3>)}
-    <div class="subheading mb-3">{subheading}</div>
+<style>
+  .resume-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  .resume-content {
+    margin-right: auto;
+  }
+
+  .resume-content h3 {
+    margin-bottom: 0;
+  }
+
+  .resume-content .subheading {
+    margin-bottom: 0.75rem;
+  }
+
+  .resume-extra {
+    line-height: 2rem;
+  }
+
+  .extra-info {
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 768px) {
+    .resume-item {
+      flex-direction: row;
+    }
+
+    .resume-extra {
+      text-align: end;
+      min-width: 18rem;
+    }
+  }
+</style>
+
+<div class="resume-item">
+  <div class="resume-content">
+    {headings.map((heading) => <h3>{heading}</h3>)}
+    <div class="subheading">{subheading}</div>
     <Fragment set:html={md().render(description)} />
   </div>
-  <div class="resume-extra text-md-end">
+  <div class="resume-extra">
     {
       extraInfos.map((info) => (
-        <span class="text-primary">
+        <span class="extra-info">
           {info} <br />{" "}
         </span>
       ))
