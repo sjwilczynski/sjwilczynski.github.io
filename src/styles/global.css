@@ -102,9 +102,9 @@ hr {
   margin: 0;
 }
 
-/* List reset */
+/* List reset — only for nav/layout, not content */
 ul {
-  list-style: none;
+  padding: 0;
 }
 
 img {
