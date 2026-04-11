@@ -1,7 +1,5 @@
-@import "../../../styles/bootstrap_overrides";
-
 .vertical-timeline-element-content {
-  border-top: 3px solid $primary;
+  border-top: 3px solid #4479a2;
 }
 
 @media only screen and (max-width: 1169px) {

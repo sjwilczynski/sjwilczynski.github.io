@@ -11,6 +11,24 @@ const { about, socialMedias } = Astro.props;
 ---
 
 <style>
+  .surname {
+    color: var(--color-primary);
+  }
+
+  .about-subheading {
+    margin-bottom: 3rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
   @media (width <= 390px) {
     h1 {
       font-size: 4rem;
@@ -25,13 +43,13 @@ const { about, socialMedias } = Astro.props;
   }
 </style>
 
-<h1 class="mb-0">
+<h1>
   {about.name}
-  <span class="text-primary"> {about.surname}</span>
+  <span class="surname"> {about.surname}</span>
 </h1>
-<div class="subheading mb-5">
+<div class="subheading about-subheading">
   {about.city}, {about.country},
   <a href={"mailto:" + about.email}> {about.email}</a>
 </div>
-<div class="lead mb-5">{about.introduction}</div>
+<div class="lead">{about.introduction}</div>
 <SocialMedias socialMedias={socialMedias} />

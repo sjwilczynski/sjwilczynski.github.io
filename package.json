@@ -11,7 +11,7 @@
     "check": "astro check",
     "check:watch": "astro check --watch",
     "ci": "bun run fmt:check && bun run lint && bun run check && bun run tsc && bun run build",
-    "dev": "bun run check:watch & bun run start",
+    "dev": "bun run --parallel check:watch start",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
     "lint": "eslint ./src",
@@ -30,16 +30,15 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.1.0",
     "@astrojs/react": "4.2.1",
-    "@popperjs/core": "2.11.7",
     "astro": "5.4.1",
     "astro-google-fonts-optimizer": "0.2.2",
     "astro-icon": "1.1.5",
-    "bootstrap": "5.2.3",
+    "baseline-browser-mapping": "^2.10.18",
+    "caniuse-lite": "^1.0.30001787",
     "markdown-it": "13.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-vertical-timeline-component": "3.6.0",
-    "sass": "1.62.1"
+    "react-vertical-timeline-component": "3.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -53,12 +52,13 @@
     "@types/react-vertical-timeline-component": "3.3.6",
     "@typescript-eslint/eslint-plugin": "^8.58.1",
     "@typescript-eslint/parser": "^8.58.1",
-    "astro-purgecss": "5.2.2",
     "eslint": "^10.2.0",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "globals": "^17.4.0",
+    "pixelmatch": "^7.1.0",
     "playwright": "^1.59.1",
+    "pngjs": "^7.0.0",
     "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-packagejson": "^3.0.2",
@@ -70,12 +70,12 @@
   },
   "size-limit": [
     {
-      "path": "dist/**/(index|Concerts|Navigation)*.js",
-      "limit": "15 KB"
+      "path": "dist/**/(index|Concerts)*.js",
+      "limit": "10 KB"
     },
     {
       "path": "dist/**/*.css",
-      "limit": "12 KB"
+      "limit": "6 KB"
     }
   ]
 }

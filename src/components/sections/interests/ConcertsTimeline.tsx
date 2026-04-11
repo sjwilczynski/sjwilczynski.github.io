@@ -15,8 +15,21 @@ export const ConcertsTimeline = ({ concerts }: { concerts: Concert[] }) => {
 
   return (
     <>
-      <div className="d-grid mb-2">
-        <button className="btn btn-primary mt-2" onClick={onConcertsClick}>
+      <div style={{ display: "grid", marginBottom: "0.5rem" }}>
+        <button
+          style={{
+            padding: "0.5rem 1rem",
+            backgroundColor: "var(--color-primary)",
+            color: "var(--color-white)",
+            border: "none",
+            borderRadius: "0.375rem",
+            cursor: "pointer",
+            fontSize: "1rem",
+            fontWeight: 500,
+            marginTop: "0.5rem",
+          }}
+          onClick={onConcertsClick}
+        >
           Click here to {showConcerts ? "hide" : "view"} the full concerts list
         </button>
       </div>
@@ -27,7 +40,10 @@ export const ConcertsTimeline = ({ concerts }: { concerts: Concert[] }) => {
               key={concert.id}
               date={concert.date}
               icon={<GuitarIcon />}
-              iconStyle={{ background: "#4479a2", color: "#fff" }}
+              iconStyle={{
+                background: "var(--color-primary)",
+                color: "var(--color-white)",
+              }}
             >
               <h3>{concert.title}</h3>
               <h4>{concert.location}</h4>

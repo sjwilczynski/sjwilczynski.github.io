@@ -1,7 +1,6 @@
 ---
 import type { ResumeList } from "@data/types";
 import Icon from "@components/icons/Icon.astro";
-import "./resume-list.scss";
 import md from "markdown-it";
 
 export type Props = ResumeList;
@@ -15,6 +14,8 @@ const columnCount = numColumns ?? 1;
   .list-grid {
     display: grid;
     --adjustedColumnCount: var(--columnCount);
+    padding: 0;
+    padding-left: 2rem;
 
     @media (width <= 450px) {
       --adjustedColumnCount: min(var(--columnCount), 2);
@@ -26,9 +27,52 @@ const columnCount = numColumns ?? 1;
 
     grid-template-columns: repeat(var(--adjustedColumnCount), 1fr);
   }
+
+  .marker {
+    min-width: 1em;
+    min-height: 1em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .list-style-none {
+    list-style-type: none;
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .icon-wrapper {
+    height: 1lh;
+  }
+
+  .custom-icon {
+    flex-shrink: 0;
+    width: 2em;
+  }
+
+  :global(.iol-icon) {
+    color: #c0c0c0;
+  }
+
+  :global(.graduation-cap-icon) {
+    color: #000;
+  }
+
+  :global(.award-icon) {
+    color: #dc3545;
+  }
+
+  :global(.medal-icon) {
+    color: #ffc107;
+  }
+
+  .item {
+    margin-bottom: 0.5em;
+  }
 </style>
 
-<ul class="mb-0 list-grid">
+<ul class="list-grid">
   {
     elements.map(({ iconName, iconClassName, description }) => {
       const icon = iconName ? (

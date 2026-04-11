@@ -10,5 +10,12 @@ const { skills } = Astro.props;
 const { title, elements, numColumns } = skills;
 ---
 
-<div class="subheading mb-3 mt-2">{title}</div>
+<style>
+  .skills-heading {
+    margin-bottom: 0.75rem;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<div class="subheading skills-heading">{title}</div>
 <ResumeListView elements={elements} numColumns={numColumns ?? 1} />
