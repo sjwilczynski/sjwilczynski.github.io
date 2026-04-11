@@ -1,18 +1,23 @@
 ---
 import ResumeItemView from "./ResumeItemView.astro";
-import type { ResumeItem } from "@data/types";
+import type { CollectionEntry } from "astro:content";
 import Section from "./Section.astro";
+
+type ResumeEntry =
+  | CollectionEntry<"experience">
+  | CollectionEntry<"education">
+  | CollectionEntry<"research">;
 
 export type Props = {
   id: string;
   title?: string;
-  resumeItems?: ResumeItem[];
+  resumeItems?: ResumeEntry[];
 };
 
 const { resumeItems = [], title, id } = Astro.props;
 ---
 
 <Section id={id} title={title}>
-  {resumeItems.map((resumeItem) => <ResumeItemView {...resumeItem} />)}
+  {resumeItems.map((entry) => <ResumeItemView entry={entry} />)}
   <slot />
 </Section>

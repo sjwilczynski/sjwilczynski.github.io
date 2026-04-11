@@ -3,7 +3,7 @@ import App from "@components/App.astro";
 import Head from "@components/head/Head.astro";
 import { getData } from "@data/getData";
 
-const { about } = getData();
+const { about } = await getData();
 const fullName = about.name + " " + about.surname;
 ---
 

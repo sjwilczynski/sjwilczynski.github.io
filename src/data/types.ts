@@ -11,27 +11,19 @@ export type About = {
 export type ResumeListElement = {
   id: number;
   description: string;
-  iconName?: string;
-  iconClassName?: string;
+  iconName?: string | undefined;
+  iconClassName?: string | undefined;
 };
 
 export type ResumeList = {
   elements: ResumeListElement[];
-  id?: number;
-  title?: string;
-  numColumns?: number;
-};
-
-export type ResumeItem = {
-  id: number;
-  headings: string[];
-  subheading: string;
-  extraInfos: string[];
-  description: string;
+  id?: number | undefined;
+  title?: string | undefined;
+  numColumns?: number | undefined;
 };
 
 export type SocialMedia = {
-  id: number;
+  id: string;
   link: string;
   iconName: string;
   title: string;
