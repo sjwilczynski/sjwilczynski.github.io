@@ -5,9 +5,15 @@
   box-sizing: border-box;
 }
 
-* {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
-  padding: 0;
 }
 
 /* Theme custom properties */
@@ -103,10 +109,6 @@ hr {
 }
 
 /* List reset — only for nav/layout, not content */
-ul {
-  padding: 0;
-}
-
 img {
   max-width: 100%;
   height: auto;

@@ -15,6 +15,7 @@ const columnCount = numColumns ?? 1;
     display: grid;
     --adjustedColumnCount: var(--columnCount);
     padding: 0;
+    padding-left: 2rem;
 
     @media (width <= 450px) {
       --adjustedColumnCount: min(var(--columnCount), 2);
