@@ -1,0 +1,112 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Theme custom properties */
+:root {
+  --color-primary: #4479a2;
+  --color-primary-dark: #2d5171;
+  --color-white: #fff;
+  --color-gray-100: #f2f2f2;
+  --color-gray-600: #868e96;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --sidebar-width: 17rem;
+  --font-body: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+/* Body styles */
+body {
+  font-family: var(--font-body);
+  padding-top: 54px;
+  color: var(--color-gray-600);
+  background-color: var(--color-gray-100);
+  position: relative;
+  line-height: 1.5;
+}
+
+/* Main container sidebar offset */
+@media (min-width: 992px) {
+  .main-container {
+    padding-top: 0;
+    padding-left: var(--sidebar-width);
+  }
+}
+
+/* Heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-gray-800);
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 5.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+/* Subheading class */
+.subheading {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+/* Link styles */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: var(--color-primary-dark);
+  }
+}
+
+/* HR reset */
+hr {
+  border: none;
+  border-top: 1px solid #dee2e6;
+  margin: 0;
+}
+
+/* List reset */
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
