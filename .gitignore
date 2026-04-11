@@ -31,6 +31,9 @@ astroSite
 .astro
 node_modules/.vite
 
+# screenshots for visual regression
+scratch/
+
 # playwright
 test-results/
 playwright-report/
