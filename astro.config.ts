@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
@@ -9,6 +9,47 @@ export default defineConfig({
   build: {
     inlineStylesheets: "never",
   },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Saira Extra Condensed",
+      cssVariable: "--font-heading",
+      weights: ["500", "700"],
+      fallbacks: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Mulish",
+      cssVariable: "--font-body",
+      weights: ["400", "800"],
+      styles: ["normal", "italic"],
+      fallbacks: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
+    },
+  ],
   vite: {
     optimizeDeps: {
       include: ["react-vertical-timeline-component"],
