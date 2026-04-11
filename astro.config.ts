@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
-import purgecss from "astro-purgecss";
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,6 +26,5 @@ export default defineConfig({
         "fa-solid": ["medal", "award", "basketball-ball", "dumbbell"],
       },
     }),
-    purgecss(),
   ],
 });

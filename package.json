@@ -30,16 +30,13 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.1.0",
     "@astrojs/react": "4.2.1",
-    "@popperjs/core": "2.11.7",
     "astro": "5.4.1",
     "astro-google-fonts-optimizer": "0.2.2",
     "astro-icon": "1.1.5",
-    "bootstrap": "5.2.3",
     "markdown-it": "13.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-vertical-timeline-component": "3.6.0",
-    "sass": "1.62.1"
+    "react-vertical-timeline-component": "3.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -53,7 +50,6 @@
     "@types/react-vertical-timeline-component": "3.3.6",
     "@typescript-eslint/eslint-plugin": "^8.58.1",
     "@typescript-eslint/parser": "^8.58.1",
-    "astro-purgecss": "5.2.2",
     "eslint": "^10.2.0",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
