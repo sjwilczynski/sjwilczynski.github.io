@@ -1,56 +1,66 @@
-import achievementListData from "./jsons/achievements.json";
-import projectListData from "./jsons/projects.json";
-import experienceListData from "./jsons/experience.json";
-import educationListData from "./jsons/education.json";
-import researchListData from "./jsons/reasearch.json";
-import skillListData from "./jsons/skills.json";
-import aboutData from "./jsons/about.json";
-import socialMedia from "./jsons/social-media.json";
-import concertsData from "./jsons/concerts.json";
-import type {
-  About,
-  Concert,
-  ResumeItem,
-  ResumeList,
-  SocialMedia,
-} from "./types";
+import { getCollection, getEntry } from "astro:content";
+import type { Concert, ResumeList } from "./types";
 
-export const getData = () => {
-  const about = aboutData as unknown as About;
-  const socialMedias = socialMedia as unknown as SocialMedia[];
+export const getData = async () => {
+  const aboutEntry = await getEntry("about", "main");
+  if (!aboutEntry) throw new Error("About data not found");
+  const about = aboutEntry.data;
 
-  const experienceResumeItems = experienceListData as unknown as ResumeItem[];
-  const educationResumeItems = educationListData as unknown as ResumeItem[];
-  const researchResumeItems = researchListData as unknown as ResumeItem[];
+  const socialMediaEntries = await getCollection("social-media");
+  const socialMedias = socialMediaEntries.map((entry) => ({
+    id: entry.id,
+    ...entry.data,
+  }));
 
-  const projectsResumeList = projectListData as unknown as ResumeList;
-  const achievementResumeList = achievementListData as unknown as ResumeList;
-  const skillsResumeLists = skillListData as unknown as ResumeList[];
+  const experienceResumeItems = (await getCollection("experience")).sort(
+    (a, b) => a.data.sortOrder - b.data.sortOrder,
+  );
 
-  const concerts: Concert[] = concertsData
-    .map((data) => {
-      return {
-        id: data.id,
-        date: getConcertDate(
-          readDateFromString(data.startDate),
-          readDateFromString(data.endDate),
-        ),
-        title: data.title,
-        location: data.location,
-        description: data.description,
-      };
-    })
+  const educationResumeItems = (await getCollection("education")).sort(
+    (a, b) => a.data.sortOrder - b.data.sortOrder,
+  );
+
+  const researchResumeItems = (await getCollection("research")).sort(
+    (a, b) => a.data.sortOrder - b.data.sortOrder,
+  );
+
+  const projectsEntry = await getEntry("projects", "data");
+  if (!projectsEntry) throw new Error("Projects data not found");
+  const projectsResumeList: ResumeList = projectsEntry.data;
+
+  const achievementsEntry = await getEntry("achievements", "data");
+  if (!achievementsEntry) throw new Error("Achievements data not found");
+  const achievementResumeList: ResumeList = achievementsEntry.data;
+
+  const skillsEntries = await getCollection("skills");
+  const skillsResumeLists: ResumeList[] = skillsEntries
+    .sort((a, b) => Number(a.id) - Number(b.id))
+    .map((entry) => entry.data);
+
+  const concertEntries = await getCollection("concerts");
+  const concerts: Concert[] = concertEntries
+    .sort((a, b) => Number(a.id) - Number(b.id))
+    .map((entry) => ({
+      id: Number(entry.id),
+      date: getConcertDate(
+        readDateFromString(entry.data.startDate),
+        readDateFromString(entry.data.endDate),
+      ),
+      title: entry.data.title,
+      location: entry.data.location,
+      description: entry.data.description,
+    }))
     .reverse();
 
   return {
     about,
+    socialMedias,
     experienceResumeItems,
     educationResumeItems,
     researchResumeItems,
     projectsResumeList,
     achievementResumeList,
     skillsResumeLists,
-    socialMedias,
     concerts,
   };
 };

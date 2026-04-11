@@ -1,8 +1,6 @@
 ---
 import type { ResumeList } from "@data/types";
 import Icon from "@components/icons/Icon.astro";
-import md from "markdown-it";
-
 export type Props = ResumeList;
 
 const { elements, numColumns } = Astro.props;
@@ -89,7 +87,7 @@ const columnCount = numColumns ?? 1;
         <li class={"item list-style-none"}>
           {icon}
           <span>
-            <Fragment set:html={md().renderInline(description)} />
+            <Fragment set:html={description} />
           </span>
         </li>
       );

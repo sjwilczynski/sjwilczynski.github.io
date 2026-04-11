@@ -1,10 +1,14 @@
 ---
-import type { ResumeItem } from "@data/types";
-import md from "markdown-it";
+import { render } from "astro:content";
+import type { ResumeEntry } from "@data/types";
 
-export type Props = ResumeItem;
+type Props = {
+  entry: ResumeEntry;
+};
 
-const { headings, subheading, description, extraInfos } = Astro.props;
+const { entry } = Astro.props;
+const { headings, subheading, extraInfos } = entry.data;
+const { Content } = await render(entry);
 ---
 
 <style>
@@ -50,7 +54,7 @@ const { headings, subheading, description, extraInfos } = Astro.props;
   <div class="resume-content">
     {headings.map((heading) => <h3>{heading}</h3>)}
     <div class="subheading">{subheading}</div>
-    <Fragment set:html={md().render(description)} />
+    <Content />
   </div>
   <div class="resume-extra">
     {
