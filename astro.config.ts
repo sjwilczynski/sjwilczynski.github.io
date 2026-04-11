@@ -15,6 +15,7 @@ export default defineConfig({
       name: "Saira Extra Condensed",
       cssVariable: "--font-heading",
       weights: ["500", "700"],
+      subsets: ["latin", "latin-ext"],
       fallbacks: [
         "-apple-system",
         "BlinkMacSystemFont",
@@ -35,6 +36,7 @@ export default defineConfig({
       cssVariable: "--font-body",
       weights: ["400", "800"],
       styles: ["normal", "italic"],
+      subsets: ["latin", "latin-ext"],
       fallbacks: [
         "-apple-system",
         "BlinkMacSystemFont",
