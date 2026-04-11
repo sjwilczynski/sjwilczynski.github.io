@@ -1,42 +1,25 @@
+import type { z } from "astro/zod";
 import type { CollectionEntry } from "astro:content";
+import type {
+  aboutSchema,
+  socialMediaSchema,
+  resumeListSchema,
+  resumeListElementSchema,
+  concertSchema,
+} from "../content.config";
 
-export type About = {
-  name: string;
-  surname: string;
-  city: string;
-  country: string;
-  email: string;
-  githubUrl: string;
-  introduction: string;
-};
+export type About = z.infer<typeof aboutSchema>;
+export type SocialMedia = z.infer<typeof socialMediaSchema>;
+export type ResumeList = z.infer<typeof resumeListSchema>;
+export type ResumeListElement = z.infer<typeof resumeListElementSchema>;
 
-export type ResumeListElement = {
-  id: number;
-  description: string;
-  iconName?: string | undefined;
-  iconClassName?: string | undefined;
-};
+/** Raw concert data from content collection */
+export type ConcertData = z.infer<typeof concertSchema>;
 
-export type ResumeList = {
-  elements: ResumeListElement[];
-  id?: number | undefined;
-  title?: string | undefined;
-  numColumns?: number | undefined;
-};
-
-export type SocialMedia = {
-  id: string;
-  link: string;
-  iconName: string;
-  title: string;
-};
-
-export type Concert = {
+/** Processed concert with formatted date string */
+export type Concert = Omit<ConcertData, "startDate" | "endDate"> & {
   id: number;
   date: string;
-  title: string;
-  location: string;
-  description: string;
 };
 
 export type ResumeEntry =

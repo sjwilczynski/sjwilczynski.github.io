@@ -2,33 +2,58 @@ import { defineCollection } from "astro:content";
 import { glob, file } from "astro/loaders";
 import { z } from "astro/zod";
 
-const about = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/about" }),
-  schema: z.object({
-    name: z.string(),
-    surname: z.string(),
-    city: z.string(),
-    country: z.string(),
-    email: z.email(),
-    githubUrl: z.url(),
-    introduction: z.string(),
-  }),
+export const aboutSchema = z.object({
+  name: z.string(),
+  surname: z.string(),
+  city: z.string(),
+  country: z.string(),
+  email: z.email(),
+  githubUrl: z.url(),
+  introduction: z.string(),
 });
 
-const socialMedia = defineCollection({
-  loader: file("src/content/social-media/data.json"),
-  schema: z.object({
-    link: z.url(),
-    iconName: z.string(),
-    title: z.string(),
-  }),
+export const socialMediaSchema = z.object({
+  link: z.url(),
+  iconName: z.string(),
+  title: z.string(),
 });
 
-const resumeItemSchema = z.object({
+export const resumeItemSchema = z.object({
   sortOrder: z.number(),
   headings: z.array(z.string()),
   subheading: z.string(),
   extraInfos: z.array(z.string()),
+});
+
+export const resumeListElementSchema = z.object({
+  id: z.number(),
+  description: z.string(),
+  iconName: z.string().optional(),
+  iconClassName: z.string().optional(),
+});
+
+export const resumeListSchema = z.object({
+  title: z.string().optional(),
+  numColumns: z.number().optional(),
+  elements: z.array(resumeListElementSchema),
+});
+
+export const concertSchema = z.object({
+  startDate: z.string(),
+  endDate: z.string(),
+  title: z.string(),
+  location: z.string(),
+  description: z.string(),
+});
+
+const about = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/about" }),
+  schema: aboutSchema,
+});
+
+const socialMedia = defineCollection({
+  loader: file("src/content/social-media/data.json"),
+  schema: socialMediaSchema,
 });
 
 const experience = defineCollection({
@@ -46,51 +71,24 @@ const research = defineCollection({
   schema: resumeItemSchema,
 });
 
-const resumeListElementSchema = z.object({
-  id: z.number(),
-  description: z.string(),
-  iconName: z.string().optional(),
-  iconClassName: z.string().optional(),
-});
-
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/projects" }),
-  schema: z.object({
-    elements: z.array(resumeListElementSchema),
-  }),
+  schema: resumeListSchema,
 });
 
 const achievements = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/achievements" }),
-  schema: z.object({
-    elements: z.array(resumeListElementSchema),
-  }),
+  schema: resumeListSchema,
 });
 
 const skills = defineCollection({
   loader: file("src/content/skills/data.json"),
-  schema: z.object({
-    title: z.string(),
-    numColumns: z.number(),
-    elements: z.array(
-      z.object({
-        id: z.number(),
-        description: z.string(),
-        iconName: z.string().optional(),
-      }),
-    ),
-  }),
+  schema: resumeListSchema,
 });
 
 const concerts = defineCollection({
   loader: file("src/content/concerts/data.json"),
-  schema: z.object({
-    startDate: z.string(),
-    endDate: z.string(),
-    title: z.string(),
-    location: z.string(),
-    description: z.string(),
-  }),
+  schema: concertSchema,
 });
 
 export const collections = {
