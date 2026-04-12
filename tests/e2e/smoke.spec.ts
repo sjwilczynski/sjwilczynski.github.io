@@ -34,20 +34,14 @@ test.describe("Smoke tests", () => {
   });
 
   test("concerts toggle shows timeline", async ({ page }) => {
-    // Scroll to interests section to trigger client:visible hydration
     await page.locator("section#interests").scrollIntoViewIfNeeded();
 
     const button = page.getByRole("button", { name: /concerts list/i });
     await expect(button).toBeVisible();
 
-    // Wait for React hydration — retry clicking only when timeline is hidden
-    const timelineElement = page.locator(".vertical-timeline-element-content");
-    await expect(async () => {
-      const isVisible = await timelineElement.first().isVisible();
-      if (!isVisible) {
-        await button.click();
-      }
-      await expect(timelineElement.first()).toBeVisible({ timeout: 1000 });
-    }).toPass({ timeout: 15000 });
+    await button.click();
+
+    const timelineElement = page.locator(".timeline-content");
+    await expect(timelineElement.first()).toBeVisible();
   });
 });

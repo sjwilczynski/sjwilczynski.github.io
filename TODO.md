@@ -1,12 +1,7 @@
-- Check what changed in Astro from 1.x to 4.x and use new features
-  - use https://docs.astro.build/en/guides/content-collections/ for data with proper json schema
-  - view transitions / scroll animations
-  - implement nav highlight on scroll using css directly
-  - add photo on mobile navigation as well
-  - read more about picture component and check css course to remind myself
-  - (maybe) integrate astro db for view count?
-  - read more about astro actions
-- make mobile navigation collapse on select
-- replace timeline with own implementation without react ?
-- remove react ?
-- tailwind vs bootstrap ?
+- view transitions / scroll animations
+- add photo on mobile navigation as well
+- read more about picture component
+- (maybe) integrate astro db for view count?
+- read more about astro actions
+- add dark mode toggle
+- make timeline expansion animated
