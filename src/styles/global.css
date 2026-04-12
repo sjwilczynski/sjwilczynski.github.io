@@ -112,23 +112,20 @@ img {
 }
 
 /* Scroll-driven section reveal */
-@keyframes section-enter {
-  from {
+@keyframes section-reveal {
+  0% {
     opacity: 0;
     transform: translateY(2rem) translateX(2rem);
   }
-  to {
+  50% {
     opacity: 1;
     transform: translateY(0) translateX(0);
   }
-}
-
-@keyframes section-exit {
-  from {
+  65% {
     opacity: 1;
     transform: translateY(0) translateX(0);
   }
-  to {
+  100% {
     opacity: 0;
     transform: translateY(-2rem) translateX(2rem);
   }
@@ -136,11 +133,8 @@ img {
 
 @supports (animation-timeline: view()) {
   section[id] {
-    animation:
-      section-enter auto ease forwards,
-      section-exit auto ease backwards;
-    animation-timeline: view(), view();
-    animation-range: entry, exit;
+    animation: section-reveal auto ease both;
+    animation-timeline: view();
   }
 }
 
