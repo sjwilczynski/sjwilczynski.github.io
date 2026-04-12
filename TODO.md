@@ -4,3 +4,4 @@
 - (maybe) integrate astro db for view count?
 - read more about astro actions
 - add dark mode toggle
+- make timeline expansion animated
