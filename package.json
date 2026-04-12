@@ -36,24 +36,24 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@iconify-json/fa": "1.2.0",
-    "@iconify-json/fa-solid": "1.2.0",
+    "@iconify-json/fa": "^1.2.2",
+    "@iconify-json/fa-solid": "^1.2.2",
     "@playwright/test": "^1.59.1",
-    "@size-limit/preset-app": "11.1.4",
+    "@size-limit/preset-app": "^12.0.1",
     "@typescript-eslint/eslint-plugin": "^8.58.1",
     "@typescript-eslint/parser": "^8.58.1",
     "eslint": "^10.2.0",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "pixelmatch": "^7.1.0",
     "playwright": "^1.59.1",
     "pngjs": "^7.0.0",
     "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-packagejson": "^3.0.2",
-    "size-limit": "11.1.4",
-    "typescript": "5.5.4"
+    "size-limit": "^12.0.1",
+    "typescript": "5.9.3"
   },
   "engines": {
     "node": ">=22.12.0"
