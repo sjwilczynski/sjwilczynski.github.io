@@ -137,8 +137,8 @@ img {
 @supports (animation-timeline: view()) {
   section[id] {
     animation:
-      section-enter auto ease both,
-      section-exit auto ease both;
+      section-enter auto ease forwards,
+      section-exit auto ease backwards;
     animation-timeline: view(), view();
     animation-range: entry, exit;
   }
