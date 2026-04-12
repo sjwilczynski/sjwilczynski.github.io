@@ -41,7 +41,7 @@ test.describe("Smoke tests", () => {
 
     await button.click();
 
-    const timelineElement = page.locator(".vertical-timeline-element-content");
+    const timelineElement = page.locator(".timeline-content");
     await expect(timelineElement.first()).toBeVisible();
   });
 });

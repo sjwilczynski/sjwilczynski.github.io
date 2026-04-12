@@ -42,48 +42,34 @@ const { concerts } = Astro.props;
 </div>
 
 <div id="concertsList" hidden>
-  <div
-    class="vertical-timeline vertical-timeline--animate vertical-timeline--two-columns"
-  >
+  <div class="timeline">
     {
       concerts.map((concert) => (
-        <div class="vertical-timeline-element">
+        <div class="timeline-element">
+          <span class="timeline-date">{concert.date}</span>
           <span
-            class="vertical-timeline-element-icon"
+            class="timeline-icon"
             style="background: var(--color-primary); color: var(--color-white);"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              style="vertical-align: -0.125em;"
               width="1em"
               height="1em"
               preserveAspectRatio="xMidYMid meet"
               viewBox="0 0 512 512"
+              aria-hidden="true"
             >
-              <rect
-                x="0"
-                y="0"
-                width="512"
-                height="512"
-                fill="none"
-                stroke="none"
-              />
               <path
                 fill="currentColor"
                 d="m491.938 18.813l-17.72 2.375l-89.374 11.968l-6.22.844l-1.562 6.094l-18.5 72.156l-136.187 137.28c-2.094-4.4-4.324-8.708-6.875-12.843c-7.317-11.86-18.338-22.357-34.844-25.687c-6.457-1.303-12.664-1.702-18.53-1.28c-17.602 1.26-32.182 9.775-41.69 22.5c-10.95 14.654-15.87 34.054-15.31 54.405c-36.16 4.516-66.336 31.382-80.657 64.313c-15.608 35.885-11.856 80.956 24.655 111.156c43.28 35.8 88.28 31.622 119.875 11.22c28.593-18.467 47.778-48.14 50.813-74.752c18.615-2.81 38.424-9.03 56.375-17.968c20.474-10.195 38.536-23.433 48.406-40.063l7.625-12.874l-14.908-1.22c-34.56-2.818-53.76-12.87-66.406-26.217l146-147.22l18.938 1.375l6.156.438l2.813-5.5l6.125-11.907l25.03 11.906L464 132.438l-24.53-11.656l7.655-14.874l25.844 12.28l8.03-16.874l-25.313-12.03L464 73.155L491.03 86l8.033-16.875L472.53 56.53l11.22-21.81l8.188-15.907zm-124.532 111l13.22 13.093l-200.22 201.875a61.253 61.253 0 0 0-5.062-5.717a60.956 60.956 0 0 0-8.47-7l200.532-202.25zm-235.47 210.093c10.914-.046 21.837 4.094 30.25 12.438a42.57 42.57 0 0 1 .25 60.406a42.57 42.57 0 0 1-60.405.25a42.575 42.575 0 0 1-.25-60.406c8.345-8.415 19.245-12.64 30.157-12.688z"
               />
             </svg>
           </span>
-          <div class="vertical-timeline-element-content">
-            <div class="vertical-timeline-element-content-arrow" />
-            <div>
-              <h3 class="vertical-timeline-element-title">{concert.title}</h3>
-              <h4 class="vertical-timeline-element-subtitle">
-                {concert.location}
-              </h4>
-              {concert.description && <p>{concert.description}</p>}
-            </div>
-            <span class="vertical-timeline-element-date">{concert.date}</span>
+          <div class="timeline-content">
+            <div class="timeline-arrow" />
+            <h3>{concert.title}</h3>
+            <h4>{concert.location}</h4>
+            {concert.description && <p>{concert.description}</p>}
           </div>
         </div>
       ))
@@ -93,35 +79,20 @@ const { concerts } = Astro.props;
 
 <script>
   function initTimelineAnimations() {
-    const items = document.querySelectorAll(".vertical-timeline-element");
+    const items = document.querySelectorAll(".timeline-element");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const icon = entry.target.querySelector(
-              ".vertical-timeline-element-icon",
-            );
-            const content = entry.target.querySelector(
-              ".vertical-timeline-element-content",
-            );
-            icon?.classList.remove("is-hidden");
-            icon?.classList.add("bounce-in");
-            content?.classList.remove("is-hidden");
-            content?.classList.add("bounce-in");
+            entry.target.classList.add("visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { rootMargin: "0px 0px -40px 0px", threshold: 0 },
+      { rootMargin: "0px 0px -40px 0px" },
     );
 
-    items.forEach((item) => {
-      const icon = item.querySelector(".vertical-timeline-element-icon");
-      const content = item.querySelector(".vertical-timeline-element-content");
-      icon?.classList.add("is-hidden");
-      content?.classList.add("is-hidden");
-      observer.observe(item);
-    });
+    items.forEach((item) => observer.observe(item));
   }
 
   function initConcertsToggle() {
@@ -161,12 +132,8 @@ const { concerts } = Astro.props;
     font-weight: 500;
   }
 
-  /* Timeline layout */
-  .vertical-timeline * {
-    box-sizing: border-box;
-  }
-
-  .vertical-timeline {
+  /* Timeline container */
+  .timeline {
     width: 95%;
     max-width: 1170px;
     margin: 0 auto;
@@ -174,7 +141,8 @@ const { concerts } = Astro.props;
     padding: 2em 0;
   }
 
-  .vertical-timeline::before {
+  /* Vertical line */
+  .timeline::before {
     content: "";
     position: absolute;
     top: 0;
@@ -184,117 +152,61 @@ const { concerts } = Astro.props;
     background: #fff;
   }
 
-  @media only screen and (min-width: 1170px) {
-    .vertical-timeline {
-      width: 90%;
-    }
-
-    .vertical-timeline::before {
-      left: 50%;
-      margin-left: -2px;
-    }
-  }
-
-  /* Timeline elements */
-  .vertical-timeline-element {
-    position: relative;
+  /* Mobile: single column — icon | content */
+  .timeline-element {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0 1.25em;
+    align-items: start;
     margin: 2em 0;
   }
 
-  .vertical-timeline-element > div {
-    min-height: 1px;
-  }
-
-  .vertical-timeline-element::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .vertical-timeline-element:first-child {
+  .timeline-element:first-child {
     margin-top: 0;
   }
 
-  .vertical-timeline-element:last-child {
+  .timeline-element:last-child {
     margin-bottom: 0;
   }
 
-  @media only screen and (min-width: 1170px) {
-    .vertical-timeline-element {
-      margin: 4em 0;
-    }
-
-    .vertical-timeline-element:first-child {
-      margin-top: 0;
-    }
-
-    .vertical-timeline-element:last-child {
-      margin-bottom: 0;
-    }
+  /* Date hidden on mobile (shown inside card area) */
+  .timeline-date {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    opacity: 0.7;
+    padding: 0.5em 0;
   }
 
   /* Icon */
-  .vertical-timeline-element-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .timeline-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
     box-shadow:
       0 0 0 4px #fff,
       inset 0 2px 0 rgba(0, 0, 0, 0.08),
       0 3px 0 4px rgba(0, 0, 0, 0.05);
   }
 
-  .vertical-timeline-element-icon svg {
+  .timeline-icon svg {
     display: block;
     width: 24px;
     height: 24px;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    margin-left: -12px;
-    margin-top: -12px;
-  }
-
-  @media only screen and (min-width: 1170px) {
-    .vertical-timeline-element-icon {
-      width: 60px;
-      height: 60px;
-      left: 50%;
-      margin-left: -30px;
-    }
-  }
-
-  /* Icon bounce animation */
-  .vertical-timeline--animate .vertical-timeline-element-icon.is-hidden {
-    visibility: hidden;
-  }
-
-  .vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
-    visibility: visible;
-    animation: cd-bounce-1 0.6s;
-  }
-
-  @keyframes cd-bounce-1 {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-    60% {
-      opacity: 1;
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
   }
 
   /* Content card */
-  .vertical-timeline-element-content {
+  .timeline-content {
+    grid-column: 2;
+    grid-row: 1;
     position: relative;
-    margin-left: 60px;
     background: #fff;
     border-radius: 0.25em;
     padding: 1em;
@@ -302,41 +214,23 @@ const { concerts } = Astro.props;
     border-top: 3px solid var(--color-primary);
   }
 
-  .vertical-timeline-element-content h2 {
-    color: #303e49;
+  .timeline-content h3 {
+    margin: 0;
   }
 
-  .vertical-timeline-element-content .vertical-timeline-element-date,
-  .vertical-timeline-element-content p {
+  .timeline-content h4 {
+    margin: 0;
+  }
+
+  .timeline-content p {
+    margin: 1em 0 0;
+    line-height: 1.6;
     font-size: 0.8125rem;
     font-weight: 500;
   }
 
-  .vertical-timeline-element-content .vertical-timeline-element-date {
-    display: inline-block;
-  }
-
-  .vertical-timeline-element-content p {
-    margin: 1em 0 0;
-    line-height: 1.6;
-  }
-
-  .vertical-timeline-element-title {
-    margin: 0;
-  }
-
-  .vertical-timeline-element-subtitle {
-    margin: 0;
-  }
-
-  .vertical-timeline-element-content .vertical-timeline-element-date {
-    float: left;
-    padding: 0.8em 0;
-    opacity: 0.7;
-  }
-
-  /* Content arrow */
-  .vertical-timeline-element-content-arrow {
+  /* Arrow pointing to the line */
+  .timeline-arrow {
     position: absolute;
     top: 16px;
     right: 100%;
@@ -346,91 +240,129 @@ const { concerts } = Astro.props;
     border-right: 7px solid #fff;
   }
 
-  @media only screen and (min-width: 768px) {
-    .vertical-timeline-element-content h2 {
-      font-size: 1.25rem;
-    }
-
-    .vertical-timeline-element-content p {
-      font-size: 1rem;
-    }
-
-    .vertical-timeline-element-content .vertical-timeline-element-date {
-      font-size: 0.875rem;
-    }
-  }
-
-  /* Two-column desktop layout */
+  /* Desktop: three-column — content | icon | date (alternating) */
   @media only screen and (min-width: 1170px) {
-    .vertical-timeline-element-content {
-      margin-left: 0;
-      padding: 1.5em;
-      width: 44%;
+    .timeline {
+      width: 90%;
     }
 
-    .vertical-timeline-element-content-arrow {
-      top: 24px;
-      left: 100%;
-      transform: rotate(180deg);
+    .timeline::before {
+      left: 50%;
+      margin-left: -2px;
     }
 
-    .vertical-timeline-element-content .vertical-timeline-element-date {
-      position: absolute;
-      width: 100%;
-      left: 124%;
-      top: 6px;
+    .timeline-element {
+      grid-template-columns: 1fr 60px 1fr;
+      grid-template-rows: auto;
+      gap: 0 1.5em;
+      margin: 4em 0;
+    }
+
+    .timeline-element:first-child {
+      margin-top: 0;
+    }
+
+    .timeline-element:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-icon {
+      grid-column: 2;
+      grid-row: 1;
+      width: 60px;
+      height: 60px;
+      justify-self: center;
+    }
+
+    .timeline-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Odd: card left, date right */
+    .timeline-content {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .timeline-date {
+      grid-column: 3;
+      grid-row: 1;
       font-size: 1rem;
+      padding: 0.5em 0;
+      align-self: start;
     }
 
-    /* Even elements float right */
-    .vertical-timeline-element:nth-child(even)
-      .vertical-timeline-element-content {
-      float: right;
-    }
-
-    .vertical-timeline-element:nth-child(even)
-      .vertical-timeline-element-content-arrow {
+    .timeline-arrow {
       top: 24px;
-      left: auto;
-      right: 100%;
-      transform: rotate(0);
+      right: auto;
+      left: 100%;
+      border: 7px solid transparent;
+      border-left: 7px solid #fff;
+      border-right: none;
     }
 
-    .vertical-timeline-element:nth-child(even)
-      .vertical-timeline-element-content
-      .vertical-timeline-element-date {
-      left: auto;
-      right: 124%;
+    /* Even: card right, date left */
+    .timeline-element:nth-child(even) .timeline-content {
+      grid-column: 3;
+    }
+
+    .timeline-element:nth-child(even) .timeline-date {
+      grid-column: 1;
       text-align: right;
     }
+
+    .timeline-element:nth-child(even) .timeline-arrow {
+      left: auto;
+      right: 100%;
+      border: 7px solid transparent;
+      border-right: 7px solid #fff;
+      border-left: none;
+    }
   }
 
-  /* Content bounce animation */
-  .vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
-    visibility: hidden;
+  /* Animations */
+  .timeline-element .timeline-icon,
+  .timeline-element .timeline-content {
+    opacity: 0;
   }
 
-  .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
-    visibility: visible;
-    animation: cd-bounce-2 0.6s;
+  .timeline-element.visible .timeline-icon {
+    animation: bounce-icon 0.6s forwards;
   }
 
-  /* Even elements slide from right, odd from left */
+  .timeline-element.visible .timeline-content {
+    animation: slide-in-left 0.6s forwards;
+  }
+
   @media only screen and (min-width: 1170px) {
-    .vertical-timeline--animate
-      .vertical-timeline-element:nth-child(even)
-      .vertical-timeline-element-content.bounce-in {
-      animation: cd-bounce-2-inverse 0.6s;
+    .timeline-element:nth-child(even).visible .timeline-content {
+      animation: slide-in-right 0.6s forwards;
     }
   }
 
   @media only screen and (max-width: 1169px) {
-    .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
-      animation: cd-bounce-2-inverse 0.6s;
+    .timeline-element.visible .timeline-content {
+      animation: slide-in-right 0.6s forwards;
     }
   }
 
-  @keyframes cd-bounce-2 {
+  @keyframes bounce-icon {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-in-left {
     0% {
       opacity: 0;
       transform: translateX(-100px);
@@ -440,11 +372,12 @@ const { concerts } = Astro.props;
       transform: translateX(20px);
     }
     100% {
+      opacity: 1;
       transform: translateX(0);
     }
   }
 
-  @keyframes cd-bounce-2-inverse {
+  @keyframes slide-in-right {
     0% {
       opacity: 0;
       transform: translateX(100px);
@@ -454,6 +387,7 @@ const { concerts } = Astro.props;
       transform: translateX(-20px);
     }
     100% {
+      opacity: 1;
       transform: translateX(0);
     }
   }
