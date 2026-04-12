@@ -117,11 +117,11 @@ img {
     opacity: 0;
     transform: translateY(2rem);
   }
-  25% {
+  10% {
     opacity: 1;
     transform: translateY(0);
   }
-  75% {
+  90% {
     opacity: 1;
     transform: translateY(0);
   }
