@@ -43,28 +43,6 @@ const { id, title } = Astro.props;
   }
 </style>
 
-<script is:inline>
-  document.documentElement.classList.add("js-enabled");
-</script>
-
-<script>
-  const sections = document.querySelectorAll<HTMLElement>("section[id]");
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-
-  sections.forEach((section) => revealObserver.observe(section));
-</script>
-
 <section id={id}>
   <div class="section-inner">
     {title && <h2>{title}</h2>}
