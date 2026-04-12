@@ -34,13 +34,14 @@ const { id, title } = Astro.props;
 
   @supports (animation-timeline: view()) {
     .section-inner {
+      opacity: 0;
       animation:
-        section-enter auto ease both,
-        section-exit auto ease both;
+        section-enter auto ease forwards,
+        section-exit auto ease forwards;
       animation-timeline: view(), view();
       animation-range:
-        cover 0px cover 50px,
-        cover calc(100% - 50px) cover 100%;
+        cover 0px cover 100px,
+        cover calc(100% - 100px) cover 100%;
     }
   }
 
