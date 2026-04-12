@@ -110,3 +110,40 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Scroll-reveal animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section[id] {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+section[id].revealed {
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  section[id] {
+    opacity: 1;
+    transform: none;
+  }
+
+  section[id].revealed {
+    animation: none;
+  }
+
+  .nav-menu {
+    transition: none;
+  }
+}
