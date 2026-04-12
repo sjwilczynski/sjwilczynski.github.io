@@ -43,6 +43,10 @@ const { id, title } = Astro.props;
   }
 </style>
 
+<script is:inline>
+  document.documentElement.classList.add("js-enabled");
+</script>
+
 <script>
   const sections = document.querySelectorAll<HTMLElement>("section[id]");
 

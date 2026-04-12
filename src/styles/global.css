@@ -123,7 +123,7 @@ img {
   }
 }
 
-section[id] {
+html.js-enabled section[id] {
   opacity: 0;
   transform: translateY(2rem);
 }
@@ -134,6 +134,10 @@ section[id].revealed {
 
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   section[id] {
     opacity: 1;
     transform: none;
@@ -141,9 +145,5 @@ section[id].revealed {
 
   section[id].revealed {
     animation: none;
-  }
-
-  .nav-menu {
-    transition: none;
   }
 }
