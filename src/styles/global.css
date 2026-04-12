@@ -112,29 +112,35 @@ img {
 }
 
 /* Scroll-driven section reveal */
-@keyframes section-reveal {
-  0% {
+@keyframes section-enter {
+  from {
     opacity: 0;
-    transform: translateY(2rem) translateX(1rem);
+    transform: translateY(2rem) translateX(2rem);
   }
-  50% {
+  to {
     opacity: 1;
     transform: translateY(0) translateX(0);
   }
-  65% {
+}
+
+@keyframes section-exit {
+  from {
     opacity: 1;
     transform: translateY(0) translateX(0);
   }
-  100% {
+  to {
     opacity: 0;
-    transform: translateY(-2rem) translateX(1rem);
+    transform: translateY(-2rem) translateX(2rem);
   }
 }
 
 @supports (animation-timeline: view()) {
   section[id] {
-    animation: section-reveal auto ease both;
-    animation-timeline: view();
+    animation:
+      section-enter auto ease both,
+      section-exit auto ease both;
+    animation-timeline: view(), view();
+    animation-range: entry, exit;
   }
 }
 
