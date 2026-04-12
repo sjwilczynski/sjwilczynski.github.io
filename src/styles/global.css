@@ -112,29 +112,25 @@ img {
 }
 
 /* Scroll-driven section reveal */
-@keyframes section-reveal {
-  0% {
+@keyframes section-enter {
+  from {
     opacity: 0;
     transform: translateY(2rem) translateX(2rem);
   }
-  50% {
+  to {
     opacity: 1;
     transform: translateY(0) translateX(0);
-  }
-  65% {
-    opacity: 1;
-    transform: translateY(0) translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-2rem) translateX(2rem);
   }
 }
 
-@supports (animation-timeline: view()) {
-  section[id] {
-    animation: section-reveal auto ease both;
-    animation-timeline: view();
+@keyframes section-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-2rem) translateX(2rem);
   }
 }
 
@@ -142,9 +138,5 @@ img {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  section[id] {
-    animation: none;
   }
 }
