@@ -115,19 +115,19 @@ img {
 @keyframes section-reveal {
   0% {
     opacity: 0;
-    transform: translateY(2rem);
+    transform: translateY(2rem) translateX(1rem);
   }
-  10% {
+  50% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(0);
   }
-  90% {
+  65% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(0);
   }
   100% {
     opacity: 0;
-    transform: translateY(-2rem);
+    transform: translateY(-2rem) translateX(1rem);
   }
 }
 
