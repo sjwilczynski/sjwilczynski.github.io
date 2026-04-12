@@ -36,16 +36,22 @@ const { concerts } = Astro.props;
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <div style="display: grid; margin-bottom: 0.5rem;">
-  <button id="concertsToggle" class="concerts-toggle">
+  <button
+    type="button"
+    id="concertsToggle"
+    class="concerts-toggle"
+    aria-expanded="false"
+    aria-controls="concertsList"
+  >
     Click here to view the full concerts list
   </button>
 </div>
 
 <div id="concertsList" hidden>
-  <div class="timeline">
+  <ul class="timeline">
     {
       concerts.map((concert) => (
-        <div class="timeline-element">
+        <li class="timeline-element">
           <span class="timeline-date timeline-date--desktop">
             {concert.date}
           </span>
@@ -76,10 +82,10 @@ const { concerts } = Astro.props;
               {concert.date}
             </span>
           </div>
-        </div>
+        </li>
       ))
     }
-  </div>
+  </ul>
 </div>
 
 <script>
@@ -108,10 +114,16 @@ const { concerts } = Astro.props;
       if (isHidden) {
         list?.removeAttribute("hidden");
         toggle.textContent = "Click here to hide the full concerts list";
+        toggle.setAttribute("aria-expanded", "true");
         initTimelineAnimations();
       } else {
         list?.setAttribute("hidden", "");
         toggle.textContent = "Click here to view the full concerts list";
+        toggle.setAttribute("aria-expanded", "false");
+        // Reset animations so they replay on next open
+        document.querySelectorAll(".timeline-element.visible").forEach((el) => {
+          el.classList.remove("visible");
+        });
       }
       document
         .querySelector("#interests")
@@ -137,6 +149,10 @@ const { concerts } = Astro.props;
     font-weight: 500;
   }
 
+  .concerts-toggle:hover {
+    background-color: var(--color-primary-dark);
+  }
+
   /* Timeline container */
   .timeline {
     --icon-size-mobile: 40px;
@@ -146,6 +162,7 @@ const { concerts } = Astro.props;
     margin: 0 auto;
     position: relative;
     padding: 2em 0;
+    list-style: none;
   }
 
   /* Vertical line */
@@ -408,6 +425,14 @@ const { concerts } = Astro.props;
     100% {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-element .timeline-icon,
+    .timeline-element .timeline-content {
+      opacity: 1;
+      animation: none !important;
     }
   }
 </style>
