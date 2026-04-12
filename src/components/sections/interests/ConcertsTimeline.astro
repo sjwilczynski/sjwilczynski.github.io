@@ -1,3 +1,13 @@
+---
+import type { Concert } from "@data/types";
+
+export type Props = {
+  concerts: Concert[];
+};
+
+const { concerts } = Astro.props;
+---
+
 <!--
   Timeline component ported from react-vertical-timeline-component
   https://github.com/stephane-monnot/react-vertical-timeline
@@ -25,16 +35,6 @@
   OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
----
-import type { Concert } from "@data/types";
-
-export type Props = {
-  concerts: Concert[];
-};
-
-const { concerts } = Astro.props;
----
-
 <div style="display: grid; margin-bottom: 0.5rem;">
   <button id="concertsToggle" class="concerts-toggle">
     Click here to view the full concerts list
@@ -75,12 +75,13 @@ const { concerts } = Astro.props;
             </svg>
           </span>
           <div class="vertical-timeline-element-content">
+            <div class="vertical-timeline-element-content-arrow" />
             <div>
               <h3 class="vertical-timeline-element-title">{concert.title}</h3>
               <h4 class="vertical-timeline-element-subtitle">
                 {concert.location}
               </h4>
-              <p>{concert.description}</p>
+              {concert.description && <p>{concert.description}</p>}
             </div>
             <span class="vertical-timeline-element-date">{concert.date}</span>
           </div>
@@ -111,7 +112,7 @@ const { concerts } = Astro.props;
           }
         });
       },
-      { threshold: 0.1 },
+      { rootMargin: "0px 0px -40px 0px", threshold: 0 },
     );
 
     items.forEach((item) => {
@@ -160,7 +161,7 @@ const { concerts } = Astro.props;
     font-weight: 500;
   }
 
-  /* CSS from react-vertical-timeline-component/style.min.css */
+  /* Timeline layout */
   .vertical-timeline * {
     box-sizing: border-box;
   }
@@ -171,12 +172,6 @@ const { concerts } = Astro.props;
     margin: 0 auto;
     position: relative;
     padding: 2em 0;
-  }
-
-  .vertical-timeline::after {
-    content: "";
-    display: table;
-    clear: both;
   }
 
   .vertical-timeline::before {
@@ -190,16 +185,17 @@ const { concerts } = Astro.props;
   }
 
   @media only screen and (min-width: 1170px) {
-    .vertical-timeline.vertical-timeline--two-columns {
+    .vertical-timeline {
       width: 90%;
     }
 
-    .vertical-timeline.vertical-timeline--two-columns:before {
+    .vertical-timeline::before {
       left: 50%;
       margin-left: -2px;
     }
   }
 
+  /* Timeline elements */
   .vertical-timeline-element {
     position: relative;
     margin: 2em 0;
@@ -209,7 +205,7 @@ const { concerts } = Astro.props;
     min-height: 1px;
   }
 
-  .vertical-timeline-element:after {
+  .vertical-timeline-element::after {
     content: "";
     display: table;
     clear: both;
@@ -237,6 +233,7 @@ const { concerts } = Astro.props;
     }
   }
 
+  /* Icon */
   .vertical-timeline-element-icon {
     position: absolute;
     top: 0;
@@ -262,7 +259,7 @@ const { concerts } = Astro.props;
   }
 
   @media only screen and (min-width: 1170px) {
-    .vertical-timeline--two-columns .vertical-timeline-element-icon {
+    .vertical-timeline-element-icon {
       width: 60px;
       height: 60px;
       left: 50%;
@@ -270,76 +267,31 @@ const { concerts } = Astro.props;
     }
   }
 
-  .vertical-timeline-element-icon {
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-  }
-
+  /* Icon bounce animation */
   .vertical-timeline--animate .vertical-timeline-element-icon.is-hidden {
     visibility: hidden;
   }
 
   .vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
     visibility: visible;
-    -webkit-animation: cd-bounce-1 0.6s;
-    -moz-animation: cd-bounce-1 0.6s;
     animation: cd-bounce-1 0.6s;
-  }
-
-  @-webkit-keyframes cd-bounce-1 {
-    0% {
-      opacity: 0;
-      -webkit-transform: scale(0.5);
-    }
-    60% {
-      opacity: 1;
-      -webkit-transform: scale(1.2);
-    }
-    100% {
-      -webkit-transform: scale(1);
-    }
-  }
-
-  @-moz-keyframes cd-bounce-1 {
-    0% {
-      opacity: 0;
-      -moz-transform: scale(0.5);
-    }
-    60% {
-      opacity: 1;
-      -moz-transform: scale(1.2);
-    }
-    100% {
-      -moz-transform: scale(1);
-    }
   }
 
   @keyframes cd-bounce-1 {
     0% {
       opacity: 0;
-      -webkit-transform: scale(0.5);
-      -moz-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-      -o-transform: scale(0.5);
       transform: scale(0.5);
     }
     60% {
       opacity: 1;
-      -webkit-transform: scale(1.2);
-      -moz-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-      -o-transform: scale(1.2);
       transform: scale(1.2);
     }
     100% {
-      -webkit-transform: scale(1);
-      -moz-transform: scale(1);
-      -ms-transform: scale(1);
-      -o-transform: scale(1);
       transform: scale(1);
     }
   }
 
+  /* Content card */
   .vertical-timeline-element-content {
     position: relative;
     margin-left: 60px;
@@ -350,19 +302,12 @@ const { concerts } = Astro.props;
     border-top: 3px solid var(--color-primary);
   }
 
-  .vertical-timeline-element-content:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
   .vertical-timeline-element-content h2 {
     color: #303e49;
   }
 
   .vertical-timeline-element-content .vertical-timeline-element-date,
   .vertical-timeline-element-content p {
-    font-size: 13px;
     font-size: 0.8125rem;
     font-weight: 500;
   }
@@ -390,8 +335,8 @@ const { concerts } = Astro.props;
     opacity: 0.7;
   }
 
+  /* Content arrow */
   .vertical-timeline-element-content-arrow {
-    content: "";
     position: absolute;
     top: 16px;
     right: 100%;
@@ -403,63 +348,47 @@ const { concerts } = Astro.props;
 
   @media only screen and (min-width: 768px) {
     .vertical-timeline-element-content h2 {
-      font-size: 20px;
       font-size: 1.25rem;
     }
 
     .vertical-timeline-element-content p {
-      font-size: 16px;
       font-size: 1rem;
     }
 
     .vertical-timeline-element-content .vertical-timeline-element-date {
-      font-size: 14px;
       font-size: 0.875rem;
     }
   }
 
+  /* Two-column desktop layout */
   @media only screen and (min-width: 1170px) {
-    .vertical-timeline--two-columns .vertical-timeline-element-content {
+    .vertical-timeline-element-content {
       margin-left: 0;
       padding: 1.5em;
       width: 44%;
     }
 
-    .vertical-timeline--two-columns .vertical-timeline-element-content-arrow {
+    .vertical-timeline-element-content-arrow {
       top: 24px;
       left: 100%;
       transform: rotate(180deg);
     }
 
-    .vertical-timeline--two-columns
-      .vertical-timeline-element-content
-      .vertical-timeline-element-date {
+    .vertical-timeline-element-content .vertical-timeline-element-date {
       position: absolute;
       width: 100%;
       left: 124%;
       top: 6px;
-      font-size: 16px;
       font-size: 1rem;
     }
 
-    .vertical-timeline--two-columns
-      .vertical-timeline-element.vertical-timeline-element--right
-      .vertical-timeline-element-content,
-    .vertical-timeline--two-columns
-      .vertical-timeline-element:nth-child(even):not(
-        .vertical-timeline-element--left
-      )
+    /* Even elements float right */
+    .vertical-timeline-element:nth-child(even)
       .vertical-timeline-element-content {
       float: right;
     }
 
-    .vertical-timeline--two-columns
-      .vertical-timeline-element.vertical-timeline-element--right
-      .vertical-timeline-element-content-arrow,
-    .vertical-timeline--two-columns
-      .vertical-timeline-element:nth-child(even):not(
-        .vertical-timeline-element--left
-      )
+    .vertical-timeline-element:nth-child(even)
       .vertical-timeline-element-content-arrow {
       top: 24px;
       left: auto;
@@ -467,14 +396,7 @@ const { concerts } = Astro.props;
       transform: rotate(0);
     }
 
-    .vertical-timeline--two-columns
-      .vertical-timeline-element.vertical-timeline-element--right
-      .vertical-timeline-element-content
-      .vertical-timeline-element-date,
-    .vertical-timeline--two-columns
-      .vertical-timeline-element:nth-child(even):not(
-        .vertical-timeline-element--left
-      )
+    .vertical-timeline-element:nth-child(even)
       .vertical-timeline-element-content
       .vertical-timeline-element-date {
       left: auto;
@@ -483,145 +405,55 @@ const { concerts } = Astro.props;
     }
   }
 
+  /* Content bounce animation */
   .vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
     visibility: hidden;
   }
 
   .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
     visibility: visible;
-    -webkit-animation: cd-bounce-2 0.6s;
-    -moz-animation: cd-bounce-2 0.6s;
     animation: cd-bounce-2 0.6s;
   }
 
+  /* Even elements slide from right, odd from left */
   @media only screen and (min-width: 1170px) {
-    .vertical-timeline--two-columns.vertical-timeline--animate
-      .vertical-timeline-element.vertical-timeline-element--right
-      .vertical-timeline-element-content.bounce-in,
-    .vertical-timeline--two-columns.vertical-timeline--animate
-      .vertical-timeline-element:nth-child(even):not(
-        .vertical-timeline-element--left
-      )
+    .vertical-timeline--animate
+      .vertical-timeline-element:nth-child(even)
       .vertical-timeline-element-content.bounce-in {
-      -webkit-animation: cd-bounce-2-inverse 0.6s;
-      -moz-animation: cd-bounce-2-inverse 0.6s;
       animation: cd-bounce-2-inverse 0.6s;
     }
   }
 
   @media only screen and (max-width: 1169px) {
     .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
-      visibility: visible;
-      -webkit-animation: cd-bounce-2-inverse 0.6s;
-      -moz-animation: cd-bounce-2-inverse 0.6s;
       animation: cd-bounce-2-inverse 0.6s;
-    }
-  }
-
-  @-webkit-keyframes cd-bounce-2 {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateX(-100px);
-    }
-    60% {
-      opacity: 1;
-      -webkit-transform: translateX(20px);
-    }
-    100% {
-      -webkit-transform: translateX(0);
-    }
-  }
-
-  @-moz-keyframes cd-bounce-2 {
-    0% {
-      opacity: 0;
-      -moz-transform: translateX(-100px);
-    }
-    60% {
-      opacity: 1;
-      -moz-transform: translateX(20px);
-    }
-    100% {
-      -moz-transform: translateX(0);
     }
   }
 
   @keyframes cd-bounce-2 {
     0% {
       opacity: 0;
-      -webkit-transform: translateX(-100px);
-      -moz-transform: translateX(-100px);
-      -ms-transform: translateX(-100px);
-      -o-transform: translateX(-100px);
       transform: translateX(-100px);
     }
     60% {
       opacity: 1;
-      -webkit-transform: translateX(20px);
-      -moz-transform: translateX(20px);
-      -ms-transform: translateX(20px);
-      -o-transform: translateX(20px);
       transform: translateX(20px);
     }
     100% {
-      -webkit-transform: translateX(0);
-      -moz-transform: translateX(0);
-      -ms-transform: translateX(0);
-      -o-transform: translateX(0);
       transform: translateX(0);
-    }
-  }
-
-  @-webkit-keyframes cd-bounce-2-inverse {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateX(100px);
-    }
-    60% {
-      opacity: 1;
-      -webkit-transform: translateX(-20px);
-    }
-    100% {
-      -webkit-transform: translateX(0);
-    }
-  }
-
-  @-moz-keyframes cd-bounce-2-inverse {
-    0% {
-      opacity: 0;
-      -moz-transform: translateX(100px);
-    }
-    60% {
-      opacity: 1;
-      -moz-transform: translateX(-20px);
-    }
-    100% {
-      -moz-transform: translateX(0);
     }
   }
 
   @keyframes cd-bounce-2-inverse {
     0% {
       opacity: 0;
-      -webkit-transform: translateX(100px);
-      -moz-transform: translateX(100px);
-      -ms-transform: translateX(100px);
-      -o-transform: translateX(100px);
       transform: translateX(100px);
     }
     60% {
       opacity: 1;
-      -webkit-transform: translateX(-20px);
-      -moz-transform: translateX(-20px);
-      -ms-transform: translateX(-20px);
-      -o-transform: translateX(-20px);
       transform: translateX(-20px);
     }
     100% {
-      -webkit-transform: translateX(0);
-      -moz-transform: translateX(0);
-      -ms-transform: translateX(0);
-      -o-transform: translateX(0);
       transform: translateX(0);
     }
   }
