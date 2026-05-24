@@ -32,25 +32,6 @@ const { id, title } = Astro.props;
     margin-bottom: auto;
   }
 
-  @supports (animation-timeline: view()) {
-    .section-inner {
-      opacity: 0;
-      animation:
-        section-enter auto ease forwards,
-        section-exit auto ease forwards;
-      animation-timeline: view(), view();
-      animation-range:
-        cover 0px cover 100px,
-        cover calc(100% - 100px) cover 100%;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .section-inner {
-      animation: none;
-    }
-  }
-
   h2 {
     margin-bottom: 1.5rem;
   }

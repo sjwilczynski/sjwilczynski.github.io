@@ -123,14 +123,11 @@ img {
   }
 }
 
-@keyframes section-exit {
-  from {
-    opacity: 1;
-    transform: translateY(0) translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-2rem) translateX(2rem);
+@supports (animation-timeline: view()) {
+  .section-inner {
+    animation: section-enter auto ease forwards;
+    animation-timeline: view();
+    animation-range: cover 0% cover 500px;
   }
 }
 
@@ -138,5 +135,9 @@ img {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .section-inner {
+    animation: none;
   }
 }
