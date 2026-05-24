@@ -38,3 +38,5 @@ scratch/
 test-results/
 playwright-report/
 .playwright-mcp/
+# worktrees
+.worktrees/
