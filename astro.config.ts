@@ -53,6 +53,7 @@ export default defineConfig({
           "stack-overflow",
           "plane",
           "book",
+          "download",
         ],
         "fa-solid": ["medal", "award", "basketball-ball", "dumbbell"],
       },

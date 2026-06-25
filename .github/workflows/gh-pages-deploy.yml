@@ -14,13 +14,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout
         uses: actions/checkout@v6
-      - name: Install, build, and upload your site output
-        uses: withastro/action@v6
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          package-manager: bun@latest
           node-version: 22
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Install Playwright Chromium
+        run: bunx playwright install chromium --with-deps
+      - name: Build site and generate CV PDF
+        run: bun run pdf
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     needs: build

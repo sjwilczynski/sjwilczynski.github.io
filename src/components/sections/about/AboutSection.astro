@@ -1,5 +1,6 @@
 ---
 import SocialMedias from "./SocialMedias.astro";
+import Icon from "../../icons/Icon.astro";
 import type { About, SocialMedia } from "@data/types";
 
 export type Props = {
@@ -8,6 +9,8 @@ export type Props = {
 };
 
 const { about, socialMedias } = Astro.props;
+
+const cvPdfHref = import.meta.env.BASE_URL + "cv.pdf";
 ---
 
 <style>
@@ -27,6 +30,28 @@ const { about, socialMedias } = Astro.props;
 
   h1 {
     margin-bottom: 0;
+  }
+
+  .download-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 2rem;
+    color: var(--color-primary);
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .download-cv:hover,
+  .download-cv:focus-visible {
+    background-color: var(--color-primary);
+    color: var(--color-white);
   }
 
   @media (width <= 390px) {
@@ -53,3 +78,14 @@ const { about, socialMedias } = Astro.props;
 </div>
 <div class="lead">{about.introduction}</div>
 <SocialMedias socialMedias={socialMedias} />
+<div>
+  <a
+    class="download-cv"
+    href={cvPdfHref}
+    download
+    aria-label="Download CV as PDF"
+  >
+    <Icon name="fa:download" />
+    Download CV (PDF)
+  </a>
+</div>

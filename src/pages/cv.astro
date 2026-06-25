@@ -1,0 +1,342 @@
+---
+import Head from "@components/head/Head.astro";
+import { getData } from "@data/getData";
+import { render } from "astro:content";
+
+const {
+  about,
+  socialMedias,
+  experienceResumeItems,
+  educationResumeItems,
+  projectsResumeList,
+  skillsResumeLists,
+} = await getData();
+
+const fullName = about.name + " " + about.surname;
+const currentTitle = experienceResumeItems[0]?.data.headings[0] ?? "";
+
+const stripUrl = (url: string) =>
+  url
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .replace(/\/$/, "");
+
+const siteUrl = Astro.site?.href ?? "https://sjwilczynski.github.io/";
+const linkedin = socialMedias.find((s) =>
+  s.iconName.toLowerCase().includes("linkedin"),
+);
+
+const contacts = [
+  { href: about.githubUrl, label: stripUrl(about.githubUrl) },
+  { href: siteUrl, label: stripUrl(siteUrl) },
+  ...(linkedin
+    ? [{ href: linkedin.link, label: stripUrl(linkedin.link) }]
+    : []),
+  { href: "mailto:" + about.email, label: about.email },
+];
+
+// The content model packs each company's roles into parallel `headings` /
+// `extraInfos` arrays: the first `headings.length` extraInfos are the per-role
+// date ranges, the remaining ones are locations.
+const experience = await Promise.all(
+  experienceResumeItems.map(async (entry) => {
+    const { headings, subheading, extraInfos } = entry.data;
+    const roleDates = extraInfos.slice(0, headings.length);
+    const locations = extraInfos.slice(headings.length);
+    const firstRange = roleDates[0] ?? "";
+    const lastRange = roleDates[roleDates.length - 1] ?? firstRange;
+    const start = (lastRange.split(" - ")[0] ?? "").trim();
+    const end = (firstRange.split(" - ")[1] ?? firstRange).trim();
+    const overall = start && end ? `${start} – ${end}` : firstRange;
+    const roles = headings.map((title, i) => ({
+      title,
+      date: roleDates[i] ?? "",
+    }));
+    const { Content } = await render(entry);
+    return { company: subheading, locations, overall, roles, Content };
+  }),
+);
+
+const education = await Promise.all(
+  educationResumeItems.map(async (entry) => {
+    const { headings, subheading, extraInfos } = entry.data;
+    const { Content } = await render(entry);
+    return {
+      degree: subheading,
+      school: headings[0] ?? "",
+      dates: extraInfos.join(" · "),
+      Content,
+    };
+  }),
+);
+
+const isCertifications = (title?: string) =>
+  title?.toLowerCase() === "certifications";
+const certGroup = skillsResumeLists.find((g) => isCertifications(g.title));
+const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
+---
+
+<html lang="en">
+  <Head title={"CV — " + fullName} fullName={fullName} noindex />
+  <body>
+    <main class="cv">
+      <header class="cv-header">
+        <h1>{fullName}</h1>
+        <p class="contacts">
+          {
+            contacts.map((c, i) => (
+              <Fragment>
+                {i > 0 && <span class="sep">•</span>}
+                <a href={c.href}>{c.label}</a>
+              </Fragment>
+            ))
+          }
+        </p>
+        {currentTitle && <p class="role">{currentTitle}</p>}
+        <p class="summary">{about.introduction}</p>
+      </header>
+
+      <section class="cv-section">
+        <h2>Work experience</h2>
+        {
+          experience.map((job) => (
+            <div class="entry">
+              <p class="entry-head">
+                <strong>{job.company}</strong>
+                {job.locations.length > 0 && (
+                  <span class="muted"> · {job.locations.join(" · ")}</span>
+                )}
+                <span class="muted"> · {job.overall}</span>
+              </p>
+              {job.roles.map((role, i) => (
+                <Fragment>
+                  <p class="role-line">
+                    <strong>{role.title}</strong>
+                    {role.date && <span class="muted"> · {role.date}</span>}
+                  </p>
+                  {i === 0 && (
+                    <div class="body">
+                      <job.Content />
+                    </div>
+                  )}
+                </Fragment>
+              ))}
+            </div>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2>Projects</h2>
+        <ul class="bullets">
+          {
+            projectsResumeList.elements.map((project) => (
+              <li set:html={project.description} />
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2>Skills</h2>
+        {
+          skillGroups.map((group) => (
+            <p class="skill-line">
+              {group.title && <strong>{group.title}: </strong>}
+              <Fragment
+                set:html={group.elements.map((e) => e.description).join(", ")}
+              />
+            </p>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2>Education</h2>
+        {
+          education.map((edu) => (
+            <div class="entry">
+              <p class="entry-head">
+                <strong>{edu.degree}</strong>
+              </p>
+              <p class="role-line">
+                {edu.school}
+                {edu.dates && <span class="muted"> · {edu.dates}</span>}
+              </p>
+              <div class="body">
+                <edu.Content />
+              </div>
+            </div>
+          ))
+        }
+      </section>
+
+      {
+        certGroup && (
+          <section class="cv-section">
+            <h2>Certifications</h2>
+            <ul class="bullets">
+              {certGroup.elements.map((cert) => (
+                <li set:html={cert.description} />
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    --cv-accent: #4479a2;
+    --cv-text: #2b2b2b;
+    --cv-muted: #595f66;
+    --cv-rule: #e2e6ea;
+  }
+
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--cv-text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+  }
+
+  .cv {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  a {
+    color: var(--cv-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .muted {
+    color: var(--cv-muted);
+    font-weight: 400;
+  }
+
+  /* Header */
+  .cv-header h1 {
+    font-family: var(--font-body);
+    color: var(--cv-accent);
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.35rem;
+    text-transform: none;
+  }
+
+  .contacts {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    color: var(--cv-muted);
+  }
+
+  .contacts .sep {
+    margin: 0 0.4rem;
+    color: #aab2ba;
+  }
+
+  .role {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--cv-text);
+    margin: 0 0 0.5rem;
+  }
+
+  .summary {
+    margin: 0;
+    max-width: 46rem;
+  }
+
+  /* Sections */
+  .cv-section {
+    margin-top: 1.6rem;
+  }
+
+  .cv-section h2 {
+    font-family: var(--font-body);
+    color: var(--cv-accent);
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.6rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--cv-rule);
+    break-after: avoid;
+  }
+
+  /* Entries */
+  .entry {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
+
+  .entry-head {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .entry-head strong {
+    font-family: var(--font-body);
+    font-weight: 800;
+  }
+
+  .role-line {
+    margin: 0.15rem 0 0.25rem;
+    font-size: 0.92rem;
+  }
+
+  .body :global(p) {
+    margin: 0.15rem 0 0.4rem;
+  }
+
+  .body :global(ul) {
+    margin: 0.25rem 0;
+    padding-left: 1.1rem;
+  }
+
+  .body :global(li) {
+    margin: 0.15rem 0;
+  }
+
+  .bullets {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .bullets li {
+    margin: 0.2rem 0;
+  }
+
+  .skill-line {
+    margin: 0 0 0.4rem;
+  }
+
+  /* PDF / print: rely on the page margin from the generator, not page padding */
+  @media print {
+    .cv {
+      max-width: none;
+      padding: 0;
+    }
+
+    a {
+      color: var(--cv-accent);
+    }
+  }
+
+  @page {
+    size: A4;
+  }
+</style>
