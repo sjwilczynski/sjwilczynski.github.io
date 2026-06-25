@@ -12,6 +12,7 @@ export type Props = {
   noindex?: boolean;
   /** schema.org JSON-LD object injected as <script type="application/ld+json">. */
   structuredData?: Record<string, unknown>;
+  theme?: boolean;
 };
 
 const DEFAULT_DESCRIPTION =
@@ -25,7 +26,12 @@ const {
   ogType = "website",
   noindex = false,
   structuredData,
+  theme = false,
 } = Astro.props;
+
+// Applied before first paint to prevent a flash of the wrong theme: read the
+// saved choice, falling back to the OS preference, and set `.dark` on <html>.
+const themeScript = `(function(){try{var s=localStorage.getItem("theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.classList.add("dark");}catch(e){}})();`;
 
 const site = Astro.site ?? new URL("https://sjwilczynski.github.io");
 const canonicalURL = new URL(Astro.url.pathname, site).href;
@@ -34,6 +40,7 @@ const imageAlt = `${fullName} — Full-Stack Developer`;
 ---
 
 <head>
+  {theme && <script is:inline set:html={themeScript} />}
   <meta charset="utf-8" />
   <meta
     name="viewport"

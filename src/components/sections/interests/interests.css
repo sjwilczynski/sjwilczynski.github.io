@@ -1,7 +1,7 @@
 .book-icon {
-  color: #0052cc;
+  color: var(--icon-book);
 }
 
 .basketball-ball-icon {
-  color: #fa8320;
+  color: var(--icon-ball);
 }

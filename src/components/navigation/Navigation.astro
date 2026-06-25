@@ -100,7 +100,7 @@ const sectionEntries = Object.entries(sections);
     left: 0;
     right: 0;
     z-index: 1030;
-    background-color: var(--color-primary);
+    background-color: var(--nav-bg);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -110,7 +110,7 @@ const sectionEntries = Object.entries(sections);
   .nav-brand {
     display: flex;
     align-items: center;
-    color: var(--color-white);
+    color: var(--on-accent);
     text-decoration: none;
     padding: 0.3125rem 0;
     font-size: 1.25rem;
@@ -118,7 +118,7 @@ const sectionEntries = Object.entries(sections);
     &:hover,
     &:focus,
     &:active {
-      color: var(--color-white);
+      color: var(--on-accent);
       text-decoration: none;
     }
   }
@@ -150,7 +150,7 @@ const sectionEntries = Object.entries(sections);
     cursor: pointer;
 
     &:focus {
-      outline-color: #6a9fc8;
+      outline-color: var(--nav-focus);
     }
   }
 
@@ -195,7 +195,7 @@ const sectionEntries = Object.entries(sections);
     &:hover,
     &:focus,
     &.active {
-      color: var(--color-white);
+      color: var(--on-accent);
       text-decoration: none;
     }
   }

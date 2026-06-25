@@ -1,6 +1,7 @@
 ---
 import type { SocialMedia } from "@data/types";
 import IconWithLink from "../../icons/IconWithLink.astro";
+import ThemeToggle from "../../theme/ThemeToggle.astro";
 
 export type Props = {
   socialMedias: SocialMedia[];
@@ -30,4 +31,5 @@ const { socialMedias, cvPdfHref } = Astro.props;
       />
     )
   }
+  <ThemeToggle />
 </div>
