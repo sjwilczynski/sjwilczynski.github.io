@@ -126,7 +126,7 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
         }
       </section>
 
-      <section class="cv-section">
+      <section class="cv-section section-break">
         <h2>Projects</h2>
         <ul class="bullets">
           {
@@ -262,6 +262,11 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
   /* Sections */
   .cv-section {
     margin-top: 1.1rem;
+  }
+
+  /* Start a fresh page so Work Experience owns page 1 on its own */
+  .section-break {
+    break-before: page;
   }
 
   .cv-section h2 {
