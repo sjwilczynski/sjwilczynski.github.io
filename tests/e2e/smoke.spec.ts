@@ -23,6 +23,33 @@ test.describe("Smoke tests", () => {
     }
   });
 
+  test("section reveal keeps its scroll-driven timeline through minification", async ({
+    page,
+  }) => {
+    // The reveal is intentionally suppressed under prefers-reduced-motion, so
+    // pin no-preference to keep this assertion deterministic across runners.
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+
+    const supported = await page.evaluate(() =>
+      CSS.supports("animation-timeline: view()"),
+    );
+    test.skip(!supported, "browser lacks scroll-driven animation support");
+
+    // Regression guard: the CSS minifier used to fold `animation-timeline`
+    // into the `animation` shorthand, producing invalid CSS that reset the
+    // timeline to `auto` and silently disabled the reveal animation.
+    const styles = await page
+      .locator(".section-inner")
+      .first()
+      .evaluate((el) => {
+        const cs = getComputedStyle(el);
+        return { name: cs.animationName, timeline: cs.animationTimeline };
+      });
+
+    expect(styles.name).toBe("section-enter");
+    expect(styles.timeline).toBe("view()");
+  });
+
   test("navigation scrollspy highlights active section", async ({ page }) => {
     const skillsLink = page.locator('a.nav-link[href="#skills"]');
 

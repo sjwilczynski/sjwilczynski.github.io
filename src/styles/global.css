@@ -173,9 +173,17 @@ img {
   }
 }
 
+/* Written as longhands on purpose: do NOT collapse into the `animation`
+   shorthand. The CSS minifier (esbuild) folds `animation-timeline` into the
+   shorthand, yielding the invalid `animation: ... view()` which browsers drop,
+   silently killing the scroll-driven reveal. Keeping them separate survives
+   minification. */
 @supports (animation-timeline: view()) {
   .section-inner {
-    animation: section-enter auto ease forwards;
+    animation-name: section-enter;
+    animation-duration: auto;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
     animation-timeline: view();
     animation-range: cover 0% cover 500px;
   }
