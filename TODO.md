@@ -1,7 +1,6 @@
-- view transitions / scroll animations
+- view transitions
 - add photo on mobile navigation as well
 - read more about picture component
 - (maybe) integrate astro db for view count?
 - read more about astro actions
 - add dark mode toggle
-- make timeline expansion animated

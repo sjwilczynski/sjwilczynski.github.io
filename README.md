@@ -1,20 +1,19 @@
 [![Deploy](https://github.com/sjwilczynski/sjwilczynski.github.io/actions/workflows/gh-pages-deploy.yml/badge.svg)](https://github.com/sjwilczynski/sjwilczynski.github.io/actions/workflows/gh-pages-deploy.yml)
 
-# Responsive CV in React
+# Responsive CV in Astro
 
-The project is based on [startboootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume).
-I rewrote it in React using [CRA](https://create-react-app.dev/) and migrated to [Astro](https://docs.astro.build/en/getting-started/), removing 90% of my bundle, and improving Lighthouse performance score (for mobile variant) from 50% to 95%. In the end I would like to get rid React being a dependency but it stays for now until full migration is done
+This is my personal CV — a single-page resume built with [Astro](https://astro.build/) and [Bun](https://bun.sh/). All of the content (experience, education, skills, projects, interests, ...) lives in [Astro content collections](https://docs.astro.build/en/guides/content-collections/), so keeping it up to date is just a matter of editing data files.
+
+It originally started as a React app (bootstrapped with Create React App, based on [startbootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume)), but I've since migrated it fully to Astro and removed React and Bootstrap entirely — cutting ~90% of the bundle and pushing the mobile Lighthouse performance score from ~50% to ~95%.
 
 ### Installation
 
-To start using this for your own needs:
+To run it locally:
 
 - clone the repository
-- go to its directory and install all dependencies: `bun install`
-- start the app using `bun start` and go to [http://localhost:4321/](http://localhost:4321/) to view your changes.
+- install dependencies: `bun install`
+- start the dev server: `bun start` and open [http://localhost:4321/](http://localhost:4321/)
 
-### Deploying to github pages
+### Deployment
 
-If you want just like me to publish your CV using [Github Pages](https://pages.github.com/) you should follow the steps
-described [here](https://facebook.github.io/create-react-app/docs/deployment) and [here](https://dev.to/javascripterika/deploy-a-react-app-as-a-github-user-page-with-yarn-3fka).
-Take caution as the steps depend on whether you use your [username.github.io]() repository or a different one.
+The site is deployed to [GitHub Pages](https://pages.github.com/). On every push to the `source` branch, the [`gh-pages-deploy.yml`](.github/workflows/gh-pages-deploy.yml) GitHub Actions workflow installs dependencies with Bun, builds the site, generates the CV PDF, and publishes the `dist/` output to Pages — so there's nothing to deploy by hand. The deploy badge at the top of this README shows the status of the latest run.
