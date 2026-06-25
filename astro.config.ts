@@ -66,6 +66,8 @@ export default defineConfig({
           "basketball-ball",
           "dumbbell",
           "file-pdf",
+          "sun",
+          "moon",
         ],
       },
     }),

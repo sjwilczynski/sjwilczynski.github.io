@@ -1,0 +1,149 @@
+---
+import Icon from "../icons/Icon.astro";
+---
+
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Toggle dark mode"
+  aria-pressed="false"
+  title="Toggle theme"
+>
+  <Icon name="fa-solid:moon" class="theme-icon icon-moon" />
+  <Icon name="fa-solid:sun" class="theme-icon icon-sun" />
+</button>
+
+<style>
+  /* Small floating pill pinned to the top-right corner. On mobile the nav is a
+     fixed top bar with a hamburger on the right, so the pill sits just left of
+     it; on desktop the nav becomes a left sidebar and the pill moves into the
+     free top-right corner over the content. */
+  .theme-toggle {
+    position: fixed;
+    top: 0.5rem;
+    right: 4.25rem;
+    z-index: 1031;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.25rem;
+    width: 2.25rem;
+    padding: 0;
+    background-color: var(--surface);
+    color: var(--text-strong);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  @media (min-width: 992px) {
+    .theme-toggle {
+      top: 1rem;
+      right: 1rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      font-size: 1.15rem;
+    }
+  }
+
+  .theme-toggle:hover,
+  .theme-toggle:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .theme-toggle:active {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle {
+      transition: none;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      transform: none;
+    }
+  }
+
+  /* Show the moon in light mode (click to go dark) and the sun in dark mode.
+     The icon SVGs are rendered by a nested child component, so they don't carry
+     this component's scope id — target their classes with :global(), anchored
+     on the scoped .theme-toggle button. */
+  .theme-toggle :global(.icon-sun) {
+    display: none;
+  }
+
+  :global(html.dark) .theme-toggle :global(.icon-moon) {
+    display: none;
+  }
+
+  :global(html.dark) .theme-toggle :global(.icon-sun) {
+    display: inline-block;
+  }
+</style>
+
+<script>
+  type ViewTransitionDocument = Document & {
+    startViewTransition?: (callback: () => void) => { finished: Promise<void> };
+  };
+
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+
+  if (btn) {
+    const syncPressed = () => {
+      btn.setAttribute("aria-pressed", String(root.classList.contains("dark")));
+    };
+    syncPressed();
+
+    btn.addEventListener("click", (event) => {
+      const toDark = !root.classList.contains("dark");
+
+      const applyTheme = () => {
+        root.classList.toggle("dark", toDark);
+        try {
+          localStorage.setItem("theme", toDark ? "dark" : "light");
+        } catch {
+          /* localStorage may be unavailable (private mode) — ignore. */
+        }
+        syncPressed();
+      };
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const doc = document as ViewTransitionDocument;
+
+      // Unsupported browser or reduced motion: flip instantly, no animation.
+      if (!doc.startViewTransition || prefersReducedMotion) {
+        applyTheme();
+        return;
+      }
+
+      // Radiate the new theme from the click point. Keyboard activations report
+      // clientX/clientY of 0, so fall back to the button's centre.
+      const rect = btn.getBoundingClientRect();
+      const x = event.clientX || Math.round(rect.left + rect.width / 2);
+      const y = event.clientY || Math.round(rect.top + rect.height / 2);
+      root.style.setProperty("--x", `${x}px`);
+      root.style.setProperty("--y", `${y}px`);
+
+      root.classList.add("theme-transitioning");
+      const transition = doc.startViewTransition(applyTheme);
+      transition.finished.finally(() => {
+        root.classList.remove("theme-transitioning");
+      });
+    });
+  }
+</script>
