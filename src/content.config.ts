@@ -28,6 +28,7 @@ export const resumeItemSchema = z.object({
 export const resumeListElementSchema = z.object({
   id: z.number(),
   description: z.string(),
+  title: z.string().optional(),
   iconName: z.string().optional(),
   iconClassName: z.string().optional(),
 });

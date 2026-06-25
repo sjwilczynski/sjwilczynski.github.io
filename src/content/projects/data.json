@@ -2,22 +2,27 @@
   "elements": [
     {
       "id": 0,
+      "title": "Nova facade",
       "description": "Core maintainer of Microsoft's <a href=\"https://github.com/microsoft/nova-facade\">Nova Facade repository</a> and creator of <a href=\"https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils\">Nova React Test Utils</a>, a dedicated testing framework for verifying Nova components via Storybook. Since its creation it has evolved into the most feature-rich open-source tool for integrating Relay-based components into Storybook"
     },
     {
       "id": 1,
+      "title": "WNOP budget autocomplete",
       "description": "Author of <a href=\"https://github.com/sjwilczynski/WNOPBudgetAutocomplete\">Excel Add-in</a> that simplifies adding expenses in one of the popular budget templates"
     },
     {
       "id": 2,
+      "title": "Personal page using Astro",
       "description": "This page (<a href=\"https://github.com/sjwilczynski/sjwilczynski.github.io\">link to repository</a>) which is a highly optimized static page using <a href=\"https://astro.build/\">Astro</a>"
     },
     {
       "id": 3,
+      "title": "Activity tracker",
       "description": "Author of <a href=\"https://www.beactivetrackdaily.com/\">Activity tracker</a> PWA that I use to record my sport related activity daily"
     },
     {
       "id": 4,
+      "title": "Varclust",
       "description": "Co-author of R package <a href=\"https://github.com/psobczyk/varclust\">Varclust</a>"
     },
     {

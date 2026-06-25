@@ -74,6 +74,8 @@ const isCertifications = (title?: string) =>
   title?.toLowerCase() === "certifications";
 const certGroup = skillsResumeLists.find((g) => isCertifications(g.title));
 const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
+
+const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
 ---
 
 <html lang="en">
@@ -100,7 +102,7 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
         <h2>Work experience</h2>
         {
           experience.map((job) => (
-            <div class="entry">
+            <div class="entry job">
               <p class="entry-head">
                 <strong>{job.company}</strong>
                 {job.locations.length > 0 && (
@@ -108,19 +110,21 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
                 )}
                 <span class="muted"> · {job.overall}</span>
               </p>
-              {job.roles.map((role, i) => (
-                <Fragment>
-                  <p class="role-line">
-                    <strong>{role.title}</strong>
-                    {role.date && <span class="muted"> · {role.date}</span>}
-                  </p>
-                  {i === 0 && (
-                    <div class="body">
-                      <job.Content />
-                    </div>
-                  )}
-                </Fragment>
-              ))}
+              <div class="positions">
+                {job.roles.map((role, i) => (
+                  <Fragment>
+                    <p class="role-line">
+                      <strong>{role.title}</strong>
+                      {role.date && <span class="muted"> · {role.date}</span>}
+                    </p>
+                    {i === 0 && (
+                      <div class="body">
+                        <job.Content />
+                      </div>
+                    )}
+                  </Fragment>
+                ))}
+              </div>
             </div>
           ))
         }
@@ -128,13 +132,14 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
 
       <section class="cv-section section-break">
         <h2>Projects</h2>
-        <ul class="bullets">
-          {
-            projectsResumeList.elements.map((project) => (
-              <li set:html={project.description} />
-            ))
-          }
-        </ul>
+        {
+          projects.map((project) => (
+            <div class="entry project">
+              <p class="proj-title">{project.title}</p>
+              <p class="proj-desc" set:html={project.description} />
+            </div>
+          ))
+        }
       </section>
 
       <section class="cv-section">
@@ -210,13 +215,26 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
     font-size: 0.85rem;
   }
 
-  a {
-    color: var(--cv-accent);
-    text-decoration: none;
+  /* Links — "modern subtle": dark text with a thin accent underline so links
+     are legible inline. `:global` is required because project descriptions
+     (set:html) and experience bullets (markdown) are injected, not scoped. */
+  .cv :global(a) {
+    color: var(--cv-text);
+    text-decoration: underline;
+    text-decoration-color: var(--cv-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 
-  a:hover {
-    text-decoration: underline;
+  .cv :global(a:hover) {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Contacts and project titles read as accent, no underline. */
+  .contacts :global(a),
+  .proj-title :global(a) {
+    color: var(--cv-accent);
+    text-decoration: none;
   }
 
   .muted {
@@ -288,6 +306,11 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
     break-inside: avoid;
   }
 
+  /* Extra breathing room between companies so they're easy to tell apart. */
+  .job {
+    margin-bottom: 1rem;
+  }
+
   .entry-head {
     margin: 0;
     font-size: 1rem;
@@ -298,9 +321,34 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
     font-weight: 800;
   }
 
+  /* Roles sit indented under their company with a hairline rule. Indent is
+     deliberately small so long bullet lines still fit the A4 column. */
+  .positions {
+    margin-left: 0.4rem;
+    padding-left: 0.8rem;
+    border-left: 2px solid var(--cv-rule);
+  }
+
   .role-line {
     margin: 0.1rem 0 0.2rem;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
+  }
+
+  /* Projects: a bold accent title with its description underneath. */
+  .project {
+    margin-bottom: 0.55rem;
+  }
+
+  .proj-title {
+    margin: 0 0 0.05rem;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.92rem;
+    color: var(--cv-accent);
+  }
+
+  .proj-desc {
+    margin: 0;
   }
 
   .body :global(p) {
@@ -334,10 +382,6 @@ const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
     .cv {
       max-width: none;
       padding: 0;
-    }
-
-    a {
-      color: var(--cv-accent);
     }
   }
 
