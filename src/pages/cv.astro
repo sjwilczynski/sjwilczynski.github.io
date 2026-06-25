@@ -156,6 +156,15 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
         }
       </section>
 
+      {
+        about.interests.length > 0 && (
+          <section class="cv-section">
+            <h2>Interests</h2>
+            <p class="skill-line">{about.interests.join(", ")}</p>
+          </section>
+        )
+      }
+
       <section class="cv-section">
         <h2>Education</h2>
         {
@@ -182,7 +191,10 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
             <h2>Certifications</h2>
             <ul class="bullets">
               {certGroup.elements.map((cert) => (
-                <li set:html={cert.description} />
+                <li>
+                  <Fragment set:html={cert.description} />
+                  {cert.date && <span class="muted"> · {cert.date}</span>}
+                </li>
               ))}
             </ul>
           </section>

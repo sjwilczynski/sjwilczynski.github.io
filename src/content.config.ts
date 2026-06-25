@@ -10,6 +10,7 @@ export const aboutSchema = z.object({
   email: z.email(),
   githubUrl: z.url(),
   introduction: z.string(),
+  interests: z.array(z.string()),
 });
 
 export const socialMediaSchema = z.object({
@@ -29,6 +30,7 @@ export const resumeListElementSchema = z.object({
   id: z.number(),
   description: z.string(),
   title: z.string().optional(),
+  date: z.string().optional(),
   iconName: z.string().optional(),
   iconClassName: z.string().optional(),
 });
