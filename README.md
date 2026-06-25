@@ -4,7 +4,7 @@
 
 This is my personal CV — a single-page resume built with [Astro](https://astro.build/) and [Bun](https://bun.sh/). All of the content (experience, education, skills, projects, interests, ...) lives in [Astro content collections](https://docs.astro.build/en/guides/content-collections/), so keeping it up to date is just a matter of editing data files.
 
-It originally started as a React app (bootstrapped with Create React App, based on [startbootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume)), but I've since migrated it fully to Astro and removed React and Bootstrap entirely — cutting ~90% of the bundle and pushing the mobile Lighthouse performance score from ~50% to ~95%.
+It originally started as a React app (bootstrapped with Create React App, based on [startbootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume)), but I've since migrated it fully to Astro and removed React and Bootstrap entirely. The result is a tiny static site that ships almost no JavaScript and currently scores ~99/100 for performance on mobile in Lighthouse.
 
 ### Installation
 
