@@ -29,31 +29,31 @@
     "not ie < 11"
   ],
   "dependencies": {
-    "@astrojs/check": "0.9.8",
+    "@astrojs/check": "0.9.9",
     "@astrojs/mdx": "5.0.3",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "6.1.5",
     "astro-icon": "1.1.5",
-    "baseline-browser-mapping": "^2.10.18",
-    "caniuse-lite": "^1.0.30001787"
+    "baseline-browser-mapping": "^2.10.40",
+    "caniuse-lite": "^1.0.30001799"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@iconify-json/fa": "^1.2.2",
     "@iconify-json/fa-solid": "^1.2.2",
-    "@playwright/test": "^1.59.1",
-    "@size-limit/preset-app": "^12.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.58.1",
-    "@typescript-eslint/parser": "^8.58.1",
-    "eslint": "^10.2.0",
+    "@playwright/test": "^1.61.1",
+    "@size-limit/preset-app": "^12.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.62.0",
+    "@typescript-eslint/parser": "^8.62.0",
+    "eslint": "^10.5.0",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "globals": "^17.5.0",
-    "playwright": "^1.59.1",
-    "prettier": "^3.8.2",
+    "globals": "^17.7.0",
+    "playwright": "^1.61.1",
+    "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-packagejson": "^3.0.2",
-    "size-limit": "^12.0.1",
+    "size-limit": "^12.1.0",
     "typescript": "5.9.3"
   },
   "engines": {
