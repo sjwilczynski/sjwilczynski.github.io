@@ -44,4 +44,27 @@ test.describe("Smoke tests", () => {
     const timelineElement = page.locator(".timeline-content");
     await expect(timelineElement.first()).toBeVisible();
   });
+
+  test("printable CV page renders and is linked from home", async ({
+    page,
+  }) => {
+    // Home page exposes a download link wired to the generated PDF.
+    const downloadLink = page.getByRole("link", { name: "Download CV (PDF)" });
+    await expect(downloadLink).toHaveAttribute("download");
+    await expect(downloadLink).toHaveAttribute("href", /cv\.pdf$/);
+
+    // The /cv page renders with its key sections, including the ones added
+    // to match the printed CV (Interests, Certifications).
+    await page.goto("/cv");
+    for (const heading of [
+      "Work experience",
+      "Projects",
+      "Skills",
+      "Interests",
+      "Education",
+      "Certifications",
+    ]) {
+      await expect(page.getByRole("heading", { name: heading })).toBeVisible();
+    }
+  });
 });

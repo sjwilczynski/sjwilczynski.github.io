@@ -77,39 +77,43 @@
       },
       {
         "id": 4,
-        "description": "JavaScript"
-      },
-      {
-        "id": 5,
         "description": "TypeScript"
       },
       {
-        "id": 6,
-        "description": "Python + numpy"
-      },
-      {
-        "id": 7,
+        "id": 5,
         "description": "GraphQL"
       },
       {
+        "id": 6,
+        "description": "Oxlint/oxfmt"
+      },
+      {
+        "id": 7,
+        "description": "JavaScript"
+      },
+      {
         "id": 8,
-        "description": "Git"
+        "description": "Web development"
       },
       {
         "id": 9,
-        "description": "HTML"
-      },
-      {
-        "id": 10,
-        "description": "CSS"
-      },
-      {
-        "id": 11,
         "description": "Java/C#"
       },
       {
+        "id": 10,
+        "description": "HTML"
+      },
+      {
+        "id": 11,
+        "description": "Python + numpy"
+      },
+      {
         "id": 12,
-        "description": "Web development"
+        "description": "Git"
+      },
+      {
+        "id": 13,
+        "description": "CSS"
       }
     ]
   }
