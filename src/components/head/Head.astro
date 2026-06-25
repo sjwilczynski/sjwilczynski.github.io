@@ -3,9 +3,10 @@ import { Font } from "astro:assets";
 export type Props = {
   fullName: string;
   title: string;
+  noindex?: boolean;
 };
 
-const { fullName, title } = Astro.props;
+const { fullName, title, noindex = false } = Astro.props;
 ---
 
 <head>
@@ -21,5 +22,6 @@ const { fullName, title } = Astro.props;
 
   <meta name="description" content="Resume page using Astro" />
   <meta name="author" content={fullName} />
+  {noindex && <meta name="robots" content="noindex" />}
   <title>{title}</title>
 </head>

@@ -23,6 +23,10 @@
       {
         "id": 5,
         "description": "Algorithms & data structures"
+      },
+      {
+        "id": 6,
+        "description": "Building accessible interfaces"
       }
     ]
   },
@@ -33,13 +37,21 @@
     "elements": [
       {
         "id": 1,
-        "description": "<a href=\"https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile\">Oracle Certified Associate</a>, Java SE 8 Programmer",
-        "iconName": "fa-solid:award"
+        "description": "Personal Trainer (EQF level 4) certified by Register of Exercise Professionals (REPs)",
+        "date": "11/2023",
+        "iconName": "fa-solid:dumbbell"
       },
       {
         "id": 2,
-        "description": "Personal Trainer (EQF level 4) certified by Register of Exercise Professionals (REPs)",
-        "iconName": "fa-solid:dumbbell"
+        "description": "Accessibility in Action, Microsoft",
+        "date": "12/2020",
+        "iconName": "fa-solid:award"
+      },
+      {
+        "id": 3,
+        "description": "<a href=\"https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile\">Oracle Certified Associate</a>, Java SE 8 Programmer",
+        "date": "07/2018",
+        "iconName": "fa-solid:award"
       }
     ]
   },
@@ -60,12 +72,12 @@
       },
       {
         "id": 3,
-        "description": "VSCode",
+        "description": "Vitest",
         "iconName": "fa:heart"
       },
       {
         "id": 4,
-        "description": "Typescript"
+        "description": "TypeScript"
       },
       {
         "id": 5,
@@ -73,31 +85,35 @@
       },
       {
         "id": 6,
-        "description": "Git"
+        "description": "Oxlint/oxfmt"
       },
       {
         "id": 7,
-        "description": "HTML"
+        "description": "JavaScript"
       },
       {
         "id": 8,
-        "description": "Python + numpy"
+        "description": "Web development"
       },
       {
         "id": 9,
-        "description": "JupyterLab"
-      },
-      {
-        "id": 10,
-        "description": "CSS"
-      },
-      {
-        "id": 11,
         "description": "Java/C#"
       },
       {
+        "id": 10,
+        "description": "HTML"
+      },
+      {
+        "id": 11,
+        "description": "Python + numpy"
+      },
+      {
         "id": 12,
-        "description": "IntelliJ IDEA"
+        "description": "Git"
+      },
+      {
+        "id": 13,
+        "description": "CSS"
       }
     ]
   }

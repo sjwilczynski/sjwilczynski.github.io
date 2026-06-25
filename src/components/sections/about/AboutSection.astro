@@ -8,6 +8,8 @@ export type Props = {
 };
 
 const { about, socialMedias } = Astro.props;
+
+const cvPdfHref = import.meta.env.BASE_URL + "cv.pdf";
 ---
 
 <style>
@@ -52,4 +54,4 @@ const { about, socialMedias } = Astro.props;
   <a href={"mailto:" + about.email}> {about.email}</a>
 </div>
 <div class="lead">{about.introduction}</div>
-<SocialMedias socialMedias={socialMedias} />
+<SocialMedias socialMedias={socialMedias} cvPdfHref={cvPdfHref} />
