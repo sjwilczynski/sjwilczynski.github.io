@@ -8,33 +8,72 @@ import Icon from "../icons/Icon.astro";
   type="button"
   aria-label="Toggle dark mode"
   aria-pressed="false"
-  data-tooltip="Toggle dark mode"
+  title="Toggle theme"
 >
   <Icon name="fa-solid:moon" class="theme-icon icon-moon" />
   <Icon name="fa-solid:sun" class="theme-icon icon-sun" />
 </button>
 
 <style>
-  /* Matches the social-icon buttons so the toggle sits in the same row. */
+  /* Small floating pill pinned to the top-right corner. On mobile the nav is a
+     fixed top bar with a hamburger on the right, so the pill sits just left of
+     it; on desktop the nav becomes a left sidebar and the pill moves into the
+     free top-right corner over the content. */
   .theme-toggle {
-    position: relative;
+    position: fixed;
+    top: 0.5rem;
+    right: 4.25rem;
+    z-index: 1031;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 2.25rem;
+    width: 2.25rem;
     padding: 0;
-    background-color: var(--icon-bg);
-    color: var(--on-accent);
-    border: none;
-    border-radius: 100%;
-    font-size: 1.5rem;
+    background-color: var(--surface);
+    color: var(--text-strong);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 1.05rem;
+    line-height: 1;
     cursor: pointer;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  @media (min-width: 992px) {
+    .theme-toggle {
+      top: 1rem;
+      right: 1rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      font-size: 1.15rem;
+    }
   }
 
   .theme-toggle:hover,
   .theme-toggle:focus-visible {
-    background-color: var(--accent-fill);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .theme-toggle:active {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle {
+      transition: none;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      transform: none;
+    }
   }
 
   /* Show the moon in light mode (click to go dark) and the sun in dark mode.

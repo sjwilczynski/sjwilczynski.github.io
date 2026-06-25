@@ -5,6 +5,7 @@ import ResumeListView from "@layouts/ResumeListView.astro";
 import ResumeSection from "@layouts/ResumeSection.astro";
 import Skills from "./sections/skills/Skills.astro";
 import Interests from "./sections/interests/Interests.mdx";
+import ThemeToggle from "./theme/ThemeToggle.astro";
 import "@styles/global.css";
 import { getData } from "@data/getData";
 
@@ -35,6 +36,7 @@ const fullName = about.name + " " + about.surname;
 ---
 
 <Navigation sections={sections} fullName={fullName} />
+<ThemeToggle />
 <div>
   <ResumeSection id="about">
     <AboutSection about={about} socialMedias={socialMedias} />
