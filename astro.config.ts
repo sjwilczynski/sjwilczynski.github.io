@@ -1,5 +1,6 @@
 import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 const systemFontFallbacks = [
@@ -43,6 +44,11 @@ export default defineConfig({
   ],
   integrations: [
     mdx(),
+    sitemap({
+      // The printable /cv route is intentionally noindex, so keep it out of the
+      // sitemap; only the canonical home page should be advertised to crawlers.
+      filter: (page) => !page.includes("/cv"),
+    }),
     icon({
       include: {
         fa: [

@@ -79,7 +79,12 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
 ---
 
 <html lang="en">
-  <Head title={"CV — " + fullName} fullName={fullName} noindex />
+  <Head
+    title={"CV — " + fullName}
+    fullName={fullName}
+    description={about.introduction}
+    noindex
+  />
   <body>
     <main class="cv">
       <header class="cv-header">

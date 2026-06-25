@@ -15,6 +15,7 @@
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
     "lint": "eslint ./src",
+    "og": "node scripts/generate-og-image.js",
     "pdf": "bun run astro:build && node scripts/generate-pdf.js",
     "preview": "astro preview",
     "size": "size-limit",
@@ -30,6 +31,7 @@
   "dependencies": {
     "@astrojs/check": "0.9.8",
     "@astrojs/mdx": "5.0.3",
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "6.1.5",
     "astro-icon": "1.1.5",
     "baseline-browser-mapping": "^2.10.18",

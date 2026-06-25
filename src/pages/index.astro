@@ -3,12 +3,42 @@ import App from "@components/App.astro";
 import Head from "@components/head/Head.astro";
 import { getData } from "@data/getData";
 
-const { about } = await getData();
+const { about, socialMedias, experienceResumeItems } = await getData();
 const fullName = about.name + " " + about.surname;
+
+const site = Astro.site ?? new URL("https://sjwilczynski.github.io");
+const currentRole = experienceResumeItems[0]?.data.headings[0];
+const currentEmployer = experienceResumeItems[0]?.data.subheading;
+
+const personLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: fullName,
+  url: site.href,
+  image: new URL("/img/og-image.png", site).href,
+  description: about.introduction,
+  email: "mailto:" + about.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: about.city,
+    addressCountry: about.country,
+  },
+  sameAs: socialMedias.map((media) => media.link),
+  ...(currentRole ? { jobTitle: currentRole } : {}),
+  ...(currentEmployer
+    ? { worksFor: { "@type": "Organization", name: currentEmployer } }
+    : {}),
+};
 ---
 
 <html lang="en">
-  <Head title={fullName} fullName={fullName} />
+  <Head
+    title={fullName}
+    fullName={fullName}
+    description={about.introduction}
+    ogType="profile"
+    structuredData={personLd}
+  />
   <!-- these 2 properties allow scroll spying: https://getbootstrap.com/docs/5.0/components/scrollspy/ -->
   <body class="main-container">
     <App />
