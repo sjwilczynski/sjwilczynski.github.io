@@ -1,3 +1,13 @@
+---
+import type { Podcast } from "@data/types";
+
+export type Props = {
+  items: Podcast[];
+};
+
+const { items } = Astro.props;
+---
+
 <style>
   .podcasts-grid {
     --columnWidth: 220px;
@@ -13,49 +23,11 @@
 </style>
 
 <ul class="podcasts-grid">
-  <li>
-    <a href="https://www.youtube.com/user/TheGreatWar">The Great War</a>
-  </li>
-  <li>
-    <a href="https://www.youtube.com/@dudekohistorii">Dudek o Historii</a>
-  </li>
-  <li>
-    <a href="https://open.spotify.com/show/3uG5PVizOCX2fLGEYoJATR">
-      Podcast Wojenne Historie
-    </a>
-  </li>
-  <li>
-    <a href="https://open.spotify.com/show/0O2XCgJvR6IuFgUBwOEUoL">
-      Radio Naukowe
-    </a>
-  </li>
-  <li>
-    <a href="https://open.spotify.com/show/7iyTVDyRmiGgNZsnU14dOs">
-      Dział zagraniczny
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://www.youtube.com/playlist?list=PL7rwi_whaW850B4iyAiHPFjHPI7M6sb0V"
-    >
-      Dudek o polityce
-    </a>
-  </li>
-  <li>
-    <a href="https://open.spotify.com/show/6DdYNi0EakNKPDuONnWiam">
-      Land of the Giants
-    </a>
-  </li>
-  <li>
-    <a href="https://www.goodreads.com/book/show/20821092-napoleon">
-      Napoleon, A Life
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://pl.wikipedia.org/wiki/Dzieje_Polski_(cykl_ksi%C4%85%C5%BCek_Andrzeja_Nowaka)"
-    >
-      Dzieje Polski
-    </a>
-  </li>
+  {
+    items.map((item) => (
+      <li>
+        <a href={item.url}>{item.title}</a>
+      </li>
+    ))
+  }
 </ul>

@@ -49,7 +49,11 @@
       },
       {
         "id": 3,
-        "description": "<a href=\"https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile\">Oracle Certified Associate</a>, Java SE 8 Programmer",
+        "description": ", Java SE 8 Programmer",
+        "link": {
+          "text": "Oracle Certified Associate",
+          "url": "https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile"
+        },
         "date": "07/2018",
         "iconName": "fa-solid:award"
       }

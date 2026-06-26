@@ -8,7 +8,7 @@ const {
   socialMedias,
   experienceResumeItems,
   educationResumeItems,
-  projectsResumeList,
+  projectEntries,
   skillsResumeLists,
 } = await getData();
 
@@ -75,7 +75,15 @@ const isCertifications = (title?: string) =>
 const certGroup = skillsResumeLists.find((g) => isCertifications(g.title));
 const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
 
-const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
+const projects = await Promise.all(
+  projectEntries
+    .filter((entry) => entry.data.title)
+    .slice(0, 5)
+    .map(async (entry) => ({
+      title: entry.data.title,
+      Content: (await render(entry)).Content,
+    })),
+);
 ---
 
 <html lang="en">
@@ -141,7 +149,9 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
           projects.map((project) => (
             <div class="entry project">
               <p class="proj-title">{project.title}</p>
-              <p class="proj-desc" set:html={project.description} />
+              <div class="proj-desc">
+                <project.Content />
+              </div>
             </div>
           ))
         }
@@ -153,9 +163,7 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
           skillGroups.map((group) => (
             <p class="skill-line">
               {group.title && <strong>{group.title}: </strong>}
-              <Fragment
-                set:html={group.elements.map((e) => e.description).join(", ")}
-              />
+              {group.elements.map((e) => e.description).join(", ")}
             </p>
           ))
         }
@@ -197,7 +205,8 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
             <ul class="bullets">
               {certGroup.elements.map((cert) => (
                 <li>
-                  <Fragment set:html={cert.description} />
+                  {cert.link && <a href={cert.link.url}>{cert.link.text}</a>}
+                  {cert.description}
                   {cert.date && <span class="muted"> · {cert.date}</span>}
                 </li>
               ))}
@@ -233,8 +242,8 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
   }
 
   /* Links — "modern subtle": dark text with a thin accent underline so links
-     are legible inline. `:global` is required because project descriptions
-     (set:html) and experience bullets (markdown) are injected, not scoped. */
+     are legible inline. `:global` is required because project descriptions and
+     experience bullets are rendered from Markdown, not scoped to this file. */
   .cv :global(a) {
     color: var(--cv-text);
     text-decoration: underline;
@@ -365,6 +374,10 @@ const projects = projectsResumeList.elements.filter((p) => p.title).slice(0, 5);
   }
 
   .proj-desc {
+    margin: 0;
+  }
+
+  .proj-desc :global(p) {
     margin: 0;
   }
 

@@ -72,7 +72,7 @@ const columnCount = numColumns ?? 1;
 
 <ul class="list-grid">
   {
-    elements.map(({ iconName, iconClassName, description }) => {
+    elements.map(({ iconName, iconClassName, description, link }) => {
       const icon = iconName ? (
         <span class="icon-wrapper">
           <Icon
@@ -87,7 +87,8 @@ const columnCount = numColumns ?? 1;
         <li class={"item list-style-none"}>
           {icon}
           <span>
-            <Fragment set:html={description} />
+            {link && <a href={link.url}>{link.text}</a>}
+            {description}
           </span>
         </li>
       );
