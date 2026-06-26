@@ -1,5 +1,5 @@
 import { getCollection, getEntry } from "astro:content";
-import type { Concert, ResumeList } from "./types";
+import type { Concert, Podcast, ResumeList } from "./types";
 
 // Concert dates are formatted to match the page language (<html lang="en">).
 const DATE_LOCALE = "en-GB";
@@ -35,9 +35,7 @@ export const getData = async () => {
     bySortOrder,
   );
 
-  const projectsEntry = await getEntry("projects", "data");
-  if (!projectsEntry) throw new Error("Projects data not found");
-  const projectsResumeList: ResumeList = projectsEntry.data;
+  const projectEntries = (await getCollection("projects")).sort(bySortOrder);
 
   const achievementsEntry = await getEntry("achievements", "data");
   if (!achievementsEntry) throw new Error("Achievements data not found");
@@ -63,16 +61,22 @@ export const getData = async () => {
     }))
     .reverse();
 
+  const podcastEntries = await getCollection("podcasts");
+  const podcasts: Podcast[] = podcastEntries
+    .sort(bySortOrder)
+    .map((entry) => entry.data);
+
   return {
     about,
     socialMedias,
     experienceResumeItems,
     educationResumeItems,
     researchResumeItems,
-    projectsResumeList,
+    projectEntries,
     achievementResumeList,
     skillsResumeLists,
     concerts,
+    podcasts,
   };
 };
 

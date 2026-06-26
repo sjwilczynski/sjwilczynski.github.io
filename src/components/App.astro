@@ -2,6 +2,7 @@
 import Navigation from "./navigation/Navigation.astro";
 import AboutSection from "./sections/about/AboutSection.astro";
 import ResumeListView from "@layouts/ResumeListView.astro";
+import ProjectsList from "@layouts/ProjectsList.astro";
 import ResumeSection from "@layouts/ResumeSection.astro";
 import Skills from "./sections/skills/Skills.astro";
 import Interests from "./sections/interests/Interests.mdx";
@@ -25,11 +26,12 @@ const {
   experienceResumeItems,
   educationResumeItems,
   researchResumeItems,
-  projectsResumeList,
+  projectEntries,
   achievementResumeList,
   skillsResumeLists,
   socialMedias,
   concerts,
+  podcasts,
 } = await getData();
 
 const fullName = about.name + " " + about.surname;
@@ -55,7 +57,7 @@ const fullName = about.name + " " + about.surname;
   />
 
   <ResumeSection id="projects" title={sections.projects}>
-    <ResumeListView {...projectsResumeList} />
+    <ProjectsList projects={projectEntries} />
     More code can be found on <a href={about.githubUrl}>my github</a>
   </ResumeSection>
 
@@ -74,6 +76,6 @@ const fullName = about.name + " " + about.surname;
   </ResumeSection>
 
   <ResumeSection id="interests" title={sections.interests}>
-    <Interests concerts={concerts} />
+    <Interests concerts={concerts} podcasts={podcasts} />
   </ResumeSection>
 </div>

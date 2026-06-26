@@ -1,0 +1,66 @@
+---
+import { render } from "astro:content";
+import type { ProjectEntry } from "@data/types";
+
+export type Props = {
+  projects: ProjectEntry[];
+};
+
+const { projects } = Astro.props;
+
+const rendered = await Promise.all(
+  projects.map(async (project) => ({
+    Content: (await render(project)).Content,
+  })),
+);
+---
+
+<style>
+  .list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0;
+    padding-left: 2rem;
+  }
+
+  .marker {
+    min-width: 1em;
+    min-height: 1em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-wrapper {
+    height: 1lh;
+  }
+
+  .list-style-none {
+    list-style-type: none;
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .item {
+    margin-bottom: 0.5em;
+  }
+
+  /* Markdown bodies render as <p>; strip its margins so the bullet row keeps
+     the same single-line rhythm the JSON description string had. */
+  .project-body :global(p) {
+    margin: 0;
+  }
+</style>
+
+<ul class="list-grid">
+  {
+    rendered.map(({ Content }) => (
+      <li class="item list-style-none">
+        <span class="icon-wrapper marker">•</span>
+        <div class="project-body">
+          <Content />
+        </div>
+      </li>
+    ))
+  }
+</ul>

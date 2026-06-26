@@ -26,6 +26,11 @@ export const resumeItemSchema = z.object({
   extraInfos: z.array(z.string()),
 });
 
+export const projectSchema = z.object({
+  sortOrder: z.number(),
+  title: z.string().optional(),
+});
+
 export const resumeListElementSchema = z.object({
   id: z.number(),
   description: z.string(),
@@ -33,6 +38,7 @@ export const resumeListElementSchema = z.object({
   date: z.string().optional(),
   iconName: z.string().optional(),
   iconClassName: z.string().optional(),
+  link: z.object({ text: z.string(), url: z.url() }).optional(),
 });
 
 export const resumeListSchema = z.object({
@@ -47,6 +53,12 @@ export const concertSchema = z.object({
   title: z.string(),
   location: z.string(),
   description: z.string(),
+});
+
+export const podcastSchema = z.object({
+  sortOrder: z.number(),
+  title: z.string(),
+  url: z.url(),
 });
 
 const about = defineCollection({
@@ -75,8 +87,8 @@ const research = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/projects" }),
-  schema: resumeListSchema,
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+  schema: projectSchema,
 });
 
 const achievements = defineCollection({
@@ -94,6 +106,11 @@ const concerts = defineCollection({
   schema: concertSchema,
 });
 
+const podcasts = defineCollection({
+  loader: file("src/content/podcasts/data.json"),
+  schema: podcastSchema,
+});
+
 export const collections = {
   about,
   "social-media": socialMedia,
@@ -104,4 +121,5 @@ export const collections = {
   achievements,
   skills,
   concerts,
+  podcasts,
 };

@@ -77,6 +77,61 @@ test.describe("Smoke tests", () => {
     );
   });
 
+  // Characterization tests locking the content-model rendering: project link
+  // text/href, the lone certification link, the comma-joined skills line, and a
+  // podcast link must survive the JSON->Markdown/typed-data migration.
+  test("project descriptions render real links on the home page", async ({
+    page,
+  }) => {
+    const nova = page.getByRole("link", { name: "Nova Facade repository" });
+    await expect(nova).toHaveAttribute(
+      "href",
+      "https://github.com/microsoft/nova-facade",
+    );
+
+    await expect(
+      page.getByRole("link", { name: "Nova React Test Utils" }),
+    ).toHaveAttribute(
+      "href",
+      "https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils",
+    );
+  });
+
+  test("certification link and podcast link render on the home page", async ({
+    page,
+  }) => {
+    await expect(
+      page.getByRole("link", { name: "Oracle Certified Associate" }),
+    ).toHaveAttribute("href", /youracclaim\.com\/badges\//);
+
+    await expect(
+      page.getByRole("link", { name: "Radio Naukowe" }),
+    ).toHaveAttribute(
+      "href",
+      "https://open.spotify.com/show/0O2XCgJvR6IuFgUBwOEUoL",
+    );
+  });
+
+  test("printable CV preserves project links, skills order and cert link", async ({
+    page,
+  }) => {
+    await page.goto("/cv");
+
+    await expect(
+      page.getByRole("link", { name: "Nova Facade repository" }),
+    ).toHaveAttribute("href", "https://github.com/microsoft/nova-facade");
+
+    // The first skills line is the (untitled) general-skills group, joined in
+    // authoring order with ", ".
+    await expect(page.locator(".skill-line").first()).toContainText(
+      "Visual regression testing/unit testing, Design patterns, Code reviewing, Analytical thinking, Algorithms & data structures, Building accessible interfaces",
+    );
+
+    await expect(
+      page.getByRole("link", { name: "Oracle Certified Associate" }),
+    ).toHaveAttribute("href", /youracclaim\.com\/badges\//);
+  });
+
   test("printable CV page renders and is linked from home", async ({
     page,
   }) => {
