@@ -135,17 +135,47 @@ h3 {
   font-size: 1.5rem;
 }
 
-/* Link styles */
+/* Link styles — animated underline that grows from the left instead of the
+   snap-on default underline. Drawn with a background gradient so it can be
+   transitioned (text-decoration can't). */
 a {
   color: var(--accent);
   text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  padding-bottom: 1px;
 
   &:hover,
-  &:focus,
-  &:active {
-    text-decoration: underline;
+  &:focus-visible {
+    background-size: 100% 2px;
     color: var(--accent-strong);
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a {
+    transition:
+      background-size 0.25s ease,
+      color 0.2s ease;
+  }
+}
+
+/* Branded text selection. */
+::selection {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Polished keyboard focus: a crisp accent ring with a faint outer halo.
+   Mouse interaction keeps :focus-visible from firing, so this is keyboard-only. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 16%, transparent);
 }
 
 /* HR reset */

@@ -18,12 +18,14 @@ const { iconName, link, title, download = false } = Astro.props;
     height: 3.5rem;
     width: 3.5rem;
     background-color: var(--icon-bg);
+    background-image: none;
     color: var(--on-accent) !important;
     border-radius: 100%;
     text-align: center;
     font-size: 1.5rem;
     line-height: 3.5rem;
     margin-right: 1rem;
+    padding-bottom: 0;
 
     &:last-child {
       margin-right: 0;
@@ -31,6 +33,30 @@ const { iconName, link, title, download = false } = Astro.props;
 
     &:hover {
       background-color: var(--accent-fill);
+    }
+  }
+
+  /* "Boop": the circle lifts and the glyph springs/tilts inside it on hover.
+     The glyph (not the link) carries the rotation so the tooltip stays upright. */
+  @media (prefers-reduced-motion: no-preference) {
+    .icon-with-link {
+      transition:
+        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background-color 0.2s ease;
+    }
+
+    .icon-with-link :global(svg) {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .icon-with-link:hover,
+    .icon-with-link:focus-visible {
+      transform: translateY(-3px);
+    }
+
+    .icon-with-link:hover :global(svg),
+    .icon-with-link:focus-visible :global(svg) {
+      transform: rotate(-8deg) scale(1.12);
     }
   }
 

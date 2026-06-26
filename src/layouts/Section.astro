@@ -33,7 +33,48 @@ const { id, title } = Astro.props;
   }
 
   h2 {
+    position: relative;
     margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Accent underline under each section heading. Static by default; where
+     scroll-driven animations are supported and motion is allowed it draws in as
+     the section scrolls into view. Written as longhands (never the `animation`
+     shorthand) so the CSS minifier can't fold in `animation-timeline` and break
+     it — same guard as the section reveal in global.css. */
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 4.5rem;
+    background-color: var(--accent);
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      h2::after {
+        width: 0;
+        animation-name: heading-underline;
+        animation-duration: auto;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-timeline: view();
+        animation-range: cover 0% cover 40%;
+      }
+    }
+  }
+
+  @keyframes heading-underline {
+    from {
+      width: 0;
+    }
+    to {
+      width: 4.5rem;
+    }
   }
 
   @media (width <= 290px) {
