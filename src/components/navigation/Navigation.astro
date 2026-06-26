@@ -59,6 +59,8 @@ const sectionEntries = Object.entries(sections);
   <a class="nav-brand" href={"#" + firstSectionKey}>
     <span class="brand-text">{fullName}</span>
     <span class="brand-image">
+      <!-- Hidden below 992px (.brand-image display:none); lazy avoids fetching
+           it on mobile where it is never shown. -->
       <Image
         class="img-profile"
         src={face}
@@ -66,7 +68,7 @@ const sectionEntries = Object.entries(sections);
         format="webp"
         width={160}
         height={160}
-        loading="eager"
+        loading="lazy"
       />
     </span>
   </a>

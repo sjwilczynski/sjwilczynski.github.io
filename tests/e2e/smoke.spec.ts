@@ -70,6 +70,11 @@ test.describe("Smoke tests", () => {
 
     const timelineElement = page.locator(".timeline-content");
     await expect(timelineElement.first()).toBeVisible();
+
+    // Concert dates use the en-GB locale (DD/MM/YYYY) to match <html lang="en">.
+    await expect(page.locator(".timeline-date").first()).toHaveText(
+      /\d{2}\/\d{2}\/\d{4}/,
+    );
   });
 
   test("printable CV page renders and is linked from home", async ({

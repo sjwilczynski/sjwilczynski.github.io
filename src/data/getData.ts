@@ -1,6 +1,17 @@
 import { getCollection, getEntry } from "astro:content";
 import type { Concert, ResumeList } from "./types";
 
+// Concert dates are formatted to match the page language (<html lang="en">).
+const DATE_LOCALE = "en-GB";
+
+const bySortOrder = (
+  a: { data: { sortOrder: number } },
+  b: { data: { sortOrder: number } },
+) => a.data.sortOrder - b.data.sortOrder;
+
+const byNumericId = (a: { id: string }, b: { id: string }) =>
+  Number(a.id) - Number(b.id);
+
 export const getData = async () => {
   const aboutEntry = await getEntry("about", "main");
   if (!aboutEntry) throw new Error("About data not found");
@@ -13,15 +24,15 @@ export const getData = async () => {
   }));
 
   const experienceResumeItems = (await getCollection("experience")).sort(
-    (a, b) => a.data.sortOrder - b.data.sortOrder,
+    bySortOrder,
   );
 
   const educationResumeItems = (await getCollection("education")).sort(
-    (a, b) => a.data.sortOrder - b.data.sortOrder,
+    bySortOrder,
   );
 
   const researchResumeItems = (await getCollection("research")).sort(
-    (a, b) => a.data.sortOrder - b.data.sortOrder,
+    bySortOrder,
   );
 
   const projectsEntry = await getEntry("projects", "data");
@@ -34,12 +45,12 @@ export const getData = async () => {
 
   const skillsEntries = await getCollection("skills");
   const skillsResumeLists: ResumeList[] = skillsEntries
-    .sort((a, b) => Number(a.id) - Number(b.id))
+    .sort(byNumericId)
     .map((entry) => entry.data);
 
   const concertEntries = await getCollection("concerts");
   const concerts: Concert[] = concertEntries
-    .sort((a, b) => Number(a.id) - Number(b.id))
+    .sort(byNumericId)
     .map((entry) => ({
       id: Number(entry.id),
       date: getConcertDate(
@@ -66,7 +77,7 @@ export const getData = async () => {
 };
 
 function dateToLocalizedString(date: Date) {
-  return date.toLocaleDateString("pl-PL");
+  return date.toLocaleDateString(DATE_LOCALE);
 }
 function readDateFromString(date: string) {
   const [day, month, year] = date.split(".").map((part) => parseInt(part));

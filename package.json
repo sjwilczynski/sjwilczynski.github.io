@@ -23,19 +23,12 @@
     "test:e2e": "playwright test",
     "tsc": "tsc --noEmit"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie < 11"
-  ],
   "dependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/mdx": "7.0.0",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "7.0.3",
-    "astro-icon": "1.1.5",
-    "baseline-browser-mapping": "^2.10.40",
-    "caniuse-lite": "^1.0.30001799"
+    "astro-icon": "1.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
