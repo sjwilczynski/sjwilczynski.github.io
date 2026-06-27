@@ -114,6 +114,7 @@ const sectionEntries = Object.entries(sections);
     align-items: center;
     color: var(--on-accent);
     text-decoration: none;
+    background-image: none;
     padding: 0.3125rem 0;
     font-size: 1.25rem;
 
@@ -189,6 +190,7 @@ const sectionEntries = Object.entries(sections);
     display: block;
     padding: 0.5rem 0;
     color: rgba(255, 255, 255, 0.55);
+    background-image: none;
     font-weight: 800;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
@@ -200,6 +202,35 @@ const sectionEntries = Object.entries(sections);
       color: var(--on-accent);
       text-decoration: none;
     }
+  }
+
+  /* Letter-spacing gently widens — and the colour brightens — on hover / focus
+     and for the active scrollspy item. Items are centre-aligned, so it expands
+     evenly from the middle. The brighten alone remains for reduced-motion. */
+  .nav-link {
+    transition: color 0.2s ease;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-link {
+      transition:
+        letter-spacing 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      letter-spacing: 0.12rem;
+    }
+  }
+
+  /* On the brand-coloured bar an accent ring would vanish — use a light ring. */
+  .nav-link:focus-visible,
+  .nav-brand:focus-visible {
+    outline: 2px solid var(--on-accent);
+    outline-offset: 2px;
+    box-shadow: none;
   }
 
   /* Desktop sidebar */
