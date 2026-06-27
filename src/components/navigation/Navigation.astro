@@ -204,18 +204,24 @@ const sectionEntries = Object.entries(sections);
     }
   }
 
-  /* Slide toward the content on hover and for the active scrollspy item. */
+  /* Letter-spacing gently widens — and the colour brightens — on hover / focus
+     and for the active scrollspy item. Items are centre-aligned, so it expands
+     evenly from the middle. The brighten alone remains for reduced-motion. */
+  .nav-link {
+    transition: color 0.2s ease;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .nav-link {
       transition:
-        transform 0.2s ease,
+        letter-spacing 0.2s ease,
         color 0.2s ease;
     }
 
     .nav-link:hover,
     .nav-link:focus-visible,
     .nav-link.active {
-      transform: translateX(8px);
+      letter-spacing: 0.12rem;
     }
   }
 

@@ -24,25 +24,6 @@ const { Content } = await render(entry);
 
   .resume-content h3 {
     margin-bottom: 0;
-    transform-origin: left center;
-  }
-
-  /* V3 row hover: hovering the entry nudges its job title to the accent colour
-     and swells it slightly from the left — title only, no layout shift. */
-  .resume-content:hover h3 {
-    color: var(--accent);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .resume-content h3 {
-      transition:
-        transform 0.2s ease,
-        color 0.2s ease;
-    }
-
-    .resume-content:hover h3 {
-      transform: scale(1.025);
-    }
   }
 
   .resume-content .subheading {
