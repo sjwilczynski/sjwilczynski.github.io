@@ -13,6 +13,10 @@ export type Props = {
   /** schema.org JSON-LD object injected as <script type="application/ld+json">. */
   structuredData?: Record<string, unknown>;
   theme?: boolean;
+  /** Page locale; controls <html lang> upstream and og:locale here. */
+  lang?: "en" | "pl";
+  /** hreflang alternates for bilingual pages. */
+  alternates?: { hreflang: string; href: string }[];
 };
 
 const DEFAULT_DESCRIPTION =
@@ -27,6 +31,8 @@ const {
   noindex = false,
   structuredData,
   theme = false,
+  lang = "en",
+  alternates = [],
 } = Astro.props;
 
 // Applied before first paint to prevent a flash of the wrong theme: read the
@@ -37,6 +43,8 @@ const site = Astro.site ?? new URL("https://sjwilczynski.github.io");
 const canonicalURL = new URL(Astro.url.pathname, site).href;
 const imageURL = new URL(image, site).href;
 const imageAlt = `${fullName} — Full-Stack Developer`;
+const ogLocale = lang === "pl" ? "pl_PL" : "en_US";
+const ogLocaleAlt = lang === "pl" ? "en_US" : "pl_PL";
 ---
 
 <head>
@@ -53,6 +61,11 @@ const imageAlt = `${fullName} — Full-Stack Developer`;
   <meta name="theme-color" content="#4479a2" />
   {noindex && <meta name="robots" content="noindex" />}
   <link rel="canonical" href={canonicalURL} />
+  {
+    alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))
+  }
 
   <link rel="shortcut icon" href="/img/favicon.ico" />
   <Font cssVariable="--font-heading" preload />
@@ -63,7 +76,12 @@ const imageAlt = `${fullName} — Full-Stack Developer`;
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale" content={ogLocale} />
+  {
+    alternates.length > 0 && (
+      <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    )
+  }
   <meta property="og:image" content={imageURL} />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
