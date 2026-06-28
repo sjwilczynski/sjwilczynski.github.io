@@ -1,8 +1,8 @@
 ---
 sortOrder: 2
 headings:
-  - Inżynier oprogramowania
-  - Młodszy inżynier oprogramowania
+  - Software Engineer
+  - Junior Software Engineer
 subheading: Siemens Digital Logistics
 extraInfos:
   - lipiec 2018 - marzec 2019
@@ -10,11 +10,11 @@ extraInfos:
   - Wrocław, Polska
 ---
 
-Praca jako programista Java przy utrzymaniu i rozwoju jednej z czołowych europejskich platform logistycznych SaaS. Projekty, w których brałem udział, obejmowały:
+Jako programista Java pracowałem przy utrzymaniu i rozwoju jednej z czołowych europejskich platform logistycznych SaaS:
 
-- Implementację dopracowanego i przeprojektowanego interfejsu użytkownika dla głównych komponentów aplikacji
-- Gruntowne ulepszenie i refaktoryzację mechanizmu aliasów w celu dopasowania doświadczenia użytkownika
-- Samodzielnie inicjowane usprawnienia pracy:
+- Zaprojektowałem i wdrożyłem dopracowany, przeprojektowany interfejs użytkownika dla głównych komponentów aplikacji
+- Gruntownie usprawniłem i zrefaktoryzowałem mechanizm aliasów, dopasowując doświadczenie użytkownika
+- Z własnej inicjatywy usprawniłem pracę zespołu poprzez:
   - ujednolicenie i rozbudowę narzędzi do lokalnego wdrażania
   - integrację platformy do przeglądu kodu z naszym procesem pracy
-  - wprowadzenie i stosowanie User Story Mapping oraz programowania w parach (Pair Programming) w zespole
+  - wprowadzenie i stosowanie User Story Mapping oraz programowania w parach (Pair Programming)
