@@ -154,4 +154,22 @@ test.describe("Smoke tests", () => {
       await expect(page.getByRole("heading", { name: heading })).toBeVisible();
     }
   });
+
+  test("printable CV has no horizontal overflow on a narrow phone", async ({
+    page,
+  }) => {
+    // The header contact line packs long, space-less URLs (GitHub, the personal
+    // site, LinkedIn, email). Without wrapping they pushed the document wider
+    // than the viewport and caused horizontal scrolling on phones.
+    await page.setViewportSize({ width: 320, height: 760 });
+    await page.goto("/cv");
+
+    const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+    }));
+
+    // Allow a 1px rounding tolerance; anything more means real overflow.
+    expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
+  });
 });

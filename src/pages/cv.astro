@@ -101,7 +101,12 @@ const projects = await Promise.all(
           {
             contacts.map((c, i) => (
               <Fragment>
-                {i > 0 && <span class="sep">•</span>}
+                {i > 0 && (
+                  <Fragment>
+                    {" "}
+                    <span class="sep">•</span>{" "}
+                  </Fragment>
+                )}
                 <a href={c.href}>{c.label}</a>
               </Fragment>
             ))
@@ -283,10 +288,13 @@ const projects = await Promise.all(
     margin: 0 0 0.6rem;
     font-size: 0.82rem;
     color: var(--cv-muted);
+    /* Contact URLs have no spaces; allow them to wrap so the long line never
+       forces horizontal scrolling on narrow phones. */
+    overflow-wrap: anywhere;
   }
 
   .contacts .sep {
-    margin: 0 0.4rem;
+    margin: 0 0.2rem;
     color: #aab2ba;
   }
 
