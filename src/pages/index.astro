@@ -3,7 +3,7 @@ import App from "@components/App.astro";
 import Head from "@components/head/Head.astro";
 import { getData } from "@data/getData";
 
-const { about, socialMedias, experienceResumeItems } = await getData();
+const { about, socialMedias, experienceResumeItems } = await getData("en");
 const fullName = about.name + " " + about.surname;
 
 const site = Astro.site ?? new URL("https://sjwilczynski.github.io");

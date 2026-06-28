@@ -10,7 +10,7 @@ const {
   educationResumeItems,
   projectEntries,
   skillsResumeLists,
-} = await getData();
+} = await getData("en");
 
 const fullName = about.name + " " + about.surname;
 const currentTitle = experienceResumeItems[0]?.data.headings[0] ?? "";

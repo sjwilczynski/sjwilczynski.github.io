@@ -3,7 +3,7 @@ import Head from "@components/head/Head.astro";
 import { getData } from "@data/getData";
 import "@styles/global.css";
 
-const { about } = await getData();
+const { about } = await getData("en");
 const fullName = about.name + " " + about.surname;
 ---
 
