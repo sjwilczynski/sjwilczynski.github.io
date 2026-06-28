@@ -1,11 +1,11 @@
 ---
 sortOrder: 3
 headings:
-  - Speaker
+  - Prelegent
 subheading: Joint Conference on Biometrics & Biopharmaceutical Statistics
 extraInfos:
-  - Vienna
-  - Aug 2017
+  - Wiedeń
+  - sierpień 2017
 ---
 
-As one of just 8 people from across Europe, I was selected to present results of my research on Young Statisticians Session. I gave a talk on _Reduction of dimensionality by sparse subspace clustering_.
+Jako jedna z zaledwie 8 osób z całej Europy zostałem wybrany do zaprezentowania wyników moich badań podczas Young Statisticians Session. Wygłosiłem referat na temat _Reduction of dimensionality by sparse subspace clustering_.

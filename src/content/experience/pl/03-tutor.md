@@ -1,11 +1,11 @@
 ---
 sortOrder: 3
 headings:
-  - Tutor
-subheading: University of Wrocław
+  - Korepetytor
+subheading: Uniwersytet Wrocławski
 extraInfos:
-  - Jan - Jun 2015
-  - Wrocław, Poland
+  - styczeń - czerwiec 2015
+  - Wrocław, Polska
 ---
 
-Helping other students prepare for the exams
+Pomoc innym studentom w przygotowaniach do egzaminów

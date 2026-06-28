@@ -2,11 +2,11 @@
   "title": "",
   "numColumns": 2,
   "elements": [
-    { "id": 1, "description": "Visual regression testing/unit testing" },
-    { "id": 2, "description": "Design patterns" },
-    { "id": 3, "description": "Code reviewing" },
-    { "id": 4, "description": "Analytical thinking" },
-    { "id": 5, "description": "Algorithms & data structures" },
-    { "id": 6, "description": "Building accessible interfaces" }
+    { "id": 1, "description": "Testy regresji wizualnej / testy jednostkowe" },
+    { "id": 2, "description": "Wzorce projektowe" },
+    { "id": 3, "description": "Przeglądy kodu" },
+    { "id": 4, "description": "Myślenie analityczne" },
+    { "id": 5, "description": "Algorytmy i struktury danych" },
+    { "id": 6, "description": "Tworzenie dostępnych interfejsów" }
   ]
 }

@@ -4,37 +4,37 @@
       "id": 1,
       "iconName": "fa:graduation-cap",
       "iconClassName": "graduation-cap-icon",
-      "description": "Polish Ministry of Science and Higher Education scholarship for outstanding achievements (2017)"
+      "description": "Stypendium Ministra Nauki i Szkolnictwa Wyższego za wybitne osiągnięcia (2017)"
     },
     {
       "id": 2,
       "iconName": "fa:graduation-cap",
       "iconClassName": "graduation-cap-icon",
-      "description": "Scholarship for the best students in University of Wrocław (awarded to 7,5% best students) (five times in a row: 2014, 2015, 2016, 2017, 2018)"
+      "description": "Stypendium dla najlepszych studentów Uniwersytetu Wrocławskiego (przyznawane 7,5% najlepszych studentów) (pięć razy z rzędu: 2014, 2015, 2016, 2017, 2018)"
     },
     {
       "id": 3,
       "iconName": "fa-solid:medal",
       "iconClassName": "iol-icon",
-      "description": "International Linguistics Olympiad, Silver Medal (Beijing 2014)"
+      "description": "Międzynarodowa Olimpiada Lingwistyczna, srebrny medal (Pekin 2014)"
     },
     {
       "id": 4,
       "iconName": "fa-solid:award",
       "iconClassName": "award-icon",
-      "description": "Polish National Mathematical Olympiad, Finalist (twice: 2013,2014)"
+      "description": "Olimpiada Matematyczna, finalista (dwukrotnie: 2013, 2014)"
     },
     {
       "id": 5,
       "iconName": "fa-solid:award",
       "iconClassName": "award-icon",
-      "description": "Polish National Mathematical Linguistics Olympiad, Laureate (twice 2013,2014)"
+      "description": "Olimpiada Lingwistyki Matematycznej, laureat (dwukrotnie: 2013, 2014)"
     },
     {
       "id": 6,
       "iconName": "fa-solid:medal",
       "iconClassName": "medal-icon",
-      "description": "Champion of Lower Silesia in 400m run (Bogatynia 2013)"
+      "description": "Mistrz Dolnego Śląska w biegu na 400 m (Bogatynia 2013)"
     }
   ]
 }

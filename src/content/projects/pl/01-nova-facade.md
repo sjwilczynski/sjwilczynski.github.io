@@ -3,4 +3,4 @@ sortOrder: 1
 title: Nova facade
 ---
 
-Core maintainer of Microsoft's [Nova Facade repository](https://github.com/microsoft/nova-facade) and creator of [Nova React Test Utils](https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils), a dedicated testing framework for verifying Nova components via Storybook. Since its creation it has evolved into the most feature-rich open-source tool for integrating Relay-based components into Storybook
+Główny opiekun [repozytorium Nova Facade](https://github.com/microsoft/nova-facade) firmy Microsoft oraz twórca [Nova React Test Utils](https://github.com/microsoft/nova-facade/blob/main/packages/nova-react-test-utils) — dedykowanego frameworka testowego do weryfikacji komponentów Nova za pomocą Storybooka. Od momentu powstania narzędzie to stało się najbogatszym w funkcje rozwiązaniem open-source do integracji komponentów opartych na Relay ze Storybookiem

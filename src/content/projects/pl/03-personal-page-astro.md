@@ -1,6 +1,6 @@
 ---
 sortOrder: 3
-title: Personal page using Astro
+title: Strona osobista w Astro
 ---
 
-This page ([link to repository](https://github.com/sjwilczynski/sjwilczynski.github.io)) which is a highly optimized static page using [Astro](https://astro.build/)
+Ta strona ([link do repozytorium](https://github.com/sjwilczynski/sjwilczynski.github.io)) — wysoce zoptymalizowana strona statyczna zbudowana w [Astro](https://astro.build/)

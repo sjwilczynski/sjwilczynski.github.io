@@ -1,6 +1,6 @@
 ---
 sortOrder: 4
-title: Activity tracker
+title: Rejestrator aktywności
 ---
 
-Author of [Activity tracker](https://www.beactivetrackdaily.com/) PWA that I use to record my sport related activity daily
+Autor aplikacji PWA [Activity tracker](https://www.beactivetrackdaily.com/), której używam do codziennego rejestrowania swojej aktywności sportowej

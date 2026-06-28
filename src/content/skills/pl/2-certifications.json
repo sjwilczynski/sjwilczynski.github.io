@@ -1,10 +1,10 @@
 {
-  "title": "Certifications",
+  "title": "Certyfikaty",
   "numColumns": 1,
   "elements": [
     {
       "id": 1,
-      "description": "Personal Trainer (EQF level 4) certified by Register of Exercise Professionals (REPs)",
+      "description": "Trener personalny (poziom EQF 4), certyfikat Register of Exercise Professionals (REPs)",
       "date": "11/2023",
       "iconName": "fa-solid:dumbbell"
     },

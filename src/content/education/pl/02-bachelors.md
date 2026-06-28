@@ -1,14 +1,14 @@
 ---
 sortOrder: 2
 headings:
-  - University of Wrocław
-subheading: "Joint Studies in Computer Science and Mathematics (Bachelor's degree)"
+  - Uniwersytet Wrocławski
+subheading: "Międzykierunkowe studia matematyczno-informatyczne (studia licencjackie)"
 extraInfos:
-  - Oct 2014 - Sep 2017
+  - październik 2014 - wrzesień 2017
 ---
 
-Final grade: 5.0/5.0
+Ocena końcowa: 5,0/5,0
 
-**Thesis:** Reduction of dimensionality by sparse subspace clustering
+**Praca licencjacka:** Redukcja wymiarowości metodą rzadkiego klastrowania podprzestrzeni
 
-[On my github](https://github.com/sjwilczynski/Studies/blob/master/README.md) you can find a list of all courses I took during my studies.
+[Na moim GitHubie](https://github.com/sjwilczynski/Studies/blob/master/README.md) znajdziesz listę wszystkich przedmiotów, które realizowałem w trakcie studiów.
