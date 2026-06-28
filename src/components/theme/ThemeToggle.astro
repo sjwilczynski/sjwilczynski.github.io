@@ -1,14 +1,17 @@
 ---
 import Icon from "../icons/Icon.astro";
+
+export type Props = { label?: string; title?: string };
+const { label = "Toggle dark mode", title = "Toggle theme" } = Astro.props;
 ---
 
 <button
   id="theme-toggle"
   class="theme-toggle"
   type="button"
-  aria-label="Toggle dark mode"
+  aria-label={label}
   aria-pressed="false"
-  title="Toggle theme"
+  title={title}
 >
   <Icon name="fa-solid:moon" class="theme-icon icon-moon" />
   <Icon name="fa-solid:sun" class="theme-icon icon-sun" />

@@ -4,12 +4,13 @@ import { Image } from "astro:assets";
 
 export type Props = {
   fullName: string;
+  toggleLabel?: string;
   sections: {
     [key: string]: string;
   };
 };
 
-const { sections, fullName } = Astro.props;
+const { sections, fullName, toggleLabel = "Toggle navigation" } = Astro.props;
 const firstSectionKey = Object.keys(sections)[0];
 const sectionEntries = Object.entries(sections);
 ---
@@ -76,7 +77,7 @@ const sectionEntries = Object.entries(sections);
     class="nav-toggler"
     type="button"
     aria-expanded="false"
-    aria-label="Toggle navigation"
+    aria-label={toggleLabel}
   >
     <span class="toggler-icon"></span>
   </button>
