@@ -60,10 +60,9 @@ export const getData = async (lang: Lang) => {
     lang,
   ).sort(bySortOrder);
 
-  const projectEntries = pickLocale(
-    await getCollection("projects"),
-    lang,
-  ).sort(bySortOrder);
+  const projectEntries = pickLocale(await getCollection("projects"), lang).sort(
+    bySortOrder,
+  );
 
   const achievementsEntry =
     (await getEntry("achievements", lang)) ??
