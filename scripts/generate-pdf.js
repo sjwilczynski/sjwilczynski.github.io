@@ -1,36 +1,36 @@
-// Generates a deterministic, browser-independent PDF of the /cv page.
-// Runs against the already-built `dist/` output: it starts Astro's preview
-// server programmatically, renders /cv in the pinned Playwright Chromium, and
-// writes `dist/cv.pdf`. Because the PDF is produced on the build machine with a
-// fixed browser, the result never depends on a visitor's browser.
+// Generates deterministic, browser-independent PDFs of the /cv pages (EN + PL).
+// Runs against the already-built `dist/`: starts Astro's preview server, renders
+// each /cv route in the pinned Playwright Chromium, and writes the PDFs. The
+// result never depends on a visitor's browser.
 // Usage: node scripts/generate-pdf.js  (run after `astro build`)
 
 import { preview } from "astro";
 import { chromium } from "playwright";
 
-const OUTPUT = "dist/cv.pdf";
+const TARGETS = [
+  { route: "/cv", output: "dist/cv.pdf" },
+  { route: "/pl/cv", output: "dist/cv-pl.pdf" },
+];
 
 async function run() {
   const server = await preview({ logLevel: "error" });
-  const url = `http://localhost:${server.port}/cv`;
-
   const browser = await chromium.launch();
   try {
-    const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "networkidle" });
-    await page.emulateMedia({ media: "print" });
-    await page.pdf({
-      path: OUTPUT,
-      format: "A4",
-      printBackground: true,
-      margin: {
-        top: "14mm",
-        bottom: "14mm",
-        left: "14mm",
-        right: "14mm",
-      },
-    });
-    console.log(`✓ Wrote ${OUTPUT}`);
+    for (const { route, output } of TARGETS) {
+      const page = await browser.newPage();
+      await page.goto(`http://localhost:${server.port}${route}`, {
+        waitUntil: "networkidle",
+      });
+      await page.emulateMedia({ media: "print" });
+      await page.pdf({
+        path: output,
+        format: "A4",
+        printBackground: true,
+        margin: { top: "14mm", bottom: "14mm", left: "14mm", right: "14mm" },
+      });
+      await page.close();
+      console.log(`✓ Wrote ${output}`);
+    }
   } finally {
     await browser.close();
     await server.stop();
