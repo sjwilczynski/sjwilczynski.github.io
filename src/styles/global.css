@@ -252,3 +252,13 @@ html.theme-transitioning::view-transition-new(root) {
     clip-path: circle(150vmax at var(--x, 50%) var(--y, 50%));
   }
 }
+
+/* Opt the same-origin site into cross-document view transitions so the language
+   switcher's thumb (view-transition-name: lang-thumb) slides from EN to PL on
+   navigation. Progressive enhancement: unsupported browsers just load the next
+   page with the thumb already in place. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}

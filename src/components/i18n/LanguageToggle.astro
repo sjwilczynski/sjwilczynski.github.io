@@ -1,0 +1,144 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { ui, type Lang } from "@i18n/ui";
+
+export type Props = { lang: Lang };
+const { lang } = Astro.props;
+const t = ui[lang];
+
+// prefixDefaultLocale:false -> en="/", pl="/pl/". The current section hash is
+// re-attached client-side so /#experience -> /pl/#experience.
+const hrefs: Record<Lang, string> = {
+  en: getRelativeLocaleUrl("en", ""),
+  pl: getRelativeLocaleUrl("pl", ""),
+};
+---
+
+<div class="lang-toggle" role="group" aria-label={t["lang.label"]}>
+  <span class="lang-thumb" aria-hidden="true"></span>
+  <a
+    class="lang-seg"
+    href={hrefs.en}
+    hreflang="en"
+    aria-current={lang === "en" ? "true" : undefined}
+    aria-label={t["lang.switchToEn"]}>EN</a
+  >
+  <a
+    class="lang-seg"
+    href={hrefs.pl}
+    hreflang="pl"
+    aria-current={lang === "pl" ? "true" : undefined}
+    aria-label={t["lang.switchToPl"]}>PL</a
+  >
+</div>
+
+<script>
+  // Keep the active section when switching language.
+  const links = document.querySelectorAll<HTMLAnchorElement>(
+    ".lang-toggle .lang-seg",
+  );
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      const hash = window.location.hash;
+      if (hash) link.href = link.href.replace(/#.*$/, "") + hash;
+    });
+  });
+</script>
+
+<style>
+  /* Segmented pill, mirroring the theme toggle's geometry, sitting just left of
+     it. The active segment is the anchor for a sliding "thumb". */
+  .lang-toggle {
+    position: fixed;
+    top: 0.5rem;
+    right: 7rem;
+    z-index: 1031;
+    display: inline-flex;
+    align-items: center;
+    height: 2.25rem;
+    padding: 0.15rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+
+  @media (min-width: 992px) {
+    .lang-toggle {
+      top: 1rem;
+      right: 4rem;
+      height: 2.5rem;
+    }
+  }
+
+  .lang-seg {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 100%;
+    padding: 0 0.55rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--text-strong);
+    border-radius: 999px;
+    transition:
+      color 0.2s ease,
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .lang-seg[aria-current="true"] {
+    color: var(--on-accent);
+    anchor-name: --seg-active;
+  }
+
+  .lang-seg:hover,
+  .lang-seg:focus-visible {
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .lang-seg[aria-current="true"]:hover,
+  .lang-seg[aria-current="true"]:focus-visible {
+    color: var(--on-accent);
+  }
+
+  /* Thumb: anchored to the active segment via CSS anchor positioning. */
+  .lang-thumb {
+    display: none;
+  }
+
+  @supports (anchor-name: --x) {
+    .lang-thumb {
+      display: block;
+      position: absolute;
+      z-index: 0;
+      position-anchor: --seg-active;
+      top: anchor(top);
+      left: anchor(left);
+      right: anchor(right);
+      bottom: anchor(bottom);
+      background-color: var(--accent-fill);
+      border-radius: 999px;
+      view-transition-name: lang-thumb;
+    }
+  }
+
+  /* Fallback (no anchor positioning): fill the active segment directly. */
+  @supports not (anchor-name: --x) {
+    .lang-seg[aria-current="true"] {
+      background-color: var(--accent-fill);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang-seg {
+      transition: color 0.2s ease;
+    }
+  }
+</style>
