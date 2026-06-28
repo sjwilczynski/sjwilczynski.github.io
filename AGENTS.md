@@ -25,6 +25,8 @@ Uses **Bun** as package manager and runner (not npm/pnpm). Node >= 22.12.
 - `src/content.config.ts` — collection loaders + Zod schemas (single source of truth)
 - `src/data/getData.ts` — aggregates/sorts collections for pages
 - `public/` — static assets · `scripts/` — OG image + PDF generators
+- `.github/workflows/` — `ci.yml`, `gh-pages-deploy.yml`, `size-limit.yml`
+- Path aliases (`tsconfig.json`): `@components/*`, `@data/*`, `@styles/*`, `@layouts/*`
 
 ## Conventions
 
@@ -34,3 +36,4 @@ Uses **Bun** as package manager and runner (not npm/pnpm). Node >= 22.12.
 - UI is `.astro`; the `@astrojs/mdx` integration is available but content currently uses `.md`/`.json`. Icons come from `astro-icon` (allow-list in `astro.config.ts`).
 - Theme toggle (`ThemeToggle.astro`) switches light/dark with sun/moon icons.
 - `size-limit` enforces a CSS budget — keep generated CSS small.
+- TypeScript runs under `astro/tsconfigs/strictest`; keep `bun run tsc` and `bun run check` green.
