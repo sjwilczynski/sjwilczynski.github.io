@@ -1,0 +1,12 @@
+{
+  "title": "",
+  "numColumns": 2,
+  "elements": [
+    { "id": 1, "description": "Visual regression testing/unit testing" },
+    { "id": 2, "description": "Design patterns" },
+    { "id": 3, "description": "Code reviewing" },
+    { "id": 4, "description": "Analytical thinking" },
+    { "id": 5, "description": "Algorithms & data structures" },
+    { "id": 6, "description": "Building accessible interfaces" }
+  ]
+}

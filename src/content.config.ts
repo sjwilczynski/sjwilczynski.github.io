@@ -97,7 +97,7 @@ const achievements = defineCollection({
 });
 
 const skills = defineCollection({
-  loader: file("src/content/skills/data.json"),
+  loader: glob({ pattern: "**/*.json", base: "./src/content/skills" }),
   schema: resumeListSchema,
 });
 

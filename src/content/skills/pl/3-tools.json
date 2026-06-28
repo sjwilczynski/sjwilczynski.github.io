@@ -1,0 +1,19 @@
+{
+  "title": "Programming Languages, tools & frameworks",
+  "numColumns": 3,
+  "elements": [
+    { "id": 1, "description": "React", "iconName": "fa:heart" },
+    { "id": 2, "description": "Storybook", "iconName": "fa:heart" },
+    { "id": 3, "description": "Vitest", "iconName": "fa:heart" },
+    { "id": 4, "description": "TypeScript" },
+    { "id": 5, "description": "GraphQL" },
+    { "id": 6, "description": "Oxlint/oxfmt" },
+    { "id": 7, "description": "JavaScript" },
+    { "id": 8, "description": "Web development" },
+    { "id": 9, "description": "Java/C#" },
+    { "id": 10, "description": "HTML" },
+    { "id": 11, "description": "Python + numpy" },
+    { "id": 12, "description": "Git" },
+    { "id": 13, "description": "CSS" }
+  ]
+}
