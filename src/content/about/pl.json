@@ -1,0 +1,17 @@
+{
+  "name": "Stanisław",
+  "surname": "Wilczyński",
+  "city": "Wrocław",
+  "country": "Poland",
+  "email": "sjwilczynski@gmail.com",
+  "githubUrl": "https://github.com/sjwilczynski",
+  "introduction": "Full-stack developer with 8 years of experience, passionate about tools that make engineers' lives easier, code quality, bringing clarity and creating delightful and accessible products.",
+  "interests": [
+    "athletics",
+    "basketball",
+    "escape rooms",
+    "history",
+    "reading",
+    "rock concerts"
+  ]
+}
