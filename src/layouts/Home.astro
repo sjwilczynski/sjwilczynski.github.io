@@ -1,0 +1,63 @@
+---
+import App from "@components/App.astro";
+import Head from "@components/head/Head.astro";
+import { getData } from "@data/getData";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import type { Lang } from "@i18n/ui";
+
+export type Props = { lang: Lang };
+const { lang } = Astro.props;
+
+const { about, socialMedias, experienceResumeItems } = await getData(lang);
+const fullName = about.name + " " + about.surname;
+
+const site = Astro.site ?? new URL("https://sjwilczynski.github.io");
+const currentRole = experienceResumeItems[0]?.data.headings[0];
+const currentEmployer = experienceResumeItems[0]?.data.subheading;
+
+const enUrl = getAbsoluteLocaleUrl("en", "/");
+const plUrl = getAbsoluteLocaleUrl("pl", "/");
+const selfUrl = lang === "pl" ? plUrl : enUrl;
+
+const alternates = [
+  { hreflang: "en", href: enUrl },
+  { hreflang: "pl", href: plUrl },
+  { hreflang: "x-default", href: enUrl },
+];
+
+const personLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: fullName,
+  url: selfUrl,
+  image: new URL("/img/og-image.png", site).href,
+  description: about.introduction,
+  email: "mailto:" + about.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: about.city,
+    addressCountry: about.country,
+  },
+  sameAs: socialMedias.map((media) => media.link),
+  ...(currentRole ? { jobTitle: currentRole } : {}),
+  ...(currentEmployer
+    ? { worksFor: { "@type": "Organization", name: currentEmployer } }
+    : {}),
+};
+---
+
+<html lang={lang}>
+  <Head
+    title={fullName}
+    fullName={fullName}
+    description={about.introduction}
+    ogType="profile"
+    structuredData={personLd}
+    theme
+    lang={lang}
+    alternates={alternates}
+  />
+  <body class="main-container">
+    <App lang={lang} />
+  </body>
+</html>
