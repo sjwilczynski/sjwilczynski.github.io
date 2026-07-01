@@ -1,7 +1,7 @@
 ---
 sortOrder: 2
 headings:
-  - Research assistant
+  - Asystent badawczy
 subheading: MIR New developments and applications in Big Data
 extraInfos:
   - Uniwersytet Wrocławski

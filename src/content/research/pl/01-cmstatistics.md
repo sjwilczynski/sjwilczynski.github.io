@@ -1,7 +1,7 @@
 ---
 sortOrder: 1
 headings:
-  - Speaker
+  - Prelegent
 subheading: 11th International Conference of the ERCIM WG on Computational and Methodological Statistics (CMStatistics 2018)
 extraInfos:
   - Piza

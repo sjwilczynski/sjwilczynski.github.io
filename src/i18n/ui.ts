@@ -42,7 +42,7 @@ export const ui = {
     "nav.skills": "Umiejętności",
     "nav.achievements": "Osiągnięcia",
     "nav.interests": "Zainteresowania",
-    "nav.toggle": "Przełącz nawigację",
+    "nav.toggle": "Otwórz lub zamknij nawigację",
     "projects.moreCodePrefix": "Więcej kodu znajdziesz na ",
     "projects.moreCodeLink": "moim GitHubie",
     "cta.downloadCv": "Pobierz CV (PDF)",

@@ -9,4 +9,4 @@ extraInfos:
 
 Ocena końcowa: 5,0/5,0
 
-**Praca magisterska:** Analiza danych z mikromacierzy w predykcji przerzutów raka piersi. Tutaj znajdziesz [kod](https://github.com/sjwilczynski/geneExpr) oraz samą [pracę](https://github.com/sjwilczynski/thesis).
+**Praca magisterska:** Analiza danych z mikromacierzy w predykcji przerzutów raka piersi. Dostępny jest [kod](https://github.com/sjwilczynski/geneExpr) oraz [pełna treść pracy](https://github.com/sjwilczynski/thesis).

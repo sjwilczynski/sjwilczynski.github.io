@@ -1,7 +1,7 @@
 ---
 sortOrder: 4
 headings:
-  - Research assistant
+  - Asystent badawczy
 subheading: Clustering in low-dimensional subspaces
 extraInfos:
   - Uniwersytet Wrocławski

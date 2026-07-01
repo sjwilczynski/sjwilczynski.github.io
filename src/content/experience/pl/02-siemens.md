@@ -10,11 +10,11 @@ extraInfos:
   - Wrocław, Polska
 ---
 
-Jako programista Java pracowałem przy utrzymaniu i rozwoju jednej z czołowych europejskich platform logistycznych SaaS:
+Jako programista Java pracowałem przy utrzymaniu i rozwoju jednej z czołowych europejskich platform SaaS dla logistyki:
 
 - Zaprojektowałem i wdrożyłem dopracowany, przeprojektowany interfejs użytkownika dla głównych komponentów aplikacji
-- Gruntownie usprawniłem i zrefaktoryzowałem mechanizm aliasów, dopasowując doświadczenie użytkownika
+- Gruntownie usprawniłem i zrefaktoryzowałem mechanizm aliasów pod kątem lepiej dopasowanego doświadczenia użytkownika
 - Z własnej inicjatywy usprawniłem pracę zespołu poprzez:
-  - ujednolicenie i rozbudowę narzędzi do lokalnego wdrażania
-  - integrację platformy do przeglądu kodu z naszym procesem pracy
-  - wprowadzenie i stosowanie User Story Mapping oraz programowania w parach (Pair Programming)
+  - ujednolicenie i rozbudowę narzędzi do lokalnych wdrożeń
+  - integrację platformy do code review z naszym procesem deweloperskim
+  - wprowadzenie i stosowanie User Story Mapping oraz Pair Programming
