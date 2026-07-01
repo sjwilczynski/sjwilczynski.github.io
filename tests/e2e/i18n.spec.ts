@@ -34,4 +34,21 @@ test.describe("i18n", () => {
       page.getByRole("heading", { name: "Doświadczenie zawodowe" }),
     ).toBeVisible();
   });
+
+  test("Polish CV has no horizontal overflow on a narrow phone", async ({
+    page,
+  }) => {
+    // The header contact line packs long, space-less URLs. The shared
+    // CvDocument wrap fix must keep the Polish route from overflowing too.
+    await page.setViewportSize({ width: 320, height: 760 });
+    await page.goto("/pl/cv");
+
+    const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+    }));
+
+    // Allow a 1px rounding tolerance; anything more means real overflow.
+    expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
+  });
 });
