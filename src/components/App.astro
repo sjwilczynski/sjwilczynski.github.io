@@ -43,6 +43,7 @@ const {
 
 const fullName = about.name + " " + about.surname;
 const cvPdfHref = lang === "pl" ? "/cv-pl.pdf" : "/cv.pdf";
+const cvPdfTitle = t("cta.downloadCv");
 const Interests = lang === "pl" ? InterestsPl : InterestsEn;
 ---
 
@@ -59,6 +60,7 @@ const Interests = lang === "pl" ? InterestsPl : InterestsEn;
       about={about}
       socialMedias={socialMedias}
       cvPdfHref={cvPdfHref}
+      cvPdfTitle={cvPdfTitle}
     />
   </ResumeSection>
 

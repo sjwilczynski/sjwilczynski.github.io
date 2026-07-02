@@ -87,9 +87,7 @@ const hrefs: Record<Lang, string> = {
     text-decoration: none;
     color: var(--text-strong);
     border-radius: 999px;
-    transition:
-      color 0.2s ease,
-      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: color 0.2s ease;
   }
 
   .lang-seg[aria-current="true"] {
@@ -100,7 +98,6 @@ const hrefs: Record<Lang, string> = {
   .lang-seg:hover,
   .lang-seg:focus-visible {
     color: var(--accent);
-    transform: translateY(-1px);
   }
 
   .lang-seg[aria-current="true"]:hover,
@@ -133,12 +130,6 @@ const hrefs: Record<Lang, string> = {
   @supports not (anchor-name: --x) {
     .lang-seg[aria-current="true"] {
       background-color: var(--accent-fill);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .lang-seg {
-      transition: color 0.2s ease;
     }
   }
 </style>

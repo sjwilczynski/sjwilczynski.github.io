@@ -6,9 +6,15 @@ export type Props = {
   about: About;
   socialMedias: SocialMedia[];
   cvPdfHref?: string;
+  cvPdfTitle?: string;
 };
 
-const { about, socialMedias, cvPdfHref = "/cv.pdf" } = Astro.props;
+const {
+  about,
+  socialMedias,
+  cvPdfHref = "/cv.pdf",
+  cvPdfTitle = "Download CV (PDF)",
+} = Astro.props;
 ---
 
 <style>
@@ -53,4 +59,8 @@ const { about, socialMedias, cvPdfHref = "/cv.pdf" } = Astro.props;
   <a href={"mailto:" + about.email}> {about.email}</a>
 </div>
 <div class="lead">{about.introduction}</div>
-<SocialMedias socialMedias={socialMedias} cvPdfHref={cvPdfHref} />
+<SocialMedias
+  socialMedias={socialMedias}
+  cvPdfHref={cvPdfHref}
+  cvPdfTitle={cvPdfTitle}
+/>

@@ -4,7 +4,7 @@
   "elements": [
     { "id": 1, "description": "Testy regresji wizualnej / testy jednostkowe" },
     { "id": 2, "description": "Wzorce projektowe" },
-    { "id": 3, "description": "Przeglądy kodu" },
+    { "id": 3, "description": "Code review" },
     { "id": 4, "description": "Myślenie analityczne" },
     { "id": 5, "description": "Algorytmy i struktury danych" },
     { "id": 6, "description": "Tworzenie dostępnych interfejsów" }

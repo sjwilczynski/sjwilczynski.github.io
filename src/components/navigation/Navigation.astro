@@ -108,6 +108,10 @@ const sectionEntries = Object.entries(sections);
     flex-wrap: wrap;
     align-items: center;
     padding: 0.25rem 0.5rem;
+    /* Pulled out of the cross-document root snapshot so switching language
+       morphs the sidebar in place instead of cross-fading the whole viewport
+       (which read as a flash of the nav). */
+    view-transition-name: sidebar;
   }
 
   .nav-brand {
