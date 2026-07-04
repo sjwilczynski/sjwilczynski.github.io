@@ -16,44 +16,52 @@ const sectionEntries = Object.entries(sections);
 ---
 
 <script>
-  // Hamburger toggle
-  const toggler = document.querySelector<HTMLButtonElement>(".nav-toggler");
-  const navMenu = document.querySelector<HTMLElement>(".nav-menu");
-  toggler?.addEventListener("click", () => {
-    const isOpen = navMenu?.classList.toggle("open");
-    toggler.setAttribute("aria-expanded", String(!!isOpen));
-  });
-
-  // Auto-close on link click (mobile)
-  navMenu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("open");
-      toggler?.setAttribute("aria-expanded", "false");
+  // Re-run on every navigation: <ClientRouter /> swaps the nav DOM (translated
+  // labels) without re-executing bundled module scripts, so binding on
+  // astro:page-load (which also fires on the initial load) keeps the hamburger,
+  // auto-close and scrollspy working after a language switch.
+  function initNavigation() {
+    // Hamburger toggle
+    const toggler = document.querySelector<HTMLButtonElement>(".nav-toggler");
+    const navMenu = document.querySelector<HTMLElement>(".nav-menu");
+    toggler?.addEventListener("click", () => {
+      const isOpen = navMenu?.classList.toggle("open");
+      toggler.setAttribute("aria-expanded", String(!!isOpen));
     });
-  });
 
-  // IntersectionObserver scrollspy
-  const navLinks = document.querySelectorAll<HTMLAnchorElement>(
-    "#sideNav a.nav-link",
-  );
-  const sections = document.querySelectorAll<HTMLElement>("section[id]");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const activeLink = document.querySelector<HTMLAnchorElement>(
-            `#sideNav a.nav-link[href="#${entry.target.id}"]`,
-          );
-          activeLink?.classList.add("active");
-        }
+    // Auto-close on link click (mobile)
+    navMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        toggler?.setAttribute("aria-expanded", "false");
       });
-    },
-    { rootMargin: "-20% 0px -80% 0px" },
-  );
+    });
 
-  sections.forEach((section) => observer.observe(section));
+    // IntersectionObserver scrollspy
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(
+      "#sideNav a.nav-link",
+    );
+    const sections = document.querySelectorAll<HTMLElement>("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const activeLink = document.querySelector<HTMLAnchorElement>(
+              `#sideNav a.nav-link[href="#${entry.target.id}"]`,
+            );
+            activeLink?.classList.add("active");
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -80% 0px" },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  document.addEventListener("astro:page-load", initNavigation);
 </script>
 
 <nav id="sideNav">
@@ -108,10 +116,6 @@ const sectionEntries = Object.entries(sections);
     flex-wrap: wrap;
     align-items: center;
     padding: 0.25rem 0.5rem;
-    /* Pulled out of the cross-document root snapshot so switching language
-       morphs the sidebar in place instead of cross-fading the whole viewport
-       (which read as a flash of the nav). */
-    view-transition-name: sidebar;
   }
 
   .nav-brand {

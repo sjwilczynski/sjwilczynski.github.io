@@ -143,7 +143,10 @@ const {
       });
     });
   }
-  initConcertsToggle();
+  // Re-bind on every navigation so the concerts toggle keeps working after a
+  // language switch: <ClientRouter /> swaps this section's DOM without re-running
+  // bundled module scripts. astro:page-load also fires on the initial load.
+  document.addEventListener("astro:page-load", initConcertsToggle);
 </script>
 
 <style>

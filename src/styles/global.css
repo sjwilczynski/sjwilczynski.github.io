@@ -82,6 +82,11 @@ html.dark {
 /* Base */
 html {
   scroll-behavior: smooth;
+  /* The view transition replaces the live DOM with a snapshot overlay while it
+     crossfades. Any area the root snapshots don't fully cover -- and the
+     semi-transparent blend at mid-fade -- reveals the backdrop, so it must carry
+     the theme colour. --bg tracks light/dark via html.dark. */
+  background-color: var(--bg);
 }
 
 body {
@@ -253,12 +258,15 @@ html.theme-transitioning::view-transition-new(root) {
   }
 }
 
-/* Opt the same-origin site into cross-document view transitions so the language
-   switcher's thumb (view-transition-name: lang-thumb) slides from EN to PL on
-   navigation. Progressive enhancement: unsupported browsers just load the next
-   page with the thumb already in place. */
-@media (prefers-reduced-motion: no-preference) {
-  @view-transition {
-    navigation: auto;
-  }
-}
+/* Cross-page transitions are driven by Astro's <ClientRouter /> (astro:transitions),
+   which intercepts internal navigations and runs a same-document
+   document.startViewTransition. This is more reliable than the native
+   cross-document trigger (which Chromium skipped intermittently) and keeps the
+   <html> element across navigations, so the theme class persists with no
+   flash of the wrong theme mid-switch.
+
+   The browser's default root cross-fade dissolves the page between EN and PL.
+   The toggle thumb keeps its own view-transition-name (lang-thumb), so rather
+   than cross-fading with the rest of the page it slides between the two
+   segments. Theme changes override the root animation with a radiating wipe via
+   the higher-specificity html.theme-transitioning rules above. */

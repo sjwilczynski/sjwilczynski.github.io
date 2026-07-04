@@ -18,13 +18,42 @@ test.describe("i18n", () => {
     await expect(en).toHaveAttribute("aria-current", "true");
   });
 
-  test("switching to Polish navigates to /pl/ and preserves the hash", async ({
+  test("switching to Polish navigates to /pl/ client-side and updates lang", async ({
     page,
   }) => {
-    await page.goto("/#skills");
+    await page.goto("/");
     await page.locator('.lang-toggle .lang-seg[hreflang="pl"]').click();
-    await page.waitForURL("**/pl/#skills");
+    // ClientRouter performs a same-document navigation; the URL updates to /pl/.
+    await page.waitForURL("**/pl/");
     await expect(page.locator("html")).toHaveAttribute("lang", "pl");
+    await expect(page.locator('a.nav-link[href="#experience"]')).toHaveText(
+      "Doświadczenie",
+    );
+  });
+
+  test("switching language preserves the scroll position", async ({ page }) => {
+    await page.goto("/");
+    // Scroll to a mid-page offset (instant, to avoid racing the global smooth
+    // scroll), then confirm we actually scrolled down.
+    await page.evaluate(() => {
+      const el = document.getElementById("experience");
+      const top = (el?.getBoundingClientRect().top ?? 0) + window.scrollY;
+      window.scrollTo({ top: Math.round(top), left: 0, behavior: "instant" });
+    });
+    const before = await page.evaluate(() => Math.round(window.scrollY));
+    expect(before).toBeGreaterThan(0);
+
+    await page.locator('.lang-toggle .lang-seg[hreflang="pl"]').click();
+    await page.waitForURL("**/pl/");
+
+    // The click records window.scrollY; ClientRouter swaps the DOM in place and
+    // the astro:after-swap handler restores that exact offset. Poll because the
+    // swap + restore land a tick after the URL updates.
+    await expect
+      .poll(() => page.evaluate(() => Math.round(window.scrollY)))
+      .toBeGreaterThan(0);
+    const after = await page.evaluate(() => Math.round(window.scrollY));
+    expect(Math.abs(after - before)).toBeLessThanOrEqual(8);
   });
 
   test("Polish CV page renders translated headings", async ({ page }) => {
