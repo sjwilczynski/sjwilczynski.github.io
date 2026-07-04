@@ -172,4 +172,89 @@ test.describe("Smoke tests", () => {
     // Allow a 1px rounding tolerance; anything more means real overflow.
     expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
   });
+
+  test("home page has no horizontal overflow on a narrow phone", async ({
+    page,
+  }) => {
+    // The About social icons carry CSS-only hover tooltips. They used to stay
+    // laid out (position:absolute, opacity:0) while hidden, so the rightmost
+    // nowrap tooltip poked past the viewport and caused a horizontal scrollbar
+    // at 320px. They are now `display:none` until hover/focus, leaving layout.
+    await page.setViewportSize({ width: 320, height: 760 });
+    await page.goto("/");
+
+    const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+    }));
+
+    expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
+  });
+
+  test("social icon tooltip stays hidden until hover, then reveals", async ({
+    page,
+  }) => {
+    const icon = page.locator(".icon-with-link").first();
+
+    // Hidden tooltips must not occupy layout (that is what caused the overflow),
+    // so they are `display:none` at rest rather than merely transparent.
+    const restDisplay = await icon.evaluate(
+      (el) => getComputedStyle(el, "::after").display,
+    );
+    expect(restDisplay).toBe("none");
+
+    await icon.hover();
+    await page.waitForTimeout(250);
+    const hoverState = await icon.evaluate((el) => {
+      const cs = getComputedStyle(el, "::after");
+      return { display: cs.display, opacity: cs.opacity };
+    });
+    expect(hoverState.display).not.toBe("none");
+    expect(Number(hoverState.opacity)).toBeGreaterThan(0);
+  });
+
+  // The date-layout fix pairs each experience role with its own tenure inside
+  // the same `.role-row` (rather than dumping every date in a trailing column
+  // disconnected from the role). Guard the structural role<->date association.
+  test("each experience role shows its tenure within its own row", async ({
+    page,
+  }) => {
+    const rows = page.locator("section#experience .role-row");
+    const count = await rows.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const row = rows.nth(i);
+      await expect(row.locator("h3")).toHaveCount(1);
+      // Every experience role carries its tenure as one or more nowrap ranges.
+      await expect(row.locator(".role-date .range").first()).toBeVisible();
+    }
+  });
+
+  test("experience tenure sits beside the title on desktop and stacks on a phone", async ({
+    page,
+  }) => {
+    const row = page.locator("section#experience .role-row").first();
+    const title = row.locator("h3");
+    const date = row.locator(".role-date");
+
+    // Desktop: the date shares the row with the title, flush to its right.
+    await page.setViewportSize({ width: 1280, height: 900 });
+    const desktopTitle = await title.boundingBox();
+    const desktopDate = await date.boundingBox();
+    if (!desktopTitle || !desktopDate) throw new Error("missing role boxes");
+    expect(desktopDate.x).toBeGreaterThan(desktopTitle.x);
+    expect(desktopDate.y).toBeLessThan(desktopTitle.y + desktopTitle.height);
+
+    // Phone: the @container query stacks the date directly under the title,
+    // left-aligned to the same edge, so the role<->date pairing stays obvious.
+    await page.setViewportSize({ width: 320, height: 760 });
+    const phoneTitle = await title.boundingBox();
+    const phoneDate = await date.boundingBox();
+    if (!phoneTitle || !phoneDate) throw new Error("missing role boxes");
+    expect(phoneDate.y).toBeGreaterThanOrEqual(
+      phoneTitle.y + phoneTitle.height - 2,
+    );
+    expect(Math.abs(phoneDate.x - phoneTitle.x)).toBeLessThanOrEqual(2);
+  });
 });

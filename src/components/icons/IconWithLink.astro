@@ -75,11 +75,15 @@ const { iconName, link, title, download = false } = Astro.props;
     white-space: nowrap;
     padding: 0.4rem 0.55rem;
     border-radius: 0.375rem;
+    /* Kept out of layout while hidden so the (nowrap, off-screen-centered)
+       tooltip can't widen the page and cause horizontal scroll on phones. */
+    display: none;
     opacity: 0;
     pointer-events: none;
     transition:
       opacity 0.15s ease,
-      transform 0.15s ease;
+      transform 0.15s ease,
+      display 0.15s allow-discrete;
     z-index: 5;
   }
 
@@ -91,11 +95,13 @@ const { iconName, link, title, download = false } = Astro.props;
     transform: translateX(-50%) translateY(0.25rem);
     border: 0.375rem solid transparent;
     border-top-color: var(--icon-bg);
+    display: none;
     opacity: 0;
     pointer-events: none;
     transition:
       opacity 0.15s ease,
-      transform 0.15s ease;
+      transform 0.15s ease,
+      display 0.15s allow-discrete;
     z-index: 5;
   }
 
@@ -103,8 +109,21 @@ const { iconName, link, title, download = false } = Astro.props;
   .icon-with-link:focus-visible::after,
   .icon-with-link:hover::before,
   .icon-with-link:focus-visible::before {
+    display: block;
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+  }
+
+  /* Starting values for the show transition, since the tooltip animates in
+     from `display: none` (which otherwise skips the transition). */
+  @starting-style {
+    .icon-with-link:hover::after,
+    .icon-with-link:focus-visible::after,
+    .icon-with-link:hover::before,
+    .icon-with-link:focus-visible::before {
+      opacity: 0;
+      transform: translateX(-50%) translateY(0.25rem);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
