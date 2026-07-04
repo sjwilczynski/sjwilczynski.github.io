@@ -44,7 +44,7 @@ const {
 // before the browser paints and before the transition captures the new
 // snapshot — restores it with no flash. On the initial hard load the
 // render-blocking stylesheet guarantees the first paint is already themed.
-const themeScript = `(function(){function a(){try{var s=localStorage.getItem("theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d);}catch(e){}}a();document.addEventListener("astro:after-swap",a);})();`;
+const themeScript = `(function(){function a(){var s=null;try{s=localStorage.getItem("theme");}catch(e){}var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d);}a();document.addEventListener("astro:after-swap",a);})();`;
 
 const site = Astro.site ?? new URL("https://sjwilczynski.github.io");
 const canonicalURL = new URL(Astro.url.pathname, site).href;

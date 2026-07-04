@@ -270,3 +270,14 @@ html.theme-transitioning::view-transition-new(root) {
    than cross-fading with the rest of the page it slides between the two
    segments. Theme changes override the root animation with a radiating wipe via
    the higher-specificity html.theme-transitioning rules above. */
+
+/* Honour reduced-motion for the ClientRouter page transition: skip the root
+   cross-fade and the sliding thumb so navigations flip instantly. (The theme
+   wipe is already gated on motion in the toggle script.) */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

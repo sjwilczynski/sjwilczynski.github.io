@@ -20,6 +20,10 @@ const sectionEntries = Object.entries(sections);
   // labels) without re-executing bundled module scripts, so binding on
   // astro:page-load (which also fires on the initial load) keeps the hamburger,
   // auto-close and scrollspy working after a language switch.
+  // Kept at module scope (this bundled script runs once) so each swap can tear
+  // down the previous page's scrollspy observer before creating a new one.
+  let scrollSpy: IntersectionObserver | null = null;
+
   function initNavigation() {
     // Hamburger toggle
     const toggler = document.querySelector<HTMLButtonElement>(".nav-toggler");
@@ -43,6 +47,7 @@ const sectionEntries = Object.entries(sections);
     );
     const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
+    scrollSpy?.disconnect();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -57,6 +62,7 @@ const sectionEntries = Object.entries(sections);
       },
       { rootMargin: "-20% 0px -80% 0px" },
     );
+    scrollSpy = observer;
 
     sections.forEach((section) => observer.observe(section));
   }

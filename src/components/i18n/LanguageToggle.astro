@@ -6,8 +6,9 @@ export type Props = { lang: Lang };
 const { lang } = Astro.props;
 const t = ui[lang];
 
-// prefixDefaultLocale:false -> en="/", pl="/pl/". The current section hash is
-// re-attached client-side so /#experience -> /pl/#experience.
+// prefixDefaultLocale:false -> en="/", pl="/pl/". Switching preserves the
+// reader's scroll position (captured on click, restored after the swap) rather
+// than carrying a section hash in the URL.
 const hrefs: Record<Lang, string> = {
   en: getRelativeLocaleUrl("en", ""),
   pl: getRelativeLocaleUrl("pl", ""),
@@ -45,7 +46,22 @@ const hrefs: Record<Lang, string> = {
     document
       .querySelectorAll<HTMLAnchorElement>(".lang-toggle .lang-seg")
       .forEach((seg) => {
-        seg.addEventListener("click", () => {
+        seg.addEventListener("click", (event) => {
+          // Only a plain left-click actually swaps the page via ClientRouter.
+          // Ignore modified clicks (open in new tab/window) and clicks on the
+          // already-active language, which don't navigate and would otherwise
+          // leave a stale offset behind for the next real switch to consume.
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            seg.getAttribute("aria-current") === "true"
+          ) {
+            return;
+          }
           try {
             sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
           } catch {
@@ -66,16 +82,18 @@ const hrefs: Record<Lang, string> = {
     } catch {
       /* sessionStorage unavailable — nothing to restore. */
     }
-    if (y !== null) {
-      // behavior:"instant" overrides the global scroll-behavior:smooth so the
-      // page is repositioned immediately rather than animating up from the top.
-      window.scrollTo({ top: Number(y), left: 0, behavior: "instant" });
-      try {
-        sessionStorage.removeItem(SCROLL_KEY);
-      } catch {
-        /* ignore */
-      }
+    if (y === null) return;
+    // Clear it first so a stale value can never leak into a later swap.
+    try {
+      sessionStorage.removeItem(SCROLL_KEY);
+    } catch {
+      /* ignore */
     }
+    const top = Number(y);
+    if (!Number.isFinite(top)) return;
+    // behavior:"instant" overrides the global scroll-behavior:smooth so the
+    // page is repositioned immediately rather than animating up from the top.
+    window.scrollTo({ top, left: 0, behavior: "instant" });
   });
 
   document.addEventListener("astro:page-load", bindLangSegments);
