@@ -5,9 +5,14 @@ import IconWithLink from "../../icons/IconWithLink.astro";
 export type Props = {
   socialMedias: SocialMedia[];
   cvPdfHref?: string;
+  cvPdfTitle?: string;
 };
 
-const { socialMedias, cvPdfHref } = Astro.props;
+const {
+  socialMedias,
+  cvPdfHref,
+  cvPdfTitle = "Download CV (PDF)",
+} = Astro.props;
 ---
 
 <div>
@@ -25,7 +30,7 @@ const { socialMedias, cvPdfHref } = Astro.props;
       <IconWithLink
         iconName="fa-solid:file-pdf"
         link={cvPdfHref}
-        title="Download CV (PDF)"
+        title={cvPdfTitle}
         download
       />
     )

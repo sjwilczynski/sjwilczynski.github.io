@@ -1,0 +1,40 @@
+{
+  "elements": [
+    {
+      "id": 1,
+      "iconName": "fa:graduation-cap",
+      "iconClassName": "graduation-cap-icon",
+      "description": "Stypendium Ministra Nauki i Szkolnictwa Wyższego za wybitne osiągnięcia (2017)"
+    },
+    {
+      "id": 2,
+      "iconName": "fa:graduation-cap",
+      "iconClassName": "graduation-cap-icon",
+      "description": "Stypendium dla najlepszych studentów Uniwersytetu Wrocławskiego (przyznawane najlepszym 7,5% studentów) (pięć razy z rzędu: 2014, 2015, 2016, 2017, 2018)"
+    },
+    {
+      "id": 3,
+      "iconName": "fa-solid:medal",
+      "iconClassName": "iol-icon",
+      "description": "Międzynarodowa Olimpiada Lingwistyczna, srebrny medal (Pekin 2014)"
+    },
+    {
+      "id": 4,
+      "iconName": "fa-solid:award",
+      "iconClassName": "award-icon",
+      "description": "Olimpiada Matematyczna, finalista (dwukrotnie: 2013, 2014)"
+    },
+    {
+      "id": 5,
+      "iconName": "fa-solid:award",
+      "iconClassName": "award-icon",
+      "description": "Olimpiada Lingwistyki Matematycznej, laureat (dwukrotnie: 2013, 2014)"
+    },
+    {
+      "id": 6,
+      "iconName": "fa-solid:medal",
+      "iconClassName": "medal-icon",
+      "description": "Mistrz Dolnego Śląska w biegu na 400 m (Bogatynia 2013)"
+    }
+  ]
+}

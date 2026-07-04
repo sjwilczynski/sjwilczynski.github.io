@@ -5,11 +5,16 @@ import type { About, SocialMedia } from "@data/types";
 export type Props = {
   about: About;
   socialMedias: SocialMedia[];
+  cvPdfHref?: string;
+  cvPdfTitle?: string;
 };
 
-const { about, socialMedias } = Astro.props;
-
-const cvPdfHref = import.meta.env.BASE_URL + "cv.pdf";
+const {
+  about,
+  socialMedias,
+  cvPdfHref = "/cv.pdf",
+  cvPdfTitle = "Download CV (PDF)",
+} = Astro.props;
 ---
 
 <style>
@@ -54,4 +59,8 @@ const cvPdfHref = import.meta.env.BASE_URL + "cv.pdf";
   <a href={"mailto:" + about.email}> {about.email}</a>
 </div>
 <div class="lead">{about.introduction}</div>
-<SocialMedias socialMedias={socialMedias} cvPdfHref={cvPdfHref} />
+<SocialMedias
+  socialMedias={socialMedias}
+  cvPdfHref={cvPdfHref}
+  cvPdfTitle={cvPdfTitle}
+/>

@@ -20,6 +20,13 @@ const systemFontFallbacks = [
 // https://astro.build/config
 export default defineConfig({
   site: "https://sjwilczynski.github.io",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "pl"],
+    routing: { prefixDefaultLocale: false },
+    // NO `fallback`: it is route-level, not per-entry, and would auto-generate
+    // an English /pl/cv/. Per-entry fallback is handled in getData(lang).
+  },
   build: {
     inlineStylesheets: "never",
   },
@@ -45,9 +52,12 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      // The printable /cv route is intentionally noindex, so keep it out of the
-      // sitemap; only the canonical home page should be advertised to crawlers.
-      filter: (page) => !page.includes("/cv"),
+      // The printable CV is intentionally noindex; drop /cv, /cv/, and /pl/cv/.
+      filter: (page) => !/\/cv\/?$/.test(new URL(page).pathname),
+      i18n: {
+        defaultLocale: "en",
+        locales: { en: "en-US", pl: "pl-PL" },
+      },
     }),
     icon({
       include: {

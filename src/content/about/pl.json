@@ -1,0 +1,17 @@
+{
+  "name": "Stanisław",
+  "surname": "Wilczyński",
+  "city": "Wrocław",
+  "country": "Polska",
+  "email": "sjwilczynski@gmail.com",
+  "githubUrl": "https://github.com/sjwilczynski",
+  "introduction": "Programista full-stack z 8-letnim doświadczeniem, z pasją do narzędzi ułatwiających pracę inżynierów, jakości kodu, wprowadzania przejrzystości oraz tworzenia przyjaznych i dostępnych produktów.",
+  "interests": [
+    "lekkoatletyka",
+    "koszykówka",
+    "escape roomy",
+    "historia",
+    "czytanie",
+    "koncerty rockowe"
+  ]
+}
