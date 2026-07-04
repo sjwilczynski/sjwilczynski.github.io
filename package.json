@@ -55,7 +55,13 @@
   },
   "size-limit": [
     {
+      "name": "CSS",
       "path": "dist/**/*.css",
+      "limit": "6 KB"
+    },
+    {
+      "name": "JS",
+      "path": "dist/**/*.js",
       "limit": "6 KB"
     }
   ]
