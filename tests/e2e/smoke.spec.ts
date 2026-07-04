@@ -124,7 +124,7 @@ test.describe("Smoke tests", () => {
     // The first skills line is the (untitled) general-skills group, joined in
     // authoring order with ", ".
     await expect(page.locator(".skill-line").first()).toContainText(
-      "Visual regression testing/unit testing, Design patterns, Code reviewing, Analytical thinking, Algorithms & data structures, Building accessible interfaces",
+      "Visual regression testing/unit testing, Design patterns, Code review, Analytical thinking, Algorithms & data structures, Building accessible interfaces",
     );
 
     await expect(

@@ -1,0 +1,27 @@
+import "./interests.css";
+import Icon from "@components/icons/Icon.astro";
+import ConcertsTimeline from "./ConcertsTimeline.astro";
+import PodcastsList from "./PodcastsList.astro";
+
+Poza pracą lubię uprawiać i oglądać różne sporty,
+zwłaszcza koszykówkę, lekkoatletykę i pływanie. Spośród lig
+koszykówki najbardziej fascynuje mnie NBA, a moimi dwoma ulubionymi
+zawodnikami są [Russell Westbrook](https://www.youtube.com/watch?v=w3l3txhX0L4)
+i [Kevin Durant](https://www.youtube.com/watch?v=-f6TnC0xFPY) <Icon name="fa-solid:basketball-ball" class="basketball-ball-icon"  />. Jako były sprinter wciąż jestem pod wrażeniem [rekordu świata Wayde'a van
+Niekerka](https://www.youtube.com/watch?v=xG91krXuxyw). Uwielbiam zgłębiać historię i tematykę społeczną — oto kilka moich ulubionych książek, kanałów i podcastów:
+
+<PodcastsList items={props.podcasts} />
+
+Jeśli chodzi o pozostałe zainteresowania, lubię podróżować <Icon name="fa:plane" class="icon"/>
+(najpiękniejsze miasto — Porto w Portugalii, najbardziej zachwycający widok — Tatev w Armenii,
+najlepsza plaża — Tangalle na Sri Lance). W wolnym czasie lubię odwiedzać [escape roomy](https://lock.me/pl/user/46896/stanislaw-w-1)
+i czytać [książki](https://www.goodreads.com/user/show/100417409-stanis-aw-wilczy-ski) <Icon name="fa:book" class="book-icon" />. Najbardziej lubię jednak chodzić na koncerty rockowe.
+
+<ConcertsTimeline
+  concerts={props.concerts}
+  showLabel="Kliknij, aby zobaczyć pełną listę koncertów"
+  hideLabel="Kliknij, aby ukryć pełną listę koncertów"
+/>
+
+Jestem także zagorzałym fanem [MCU](https://en.wikipedia.org/wiki/Marvel_Cinematic_Universe) oraz zwolennikiem
+[idei Factfulness](https://www.gapminder.org/factfulness-book/).

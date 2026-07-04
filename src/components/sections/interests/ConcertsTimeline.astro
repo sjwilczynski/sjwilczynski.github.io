@@ -3,9 +3,15 @@ import type { Concert } from "@data/types";
 
 export type Props = {
   concerts: Concert[];
+  showLabel?: string;
+  hideLabel?: string;
 };
 
-const { concerts } = Astro.props;
+const {
+  concerts,
+  showLabel = "Click here to view the full concerts list",
+  hideLabel = "Click here to hide the full concerts list",
+} = Astro.props;
 ---
 
 <!--
@@ -42,8 +48,10 @@ const { concerts } = Astro.props;
     class="concerts-toggle"
     aria-expanded="false"
     aria-controls="concertsList"
+    data-show-label={showLabel}
+    data-hide-label={hideLabel}
   >
-    Click here to view the full concerts list
+    {showLabel}
   </button>
 </div>
 
@@ -109,16 +117,18 @@ const { concerts } = Astro.props;
   function initConcertsToggle() {
     const toggle = document.getElementById("concertsToggle");
     const list = document.getElementById("concertsList");
+    const showLabel = toggle?.dataset.showLabel ?? "";
+    const hideLabel = toggle?.dataset.hideLabel ?? "";
     toggle?.addEventListener("click", () => {
       const isHidden = list?.hasAttribute("hidden");
       if (isHidden) {
         list?.removeAttribute("hidden");
-        toggle.textContent = "Click here to hide the full concerts list";
+        toggle.textContent = hideLabel;
         toggle.setAttribute("aria-expanded", "true");
         initTimelineAnimations();
       } else {
         list?.setAttribute("hidden", "");
-        toggle.textContent = "Click here to view the full concerts list";
+        toggle.textContent = showLabel;
         toggle.setAttribute("aria-expanded", "false");
         // Reset animations so they replay on next open
         document.querySelectorAll(".timeline-element.visible").forEach((el) => {
@@ -133,7 +143,10 @@ const { concerts } = Astro.props;
       });
     });
   }
-  initConcertsToggle();
+  // Re-bind on every navigation so the concerts toggle keeps working after a
+  // language switch: <ClientRouter /> swaps this section's DOM without re-running
+  // bundled module scripts. astro:page-load also fires on the initial load.
+  document.addEventListener("astro:page-load", initConcertsToggle);
 </script>
 
 <style>

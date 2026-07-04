@@ -1,0 +1,28 @@
+{
+  "title": "Certyfikaty",
+  "numColumns": 1,
+  "elements": [
+    {
+      "id": 1,
+      "description": "Trener personalny (poziom EQF 4), certyfikowany przez Register of Exercise Professionals (REPs)",
+      "date": "11/2023",
+      "iconName": "fa-solid:dumbbell"
+    },
+    {
+      "id": 2,
+      "description": "Accessibility in Action, Microsoft",
+      "date": "12/2020",
+      "iconName": "fa-solid:award"
+    },
+    {
+      "id": 3,
+      "description": ", Java SE 8 Programmer",
+      "link": {
+        "text": "Oracle Certified Associate",
+        "url": "https://www.youracclaim.com/badges/223429ec-6c7f-4bef-a755-88f65dea3ecd/linked_in_profile"
+      },
+      "date": "07/2018",
+      "iconName": "fa-solid:award"
+    }
+  ]
+}

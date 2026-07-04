@@ -4,55 +4,70 @@ import { Image } from "astro:assets";
 
 export type Props = {
   fullName: string;
+  toggleLabel?: string;
   sections: {
     [key: string]: string;
   };
 };
 
-const { sections, fullName } = Astro.props;
+const { sections, fullName, toggleLabel = "Toggle navigation" } = Astro.props;
 const firstSectionKey = Object.keys(sections)[0];
 const sectionEntries = Object.entries(sections);
 ---
 
 <script>
-  // Hamburger toggle
-  const toggler = document.querySelector<HTMLButtonElement>(".nav-toggler");
-  const navMenu = document.querySelector<HTMLElement>(".nav-menu");
-  toggler?.addEventListener("click", () => {
-    const isOpen = navMenu?.classList.toggle("open");
-    toggler.setAttribute("aria-expanded", String(!!isOpen));
-  });
+  // Re-run on every navigation: <ClientRouter /> swaps the nav DOM (translated
+  // labels) without re-executing bundled module scripts, so binding on
+  // astro:page-load (which also fires on the initial load) keeps the hamburger,
+  // auto-close and scrollspy working after a language switch.
+  // Kept at module scope (this bundled script runs once) so each swap can tear
+  // down the previous page's scrollspy observer before creating a new one.
+  let scrollSpy: IntersectionObserver | null = null;
 
-  // Auto-close on link click (mobile)
-  navMenu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("open");
-      toggler?.setAttribute("aria-expanded", "false");
+  function initNavigation() {
+    // Hamburger toggle
+    const toggler = document.querySelector<HTMLButtonElement>(".nav-toggler");
+    const navMenu = document.querySelector<HTMLElement>(".nav-menu");
+    toggler?.addEventListener("click", () => {
+      const isOpen = navMenu?.classList.toggle("open");
+      toggler.setAttribute("aria-expanded", String(!!isOpen));
     });
-  });
 
-  // IntersectionObserver scrollspy
-  const navLinks = document.querySelectorAll<HTMLAnchorElement>(
-    "#sideNav a.nav-link",
-  );
-  const sections = document.querySelectorAll<HTMLElement>("section[id]");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const activeLink = document.querySelector<HTMLAnchorElement>(
-            `#sideNav a.nav-link[href="#${entry.target.id}"]`,
-          );
-          activeLink?.classList.add("active");
-        }
+    // Auto-close on link click (mobile)
+    navMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        toggler?.setAttribute("aria-expanded", "false");
       });
-    },
-    { rootMargin: "-20% 0px -80% 0px" },
-  );
+    });
 
-  sections.forEach((section) => observer.observe(section));
+    // IntersectionObserver scrollspy
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(
+      "#sideNav a.nav-link",
+    );
+    const sections = document.querySelectorAll<HTMLElement>("section[id]");
+
+    scrollSpy?.disconnect();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const activeLink = document.querySelector<HTMLAnchorElement>(
+              `#sideNav a.nav-link[href="#${entry.target.id}"]`,
+            );
+            activeLink?.classList.add("active");
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -80% 0px" },
+    );
+    scrollSpy = observer;
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  document.addEventListener("astro:page-load", initNavigation);
 </script>
 
 <nav id="sideNav">
@@ -76,7 +91,7 @@ const sectionEntries = Object.entries(sections);
     class="nav-toggler"
     type="button"
     aria-expanded="false"
-    aria-label="Toggle navigation"
+    aria-label={toggleLabel}
   >
     <span class="toggler-icon"></span>
   </button>

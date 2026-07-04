@@ -5,20 +5,27 @@ import ResumeListView from "@layouts/ResumeListView.astro";
 import ProjectsList from "@layouts/ProjectsList.astro";
 import ResumeSection from "@layouts/ResumeSection.astro";
 import Skills from "./sections/skills/Skills.astro";
-import Interests from "./sections/interests/Interests.mdx";
+import InterestsEn from "./sections/interests/InterestsEn.mdx";
+import InterestsPl from "./sections/interests/InterestsPl.mdx";
 import ThemeToggle from "./theme/ThemeToggle.astro";
+import LanguageToggle from "./i18n/LanguageToggle.astro";
 import "@styles/global.css";
 import { getData } from "@data/getData";
+import { useTranslations, type Lang } from "@i18n/ui";
+
+export type Props = { lang: Lang };
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 
 const sections = {
-  about: "About",
-  experience: "Experience",
-  education: "Education",
-  projects: "Projects & apps",
-  research: "Research",
-  skills: "Skills",
-  achievements: "Achievements",
-  interests: "Interests",
+  about: t("nav.about"),
+  experience: t("nav.experience"),
+  education: t("nav.education"),
+  projects: t("nav.projects"),
+  research: t("nav.research"),
+  skills: t("nav.skills"),
+  achievements: t("nav.achievements"),
+  interests: t("nav.interests"),
 };
 
 const {
@@ -32,16 +39,29 @@ const {
   socialMedias,
   concerts,
   podcasts,
-} = await getData();
+} = await getData(lang);
 
 const fullName = about.name + " " + about.surname;
+const cvPdfHref = lang === "pl" ? "/cv-pl.pdf" : "/cv.pdf";
+const cvPdfTitle = t("cta.downloadCv");
+const Interests = lang === "pl" ? InterestsPl : InterestsEn;
 ---
 
-<Navigation sections={sections} fullName={fullName} />
-<ThemeToggle />
+<Navigation
+  sections={sections}
+  fullName={fullName}
+  toggleLabel={t("nav.toggle")}
+/>
+<LanguageToggle lang={lang} />
+<ThemeToggle label={t("theme.toggleAria")} title={t("theme.toggleTitle")} />
 <div>
   <ResumeSection id="about">
-    <AboutSection about={about} socialMedias={socialMedias} />
+    <AboutSection
+      about={about}
+      socialMedias={socialMedias}
+      cvPdfHref={cvPdfHref}
+      cvPdfTitle={cvPdfTitle}
+    />
   </ResumeSection>
 
   <ResumeSection
@@ -58,7 +78,9 @@ const fullName = about.name + " " + about.surname;
 
   <ResumeSection id="projects" title={sections.projects}>
     <ProjectsList projects={projectEntries} />
-    More code can be found on <a href={about.githubUrl}>my github</a>
+    {t("projects.moreCodePrefix")}<a href={about.githubUrl}
+      >{t("projects.moreCodeLink")}</a
+    >
   </ResumeSection>
 
   <ResumeSection
