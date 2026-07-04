@@ -46,7 +46,11 @@ const toRanges = (date: string) =>
 
   .role-row {
     display: flex;
-    align-items: baseline;
+    /* Center the smaller accent date against the tall display-font title so it
+       reads as vertically aligned with the role rather than sitting at its
+       baseline. Harmless in the stacked (wrapped) layout below, where each flex
+       line holds a single item. */
+    align-items: center;
     column-gap: 1.5rem;
   }
 
