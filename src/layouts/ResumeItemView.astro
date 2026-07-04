@@ -9,6 +9,26 @@ type Props = {
 const { entry } = Astro.props;
 const { headings, subheading, extraInfos } = entry.data;
 const { Content } = await render(entry);
+
+// The content model packs each entry's roles into parallel `headings` /
+// `extraInfos` arrays: the first `headings.length` extraInfos are the per-role
+// date ranges, the remaining ones are locations. Pair each heading with its date
+// so the date can render alongside the role it belongs to.
+const roleDates = extraInfos.slice(0, headings.length);
+const locations = extraInfos.slice(headings.length);
+const roles = headings.map((title, index) => ({
+  title,
+  date: roleDates[index] ?? "",
+}));
+
+// A date may hold several ranges joined by commas (e.g. a gap year). Split them
+// so each range stays intact (`nowrap`) but the ranges can wrap between one
+// another, keeping the date compact enough to sit beside the title.
+const toRanges = (date: string) =>
+  date
+    .split(",")
+    .map((range) => range.trim())
+    .filter(Boolean);
 ---
 
 <style>
@@ -18,51 +38,100 @@ const { Content } = await render(entry);
     margin-bottom: 3rem;
   }
 
-  .resume-content {
-    margin-right: auto;
+  /* Query container so each role row responds to the real content-column width
+     (which narrows next to the sidebar), not the viewport. */
+  .roles {
+    container-type: inline-size;
   }
 
-  .resume-content h3 {
-    margin-bottom: 0;
+  .role-row {
+    display: flex;
+    /* Center the smaller accent date against the tall display-font title so it
+       reads as vertically aligned with the role rather than sitting at its
+       baseline. Harmless in the stacked (wrapped) layout below, where each flex
+       line holds a single item. */
+    align-items: center;
+    column-gap: 1.5rem;
   }
 
-  .resume-content .subheading {
-    margin-bottom: 0.75rem;
+  .role-row + .role-row {
+    margin-top: 0.15rem;
   }
 
-  .resume-extra {
-    line-height: 2rem;
+  .role-row h3 {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
-  .extra-info {
+  /* Both title and date can shrink; the title's larger natural width means it
+     wraps first, so a long date wraps its ranges in place on the right instead
+     of being bumped onto its own line below. */
+  .role-date {
+    flex: 0 1 auto;
+    min-width: 0;
+    text-align: right;
     color: var(--accent);
   }
 
-  @media (min-width: 768px) {
-    .resume-item {
-      flex-direction: row;
+  .role-date .range {
+    white-space: nowrap;
+  }
+
+  .subheading {
+    margin-top: 0.5rem;
+  }
+
+  .resume-locations {
+    margin-top: 0.1rem;
+    color: var(--text-muted);
+  }
+
+  .resume-body {
+    margin-top: 0.75rem;
+  }
+
+  /* On a narrow column the date can no longer share the row, so stack it
+     directly under the title where the association stays obvious. */
+  @container (max-width: 30rem) {
+    .role-row {
+      flex-wrap: wrap;
     }
 
-    .resume-extra {
-      text-align: end;
-      min-width: 18rem;
+    .role-date {
+      flex-basis: 100%;
+      margin-top: 0.02rem;
+      text-align: left;
     }
   }
 </style>
 
 <div class="resume-item">
-  <div class="resume-content">
-    {headings.map((heading) => <h3>{heading}</h3>)}
-    <div class="subheading">{subheading}</div>
-    <Content />
-  </div>
-  <div class="resume-extra">
+  <div class="roles">
     {
-      extraInfos.map((info) => (
-        <span class="extra-info">
-          {info} <br />{" "}
-        </span>
+      roles.map((role) => (
+        <div class="role-row">
+          <h3>{role.title}</h3>
+          {role.date && (
+            <span class="role-date">
+              {toRanges(role.date).map((range, index) => (
+                <>
+                  {index > 0 && ", "}
+                  <span class="range">{range}</span>
+                </>
+              ))}
+            </span>
+          )}
+        </div>
       ))
     }
+  </div>
+  <div class="subheading">{subheading}</div>
+  {
+    locations.length > 0 && (
+      <p class="resume-locations">{locations.join(" · ")}</p>
+    )
+  }
+  <div class="resume-body">
+    <Content />
   </div>
 </div>
