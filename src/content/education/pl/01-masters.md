@@ -4,7 +4,8 @@ subheading: Informatyka (studia magisterskie)
 roles:
   - title: Uniwersytet Wrocławski
     dates:
-      - październik 2017 - wrzesień 2019
+      - start: październik 2017
+        end: wrzesień 2019
 ---
 
 Ocena końcowa: 5,0/5,0

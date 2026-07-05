@@ -4,7 +4,8 @@ subheading: Clustering in low-dimensional subspaces
 roles:
   - title: Research assistant
     dates:
-      - Oct 2016 - Sep 2017
+      - start: Oct 2016
+        end: Sep 2017
 locations:
   - University of Wrocław
 ---

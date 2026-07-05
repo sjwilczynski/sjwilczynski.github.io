@@ -4,7 +4,7 @@ subheading: 11th International Conference of the ERCIM WG on Computational and M
 roles:
   - title: Prelegent
     dates:
-      - grudzień 2018
+      - start: grudzień 2018
 locations:
   - Piza
 ---

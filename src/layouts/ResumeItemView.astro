@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import type { ResumeEntry } from "@data/types";
+import { formatDateRange } from "@data/formatDateRange";
 
 type Props = {
   entry: ResumeEntry;
@@ -95,7 +96,7 @@ const { Content } = await render(entry);
             {role.dates.map((range, index) => (
               <>
                 {index > 0 && ", "}
-                <span class="range">{range}</span>
+                <span class="range">{formatDateRange(range)}</span>
               </>
             ))}
           </span>

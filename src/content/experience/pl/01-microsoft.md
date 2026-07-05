@@ -4,13 +4,16 @@ subheading: Microsoft
 roles:
   - title: Senior Software Engineer
     dates:
-      - marzec 2023 - obecnie
+      - start: marzec 2023
+        end: obecnie
   - title: Software Engineer II
     dates:
-      - marzec 2021 - luty 2023
+      - start: marzec 2021
+        end: luty 2023
   - title: Software Engineer
     dates:
-      - październik 2019 - luty 2021
+      - start: październik 2019
+        end: luty 2021
 locations:
   - Wrocław, Polska (zdalnie)
   - Oslo, Norwegia (do listopada 2021)

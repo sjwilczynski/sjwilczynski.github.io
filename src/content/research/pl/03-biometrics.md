@@ -4,7 +4,7 @@ subheading: Joint Conference on Biometrics & Biopharmaceutical Statistics
 roles:
   - title: Prelegent
     dates:
-      - sierpień 2017
+      - start: sierpień 2017
 locations:
   - Wiedeń
 ---
