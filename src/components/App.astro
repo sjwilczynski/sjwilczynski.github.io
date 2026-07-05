@@ -54,7 +54,7 @@ const Interests = lang === "pl" ? InterestsPl : InterestsEn;
 />
 <LanguageToggle lang={lang} />
 <ThemeToggle label={t("theme.toggleAria")} title={t("theme.toggleTitle")} />
-<div>
+<main>
   <ResumeSection id="about">
     <AboutSection
       about={about}
@@ -100,4 +100,4 @@ const Interests = lang === "pl" ? InterestsPl : InterestsEn;
   <ResumeSection id="interests" title={sections.interests}>
     <Interests concerts={concerts} podcasts={podcasts} />
   </ResumeSection>
-</div>
+</main>
