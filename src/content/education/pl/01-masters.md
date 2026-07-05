@@ -1,10 +1,10 @@
 ---
 sortOrder: 1
-headings:
-  - Uniwersytet Wrocławski
-subheading: "Informatyka (studia magisterskie)"
-extraInfos:
-  - październik 2017 - wrzesień 2019
+subheading: Informatyka (studia magisterskie)
+roles:
+  - title: Uniwersytet Wrocławski
+    dates:
+      - październik 2017 - wrzesień 2019
 ---
 
 Ocena końcowa: 5,0/5,0

@@ -1,10 +1,11 @@
 ---
 sortOrder: 1
-headings:
-  - Speaker
 subheading: 11th International Conference of the ERCIM WG on Computational and Methodological Statistics (CMStatistics 2018)
-extraInfos:
-  - Dec 2018
+roles:
+  - title: Speaker
+    dates:
+      - Dec 2018
+locations:
   - Pisa
 ---
 

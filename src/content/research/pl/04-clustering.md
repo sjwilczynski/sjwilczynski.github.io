@@ -1,10 +1,11 @@
 ---
 sortOrder: 4
-headings:
-  - Asystent badawczy
 subheading: Clustering in low-dimensional subspaces
-extraInfos:
-  - październik 2016 - wrzesień 2017
+roles:
+  - title: Asystent badawczy
+    dates:
+      - październik 2016 - wrzesień 2017
+locations:
   - Uniwersytet Wrocławski
 ---
 

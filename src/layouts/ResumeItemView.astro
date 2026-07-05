@@ -7,28 +7,8 @@ type Props = {
 };
 
 const { entry } = Astro.props;
-const { headings, subheading, extraInfos } = entry.data;
+const { subheading, roles, locations } = entry.data;
 const { Content } = await render(entry);
-
-// The content model packs each entry's roles into parallel `headings` /
-// `extraInfos` arrays: the first `headings.length` extraInfos are the per-role
-// date ranges, the remaining ones are locations. Pair each heading with its date
-// so the date can render alongside the role it belongs to.
-const roleDates = extraInfos.slice(0, headings.length);
-const locations = extraInfos.slice(headings.length);
-const roles = headings.map((title, index) => ({
-  title,
-  date: roleDates[index] ?? "",
-}));
-
-// A date may hold several ranges joined by commas (e.g. a gap year). Split them
-// so each range stays intact (`nowrap`) but the ranges can wrap between one
-// another, keeping the date compact enough to sit beside the title.
-const toRanges = (date: string) =>
-  date
-    .split(",")
-    .map((range) => range.trim())
-    .filter(Boolean);
 ---
 
 <style>
@@ -111,16 +91,14 @@ const toRanges = (date: string) =>
       roles.map((role) => (
         <div class="role-row">
           <h3>{role.title}</h3>
-          {role.date && (
-            <span class="role-date">
-              {toRanges(role.date).map((range, index) => (
-                <>
-                  {index > 0 && ", "}
-                  <span class="range">{range}</span>
-                </>
-              ))}
-            </span>
-          )}
+          <span class="role-date">
+            {role.dates.map((range, index) => (
+              <>
+                {index > 0 && ", "}
+                <span class="range">{range}</span>
+              </>
+            ))}
+          </span>
         </div>
       ))
     }

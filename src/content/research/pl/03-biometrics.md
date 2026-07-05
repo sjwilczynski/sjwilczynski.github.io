@@ -1,10 +1,11 @@
 ---
 sortOrder: 3
-headings:
-  - Prelegent
 subheading: Joint Conference on Biometrics & Biopharmaceutical Statistics
-extraInfos:
-  - sierpień 2017
+roles:
+  - title: Prelegent
+    dates:
+      - sierpień 2017
+locations:
   - Wiedeń
 ---
 

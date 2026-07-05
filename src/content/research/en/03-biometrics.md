@@ -1,10 +1,11 @@
 ---
 sortOrder: 3
-headings:
-  - Speaker
 subheading: Joint Conference on Biometrics & Biopharmaceutical Statistics
-extraInfos:
-  - Aug 2017
+roles:
+  - title: Speaker
+    dates:
+      - Aug 2017
+locations:
   - Vienna
 ---
 

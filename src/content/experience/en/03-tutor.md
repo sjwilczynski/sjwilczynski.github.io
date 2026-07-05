@@ -1,10 +1,11 @@
 ---
 sortOrder: 3
-headings:
-  - Tutor
 subheading: University of Wrocław
-extraInfos:
-  - Jan - Jun 2015
+roles:
+  - title: Tutor
+    dates:
+      - Jan - Jun 2015
+locations:
   - Wrocław, Poland
 ---
 
