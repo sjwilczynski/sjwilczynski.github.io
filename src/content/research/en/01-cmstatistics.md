@@ -4,7 +4,7 @@ subheading: 11th International Conference of the ERCIM WG on Computational and M
 roles:
   - title: Speaker
     dates:
-      - Dec 2018
+      - start: Dec 2018
 locations:
   - Pisa
 ---

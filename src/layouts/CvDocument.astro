@@ -3,6 +3,7 @@ import Head from "@components/head/Head.astro";
 import { getData } from "@data/getData";
 import { render } from "astro:content";
 import { useTranslations, type Lang } from "@i18n/ui";
+import { formatDateRange } from "@data/formatDateRange";
 
 export type Props = { lang: Lang };
 const { lang } = Astro.props;
@@ -40,18 +41,19 @@ const contacts = [
   { href: "mailto:" + about.email, label: about.email },
 ];
 
-// Each role carries its own `dates` array. The company-level `overall` span is
-// still derived by parsing the range strings; candidate B replaces that parse
-// with structured range endpoints.
+// Roles and their ranges are authored newest-first, so `dates[0]` is each
+// role's most recent range. The company-level `overall` span reads those
+// endpoints directly — from the first-listed range's start of the oldest
+// (last-listed) role to the first-listed range's end of the newest role. This
+// deliberately uses the listed endpoints, not a chronological min/max over all
+// ranges (matching prior behavior; a gap year's earlier range doesn't widen it).
 const experience = await Promise.all(
   experienceResumeItems.map(async (entry) => {
     const { subheading, roles, locations } = entry.data;
-    const roleDates = roles.map((role) => role.dates.join(", "));
-    const firstRange = roleDates[0] ?? "";
-    const lastRange = roleDates[roleDates.length - 1] ?? firstRange;
-    const start = (lastRange.split(" - ")[0] ?? "").trim();
-    const end = (firstRange.split(" - ")[1] ?? firstRange).trim();
-    const overall = start && end ? `${start} – ${end}` : firstRange;
+    const newest = roles[0]?.dates[0];
+    const oldest = roles[roles.length - 1]?.dates[0];
+    const overall =
+      oldest && newest ? `${oldest.start} – ${newest.end ?? newest.start}` : "";
     const { Content } = await render(entry);
     return { company: subheading, locations, overall, roles, Content };
   }),
@@ -64,9 +66,10 @@ const education = await Promise.all(
     return {
       degree: subheading,
       school: roles[0]?.title ?? "",
-      dates: [...roles.map((role) => role.dates.join(", ")), ...locations].join(
-        " · ",
-      ),
+      dates: [
+        ...roles.map((role) => role.dates.map(formatDateRange).join(", ")),
+        ...locations,
+      ].join(" · "),
       Content,
     };
   }),
@@ -138,7 +141,10 @@ const projects = await Promise.all(
                     <p class="role-line">
                       <strong>{role.title}</strong>
                       {role.dates.length > 0 && (
-                        <span class="muted"> · {role.dates.join(", ")}</span>
+                        <span class="muted">
+                          {" · "}
+                          {role.dates.map(formatDateRange).join(", ")}
+                        </span>
                       )}
                     </p>
                     {i === 0 && (

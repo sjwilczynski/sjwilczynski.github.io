@@ -4,7 +4,8 @@ subheading: Computer science (Master's degree)
 roles:
   - title: University of Wrocław
     dates:
-      - Oct 2017 - Sep 2019
+      - start: Oct 2017
+        end: Sep 2019
 ---
 
 Final grade: 5.0/5.0

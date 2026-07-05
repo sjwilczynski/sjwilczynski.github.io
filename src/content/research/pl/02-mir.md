@@ -4,7 +4,8 @@ subheading: MIR New developments and applications in Big Data
 roles:
   - title: Asystent badawczy
     dates:
-      - kwiecień 2018 - kwiecień 2019
+      - start: kwiecień 2018
+        end: kwiecień 2019
 locations:
   - Uniwersytet Wrocławski
   - Uniwersytet w Angers

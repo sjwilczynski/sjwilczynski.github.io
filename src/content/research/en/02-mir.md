@@ -4,7 +4,8 @@ subheading: MIR New developments and applications in Big Data
 roles:
   - title: Research assistant
     dates:
-      - Apr 2018 - Apr 2019
+      - start: Apr 2018
+        end: Apr 2019
 locations:
   - University of Wrocław
   - University of Angers

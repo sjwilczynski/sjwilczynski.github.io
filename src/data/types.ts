@@ -7,6 +7,7 @@ import type {
   resumeListElementSchema,
   concertSchema,
   podcastSchema,
+  dateRangeSchema,
 } from "../content.config";
 
 export type About = z.infer<typeof aboutSchema>;
@@ -14,6 +15,7 @@ export type SocialMedia = z.infer<typeof socialMediaSchema>;
 export type ResumeList = z.infer<typeof resumeListSchema>;
 export type ResumeListElement = z.infer<typeof resumeListElementSchema>;
 export type Podcast = z.infer<typeof podcastSchema>;
+export type DateRange = z.infer<typeof dateRangeSchema>;
 
 export type ProjectEntry = CollectionEntry<"projects">;
 

@@ -19,14 +19,20 @@ export const socialMediaSchema = z.object({
   title: z.string(),
 });
 
+export const dateRangeSchema = z.object({
+  // Free-text endpoints (a month/year, or an ongoing marker like "Present").
+  // The start may omit a shared year (e.g. `Jul` in "Jul - Sep 2016"); `end` is
+  // absent for a single-point date such as a one-day talk.
+  start: z.string().min(1),
+  end: z.string().min(1).optional(),
+});
+
 export const resumeRoleSchema = z.object({
   title: z.string().min(1),
   // One or more date ranges for this role. Multiple ranges (e.g. a return after
-  // a gap) render as separate spans; keeping them structured means each range
-  // is authored explicitly instead of being comma-split at render time.
-  // `.min(1)` keeps a range from being blank: renderers now key off
-  // `dates.length`, so an empty string would emit an empty date span.
-  dates: z.array(z.string().min(1)).nonempty(),
+  // a gap) render as separate spans. Structured `{ start, end }` endpoints mean
+  // no renderer has to recover them by string-splitting a display label.
+  dates: z.array(dateRangeSchema).nonempty(),
 });
 
 export const resumeItemSchema = z.object({

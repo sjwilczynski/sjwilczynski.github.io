@@ -4,7 +4,7 @@ subheading: Joint Conference on Biometrics & Biopharmaceutical Statistics
 roles:
   - title: Speaker
     dates:
-      - Aug 2017
+      - start: Aug 2017
 locations:
   - Vienna
 ---

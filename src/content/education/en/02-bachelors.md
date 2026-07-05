@@ -4,7 +4,8 @@ subheading: Joint Studies in Computer Science and Mathematics (Bachelor's degree
 roles:
   - title: University of Wrocław
     dates:
-      - Oct 2014 - Sep 2017
+      - start: Oct 2014
+        end: Sep 2017
 ---
 
 Final grade: 5.0/5.0

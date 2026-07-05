@@ -4,7 +4,8 @@ subheading: Uniwersytet Wrocławski
 roles:
   - title: Korepetytor
     dates:
-      - styczeń - czerwiec 2015
+      - start: styczeń
+        end: czerwiec 2015
 locations:
   - Wrocław, Polska
 ---

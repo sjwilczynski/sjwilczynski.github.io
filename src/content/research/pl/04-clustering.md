@@ -4,7 +4,8 @@ subheading: Clustering in low-dimensional subspaces
 roles:
   - title: Asystent badawczy
     dates:
-      - październik 2016 - wrzesień 2017
+      - start: październik 2016
+        end: wrzesień 2017
 locations:
   - Uniwersytet Wrocławski
 ---

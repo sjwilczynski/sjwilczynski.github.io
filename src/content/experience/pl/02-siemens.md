@@ -4,11 +4,14 @@ subheading: Siemens Digital Logistics
 roles:
   - title: Software Engineer
     dates:
-      - lipiec 2018 - marzec 2019
+      - start: lipiec 2018
+        end: marzec 2019
   - title: Junior Software Engineer
     dates:
-      - październik 2017 - czerwiec 2018
-      - lipiec - wrzesień 2016
+      - start: październik 2017
+        end: czerwiec 2018
+      - start: lipiec
+        end: wrzesień 2016
 locations:
   - Wrocław, Polska
 ---
