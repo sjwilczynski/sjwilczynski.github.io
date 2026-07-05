@@ -12,7 +12,7 @@ const { about, socialMedias, experienceResumeItems } = await getData(lang);
 const fullName = about.name + " " + about.surname;
 
 const site = Astro.site ?? new URL("https://sjwilczynski.github.io");
-const currentRole = experienceResumeItems[0]?.data.headings[0];
+const currentRole = experienceResumeItems[0]?.data.roles[0]?.title;
 const currentEmployer = experienceResumeItems[0]?.data.subheading;
 
 const enUrl = getAbsoluteLocaleUrl("en", "/");

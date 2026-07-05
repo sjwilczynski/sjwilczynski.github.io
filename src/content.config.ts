@@ -19,11 +19,25 @@ export const socialMediaSchema = z.object({
   title: z.string(),
 });
 
+export const resumeRoleSchema = z.object({
+  title: z.string().min(1),
+  // One or more date ranges for this role. Multiple ranges (e.g. a return after
+  // a gap) render as separate spans; keeping them structured means each range
+  // is authored explicitly instead of being comma-split at render time.
+  // `.min(1)` keeps a range from being blank: renderers now key off
+  // `dates.length`, so an empty string would emit an empty date span.
+  dates: z.array(z.string().min(1)).nonempty(),
+});
+
 export const resumeItemSchema = z.object({
   sortOrder: z.number(),
-  headings: z.array(z.string()),
   subheading: z.string(),
-  extraInfos: z.array(z.string()),
+  // Each role carries its own date(s), so the title<->date pairing is enforced
+  // by the schema rather than by the positional order of a flat array.
+  roles: z.array(resumeRoleSchema).nonempty(),
+  // Entry-level locations (e.g. offices, universities). Optional: some entries
+  // (most education) have none.
+  locations: z.array(z.string()).default([]),
 });
 
 export const projectSchema = z.object({

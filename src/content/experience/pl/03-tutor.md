@@ -1,10 +1,11 @@
 ---
 sortOrder: 3
-headings:
-  - Korepetytor
 subheading: Uniwersytet Wrocławski
-extraInfos:
-  - styczeń - czerwiec 2015
+roles:
+  - title: Korepetytor
+    dates:
+      - styczeń - czerwiec 2015
+locations:
   - Wrocław, Polska
 ---
 

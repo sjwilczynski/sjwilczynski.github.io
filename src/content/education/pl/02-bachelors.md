@@ -1,10 +1,10 @@
 ---
 sortOrder: 2
-headings:
-  - Uniwersytet Wrocławski
-subheading: "Indywidualne Studia Informatyczno-Matematyczne (studia licencjackie)"
-extraInfos:
-  - październik 2014 - wrzesień 2017
+subheading: Indywidualne Studia Informatyczno-Matematyczne (studia licencjackie)
+roles:
+  - title: Uniwersytet Wrocławski
+    dates:
+      - październik 2014 - wrzesień 2017
 ---
 
 Ocena końcowa: 5,0/5,0

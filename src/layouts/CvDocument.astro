@@ -18,7 +18,7 @@ const {
 } = await getData(lang);
 
 const fullName = about.name + " " + about.surname;
-const currentTitle = experienceResumeItems[0]?.data.headings[0] ?? "";
+const currentTitle = experienceResumeItems[0]?.data.roles[0]?.title ?? "";
 
 const stripUrl = (url: string) =>
   url
@@ -40,23 +40,18 @@ const contacts = [
   { href: "mailto:" + about.email, label: about.email },
 ];
 
-// The content model packs each company's roles into parallel `headings` /
-// `extraInfos` arrays: the first `headings.length` extraInfos are the per-role
-// date ranges, the remaining ones are locations.
+// Each role carries its own `dates` array. The company-level `overall` span is
+// still derived by parsing the range strings; candidate B replaces that parse
+// with structured range endpoints.
 const experience = await Promise.all(
   experienceResumeItems.map(async (entry) => {
-    const { headings, subheading, extraInfos } = entry.data;
-    const roleDates = extraInfos.slice(0, headings.length);
-    const locations = extraInfos.slice(headings.length);
+    const { subheading, roles, locations } = entry.data;
+    const roleDates = roles.map((role) => role.dates.join(", "));
     const firstRange = roleDates[0] ?? "";
     const lastRange = roleDates[roleDates.length - 1] ?? firstRange;
     const start = (lastRange.split(" - ")[0] ?? "").trim();
     const end = (firstRange.split(" - ")[1] ?? firstRange).trim();
     const overall = start && end ? `${start} – ${end}` : firstRange;
-    const roles = headings.map((title, i) => ({
-      title,
-      date: roleDates[i] ?? "",
-    }));
     const { Content } = await render(entry);
     return { company: subheading, locations, overall, roles, Content };
   }),
@@ -64,12 +59,14 @@ const experience = await Promise.all(
 
 const education = await Promise.all(
   educationResumeItems.map(async (entry) => {
-    const { headings, subheading, extraInfos } = entry.data;
+    const { subheading, roles, locations } = entry.data;
     const { Content } = await render(entry);
     return {
       degree: subheading,
-      school: headings[0] ?? "",
-      dates: extraInfos.join(" · "),
+      school: roles[0]?.title ?? "",
+      dates: [...roles.map((role) => role.dates.join(", ")), ...locations].join(
+        " · ",
+      ),
       Content,
     };
   }),
@@ -140,7 +137,9 @@ const projects = await Promise.all(
                   <Fragment>
                     <p class="role-line">
                       <strong>{role.title}</strong>
-                      {role.date && <span class="muted"> · {role.date}</span>}
+                      {role.dates.length > 0 && (
+                        <span class="muted"> · {role.dates.join(", ")}</span>
+                      )}
                     </p>
                     {i === 0 && (
                       <div class="body">

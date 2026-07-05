@@ -1,10 +1,10 @@
 ---
 sortOrder: 1
-headings:
-  - University of Wrocław
-subheading: "Computer science (Master's degree)"
-extraInfos:
-  - Oct 2017 - Sep 2019
+subheading: Computer science (Master's degree)
+roles:
+  - title: University of Wrocław
+    dates:
+      - Oct 2017 - Sep 2019
 ---
 
 Final grade: 5.0/5.0

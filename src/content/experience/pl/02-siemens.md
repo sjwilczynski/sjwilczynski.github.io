@@ -1,12 +1,15 @@
 ---
 sortOrder: 2
-headings:
-  - Software Engineer
-  - Junior Software Engineer
 subheading: Siemens Digital Logistics
-extraInfos:
-  - lipiec 2018 - marzec 2019
-  - październik 2017 - czerwiec 2018, lipiec - wrzesień 2016
+roles:
+  - title: Software Engineer
+    dates:
+      - lipiec 2018 - marzec 2019
+  - title: Junior Software Engineer
+    dates:
+      - październik 2017 - czerwiec 2018
+      - lipiec - wrzesień 2016
+locations:
   - Wrocław, Polska
 ---
 

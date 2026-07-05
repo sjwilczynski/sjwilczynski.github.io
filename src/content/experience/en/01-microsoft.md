@@ -1,14 +1,17 @@
 ---
 sortOrder: 1
-headings:
-  - Senior Software Engineer
-  - Software Engineer II
-  - Software Engineer
 subheading: Microsoft
-extraInfos:
-  - March 2023 - Present
-  - March 2021 - Feb 2023
-  - Oct 2019 - Feb 2021
+roles:
+  - title: Senior Software Engineer
+    dates:
+      - March 2023 - Present
+  - title: Software Engineer II
+    dates:
+      - March 2021 - Feb 2023
+  - title: Software Engineer
+    dates:
+      - Oct 2019 - Feb 2021
+locations:
   - Wrocław, Poland (Remote)
   - Oslo, Norway (until Nov 2021)
 ---
