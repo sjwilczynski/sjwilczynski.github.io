@@ -2,10 +2,14 @@
 sortOrder: 1
 subheading: Microsoft
 roles:
+  - title: Member of Technical Staff
+    dates:
+      - start: Sep 2026
+        end: Present
   - title: Senior Software Engineer
     dates:
       - start: March 2023
-        end: Present
+        end: Aug 2026
   - title: Software Engineer II
     dates:
       - start: March 2021
@@ -21,6 +25,7 @@ locations:
 
 React developer delivering high-value experiences across the Microsoft 365 ecosystem, used by millions of users daily. Responsible for:
 
+- Serving as a primary architect and stability owner behind [Microsoft Scout's launch](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/), now leading web experience architecture for Autopilots and building guardrails for sustainable AI-first development
 - Leading the development of innovative products in AI space (e.g [People Agent](https://youtu.be/ebEMBUvIavs?si=eb4NyfLmuEcdRPGT&t=409)), providing architectural direction for a cross-geo group of ~40 developers
 - Driving technical execution across feature crews and bridging product, design, and multiple engineering teams
 - Designing and implementing user-facing products (e.g. [People App](https://support.microsoft.com/en-us/office/manage-your-contacts-with-the-people-app-in-teams-cfea34b9-ac23-4cff-b3d1-c97bb2b1e751)) with a strong focus on accessibility, performance and maintainability
