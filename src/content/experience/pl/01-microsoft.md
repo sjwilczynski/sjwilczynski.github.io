@@ -25,7 +25,7 @@ locations:
 
 Programista React tworzący zaawansowane rozwiązania w ekosystemie Microsoft 365, z których codziennie korzystają miliony użytkowników.
 
-- Pełnię funkcję głównego architekta i odpowiadam za stabilność rozwiązania stojącego za [premierą Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/), a obecnie kieruję architekturą doświadczeń webowych dla Autopilots i tworzę mechanizmy ochronne wspierające zrównoważony rozwój w podejściu AI-first
+- Pełniłem funkcję głównego architekta i odpowiadałem za stabilność podczas [wdrożenia Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/), a obecnie kieruję architekturą aplikacji internetowych dla Autopilots i tworzę zabezpieczenia wspierające zrównoważone wytwarzanie oprogramowania zorientowane na AI
 - Kierowałem rozwojem innowacyjnych produktów z obszaru AI (np. [People Agent](https://youtu.be/ebEMBUvIavs?si=eb4NyfLmuEcdRPGT&t=409)) i wyznaczałem kierunek architektoniczny dla rozproszonego geograficznie zespołu ok. 40 programistów
 - Odpowiadałem za techniczną realizację w interdyscyplinarnych zespołach, łącząc obszary produktu, projektowania i pracę wielu zespołów inżynierskich
 - Projektowałem i wdrażałem produkty dla użytkowników końcowych (np. [People App](https://support.microsoft.com/en-us/office/manage-your-contacts-with-the-people-app-in-teams-cfea34b9-ac23-4cff-b3d1-c97bb2b1e751)) ze szczególnym naciskiem na dostępność, wydajność i łatwość utrzymania
