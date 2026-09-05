@@ -28,9 +28,7 @@ const stripUrl = (url: string) =>
     .replace(/\/$/, "");
 
 const siteUrl = Astro.site?.href ?? "https://sjwilczynski.github.io/";
-const linkedin = socialMedias.find((s) =>
-  s.iconName.toLowerCase().includes("linkedin"),
-);
+const linkedin = socialMedias.find((s) => s.id === "linkedin");
 
 const contacts = [
   { href: about.githubUrl, label: stripUrl(about.githubUrl) },
@@ -75,11 +73,8 @@ const education = await Promise.all(
   }),
 );
 
-const CERT_TITLES = new Set(["certifications", "certyfikaty"]);
-const isCertifications = (title?: string) =>
-  !!title && CERT_TITLES.has(title.toLowerCase());
-const certGroup = skillsResumeLists.find((g) => isCertifications(g.title));
-const skillGroups = skillsResumeLists.filter((g) => !isCertifications(g.title));
+const certGroup = skillsResumeLists.find((g) => g.kind === "certifications");
+const skillGroups = skillsResumeLists.filter((g) => g.kind === "skills");
 
 const projects = await Promise.all(
   projectEntries
