@@ -1,36 +1,29 @@
 # AGENTS.md
 
-Personal single-page CV/resume built with Astro + Bun. Content lives in Astro content collections; the site ships almost no JS and deploys to GitHub Pages.
+Static bilingual CV built with Astro + Bun. The home page and printable CV share content collections; preserve both EN and PL output when changing shared data or views.
 
-## Commands
+## Workflow
 
-Uses **Bun** (not npm/pnpm), Node >= 22.12. See `package.json` for the full script list; the non-obvious ones:
+- Use **Bun** and a Node version satisfying `package.json`'s `engines`. Start local development with `bun start`.
+- Target PRs at **`source`**. Pushing to `source` triggers GitHub Pages deployment.
+- Before pushing code or content changes, run `bun run ci` and `bun run test:e2e`. The `ci` script excludes E2E; `.github/workflows/ci.yml` runs them as separate `build` and `test` jobs.
+- For printable-CV changes, also run `bun run pdf` and inspect both generated PDFs. Documentation-only changes need no application build or tests.
 
-- `bun start` — dev server at http://localhost:4321
-- `bun run ci` — full gate (`fmt:check` + `lint` + `check` + `tsc` + `build`); run before pushing
-- `bun run test:e2e` — Playwright browser tests (`tests/e2e/`) and content contracts (`tests/content/`); first run needs `bunx playwright install chromium` (the config's `webServer` auto-builds + previews)
-- `bun run og` / `bun run pdf` — regenerate the OG image / CV PDF (`scripts/`)
+## Content changes
 
-## Structure
+- Read `src/content.config.ts` for the affected collection's loader and schema, and `src/data/getData.ts` for locale selection and ordering. Add matching EN/PL entries with the same key; keep filename prefixes and `sortOrder` consistent with neighboring entries.
+- Preserve stable selectors: skills groups use `kind` to distinguish skills from certifications; the CV's LinkedIn contact uses social-media ID `linkedin`. Headings and icons are presentation, not identity.
+- For concert dates, use the validation boundary in `src/data/concerts.ts`. Renderers format validated dates; malformed dates must fail the content build.
 
-- `src/pages/` — `index.astro` (home), `cv.astro` (printable, noindex), `404.astro`
-- `src/components/` — `App.astro`, `sections/` (about, interests, skills…), `navigation/`, `theme/` (`ThemeToggle.astro`), `head/`, `icons/`
-- `src/layouts/` — reusable `Section`/`Resume*` views
-- `src/content/` — collections: `about`, `experience`, `education`, `research`, `projects`, `achievements`, `skills`, `concerts`, `podcasts`, `social-media`
-- `src/content.config.ts` — collection loaders + Zod schemas; concert date validation lives in `src/data/concerts.ts`
-- `src/data/getData.ts` — aggregates/sorts collections for pages
-- `public/` — static assets · `scripts/` — OG image + PDF generators
-- `.github/workflows/` — `ci.yml`, `gh-pages-deploy.yml`, `size-limit.yml`
-- Path aliases (`tsconfig.json`): `@components/*`, `@data/*`, `@styles/*`, `@layouts/*`
+## UI changes
 
-## Conventions
+- Preserve the responsive navigation contract: one mobile panel contains navigation and language/theme controls; desktop retains its sidebar and floating controls. Closed panels leave keyboard navigation; Escape restores focus to the hamburger.
+- Exercise interactions after EN/PL navigation too: Astro's `ClientRouter` replaces the DOM without rerunning bundled scripts. Follow existing `astro:page-load` initialization and clean up listeners/observers when rebinding.
+- For icons or asset-budget changes, consult `astro.config.ts`'s icon allow-list and `package.json`'s CSS/JS limits.
 
-- **Default branch is `source`** (not `main`). Pushing to `source` triggers the GitHub Pages deploy.
-- Content is data-driven: each collection is defined in `content.config.ts`. Some load many `.md`/`.json` files via `glob`, others a single `data.json` via `file`.
-- Add an entry by dropping a file in the collection dir matching its Zod schema, e.g. `src/content/experience/en/NN-name.md` (with a matching `pl/` entry) — `NN-` prefix + `sortOrder` frontmatter control order; the Markdown body is the rich description. File-loader collections (concerts, podcasts, social-media) are edited inside their `data.json`.
-- Skills groups in `src/content/skills/{en,pl}/` require `kind: "skills"` or `"certifications"`. The CV selects groups by this field, not their translated titles. Social-media IDs are stable identifiers; `linkedin` selects the CV contact independently of its icon or title.
-- Concert endpoints must be real calendar dates in `DD.MM.YYYY` format, with `endDate >= startDate`. The collection schema parses them into `Date` values and rejects invalid entries during the build; renderers only format validated dates.
-- UI is `.astro`; the `@astrojs/mdx` integration is available but content currently uses `.md`/`.json`. Icons come from `astro-icon` (allow-list in `astro.config.ts`).
-- Below 992px, `Navigation.astro` contains both navigation links and language/theme controls in one collapsible panel. Desktop keeps the sidebar and floating controls. Closed mobile panels must stay outside keyboard navigation.
-- `size-limit` enforces a CSS budget — keep generated CSS small.
-- TypeScript runs under `astro/tsconfigs/strictest`; keep `bun run tsc` and `bun run check` green.
+## Regression coverage
+
+- Use `tests/e2e/` for browser behavior and `tests/content/` for data/build contracts; both run through `bun run test:e2e`. If Chromium is missing, install it with `bunx playwright install chromium`.
+- Stop the local dev server before validating production output: Playwright reuses an existing server locally, otherwise it builds and starts a preview. CI always uses a fresh build.
+- Prefer accessible roles, keyboard interactions, and observable outcomes. Use relative geometry for layout requirements such as non-overlap, rather than asserting exact CSS rules.
+- Test schema edge cases directly. Reserve isolated builds for wiring contracts, as in `tests/content/build.spec.ts`.
