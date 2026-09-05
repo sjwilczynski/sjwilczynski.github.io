@@ -95,11 +95,11 @@ const sectionEntries = Object.entries(sections);
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            navLinks.forEach((link) => link.classList.remove("active"));
+            navLinks.forEach((link) => link.removeAttribute("aria-current"));
             const activeLink = document.querySelector<HTMLAnchorElement>(
               `#sideNav a.nav-link[href="#${entry.target.id}"]`,
             );
-            activeLink?.classList.add("active");
+            activeLink?.setAttribute("aria-current", "location");
           }
         });
       },
@@ -273,7 +273,7 @@ const sectionEntries = Object.entries(sections);
 
     &:hover,
     &:focus,
-    &.active {
+    &[aria-current="location"] {
       color: var(--on-accent);
       text-decoration: none;
     }
@@ -295,7 +295,7 @@ const sectionEntries = Object.entries(sections);
 
     .nav-link:hover,
     .nav-link:focus-visible,
-    .nav-link.active {
+    .nav-link[aria-current="location"] {
       letter-spacing: 0.12rem;
     }
   }

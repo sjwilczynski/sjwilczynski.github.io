@@ -8,6 +8,8 @@ import concerts from "../../src/content/concerts/data.json";
 
 const exec = promisify(execFile);
 
+// These two integration cases deliberately build isolated copies: schema tests
+// alone cannot prove that Astro wires validation and CV selection correctly.
 async function createSiteFixture(fixture: string) {
   const workspace = process.cwd();
   await mkdir(fixture, { recursive: true });
@@ -70,10 +72,10 @@ test("CV selection is independent of translated headings and social icons", asyn
     const content = await page.evaluate((html) => {
       const doc = new DOMParser().parseFromString(html, "text/html");
       return {
-        contacts: Array.from(doc.querySelectorAll(".contacts a")).map((link) =>
+        contacts: Array.from(doc.querySelectorAll("header a")).map((link) =>
           link.getAttribute("href"),
         ),
-        sections: Array.from(doc.querySelectorAll(".cv-section")).map(
+        sections: Array.from(doc.querySelectorAll("main section")).map(
           (section) => ({
             heading: section.querySelector("h2")?.textContent,
             text: section.textContent,
