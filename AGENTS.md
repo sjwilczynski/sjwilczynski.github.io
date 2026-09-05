@@ -1,34 +1,19 @@
 # AGENTS.md
 
-Personal single-page CV/resume built with Astro + Bun. Content lives in Astro content collections; the site ships almost no JS and deploys to GitHub Pages.
+Personal bilingual CV built with Astro + Bun and published as a static site on GitHub Pages. Favor build-time rendering and minimal client JavaScript; keep additions within the CSS/JS budgets in `package.json`.
 
-## Commands
+The home page and printable CV share content collections. Changes to shared data or views must account for both web/PDF output and both EN/PL locales.
 
-Uses **Bun** (not npm/pnpm) and a Node version satisfying `package.json`'s `engines.node` (CI uses Node 22). See `package.json` for the full script list; the non-obvious ones:
+## Working conventions
 
-- `bun start` — dev server at http://localhost:4321
-- `bun run ci` — full gate (`fmt:check` + `lint` + `check` + `tsc` + `build`); run before pushing
-- `bun run test:e2e` — Playwright (`tests/e2e/`); first run needs `bunx playwright install chromium` (the config's `webServer` auto-builds + previews)
-- `bun run og` / `bun run pdf` — regenerate the OG image / CV PDF (`scripts/`)
+- Use **Bun** and a Node version satisfying `package.json`'s `engines`. Start local development with `bun start`.
+- Target PRs at **`source`**. Pushing to `source` triggers GitHub Pages deployment.
+- For content changes, read `src/content.config.ts` for loaders and validation, and `src/data/getData.ts` for locale selection and ordering. Keep validation in collection schemas and add matching EN/PL entries with the same key.
+- For interactive UI changes, exercise behavior after language navigation as well as initial load: Astro's `ClientRouter` replaces the DOM without rerunning bundled scripts. Follow existing `astro:page-load` initialization and clean up listeners/observers when rebinding.
 
-## Structure
+## Completion
 
-- `src/pages/` — `index.astro` (home), `cv.astro` (printable, noindex), `404.astro`
-- `src/components/` — `App.astro`, `sections/` (about, interests, skills…), `navigation/`, `theme/` (`ThemeToggle.astro`), `head/`, `icons/`
-- `src/layouts/` — reusable `Section`/`Resume*` views
-- `src/content/` — collections: `about`, `experience`, `education`, `research`, `projects`, `achievements`, `skills`, `concerts`, `podcasts`, `social-media`
-- `src/content.config.ts` — collection loaders + Zod schemas (single source of truth)
-- `src/data/getData.ts` — aggregates/sorts collections for pages
-- `public/` — static assets · `scripts/` — OG image + PDF generators
-- `.github/workflows/` — `ci.yml`, `gh-pages-deploy.yml`, `size-limit.yml`
-- Path aliases (`tsconfig.json`): `@components/*`, `@data/*`, `@styles/*`, `@layouts/*`
-
-## Conventions
-
-- **Default branch is `source`** (not `main`). Pushing to `source` triggers the GitHub Pages deploy.
-- Content is data-driven: each collection is defined in `content.config.ts`. Some load many `.md`/`.json` files via `glob`, others a single `data.json` via `file`.
-- Add an entry by dropping a file in the collection dir matching its Zod schema, e.g. `src/content/experience/NN-name.md` — `NN-` prefix + `sortOrder` frontmatter control order; the Markdown body is the rich description. File-loader collections (skills, concerts, podcasts, social-media) are edited inside their `data.json`.
-- UI is `.astro`; the `@astrojs/mdx` integration is available but content currently uses `.md`/`.json`. Icons come from `astro-icon` (allow-list in `astro.config.ts`).
-- Theme toggle (`ThemeToggle.astro`) switches light/dark with sun/moon icons.
-- `size-limit` enforces a CSS budget — keep generated CSS small.
-- TypeScript runs under `astro/tsconfigs/strictest`; keep `bun run tsc` and `bun run check` green.
+- Before pushing code or content changes, run `bun run ci` and `bun run test:e2e`. The `ci` script excludes E2E; GitHub Actions runs them in separate jobs. Browser and content-contract tests both use the E2E command.
+- When testing production output, ensure Playwright targets a fresh build/preview rather than an existing dev server it may reuse locally. Coordinate any interruption of a server the user is using.
+- If Chromium is missing, install it with `bunx playwright install chromium`. For printable-CV changes, also run `bun run pdf` and inspect both generated PDFs.
+- Documentation-only changes need no application build or tests.

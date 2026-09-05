@@ -51,9 +51,12 @@ const Interests = lang === "pl" ? InterestsPl : InterestsEn;
   sections={sections}
   fullName={fullName}
   toggleLabel={t("nav.toggle")}
-/>
-<LanguageToggle lang={lang} />
-<ThemeToggle label={t("theme.toggleAria")} title={t("theme.toggleTitle")} />
+>
+  <Fragment slot="preferences">
+    <LanguageToggle lang={lang} />
+    <ThemeToggle label={t("theme.toggleAria")} title={t("theme.toggleTitle")} />
+  </Fragment>
+</Navigation>
 <main>
   <ResumeSection id="about">
     <AboutSection

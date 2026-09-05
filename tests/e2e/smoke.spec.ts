@@ -51,13 +51,13 @@ test.describe("Smoke tests", () => {
   });
 
   test("navigation scrollspy highlights active section", async ({ page }) => {
-    const skillsLink = page.locator('a.nav-link[href="#skills"]');
+    const skillsLink = page.getByRole("navigation").getByRole("link", {
+      name: "Skills",
+      exact: true,
+    });
 
     await skillsLink.click();
-    // Wait for scroll to complete and scrollspy to update
-    await page.waitForTimeout(1000);
-
-    await expect(skillsLink).toHaveClass(/active/);
+    await expect(skillsLink).toHaveAttribute("aria-current", "location");
   });
 
   test("concerts toggle shows timeline", async ({ page }) => {

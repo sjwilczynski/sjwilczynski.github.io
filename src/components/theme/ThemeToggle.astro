@@ -18,14 +18,9 @@ const { label = "Toggle dark mode", title = "Toggle theme" } = Astro.props;
 </button>
 
 <style>
-  /* Small floating pill pinned to the top-right corner. On mobile the nav is a
-     fixed top bar with a hamburger on the right, so the pill sits just left of
-     it; on desktop the nav becomes a left sidebar and the pill moves into the
-     free top-right corner over the content. */
+  /* Inside the mobile menu; floating over the content on desktop. */
   .theme-toggle {
-    position: fixed;
-    top: 0.5rem;
-    right: 4.25rem;
+    position: relative;
     z-index: 1031;
     display: inline-flex;
     align-items: center;
@@ -55,6 +50,7 @@ const { label = "Toggle dark mode", title = "Toggle theme" } = Astro.props;
 
   @media (min-width: 992px) {
     .theme-toggle {
+      position: fixed;
       top: 1rem;
       right: 1rem;
       height: 2.5rem;

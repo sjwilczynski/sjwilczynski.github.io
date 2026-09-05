@@ -1,5 +1,5 @@
 import { getCollection, getEntry } from "astro:content";
-import type { Concert, Podcast, ResumeList } from "./types";
+import type { Concert, Podcast, ResumeList, SkillGroup } from "./types";
 import type { Lang } from "@i18n/ui";
 
 // Concert dates are formatted to match the page language.
@@ -70,7 +70,7 @@ export const getData = async (lang: Lang) => {
   if (!achievementsEntry) throw new Error("Achievements data not found");
   const achievementResumeList: ResumeList = achievementsEntry.data;
 
-  const skillsResumeLists: ResumeList[] = pickLocale(
+  const skillsResumeLists: SkillGroup[] = pickLocale(
     await getCollection("skills"),
     lang,
   )
@@ -82,11 +82,7 @@ export const getData = async (lang: Lang) => {
     .sort(byNumericId)
     .map((entry) => ({
       id: Number(entry.id),
-      date: getConcertDate(
-        readDateFromString(entry.data.startDate),
-        readDateFromString(entry.data.endDate),
-        lang,
-      ),
+      date: getConcertDate(entry.data.startDate, entry.data.endDate, lang),
       title: entry.data.title,
       location: entry.data.location,
       description: entry.data.description,
@@ -119,13 +115,6 @@ const byNumericId = (a: { id: string }, b: { id: string }) =>
 function dateToLocalizedString(date: Date, lang: Lang) {
   return date.toLocaleDateString(DATE_LOCALE[lang]);
 }
-function readDateFromString(date: string) {
-  const [day, month, year] = date.split(".").map((part) => parseInt(part));
-  return year !== undefined && month !== undefined && day !== undefined
-    ? new Date(year, month - 1, day)
-    : new Date();
-}
-
 function getConcertDate(startDate: Date, endDate: Date, lang: Lang): string {
   return startDate.getTime() === endDate.getTime()
     ? dateToLocalizedString(startDate, lang)
