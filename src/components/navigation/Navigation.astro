@@ -23,23 +23,67 @@ const sectionEntries = Object.entries(sections);
   // Kept at module scope (this bundled script runs once) so each swap can tear
   // down the previous page's scrollspy observer before creating a new one.
   let scrollSpy: IntersectionObserver | null = null;
+  let navigationController: AbortController | null = null;
 
   function initNavigation() {
-    // Hamburger toggle
+    navigationController?.abort();
+    scrollSpy?.disconnect();
+    navigationController = new AbortController();
+    const { signal } = navigationController;
+
+    const nav = document.getElementById("sideNav");
     const toggler = document.querySelector<HTMLButtonElement>(".nav-toggler");
     const navMenu = document.querySelector<HTMLElement>(".nav-menu");
-    toggler?.addEventListener("click", () => {
-      const isOpen = navMenu?.classList.toggle("open");
-      toggler.setAttribute("aria-expanded", String(!!isOpen));
-    });
+    if (!nav || !toggler || !navMenu) return;
+
+    const desktop = window.matchMedia("(min-width: 992px)");
+    const setOpen = (open: boolean, restoreFocus = false) => {
+      if (restoreFocus) toggler.focus();
+      navMenu.classList.toggle("open", open);
+      toggler.setAttribute("aria-expanded", String(open));
+    };
+
+    toggler.addEventListener(
+      "click",
+      () => setOpen(!navMenu.classList.contains("open")),
+      { signal },
+    );
 
     // Auto-close on link click (mobile)
-    navMenu?.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-        toggler?.setAttribute("aria-expanded", "false");
-      });
+    navMenu.querySelectorAll("a.nav-link").forEach((link) => {
+      link.addEventListener(
+        "click",
+        () => {
+          if (!desktop.matches) setOpen(false, true);
+        },
+        { signal },
+      );
     });
+
+    nav.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape" && navMenu.classList.contains("open")) {
+          event.preventDefault();
+          setOpen(false, true);
+        }
+      },
+      { signal },
+    );
+
+    desktop.addEventListener(
+      "change",
+      () => {
+        setOpen(
+          false,
+          !desktop.matches && navMenu.contains(document.activeElement),
+        );
+        if (desktop.matches && document.activeElement === toggler) {
+          navMenu.querySelector<HTMLAnchorElement>("a")?.focus();
+        }
+      },
+      { signal },
+    );
 
     // IntersectionObserver scrollspy
     const navLinks = document.querySelectorAll<HTMLAnchorElement>(
@@ -47,16 +91,15 @@ const sectionEntries = Object.entries(sections);
     );
     const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
-    scrollSpy?.disconnect();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            navLinks.forEach((link) => link.classList.remove("active"));
+            navLinks.forEach((link) => link.removeAttribute("aria-current"));
             const activeLink = document.querySelector<HTMLAnchorElement>(
               `#sideNav a.nav-link[href="#${entry.target.id}"]`,
             );
-            activeLink?.classList.add("active");
+            activeLink?.setAttribute("aria-current", "location");
           }
         });
       },
@@ -91,11 +134,12 @@ const sectionEntries = Object.entries(sections);
     class="nav-toggler"
     type="button"
     aria-expanded="false"
+    aria-controls="navigation-menu"
     aria-label={toggleLabel}
   >
     <span class="toggler-icon"></span>
   </button>
-  <div class="nav-menu">
+  <div id="navigation-menu" class="nav-menu">
     <ul>
       {
         sectionEntries.map((keyValue) => (
@@ -107,6 +151,9 @@ const sectionEntries = Object.entries(sections);
         ))
       }
     </ul>
+    <div class="nav-preferences">
+      <slot name="preferences" />
+    </div>
   </div>
 </nav>
 
@@ -183,14 +230,27 @@ const sectionEntries = Object.entries(sections);
   }
 
   .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    max-height: calc(100dvh - 100%);
+    overflow-y: auto;
+    padding: 0.5rem 1rem;
+    background-color: var(--nav-bg);
 
     &.open {
-      max-height: 500px;
+      display: flex;
     }
+  }
+
+  .nav-preferences {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
   }
 
   .nav-menu ul {
@@ -213,7 +273,7 @@ const sectionEntries = Object.entries(sections);
 
     &:hover,
     &:focus,
-    &.active {
+    &[aria-current="location"] {
       color: var(--on-accent);
       text-decoration: none;
     }
@@ -235,7 +295,7 @@ const sectionEntries = Object.entries(sections);
 
     .nav-link:hover,
     .nav-link:focus-visible,
-    .nav-link.active {
+    .nav-link[aria-current="location"] {
       letter-spacing: 0.12rem;
     }
   }
@@ -279,12 +339,18 @@ const sectionEntries = Object.entries(sections);
 
     .nav-menu {
       display: flex;
+      position: static;
       align-items: flex-start;
       flex-grow: 0;
       width: 100%;
       margin-bottom: auto;
       max-height: none;
       overflow: visible;
+      padding: 0;
+    }
+
+    .nav-preferences {
+      display: contents;
     }
 
     .nav-menu ul {
@@ -293,12 +359,6 @@ const sectionEntries = Object.entries(sections);
 
     .nav-link {
       padding: 0.5rem 1rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .nav-menu {
-      transition: none;
     }
   }
 </style>

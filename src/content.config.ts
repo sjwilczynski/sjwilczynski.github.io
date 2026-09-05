@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { glob, file } from "astro/loaders";
 import { z } from "astro/zod";
+import { concertSchema } from "./data/concerts";
 
 export const aboutSchema = z.object({
   name: z.string(),
@@ -67,12 +68,8 @@ export const resumeListSchema = z.object({
   elements: z.array(resumeListElementSchema),
 });
 
-export const concertSchema = z.object({
-  startDate: z.string(),
-  endDate: z.string(),
-  title: z.string(),
-  location: z.string(),
-  description: z.string(),
+export const skillGroupSchema = resumeListSchema.extend({
+  kind: z.enum(["skills", "certifications"]),
 });
 
 export const podcastSchema = z.object({
@@ -118,7 +115,7 @@ const achievements = defineCollection({
 
 const skills = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/skills" }),
-  schema: resumeListSchema,
+  schema: skillGroupSchema,
 });
 
 const concerts = defineCollection({

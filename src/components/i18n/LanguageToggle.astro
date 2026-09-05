@@ -100,12 +100,9 @@ const hrefs: Record<Lang, string> = {
 </script>
 
 <style>
-  /* Segmented pill, mirroring the theme toggle's geometry, sitting just left of
-     it. The active segment is the anchor for a sliding "thumb". */
+  /* The active segment is the anchor for the sliding thumb. */
   .lang-toggle {
-    position: fixed;
-    top: 0.5rem;
-    right: 7rem;
+    position: relative;
     z-index: 1031;
     display: inline-flex;
     align-items: center;
@@ -119,6 +116,7 @@ const hrefs: Record<Lang, string> = {
 
   @media (min-width: 992px) {
     .lang-toggle {
+      position: fixed;
       top: 1rem;
       right: 4rem;
       height: 2.5rem;
