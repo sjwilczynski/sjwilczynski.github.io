@@ -11,6 +11,7 @@ It originally started as a React app (bootstrapped with Create React App, based 
 To run it locally:
 
 - clone the repository
+- install Bun and a Node version satisfying `engines.node` in `package.json` (CI uses Node 22)
 - install dependencies: `bun install`
 - start the dev server: `bun start` and open [http://localhost:4321/](http://localhost:4321/)
 
