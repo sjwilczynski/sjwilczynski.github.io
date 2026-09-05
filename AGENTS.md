@@ -4,7 +4,7 @@ Personal single-page CV/resume built with Astro + Bun. Content lives in Astro co
 
 ## Commands
 
-Uses **Bun** (not npm/pnpm), Node >= 22.12. See `package.json` for the full script list; the non-obvious ones:
+Uses **Bun** (not npm/pnpm) and a Node version satisfying `package.json`'s `engines.node` (CI uses Node 22). See `package.json` for the full script list; the non-obvious ones:
 
 - `bun start` — dev server at http://localhost:4321
 - `bun run ci` — full gate (`fmt:check` + `lint` + `check` + `tsc` + `build`); run before pushing
